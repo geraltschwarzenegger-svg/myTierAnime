@@ -1,0 +1,434 @@
+{
+  "app": "anime-tierlist",
+  "v": 2,
+  "savedAt": "2026-06-29T14:15:33.755Z",
+  "state": {
+    "tiers": [
+      {
+        "id": "S",
+        "label": "Шедевры",
+        "tagline": "Истории, которые выходят за пределы жанра, меняют внутренний взгляд на человека и мир и продолжают жить в памяти после финальных титров.",
+        "items": [
+          {
+            "uid": 1,
+            "name": "Violet Evergarden",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx103047-odblDHHEdehK.jpg",
+            "fav": true,
+            "reaction": "goldheart"
+          },
+          {
+            "uid": 2,
+            "name": "Атака Титанов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
+            "fav": true,
+            "reaction": "bolt",
+            "watched": []
+          },
+          {
+            "uid": 3,
+            "name": "Класс превосходства",
+            "cover": "https://shikimori.io/uploads/poster/animes/59708/19c5366bcb03946c500ac347027d1896.jpeg",
+            "fav": true,
+            "reaction": "star",
+            "watched": []
+          },
+          {
+            "uid": 4,
+            "name": "Человек-бензопила",
+            "cover": "https://shikimori.io/uploads/poster/animes/63143/main-9c9c81e8d23de592e77995b270493014.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 5,
+            "name": "Любимый во Франксе",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx99423-8MBxtwCeHf8B.png",
+            "fav": true,
+            "reaction": "goldheart"
+          },
+          {
+            "uid": 6,
+            "name": "Адский рай",
+            "cover": "https://media.kitsu.app/anime/47679/poster_image/large-0720a7e3eb0edcc0ca2243bf37ca495a.jpeg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 7,
+            "name": "86",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116589-KawXHB6sApFt.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 8,
+            "name": "Восхождение в тени",
+            "cover": "https://shikimori.io/uploads/poster/animes/57584/5509201ef72fdc7f3e1e7d59101d695a.jpeg",
+            "fav": true,
+            "reaction": "goldheart",
+            "watched": []
+          },
+          {
+            "uid": 9,
+            "name": "Поднятие уровня в соло",
+            "cover": "https://media.kitsu.app/anime/48671/poster_image/large-6156a7475d03dbb788ab1a9ce6c7f962.jpeg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 10,
+            "name": "Фрирен",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx154587-qQTzQnEJJ3oB.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 11,
+            "name": "Школа мертвецов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8074-YB63Ik96fjPj.png",
+            "fav": true,
+            "reaction": "fire",
+            "watched": []
+          }
+        ]
+      },
+      {
+        "id": "A",
+        "label": "Близко к идеалу",
+        "tagline": "Произведения редкой цельности, в которых замысел, эмоция и форма почти достигают совершенного равновесия.",
+        "items": [
+          {
+            "uid": 12,
+            "name": "Благоухающий цветок расцветает с достоинством",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx181444-Ut9DDUZdfHwg.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 13,
+            "name": "Твоё имя",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-SUo3ZQuCbYhJ.png",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 14,
+            "name": "Песнь ночных сов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx141391-M3ZgUKTPENUk.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 15,
+            "name": "Аля кокетничает по-русски",
+            "cover": "https://media.kitsu.app/anime/47192/poster_image/large-491024f89779a705db56110d20f06f0e.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 16,
+            "name": "Город, в котором меня нет",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21234-XmqW39aQ9o7O.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 17,
+            "name": "Невеста чародея",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98436-n7sK6POCd0XV.png",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 18,
+            "name": "Врата Штейна",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9253-tIUXF2gfU8Sg.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 19,
+            "name": "Мастера на все руки выгнали из отряда героев",
+            "cover": "https://shikimori.io/uploads/poster/animes/61128/main-f153df8f99d703baf376e57b2977b295.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 20,
+            "name": "Последний Серафим",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20829-pgsXVjrfyI5V.png",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 21,
+            "name": "Сто девушек, которые очень любят",
+            "cover": "https://shikimori.io/uploads/poster/animes/62811/14c5fb9dc38020b81f225b12fb5cdfbc.jpeg",
+            "fav": true,
+            "reaction": "heart",
+            "watched": []
+          },
+          {
+            "uid": 22,
+            "name": "Я, владыка демонов, взял эльфийку-рабыню в жёны. И как же мне её любить?",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156023-cY4NC8gCcAg7.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 23,
+            "name": "Сад изящных слов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16782-qpFGk18UqaHn.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 24,
+            "name": "Ненасытный берсерк",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156039-JnepQcVxXLLW.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 25,
+            "name": "Берсерк",
+            "cover": "https://shikimori.io/uploads/poster/animes/10218/main-5382962b1cd17dd575bac01ddbe09918.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 44,
+            "name": "Фарфоровая кукла влюбилась",
+            "cover": "https://shikimori.io/uploads/poster/animes/53065/3f2a736b3aa5edf34fa93ff7e6d468c1.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 54,
+            "name": "Магическая битва",
+            "cover": "https://shikimori.io/uploads/poster/animes/59654/01975809c67b99dc54cac17db6e0dfa7.jpeg",
+            "fav": true,
+            "reaction": "bolt",
+            "watched": []
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "label": "Крепкая основа",
+        "tagline": "Истории с собственным голосом и настоящей силой, способные увлечь, растрогать, удивить или заставить задуматься, даже если им недостаёт безупречности.",
+        "items": [
+          {
+            "uid": 26,
+            "name": "Ангел по соседству",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx143338-zhyDVYgEzsm5.png",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 27,
+            "name": "Моя девушка не только милая",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx153152-Xnwmx7wuoIWV.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 28,
+            "name": "Опытная тебя и неопытного меня",
+            "cover": "https://media.kitsu.app/anime/46459/poster_image/large-93bd1be09abb35565d9e183e3895ad02.jpeg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 29,
+            "name": "Твоя апрельская ложь",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 30,
+            "name": "Пластиковые воспоминания",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20872-j5PBzzVtrYDM.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 31,
+            "name": "Шарлотта",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20997-axVYrsIfjtYJ.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 32,
+            "name": "Ангел кровопролития",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99629-BXyAJ6PDq4sr.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 33,
+            "name": "Я получил читерские способности",
+            "cover": "https://media.kitsu.app/anime/46370/poster_image/large-338a164d72dacaa07fc4b6ea58fa1efc.jpeg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 34,
+            "name": "Нина в королевстве звёзд",
+            "cover": "https://media.kitsu.app/anime/48391/poster_image/large-da08a161da14064a4f1e18ee46d268a7.jpeg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 35,
+            "name": "Одинокий рокер!",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130003-HTDmeL4RGeJ4.png",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 36,
+            "name": "Чёрный призыватель",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx145260-Yt5W8aQQKqF2.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 37,
+            "name": "Сага о винланде",
+            "cover": "https://media.kitsu.app/anime/poster_images/41084/large.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 38,
+            "name": "Рандеву с жизнью",
+            "cover": "https://media.kitsu.app/anime/poster_images/7421/large.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 39,
+            "name": "Арифурэта",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx100668-DvOn5bMOt4cy.jpg",
+            "fav": false,
+            "reaction": null
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "label": "Достойные",
+        "tagline": "Произведения не без слабостей, но с ярким образом, искренним чувством или ценной мыслью, благодаря которым знакомство с ними было не напрасным.",
+        "items": [
+          {
+            "uid": 40,
+            "name": "Форма голоса",
+            "cover": "https://media.kitsu.app/anime/poster_images/10028/large.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 41,
+            "name": "Тоннель в лето",
+            "cover": "https://media.kitsu.app/anime/45598/poster_image/large-757f81fe372ae4a0b63fc8897416a562.jpeg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 42,
+            "name": "Голубая шкатулка",
+            "cover": "https://media.kitsu.app/anime/48239/poster_image/large-b547e3cfeb2776aa95f8618d0a6ff0fe.jpeg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 43,
+            "name": "Красноволосая принцесса",
+            "cover": "https://media.kitsu.app/anime/poster_images/10621/large.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 45,
+            "name": "5 сантиметра в секунду 2007",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1689-rJKhjLEjQHSy.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 46,
+            "name": "Re:ZERO",
+            "cover": "https://shikimori.io/uploads/poster/animes/61316/79e6a0c31589176e3244c6117dab2500.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 47,
+            "name": "Укрась прощальное утро цветами",
+            "cover": "https://shikimori.io/uploads/poster/animes/35851/302e702b79717168ef4e927cc297690c.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 48,
+            "name": "Врата: Там бьются наши воины",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20994-pSDk4I58jAK5.jpg",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 49,
+            "name": "В лесу где мерцают светлячки",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10408-PlKJ6DAyvMk2.png",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 50,
+            "name": "Иная",
+            "cover": "https://media.kitsu.app/anime/poster_images/6356/large.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 51,
+            "name": "Механическая Мари",
+            "cover": "https://shikimori.io/uploads/poster/animes/59484/main-28bea4bc98b74d010868fdd4cc8a8f98.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 52,
+            "name": "Мой статус убийцы очевидно превосходит геройский",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx103655-v8Inz6BscNSW.png",
+            "fav": false,
+            "reaction": null
+          },
+          {
+            "uid": 55,
+            "name": "На твоей волне",
+            "cover": "https://shikimori.io/uploads/poster/animes/38594/04d61edb0cb9a6721402b1a18380f26f.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": []
+          }
+        ]
+      }
+    ],
+    "nextUid": 56
+  }
+}
