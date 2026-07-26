@@ -2559,6 +2559,9 @@
     display: inline-flex; align-items: center; gap: 8px;
     transition: all .22s cubic-bezier(.2,.8,.2,1);
   }
+  /* .btn задаёт display:inline-flex и перебивает штатное правило [hidden] из
+     таблицы браузера — без этого спрятанные кнопки продолжают показываться */
+  .btn[hidden] { display: none; }
   .btn svg { width: 15px; height: 15px; }
   .btn:hover { color: #fff; border-color: rgba(255,255,255,.28); transform: translateY(-1px); background: var(--glass-2); }
   .btn.primary {
@@ -3519,6 +3522,52 @@
     transition: border-color .2s, box-shadow .2s;
   }
 
+  /* ─────────────────────────  SERVER MODE  ───────────────────────── */
+  /* полоска «смотришь чужой список» */
+  .guestbar {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    margin: 16px auto 0; padding: 10px 16px; width: fit-content; max-width: 100%;
+    border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .03em;
+    color: var(--ink-soft); background: rgba(255,255,255,.045); border: 1px solid var(--glass-line);
+    animation: gbIn .7s cubic-bezier(.2,.85,.25,1) both;
+  }
+  @keyframes gbIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .guestbar .gb-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--b); box-shadow: 0 0 10px var(--b-g); animation: ssPulse 2.4s ease-in-out infinite; }
+  .guestbar .gb-act {
+    cursor: pointer; border: none; border-radius: 999px; padding: 5px 12px;
+    font: inherit; color: #16101f; background: linear-gradient(120deg, var(--a2), var(--a));
+    transition: filter .2s;
+  }
+  .guestbar .gb-act:hover { filter: brightness(1.08); }
+  /* в чужом списке карточки не притворяются кликабельными */
+  body.read-only .card, body.read-only .chip { cursor: default; }
+  body.read-only .additem { display: none; }
+
+  /* счётчик непрочитанных отзывов */
+  #fbBtn { position: relative; }
+  .fb-n[hidden] { display: none; }
+  .fb-n {
+    position: absolute; top: -5px; right: -5px; min-width: 17px; height: 17px; padding: 0 4px;
+    border-radius: 999px; display: grid; place-items: center;
+    font-size: 10px; font-weight: 800; color: #16101f; background: var(--gold);
+    box-shadow: 0 0 0 2px rgba(12,10,24,.9); animation: ssPulse 2s ease-in-out infinite;
+  }
+  .fb-item span { flex: 1 1 auto; white-space: pre-wrap; color: var(--ink); font-size: 12.5px; line-height: 1.55; }
+  .fb-item b { flex: 0 0 auto; text-align: right; font-size: 11px; color: var(--ink-faint); font-weight: 700; }
+  .fb-item b i { font-style: normal; opacity: .7; }
+  a.cat-row { text-decoration: none; transition: background .18s; }
+  a.cat-row:hover { background: rgba(255,255,255,.075); }
+  #fbBody {
+    width: 100%; padding: 12px 14px; border-radius: 12px; color: var(--ink); font-family: var(--sans);
+    font-size: 14px; line-height: 1.6; background: rgba(255,255,255,.05); border: 1px solid var(--glass-line);
+    outline: none; resize: vertical; transition: border-color .2s, box-shadow .2s;
+  }
+  #fbBody:focus { border-color: var(--s); box-shadow: 0 0 0 3px rgba(255,92,149,.18); }
+  #logCode {
+    text-align: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 26px; letter-spacing: .34em; padding-left: .34em;
+  }
+
   /* ─────────────────────────  STORAGE / IMPORT DIALOGS  ───────────────────────── */
   .iomodal { width: min(520px, 100%); }
   .io-rows { display: flex; flex-direction: column; gap: 1px; border-radius: 14px; overflow: hidden; border: 1px solid var(--glass-line); }
@@ -3527,8 +3576,6 @@
   .io-note { padding: 12px 14px; background: rgba(255,255,255,.02); font-size: 11.5px; line-height: 1.65; color: var(--ink-faint); }
   .io-acts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
   .io-acts .btn { justify-content: center; text-align: center; }
-  /* .btn задаёт display:inline-flex и перебивает штатное [hidden] */
-  .io-acts .btn[hidden] { display: none; }
   .io-hint { display: block; font-size: 11px; line-height: 1.65; color: var(--ink-faint); }
   .io-hint b { color: var(--ink-soft); font-weight: 700; }
 
@@ -3707,6 +3754,9 @@
     <button class="btn" id="editBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg><span class="lbl-edit-off">Редактировать</span><span class="lbl-edit-on">Готово</span></button>
     <button class="btn primary" id="addBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>Добавить</button>
     <button class="btn" id="exportBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>PNG</button>
+    <button class="btn" id="catBtn" hidden title="Другие тир-листы"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20c0-3.2 2.7-5 6-5s6 1.8 6 5"></path><path d="M16.5 6.2a3 3 0 0 1 0 5.6"></path><path d="M18.5 19.8c0-2.4-1-4-2.6-4.9"></path></svg></button>
+    <button class="btn" id="fbBtn" hidden title="Написать автору списка"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span class="fb-n" id="fbCount" hidden>0</span></button>
+    <button class="btn" id="meBtn" hidden title="Мой тир-лист"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.6"></circle><path d="M4.5 20c0-3.6 3.2-5.6 7.5-5.6s7.5 2 7.5 5.6"></path></svg></button>
     <button class="btn pubbtn" id="pubBtn" data-p="clean" hidden title="Отправить список на сайт">
       <span class="pb-ring" aria-hidden="true"></span>
       <svg class="pb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"></path><polyline points="6 11 12 5 18 11"></polyline></svg>
@@ -3718,6 +3768,11 @@
   </header>
 
   <main class="page">
+    <div class="guestbar" id="guestBar" hidden>
+      <span class="gb-dot"></span>
+      <span class="gb-txt" id="guestTxt"></span>
+      <button type="button" class="gb-act" id="guestMine">мой список</button>
+    </div>
     <div class="masthead">
       <div class="jp">アニメ 殿堂入り</div>
       <h1>Аниме <em>Тир-лист</em></h1>
@@ -3866,6 +3921,70 @@
       <small class="io-hint">Каждое изменение пишется в <b>localStorage</b> и в <b>IndexedDB</b> сразу. «Подключить файл» (Chrome / Edge) добавляет третий слой: настоящий <b>.json</b> на диске, в который список записывается автоматически после любой правки — его можно держать в облачной папке и открывать тир-лист с любой копии HTML. Перед каждой записью сохраняется резервная копия предыдущего состояния.</small>
     </div>
     <div class="modal-foot"><button class="btn primary" id="ioClose">Закрыть</button></div>
+  </div>
+</div>
+
+<!-- вход по коду на почту (серверный режим) -->
+<div class="overlay" id="logOverlay">
+  <div class="modal iomodal" role="dialog" aria-modal="true">
+    <div class="modal-head"><h3 id="logTitle">Вход</h3><p id="logSub">Введи почту — пришлём код. Пароль не нужен.</p></div>
+    <div class="modal-body">
+      <div class="field" id="logMailField"><label>Почта</label><input type="text" id="logEmail" placeholder="ты@почта.рф" autocomplete="email" spellcheck="false"></div>
+      <div class="field" id="logCodeField" hidden><label>Код из письма</label><input type="text" id="logCode" placeholder="000000" inputmode="numeric" maxlength="6" autocomplete="one-time-code"><small class="field-hint" id="logHint"></small></div>
+      <div class="io-rows"><div class="io-row"><span id="logStateLabel">Состояние</span><b id="logState">жду почту</b></div></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="logBack" hidden>Другая почта</button>
+      <button class="btn" id="logCancel">Отмена</button>
+      <button class="btn primary" id="logGo">Прислать код</button>
+    </div>
+  </div>
+</div>
+
+<!-- профиль: адрес страницы, подпись, уведомления -->
+<div class="overlay" id="proOverlay">
+  <div class="modal iomodal" role="dialog" aria-modal="true">
+    <div class="modal-head"><h3>Мой тир-лист</h3><p id="proSub"></p></div>
+    <div class="modal-body">
+      <div class="field"><label>Адрес страницы</label><input type="text" id="proSlug" placeholder="geralt" spellcheck="false"><small class="field-hint">Латиница, цифры и дефис. Кириллицу переведём сами: «ведьмак» станет <b>vedmak</b>.</small></div>
+      <div class="field"><label>Подпись списка</label><input type="text" id="proTitle" placeholder="Личный канон" maxlength="80"></div>
+      <div class="fx-row" style="padding:0"><span>Письма о новых отзывах</span><div class="fx-sw" id="proNotify"></div></div>
+      <div class="io-rows" id="proRows"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="proLogout">Выйти</button>
+      <button class="btn" id="proCancel">Закрыть</button>
+      <button class="btn primary" id="proSave">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<!-- написать владельцу списка -->
+<div class="overlay" id="fbOverlay">
+  <div class="modal iomodal" role="dialog" aria-modal="true">
+    <div class="modal-head"><h3 id="fbTitle">Написать автору</h3><p id="fbSub"></p></div>
+    <div class="modal-body">
+      <div class="field" id="fbMineBox" hidden><div class="io-rows" id="fbMine"></div></div>
+      <div class="field" id="fbWriteBox">
+        <label>Сообщение</label>
+        <textarea id="fbBody" rows="5" placeholder="Что добавить, с чем не согласен, что посмотреть…" maxlength="4000"></textarea>
+        <small class="field-hint">Уйдёт владельцу списка на почту. Ссылки и разметка не нужны — просто текст.</small>
+      </div>
+      <div class="field" id="fbFromBox"><label>Твоя почта (необязательно)</label><input type="text" id="fbEmail" placeholder="чтобы могли ответить" spellcheck="false"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="fbCancel">Закрыть</button>
+      <button class="btn primary" id="fbSend">Отправить</button>
+    </div>
+  </div>
+</div>
+
+<!-- каталог чужих списков -->
+<div class="overlay" id="catOverlay">
+  <div class="modal iomodal" role="dialog" aria-modal="true">
+    <div class="modal-head"><h3>Другие тир-листы</h3><p>Чужие каноны — можно посмотреть, но не править</p></div>
+    <div class="modal-body"><div class="io-rows" id="catRows"></div></div>
+    <div class="modal-foot"><button class="btn primary" id="catClose">Закрыть</button></div>
   </div>
 </div>
 
@@ -4149,6 +4268,8 @@ async function writeToFile(text) {
 let mirrorT = null, pendingJson = null, idleT = null;
 
 function save(keepAt) {
+  /* открыт чужой список — записывать его к себе нельзя, затрёт собственный */
+  if (readOnly) return false;
   const env = envelope(null, keepAt || null);
   const json = JSON.stringify(env);
   lastSavedAt = env.savedAt;
@@ -4222,9 +4343,44 @@ function saveView() { try { localStorage.setItem(LS_VIEW, view); } catch (e) {} 
 
 const PUB_URL  = "data.json";
 const ADMIN_KEY = LS_KEY + ":admin";
-let published = null;        /* { savedAt, sha, count } — что сейчас лежит на сайте */
-let admin = null;            /* { token, owner, repo, branch, path } */
+let published = null;        /* { savedAt, count } — что сейчас лежит на сайте */
+let admin = null;            /* { token, owner, repo, branch, path } — режим GitHub Pages */
 let publishing = false;
+
+/* ── серверный режим (Cloudflare Worker + D1) ──
+   Тот же интерфейс работает в трёх укладах:
+     · файл с диска — только localStorage;
+     · GitHub Pages — data.json и публикация токеном;
+     · свой сервер — вход по почте, у каждого свой список, отзывы.
+   Режим определяется одним запросом к /api/config при старте.            */
+let serverMode = false;      /* отвечает ли /api/config */
+let me = null;               /* { slug, title, email, notify } или null */
+let ownerSlug = null;        /* чей список показывается на главной */
+let viewSlug = null;         /* чей список открыт сейчас */
+let readOnly = false;        /* чужой список: смотрим, но не трогаем */
+
+async function apiCall(method, path, body) {
+  const r = await fetch("/api" + path, {
+    method,
+    credentials: "same-origin",
+    headers: body === undefined ? {} : { "content-type": "application/json" },
+    body: body === undefined ? undefined : JSON.stringify(body)
+  });
+  let data = null;
+  try { data = await r.json(); } catch (e) {}
+  if (!r.ok) {
+    const e = new Error((data && data.error) || ("ошибка " + r.status));
+    e.status = r.status; e.data = data; throw e;
+  }
+  return data || {};
+}
+
+/* какой список открыт: / → владелец сайта, /slug → чужой */
+function slugFromPath() {
+  const seg = location.pathname.split("/").filter(Boolean);
+  const s = seg.length ? seg[seg.length - 1].toLowerCase() : "";
+  return /^[a-z0-9-]{2,24}$/.test(s) && s !== "index.html" ? s : null;
+}
 
 function loadAdmin() {
   try {
@@ -4252,6 +4408,11 @@ function guessRepo() {
 
 /* есть ли локальные правки свежее опубликованных */
 function hasUnpublished() {
+  if (serverMode) {
+    if (!me || readOnly) return false;
+    /* ни разу не публиковал — публиковать есть что, если список не пуст */
+    if (!published) return itemCount(state) > 0;
+  } else if (!published) return false;
   if (!published) return false;
   if (!lastSavedAt) return false;
   return lastSavedAt > published.savedAt;
@@ -4287,6 +4448,29 @@ async function ghApi(path, init) {
 
 async function publish() {
   if (publishing) return;
+
+  /* серверный режим: список уходит в базу, а не в репозиторий */
+  if (serverMode) {
+    if (!me) { openLogin(); return; }
+    publishing = true;
+    pubStatus("run", "Публикую");
+    try {
+      const env = envelope();
+      const r = await apiCall("PUT", "/list", { savedAt: env.savedAt, state: env.state });
+      published = { savedAt: env.savedAt, count: r.items };
+      pubStatus("ok", "Опубликовано");
+      toast("Список на сайте обновлён · " + r.items + " тайтлов ✓");
+    } catch (e) {
+      pubStatus("err", "Не вышло");
+      toast("Публикация не удалась: " + e.message);
+      if (e.status === 401) { me = null; syncServerUi(); }
+    }
+    publishing = false;
+    renderIoRows();
+    setTimeout(() => { if (!publishing) pubStatus(hasUnpublished() ? "dirty" : "clean"); }, 2600);
+    return;
+  }
+
   if (!admin) { openAdminSetup(); return; }
   publishing = true;
   pubStatus("run", "Публикую");
@@ -4326,7 +4510,7 @@ function pubStatus(kind, text) {
   const b = document.getElementById("pubBtn");
   if (!b) return;
   b.dataset.p = kind;
-  b.hidden = !admin;
+  b.hidden = serverMode ? !(me && !readOnly) : !admin;
   const label = text || (kind === "dirty" ? "Опубликовать" : "Всё опубликовано");
   const box = b.querySelector(".pb-txt");
   if (box && box.dataset.t !== label) {
@@ -4374,7 +4558,8 @@ function saveStatus(kind, text) {
   pill.classList.add("show");
 }
 function idleStatus() {
-  if (fileHandle && filePerm === "granted") saveStatus("file", "Автосохранение в файл");
+  if (readOnly) saveStatus("idle", "Чужой список · только смотрим");
+  else if (fileHandle && filePerm === "granted") saveStatus("file", "Автосохранение в файл");
   else if (filePerm === "prompt")           saveStatus("warn", "Файлу нужен доступ");
   else                                       saveStatus("idle", "Сохранено в браузере");
 }
@@ -4847,6 +5032,10 @@ document.getElementById("mCancel").addEventListener("click", closeModal);
 overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
+    if (logOverlay.classList.contains("show")) { closeLogin(); return; }
+    if (proOverlay.classList.contains("show")) { closeProfile(); return; }
+    if (fbOverlay.classList.contains("show")) { closeFeedback(); return; }
+    if (catOverlay.classList.contains("show")) { catOverlay.classList.remove("show"); return; }
     if (admOverlay.classList.contains("show")) { closeAdminSetup(); return; }
     if (impOverlay.classList.contains("show")) { closeImportDialog(); return; }
     if (ioOverlay.classList.contains("show")) { closeIo(); return; }
@@ -5152,24 +5341,30 @@ function renderIoRows() {
     : filePerm === "granted" ? (fileHandle && fileHandle.name ? fileHandle.name : "подключён")
     : filePerm === "prompt" ? "нужен доступ — нажми «Выдать доступ»"
     : "не подключён";
-  const siteTxt = !published ? "нет (файл открыт с диска)"
+  const siteTxt = !published ? (serverMode ? "ещё не публиковал" : "нет (файл открыт с диска)")
     : hasUnpublished() ? published.count + " тайтлов · есть неопубликованные правки"
     : published.count + " тайтлов · всё опубликовано";
-  box.innerHTML = [
+  const rows = [
     ["Тайтлов в списке", String(itemCount(state))],
     ["Последнее сохранение", lastSavedAt ? new Date(lastSavedAt).toLocaleString("ru-RU") : "—"],
     ["localStorage", lsSize ? "да · " + Math.round(lsSize / 1024) + " КБ" : "пусто"],
     ["Файл на диске", fileTxt],
-    ["Версия на сайте", siteTxt],
-    ["Режим владельца", admin ? "включён · " + admin.owner + "/" + admin.repo : "выключен"]
-  ].map(r => `<div class="io-row"><span>${r[0]}</span><b>${esc(r[1])}</b></div>`).join("");
+    ["Версия на сайте", siteTxt]
+  ];
+  rows.push(serverMode
+    ? ["Вход", me ? me.email + " · /" + me.slug : "не выполнен"]
+    : ["Режим владельца", admin ? "включён · " + admin.owner + "/" + admin.repo : "выключен"]);
+  if (serverMode && readOnly) rows.push(["Сейчас открыт", "чужой список /" + viewSlug]);
+  box.innerHTML = rows.map(r => `<div class="io-row"><span>${r[0]}</span><b>${esc(r[1])}</b></div>`).join("");
   const on = filePerm === "granted";
   const need = filePerm === "prompt";
   document.getElementById("ioFile").hidden = on || need;
   document.getElementById("ioGrant").hidden = !need;
   document.getElementById("ioFileOff").hidden = !(on || need);
-  document.getElementById("ioPubPull").hidden = !published;
-  document.getElementById("ioAdmin").textContent = admin ? "Настройки публикации" : "Режим владельца";
+  document.getElementById("ioPubPull").hidden = serverMode ? !published : !published;
+  document.getElementById("ioAdmin").textContent = serverMode
+    ? (me ? "Мой профиль" : "Войти по почте")
+    : (admin ? "Настройки публикации" : "Режим владельца");
 }
 document.getElementById("ioBtn").addEventListener("click", openIo);
 document.getElementById("ioClose").addEventListener("click", closeIo);
@@ -5183,7 +5378,254 @@ document.getElementById("ioCovers").addEventListener("click", refreshCoversFromC
 document.getElementById("ioRestore").addEventListener("click", restoreBackup);
 document.getElementById("saveState").addEventListener("click", () => { if (filePerm === "prompt") grantFile(); else openIo(); });
 
-/* ── режим владельца ── */
+/* ════════════════════ СЕРВЕРНЫЙ РЕЖИМ: ВХОД, ПРОФИЛЬ, ОТЗЫВЫ ════════════════════ */
+
+/* показать/спрятать всё, что зависит от того, кто мы и чей список смотрим */
+function syncServerUi() {
+  document.body.classList.toggle("server-mode", serverMode);
+  document.body.classList.toggle("read-only", readOnly);
+  document.body.classList.toggle("signed-in", !!me);
+
+  const show = (id, on) => { const el = document.getElementById(id); if (el) el.hidden = !on; };
+  show("catBtn", serverMode);
+  show("fbBtn", serverMode);
+  show("meBtn", serverMode);
+  show("pubBtn", serverMode ? (!!me && !readOnly) : !!admin);
+
+  const bar = document.getElementById("guestBar");
+  if (bar) {
+    bar.hidden = !readOnly;
+    if (readOnly) {
+      document.getElementById("guestTxt").textContent =
+        "Открыт чужой список · /" + viewSlug + " · правки здесь не сохраняются";
+      document.getElementById("guestMine").textContent = me ? "мой список" : "войти и вести свой";
+    }
+  }
+  const fbBtn = document.getElementById("fbBtn");
+  if (fbBtn) fbBtn.title = (me && viewSlug === me.slug) ? "Отзывы о моём списке" : "Написать автору списка";
+  const meBtn = document.getElementById("meBtn");
+  if (meBtn) meBtn.title = me ? ("Мой тир-лист · /" + me.slug) : "Войти по почте";
+  /* в чужом списке править нечего */
+  ["editBtn", "addBtn", "resetBtn"].forEach(id => { const el = document.getElementById(id); if (el) el.hidden = readOnly; });
+  if (readOnly && editing) document.getElementById("editBtn").click();
+}
+
+/* ── вход по коду ── */
+const logOverlay = document.getElementById("logOverlay");
+let logEmailValue = "";
+function openLogin() {
+  logEmailValue = "";
+  document.getElementById("logEmail").value = "";
+  document.getElementById("logCode").value = "";
+  document.getElementById("logMailField").hidden = false;
+  document.getElementById("logCodeField").hidden = true;
+  document.getElementById("logBack").hidden = true;
+  document.getElementById("logGo").textContent = "Прислать код";
+  document.getElementById("logState").textContent = "жду почту";
+  document.getElementById("logSub").textContent = "Введи почту — пришлём код. Пароль не нужен.";
+  logOverlay.classList.add("show");
+  setTimeout(() => document.getElementById("logEmail").focus(), 60);
+}
+function closeLogin() { logOverlay.classList.remove("show"); }
+
+async function loginStep() {
+  const st = document.getElementById("logState");
+  const codeShown = !document.getElementById("logCodeField").hidden;
+  if (!codeShown) {
+    const email = document.getElementById("logEmail").value.trim();
+    if (!email) { toast("Введи почту"); return; }
+    st.textContent = "отправляю…";
+    try {
+      const r = await apiCall("POST", "/auth/request", { email });
+      logEmailValue = email;
+      document.getElementById("logMailField").hidden = true;
+      document.getElementById("logCodeField").hidden = false;
+      document.getElementById("logBack").hidden = false;
+      document.getElementById("logGo").textContent = "Войти";
+      document.getElementById("logSub").textContent = "Код отправлен на " + email;
+      document.getElementById("logHint").textContent = r.devCode
+        ? "Почта не подключена, код для проверки: " + r.devCode
+        : (r.sent ? "Письмо ушло, действует 15 минут. Проверь и папку «Спам»." : "Письмо отправить не удалось: " + (r.note || "почта не настроена"));
+      st.textContent = r.sent ? "код отправлен" : "почта не настроена";
+      setTimeout(() => document.getElementById("logCode").focus(), 60);
+    } catch (e) {
+      st.textContent = e.message;
+      toast(e.message);
+    }
+    return;
+  }
+  const code = document.getElementById("logCode").value.replace(/\D/g, "");
+  if (code.length !== 6) { toast("Код из шести цифр"); return; }
+  st.textContent = "проверяю…";
+  try {
+    const r = await apiCall("POST", "/auth/verify", { email: logEmailValue, code });
+    me = r.me;
+    st.textContent = "вошли ✓";
+    toast(r.created ? "Аккаунт создан · твой адрес /" + me.slug : "С возвращением ✓");
+    closeLogin();
+    await openMyList();
+  } catch (e) {
+    st.textContent = e.message;
+    toast(e.message);
+  }
+}
+document.getElementById("logGo").addEventListener("click", loginStep);
+document.getElementById("logCancel").addEventListener("click", closeLogin);
+document.getElementById("logBack").addEventListener("click", openLogin);
+logOverlay.addEventListener("click", e => { if (e.target === logOverlay) closeLogin(); });
+["logEmail", "logCode"].forEach(id => document.getElementById(id)
+  .addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); loginStep(); } }));
+
+/* ── переключение на свой список ── */
+async function openMyList() {
+  if (!me) { openLogin(); return; }
+  /* пришли со страницы чужого списка — на экране сейчас он, забирать его себе нельзя */
+  const cameFromForeign = readOnly;
+  readOnly = false;
+  viewSlug = me.slug;
+  history.pushState({}, "", "/" + me.slug);
+  const server = await loadServerList(me.slug);
+  const local = readLS();
+  /* своё и серверное сводим по тому же правилу «свежее побеждает» */
+  if (server && server.savedAt && (!local || !local.savedAt || server.savedAt > local.savedAt)) {
+    lastSavedAt = server.savedAt;
+    state = normalizeState(server.state, { authoritative: true });
+    save(server.savedAt);
+  } else if (local) {
+    lastSavedAt = local.savedAt;
+    state = normalizeState(local.state, {});
+  } else if (cameFromForeign) {
+    /* ни своего сохранения, ни списка на сервере: начинаем с чистого,
+       а не с чужого канона, который остался на экране */
+    state = defaultState();
+    lastSavedAt = null;
+    save();
+  }
+  syncServerUi();
+  render();
+  pubStatus(hasUnpublished() ? "dirty" : "clean");
+  renderIoRows();
+  refreshFeedbackCount();
+}
+
+async function loadServerList(slug) {
+  try {
+    const r = await apiCall("GET", "/list/" + encodeURIComponent(slug));
+    published = r.state ? { savedAt: r.savedAt, count: itemCount(r.state) } : null;
+    return r.state ? { savedAt: r.savedAt, state: r.state, title: r.title } : null;
+  } catch (e) { published = null; return null; }
+}
+
+document.getElementById("meBtn").addEventListener("click", () => { if (me) openProfile(); else openLogin(); });
+document.getElementById("guestMine").addEventListener("click", () => { if (me) openMyList(); else openLogin(); });
+
+/* ── профиль ── */
+const proOverlay = document.getElementById("proOverlay");
+function openProfile() {
+  if (!me) { openLogin(); return; }
+  document.getElementById("proSlug").value = me.slug;
+  document.getElementById("proTitle").value = me.title || "";
+  document.getElementById("proNotify").classList.toggle("on", !!me.notify);
+  document.getElementById("proSub").textContent = me.email;
+  document.getElementById("proRows").innerHTML =
+    `<div class="io-row"><span>Адрес списка</span><b>${location.origin}/${esc(me.slug)}</b></div>` +
+    `<div class="io-row"><span>Тайтлов сейчас</span><b>${itemCount(state)}</b></div>` +
+    `<div class="io-row"><span>На сайте</span><b>${published ? published.count + " тайтлов" : "ещё не публиковал"}</b></div>`;
+  proOverlay.classList.add("show");
+}
+function closeProfile() { proOverlay.classList.remove("show"); }
+document.getElementById("proCancel").addEventListener("click", closeProfile);
+proOverlay.addEventListener("click", e => { if (e.target === proOverlay) closeProfile(); });
+document.getElementById("proNotify").addEventListener("click", e => e.currentTarget.classList.toggle("on"));
+document.getElementById("proSave").addEventListener("click", async () => {
+  try {
+    const r = await apiCall("PATCH", "/me", {
+      slug: document.getElementById("proSlug").value.trim(),
+      title: document.getElementById("proTitle").value.trim(),
+      notify: document.getElementById("proNotify").classList.contains("on")
+    });
+    const moved = r.me.slug !== me.slug;
+    me = r.me;
+    if (moved) { viewSlug = me.slug; history.replaceState({}, "", "/" + me.slug); }
+    closeProfile(); syncServerUi(); renderIoRows();
+    toast("Сохранено · твой адрес /" + me.slug);
+  } catch (e) { toast(e.message); }
+});
+document.getElementById("proLogout").addEventListener("click", async () => {
+  try { await apiCall("POST", "/auth/logout"); } catch (e) {}
+  me = null; closeProfile(); syncServerUi(); renderIoRows();
+  toast("Вышли — список остался в этом браузере");
+});
+
+/* ── отзывы ── */
+const fbOverlay = document.getElementById("fbOverlay");
+async function openFeedback() {
+  const mine = !!(me && viewSlug === me.slug);
+  document.getElementById("fbTitle").textContent = mine ? "Отзывы о моём списке" : "Написать автору";
+  document.getElementById("fbSub").textContent = mine ? "Что пишут посетители" : "Сообщение уйдёт владельцу списка /" + viewSlug;
+  document.getElementById("fbWriteBox").hidden = mine;
+  document.getElementById("fbFromBox").hidden = mine || !!me;
+  document.getElementById("fbMineBox").hidden = !mine;
+  document.getElementById("fbSend").hidden = mine;
+  document.getElementById("fbBody").value = "";
+  fbOverlay.classList.add("show");
+  if (mine) {
+    document.getElementById("fbMine").innerHTML = `<div class="io-row"><span>Загружаю…</span><b></b></div>`;
+    try {
+      const r = await apiCall("GET", "/feedback");
+      const list = r.feedback || [];
+      document.getElementById("fbMine").innerHTML = list.length
+        ? list.map(f => `<div class="io-row fb-item"><span>${esc(f.body)}</span><b>${esc(f.from_email || "аноним")}<br><i>${new Date(f.created_at).toLocaleDateString("ru-RU")}</i></b></div>`).join("")
+        : `<div class="io-row"><span>Пока никто не писал</span><b>—</b></div>`;
+      const badge = document.getElementById("fbCount");
+      badge.hidden = true;
+    } catch (e) {
+      document.getElementById("fbMine").innerHTML = `<div class="io-row"><span>${esc(e.message)}</span><b></b></div>`;
+    }
+  }
+}
+function closeFeedback() { fbOverlay.classList.remove("show"); }
+document.getElementById("fbBtn").addEventListener("click", openFeedback);
+document.getElementById("fbCancel").addEventListener("click", closeFeedback);
+fbOverlay.addEventListener("click", e => { if (e.target === fbOverlay) closeFeedback(); });
+document.getElementById("fbSend").addEventListener("click", async () => {
+  const body = document.getElementById("fbBody").value.trim();
+  if (body.length < 2) { toast("Напиши хоть что-нибудь"); return; }
+  try {
+    await apiCall("POST", "/feedback", { slug: viewSlug, body, email: document.getElementById("fbEmail").value.trim() });
+    closeFeedback();
+    toast("Отправлено — автор получит письмо ✓");
+  } catch (e) { toast(e.message); }
+});
+async function refreshFeedbackCount() {
+  if (!serverMode || !me || viewSlug !== me.slug) return;
+  try {
+    const r = await apiCall("GET", "/feedback");
+    const unseen = (r.feedback || []).filter(f => !f.seen).length;
+    const badge = document.getElementById("fbCount");
+    badge.textContent = unseen;
+    badge.hidden = unseen === 0;
+  } catch (e) {}
+}
+
+/* ── каталог чужих списков ── */
+const catOverlay = document.getElementById("catOverlay");
+document.getElementById("catBtn").addEventListener("click", async () => {
+  catOverlay.classList.add("show");
+  const box = document.getElementById("catRows");
+  box.innerHTML = `<div class="io-row"><span>Загружаю…</span><b></b></div>`;
+  try {
+    const r = await apiCall("GET", "/lists");
+    const list = r.lists || [];
+    box.innerHTML = list.length
+      ? list.map(l => `<a class="io-row cat-row" href="/${esc(l.slug)}"><span>/${esc(l.slug)}${l.title ? " · " + esc(l.title) : ""}</span><b>${l.items} тайтлов</b></a>`).join("")
+      : `<div class="io-row"><span>Пока никто ничего не опубликовал</span><b>—</b></div>`;
+  } catch (e) { box.innerHTML = `<div class="io-row"><span>${esc(e.message)}</span><b></b></div>`; }
+});
+document.getElementById("catClose").addEventListener("click", () => catOverlay.classList.remove("show"));
+catOverlay.addEventListener("click", e => { if (e.target === catOverlay) catOverlay.classList.remove("show"); });
+
+/* ── режим владельца (GitHub Pages) ── */
 const admOverlay = document.getElementById("admOverlay");
 const admToken = document.getElementById("admToken"), admOwner = document.getElementById("admOwner");
 const admRepo = document.getElementById("admRepo"), admBranch = document.getElementById("admBranch"), admPath = document.getElementById("admPath");
@@ -5198,7 +5640,10 @@ function openAdminSetup() {
   setTimeout(() => admToken.focus(), 60);
 }
 function closeAdminSetup() { admOverlay.classList.remove("show"); }
-document.getElementById("ioAdmin").addEventListener("click", openAdminSetup);
+document.getElementById("ioAdmin").addEventListener("click", () => {
+  if (serverMode) { closeIo(); return me ? openProfile() : openLogin(); }
+  openAdminSetup();
+});
 document.getElementById("admCancel").addEventListener("click", closeAdminSetup);
 admOverlay.addEventListener("click", e => { if (e.target === admOverlay) closeAdminSetup(); });
 document.getElementById("admForget").addEventListener("click", () => {
@@ -5231,7 +5676,9 @@ document.getElementById("admSave").addEventListener("click", async () => {
 });
 document.getElementById("pubBtn").addEventListener("click", publish);
 document.getElementById("ioPubPull").addEventListener("click", async () => {
-  const env = await fetchPublished();
+  const env = serverMode
+    ? await loadServerList(viewSlug || (me && me.slug))
+    : await fetchPublished();
   if (!env) { toast("Опубликованной версии не нашлось"); return; }
   if (!confirm("Заменить текущий список версией с сайта (" + itemCount(env.state) + " тайтлов от " +
       new Date(env.savedAt).toLocaleString("ru-RU") + ")?")) return;
@@ -5285,6 +5732,7 @@ function initShortcuts() {
     if (typing) return;
     if (overlay.classList.contains("show") || confirmOverlay.classList.contains("show")) return;
     if (ioOverlay.classList.contains("show") || impOverlay.classList.contains("show") || admOverlay.classList.contains("show")) return;
+    if (logOverlay.classList.contains("show") || proOverlay.classList.contains("show") || fbOverlay.classList.contains("show") || catOverlay.classList.contains("show")) return;
     switch (e.key.toLowerCase()) {
       case "n": e.preventDefault(); openModal(null, "S"); break;
       case "e": editBtn.click(); break;
@@ -5448,17 +5896,58 @@ render();
   loadAdmin();
   document.body.classList.toggle("is-admin", !!admin);
 
+  /* есть ли за страницей сервер — выясняем одним запросом */
+  let cfg = null;
+  try {
+    const r = await fetch("/api/config", { credentials: "same-origin" });
+    if (r.ok) {
+      const ct = r.headers.get("content-type") || "";
+      if (ct.includes("json")) cfg = await r.json();
+    }
+  } catch (e) {}
+
+  if (cfg && cfg.mode === "server") {
+    serverMode = true;
+    me = cfg.me || null;
+    ownerSlug = cfg.owner ? cfg.owner.slug : null;
+    const want = slugFromPath() || ownerSlug;
+    viewSlug = want;
+    readOnly = !!(want && (!me || want !== me.slug));
+
+    if (want) {
+      const srv = await loadServerList(want);
+      if (srv) {
+        if (readOnly) {
+          /* чужой список показываем как есть и в своё хранилище не пишем */
+          state = normalizeState(srv.state, { authoritative: true });
+          lastSavedAt = srv.savedAt;
+        } else {
+          consider({ savedAt: srv.savedAt, state: srv.state }, "сайта");
+        }
+      } else if (readOnly) {
+        readOnly = false; viewSlug = me ? me.slug : null;
+        toast("Список /" + want + " пока пустой");
+      }
+    }
+    syncServerUi();
+    if (readOnly) { render(); idleStatus(); pubStatus("clean"); renderIoRows(); return; }
+    refreshFeedbackCount();
+  }
+
   try {
     const json = await idb.get("state");
     if (json) consider(readEnvelope(json), "IndexedDB");
   } catch (e) {}
 
   /* опубликованная версия сайта: для гостя она и есть список, для владельца —
-     точка отсчёта, свежее ли то, что он правит у себя */
-  try {
-    const pub = await fetchPublished();
-    if (pub) consider(pub, "сайта");
-  } catch (e) {}
+     точка отсчёта, свежее ли то, что он правит у себя. В серверном режиме
+     эту роль уже сыграл /api/list, второй раз ходить не надо.              */
+  if (!serverMode) {
+    try {
+      const pub = await fetchPublished();
+      if (pub) consider(pub, "сайта");
+    } catch (e) {}
+  }
 
   try {
     const h = fileApiOk ? await idb.get("fileHandle") : null;
@@ -5490,6 +5979,7 @@ render();
   }
   idleStatus();
   pubStatus(hasUnpublished() ? "dirty" : "clean");
+  syncServerUi();
   renderIoRows();
 })();
 
