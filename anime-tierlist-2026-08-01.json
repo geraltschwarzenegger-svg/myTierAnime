@@ -1,20 +1,29 @@
 {
   "app": "anime-tierlist",
   "v": 2,
-  "savedAt": "2026-07-26T06:50:16.557Z",
+  "schema": 4,
+  "savedAt": "2026-08-01T15:44:19.656Z",
   "state": {
+    "schema": 4,
     "tiers": [
       {
         "id": "S",
         "label": "Шедевры",
         "tagline": "Истории, которые выходят за пределы жанра, меняют внутренний взгляд на человека и мир и продолжают жить в памяти после финальных титров.",
+        "accent": "gold",
         "items": [
           {
             "uid": 1,
             "name": "Violet Evergarden",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx103047-odblDHHEdehK.jpg",
             "fav": true,
-            "reaction": "goldheart"
+            "reaction": "goldheart",
+            "watched": [
+              {
+                "label": "",
+                "date": "30.03.2026"
+              }
+            ]
           },
           {
             "uid": 2,
@@ -22,7 +31,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
             "fav": true,
             "reaction": "bolt",
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "09.05.2026"
+              }
+            ]
           },
           {
             "uid": 3,
@@ -30,7 +44,28 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98659-WNyPLIZDpGGY.jpg",
             "fav": true,
             "reaction": "star",
-            "watched": []
+            "watched": [
+              {
+                "label": "1 / 12",
+                "date": "26.08.2024"
+              },
+              {
+                "label": "2 / 12",
+                "date": "28.08.2024"
+              },
+              {
+                "label": "3 / 12",
+                "date": "30.08.2024"
+              },
+              {
+                "label": "4 / 12",
+                "date": "02.09.2024"
+              },
+              {
+                "label": "5 / 16",
+                "date": "26.06.2026"
+              }
+            ]
           },
           {
             "uid": 4,
@@ -38,21 +73,38 @@
             "cover": "https://media.kitsu.app/anime/48323/poster_image/large-5548db6509abef22a2ee53233c97edc9.jpeg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "02.02.2026"
+              }
+            ]
           },
           {
             "uid": 5,
             "name": "Любимый во Франксе",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx99423-8MBxtwCeHf8B.png",
             "fav": true,
-            "reaction": "goldheart"
+            "reaction": "goldheart",
+            "watched": [
+              {
+                "label": "",
+                "date": "11.04.2026"
+              }
+            ]
           },
           {
             "uid": 6,
             "name": "Адский рай",
             "cover": "https://media.kitsu.app/anime/47679/poster_image/large-0720a7e3eb0edcc0ca2243bf37ca495a.jpeg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "28.04.2026"
+              }
+            ]
           },
           {
             "uid": 7,
@@ -60,7 +112,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116589-KawXHB6sApFt.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "13.04.2026"
+              }
+            ]
           },
           {
             "uid": 8,
@@ -68,21 +125,38 @@
             "cover": "https://shikimori.io/uploads/poster/animes/57584/main-6aec0e40492030856fdaf2198dbb45fc.webp",
             "fav": true,
             "reaction": "goldheart",
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "15.04.2026"
+              }
+            ]
           },
           {
             "uid": 9,
             "name": "Поднятие уровня в соло",
             "cover": "https://media.kitsu.app/anime/48671/poster_image/large-6156a7475d03dbb788ab1a9ce6c7f962.jpeg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "20.05.2026"
+              }
+            ]
           },
           {
             "uid": 10,
             "name": "Фрирен",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx154587-qQTzQnEJJ3oB.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "17.05.2026"
+              }
+            ]
           },
           {
             "uid": 11,
@@ -90,7 +164,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8074-YB63Ik96fjPj.png",
             "fav": true,
             "reaction": "fire",
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "02.06.2026"
+              }
+            ]
           },
           {
             "uid": 56,
@@ -98,7 +177,12 @@
             "cover": "https://shikimori.io/uploads/poster/animes/1535/main-6cf8bcadd153679da9c27e299be0a268.webp",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "12.07.2026"
+              }
+            ]
           },
           {
             "uid": 57,
@@ -112,6 +196,52 @@
                 "date": "20.07.2026"
               }
             ]
+          },
+          {
+            "uid": 58,
+            "name": "Реинкарнация безработного: История о приключениях",
+            "cover": "https://shikimori.io/uploads/poster/animes/59193/main-6c5e4c63e88610136f4a7ece98a8d7a1.webp",
+            "fav": true,
+            "reaction": "fire",
+            "watched": [
+              {
+                "label": "3 / 24",
+                "date": "09.07.2026"
+              }
+            ]
+          },
+          {
+            "uid": 61,
+            "name": "Клинок, рассекающий демонов",
+            "cover": "https://shikimori.io/uploads/poster/animes/62547/main-b9a7e6d8f508ecf4940fb62a29853466.webp",
+            "fav": true,
+            "reaction": "heart",
+            "watched": [
+              {
+                "label": "1 / 26",
+                "date": "20.07.2026"
+              },
+              {
+                "label": "фильм  Бесконечный поезд",
+                "date": "21.07.2026"
+              },
+              {
+                "label": "1 / 11 Квартал красных фонарей",
+                "date": "22.07.2026"
+              },
+              {
+                "label": "1 / 11  Деревня кузнецов",
+                "date": "23.07.2026"
+              },
+              {
+                "label": "1 / 8 Тренировка столпов",
+                "date": "24.07.2026"
+              },
+              {
+                "label": "фильм  Бесконечный замок",
+                "date": "25.07.2026"
+              }
+            ]
           }
         ]
       },
@@ -119,27 +249,46 @@
         "id": "A",
         "label": "Близко к идеалу",
         "tagline": "Произведения редкой цельности, в которых замысел, эмоция и форма почти достигают совершенного равновесия.",
+        "accent": "aqua",
         "items": [
           {
             "uid": 12,
             "name": "Благоухающий цветок расцветает с достоинством",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx181444-Ut9DDUZdfHwg.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "08.12.2025"
+              }
+            ]
           },
           {
             "uid": 13,
             "name": "Твоё имя",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-SUo3ZQuCbYhJ.png",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "25.03.2026"
+              }
+            ]
           },
           {
             "uid": 14,
             "name": "Песнь ночных сов",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx141391-M3ZgUKTPENUk.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "25.11.2025"
+              }
+            ]
           },
           {
             "uid": 15,
@@ -147,28 +296,36 @@
             "cover": "https://shikimori.io/uploads/poster/animes/59873/main-250a8f2d1f77b93a9ea61c41e6576832.webp",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "12.12.2025"
+              }
+            ]
           },
           {
             "uid": 16,
             "name": "Город, в котором меня нет",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21234-XmqW39aQ9o7O.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 17,
             "name": "Невеста чародея",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98436-n7sK6POCd0XV.png",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 18,
             "name": "Врата Штейна",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9253-tIUXF2gfU8Sg.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 19,
@@ -183,7 +340,13 @@
             "name": "Последний Серафим",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20829-pgsXVjrfyI5V.png",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "29.03.2026"
+              }
+            ]
           },
           {
             "uid": 21,
@@ -191,28 +354,40 @@
             "cover": "https://shikimori.io/uploads/poster/animes/62811/main-e8bb21c8eda03a5707c096d585705e81.webp",
             "fav": true,
             "reaction": "heart",
-            "watched": []
+            "watched": [
+              {
+                "label": "1, 2 / 24",
+                "date": "05.06.2026"
+              },
+              {
+                "label": "3 / 12",
+                "date": "30.08.2026"
+              }
+            ]
           },
           {
             "uid": 22,
             "name": "Я, владыка демонов, взял эльфийку-рабыню в жёны. И как же мне её любить?",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156023-cY4NC8gCcAg7.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 23,
             "name": "Сад изящных слов",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16782-qpFGk18UqaHn.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 24,
             "name": "Ненасытный берсерк",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156039-JnepQcVxXLLW.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 25,
@@ -244,6 +419,7 @@
         "id": "B",
         "label": "Крепкая основа",
         "tagline": "Истории с собственным голосом и настоящей силой, способные увлечь, растрогать, удивить или заставить задуматься, даже если им недостаёт безупречности.",
+        "accent": "violet",
         "items": [
           {
             "uid": 26,
@@ -256,93 +432,119 @@
           {
             "uid": 27,
             "name": "Моя девушка не только милая",
-            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx153152-Xnwmx7wuoIWV.jpg",
+            "cover": "https://shikimori.io/uploads/poster/animes/45613/main-a38d2f57f4d26377a48040fa9d76fddd.webp",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 28,
             "name": "Опытная тебя и неопытного меня",
             "cover": "https://media.kitsu.app/anime/46459/poster_image/large-93bd1be09abb35565d9e183e3895ad02.jpeg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 29,
             "name": "Твоя апрельская ложь",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 30,
             "name": "Пластиковые воспоминания",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20872-j5PBzzVtrYDM.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 31,
             "name": "Шарлотта",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20997-axVYrsIfjtYJ.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 32,
             "name": "Ангел кровопролития",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99629-BXyAJ6PDq4sr.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 33,
             "name": "Я получил читерские способности",
             "cover": "https://media.kitsu.app/anime/46370/poster_image/large-338a164d72dacaa07fc4b6ea58fa1efc.jpeg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 34,
             "name": "Нина в королевстве звёзд",
             "cover": "https://media.kitsu.app/anime/48391/poster_image/large-da08a161da14064a4f1e18ee46d268a7.jpeg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 35,
             "name": "Одинокий рокер!",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130003-HTDmeL4RGeJ4.png",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 36,
             "name": "Чёрный призыватель",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx145260-Yt5W8aQQKqF2.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 37,
             "name": "Сага о винланде",
             "cover": "https://media.kitsu.app/anime/poster_images/41084/large.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 38,
             "name": "Рандеву с жизнью",
             "cover": "https://media.kitsu.app/anime/poster_images/7421/large.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 39,
             "name": "Арифурэта",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx100668-DvOn5bMOt4cy.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
+          },
+          {
+            "uid": 60,
+            "name": "Хочу съесть твою поджелудочную железу",
+            "cover": "https://shikimori.io/uploads/poster/animes/36098/main-0b9dc94816600f2ab3ae236c7d57699a.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "02.05.2026"
+              }
+            ]
           }
         ]
       },
@@ -350,41 +552,57 @@
         "id": "C",
         "label": "Достойные",
         "tagline": "Произведения не без слабостей, но с ярким образом, искренним чувством или ценной мыслью, благодаря которым знакомство с ними было не напрасным.",
+        "accent": "mint",
         "items": [
           {
             "uid": 40,
             "name": "Форма голоса",
             "cover": "https://media.kitsu.app/anime/poster_images/10028/large.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 41,
             "name": "Тоннель в лето",
             "cover": "https://media.kitsu.app/anime/45598/poster_image/large-757f81fe372ae4a0b63fc8897416a562.jpeg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "10.02.2026"
+              }
+            ]
           },
           {
             "uid": 42,
             "name": "Голубая шкатулка",
             "cover": "https://media.kitsu.app/anime/48239/poster_image/large-b547e3cfeb2776aa95f8618d0a6ff0fe.jpeg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "28.02.2026"
+              }
+            ]
           },
           {
             "uid": 43,
             "name": "Красноволосая принцесса",
             "cover": "https://media.kitsu.app/anime/poster_images/10621/large.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 45,
             "name": "5 сантиметра в секунду 2007",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1689-rJKhjLEjQHSy.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 46,
@@ -400,26 +618,33 @@
             "cover": "https://shikimori.io/uploads/poster/animes/35851/main-46066bcff95f1534d86955be1bc7f3b1.webp",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "03.06.2026"
+              }
+            ]
           },
           {
             "uid": 48,
             "name": "Врата: Там бьются наши воины",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20994-pSDk4I58jAK5.jpg",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 49,
             "name": "В лесу где мерцают светлячки",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10408-PlKJ6DAyvMk2.png",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 50,
             "name": "Иная",
-            "cover": "https://shikimori.io/uploads/poster/animes/11111/preview-42f0581eb9c40bf77b7e756c76fadfaf.webp",
+            "cover": "https://shikimori.io/uploads/poster/animes/11111/main-d6067f1c25b6591949eb67bc70befa72.webp",
             "fav": false,
             "reaction": null,
             "watched": []
@@ -437,7 +662,8 @@
             "name": "Мой статус убийцы очевидно превосходит геройский",
             "cover": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx103655-v8Inz6BscNSW.png",
             "fav": false,
-            "reaction": null
+            "reaction": null,
+            "watched": []
           },
           {
             "uid": 55,
@@ -445,11 +671,29 @@
             "cover": "https://shikimori.io/uploads/poster/animes/38594/04d61edb0cb9a6721402b1a18380f26f.jpeg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "05.07.2026"
+              }
+            ]
+          },
+          {
+            "uid": 59,
+            "name": "Кланнад",
+            "cover": "https://shikimori.io/uploads/poster/animes/2167/main-b81029ce72565cf9e8515ba78351e05a.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "01.05.2026"
+              }
+            ]
           }
         ]
       }
     ],
-    "nextUid": 58
+    "nextUid": 62
   }
 }
