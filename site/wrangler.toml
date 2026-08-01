@@ -1,0 +1,29 @@
+name = "anime-tierlist"
+main = "src/index.js"
+compatibility_date = "2026-01-15"
+
+# Статика: сам тир-лист. Неизвестные пути отдают index.html, поэтому /geralt
+# открывается как обычная страница, а не как 404.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "anime-tierlist"
+database_id = "СЮДА_ID_ИЗ_КОМАНДЫ_d1_create"
+
+# Еженедельная сводка: понедельник, 9 утра UTC
+[triggers]
+crons = ["0 9 * * 1"]
+
+[vars]
+# Почта владельца: его список показывается на главной.
+OWNER_EMAIL = "ты@пример.рф"
+# Отправитель писем. Пока нет своего домена, у Resend работает onboarding@resend.dev.
+MAIL_FROM = "Аниме тир-лист <onboarding@resend.dev>"
+
+# Секреты задаются отдельно и в файл не попадают:
+#   npx wrangler secret put SESSION_SECRET
+#   npx wrangler secret put RESEND_API_KEY
