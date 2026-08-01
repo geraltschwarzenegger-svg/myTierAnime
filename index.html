@@ -2775,7 +2775,12 @@ function hasUnpublished() {
     if (!me || readOnly) return false;
     /* ни разу не публиковал — публиковать есть что, если список не пуст */
     if (!published) return itemCount(state) > 0;
-  } else if (!published) return false;
+  } else if (!published) {
+    /* токен настроен, а что лежит на сайте — неизвестно (обычное дело, когда
+       файл открыт с диска: data.json рядом взять неоткуда). Publish должен
+       остаться доступным, иначе владелец заперт с погашенной кнопкой.      */
+    return !!admin && itemCount(state) > 0;
+  }
   if (!published) return false;
   if (!lastSavedAt) return false;
   return lastSavedAt > published.savedAt;
@@ -2807,6 +2812,21 @@ async function ghApi(path, init) {
     const e = new Error(msg); e.status = r.status; throw e;
   }
   return body;
+}
+
+/* Узнать, что сейчас опубликовано, через GitHub API. Нужно там, где обычный
+   fetch к data.json невозможен — например, когда HTML открыт прямо с диска. */
+async function loadPublishedViaApi() {
+  if (!admin) return null;
+  try {
+    const meta = await ghApi(`/repos/${admin.owner}/${admin.repo}/contents/${encodeURIComponent(admin.path)}?ref=${encodeURIComponent(admin.branch)}`);
+    if (!meta || !meta.content) return null;
+    const text = new TextDecoder().decode(unb64(String(meta.content).replace(/\s+/g, "")));
+    const env = readEnvelope(text);
+    if (!env || !env.savedAt) return null;
+    published = { savedAt: env.savedAt, count: itemCount(env.state) };
+    return env;
+  } catch (e) { return null; }   /* 404 — просто ещё не публиковали */
 }
 
 async function publish() {
@@ -3761,7 +3781,8 @@ function renderIoRows() {
     : filePerm === "granted" ? (fileHandle && fileHandle.name ? fileHandle.name : "подключён")
     : filePerm === "prompt" ? "нужен доступ — нажми «Выдать доступ»"
     : "не подключён";
-  const siteTxt = !published ? (serverMode ? "ещё не публиковал" : "нет (файл открыт с диска)")
+  const siteTxt = !published ? (serverMode ? "ещё не публиковал"
+      : admin ? "ещё не публиковал" : "нет (файл открыт с диска)")
     : hasUnpublished() ? published.count + " тайтлов · есть неопубликованные правки"
     : published.count + " тайтлов · всё опубликовано";
   const rows = [
@@ -4365,6 +4386,7 @@ document.getElementById("admSave").addEventListener("click", async () => {
     if (!r.permissions || !r.permissions.push) throw new Error("токен без прав на запись");
     saveAdmin(cand);
     cell.textContent = "доступ есть ✓";
+    await loadPublishedViaApi();
     pubStatus(hasUnpublished() ? "dirty" : "clean");
     renderIoRows();
     toast("Режим владельца включён ✓");
@@ -4750,6 +4772,7 @@ render();
     pendingJson = JSON.stringify(envelope());
     await flushMirrors();
   }
+  if (!serverMode && admin && !published) await loadPublishedViaApi();
   idleStatus();
   pubStatus(hasUnpublished() ? "dirty" : "clean");
   syncServerUi();
