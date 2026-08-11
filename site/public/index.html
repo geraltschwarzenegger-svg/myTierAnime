@@ -394,35 +394,6 @@
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude; opacity: .85; pointer-events: none; z-index: 2;
   }
-  .badge .letter {
-    position: relative; z-index: 1; display: grid; place-items: center;
-    font-family: var(--serif); font-size: 74px; line-height: .86; font-weight: 400;
-    background: linear-gradient(162deg, #ffffff 0%, color-mix(in srgb, var(--t2) 78%, #fff) 40%, var(--t) 100%);
-    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    filter:
-      drop-shadow(0 1px 0 rgba(255,255,255,.6))
-      drop-shadow(0 0 6px color-mix(in srgb, var(--t) 70%, #fff))
-      drop-shadow(0 0 16px var(--tg))
-      drop-shadow(0 0 34px var(--tg));
-    animation: letterFloat 6.5s ease-in-out infinite, neonPulse 4.8s ease-in-out infinite;
-    will-change: transform, filter;
-  }
-  /* the neon-tube halo — a blurred coloured clone of the glyph sitting behind it */
-  .badge .letter::before {
-    content: attr(data-l); position: absolute; inset: 0; display: grid; place-items: center; z-index: -1;
-    -webkit-text-fill-color: var(--t); color: var(--t);
-    filter: blur(11px) saturate(150%);
-    opacity: calc(.85 * var(--glow-mult, 1));
-    animation: neonFlicker 7s steps(1, end) infinite;
-  }
-  /* tighter white inner clone — the bright core of the tube */
-  .badge .letter::after {
-    content: attr(data-l); position: absolute; inset: 0; display: grid; place-items: center; z-index: -1;
-    -webkit-text-fill-color: #fff; color: #fff;
-    filter: blur(2.5px);
-    opacity: calc(.5 * var(--glow-mult, 1));
-    animation: neonFlicker 7s steps(1, end) infinite .4s;
-  }
   @keyframes letterFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
   @keyframes neonPulse {
     0%, 100% { filter:
@@ -1165,13 +1136,13 @@
   @media (max-width: 720px) {
     .tier { grid-template-columns: 84px 1fr; gap: 12px; }
     .badge { padding: 12px 6px; }
-    .badge .letter { font-size: 42px; }
     .items.grid { grid-template-columns: repeat(auto-fill, minmax(96px,1fr)); gap: 9px; }
     .toolbar { gap: 10px; flex-wrap: wrap; }
     .brand .txt span { display: none; }
     .seg button .seg-lbl { display: none; }
   }
-  /* ─────────────────────────  SAVE INDICATOR  ───────────────────────── */
+
+    /* ─────────────────────────  SAVE INDICATOR  ───────────────────────── */
   .savepill {
     position: fixed; left: 16px; bottom: 16px; z-index: 240;
     display: inline-flex; align-items: center; gap: 9px;
@@ -1297,6 +1268,116 @@
   #bulkText:focus { border-color: var(--s); box-shadow: 0 0 0 3px rgba(255,92,149,.18); }
   #bulkTier button { color: var(--t); }
   #bulkTier button.sel { border-color: var(--t); box-shadow: 0 0 0 1px var(--t) inset, 0 8px 22px -10px var(--tg); }
+
+  /* ═════════════════  ОБЪЁМНАЯ БУКВА ТИРА  ═════════════════
+     Глубина настоящая: слои разнесены по Z внутри preserve-3d и поворачиваются
+     вместе со сценой. Всё красится от --t/--t2 тира, никаких зашитых цветов. */
+  @property --spin { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+
+  .lstage {
+    position: relative; z-index: 1;
+    display: grid; place-items: center;
+    width: 100%; height: 96px;
+    perspective: 520px; perspective-origin: 50% 45%;
+  }
+  /* внешний слой доворачивает JS вслед за курсором, внутренний качается сам:
+     считать углы в calc() внутри transform ненадёжно, а так работает везде */
+  .l3d { display: grid; place-items: center; transform-style: preserve-3d; }
+  .l3d-in {
+    display: grid; place-items: center; transform-style: preserve-3d;
+    animation: lWobble 7s ease-in-out infinite;
+  }
+  @keyframes lWobble {
+    0%, 100% { transform: rotateY(-11deg) rotateX(5deg); }
+    50%      { transform: rotateY(11deg) rotateX(-5deg); }
+  }
+
+  .ll {
+    grid-area: 1/1;
+    font-family: var(--serif); font-weight: 400; font-size: 72px; line-height: .86;
+    user-select: none; white-space: nowrap;
+  }
+  /* торец: тёмная версия акцента, чтобы читался объём, а не свечение */
+  .ll.back { color: color-mix(in srgb, var(--t) 42%, #05040a); }
+  .ll.face {
+    background: linear-gradient(158deg, #fff 0%, color-mix(in srgb, var(--t2) 80%, #fff) 38%, var(--t) 78%, color-mix(in srgb, var(--t) 70%, #fff) 100%);
+    background-size: 220% 220%;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    transform: translateZ(3px);
+    filter: drop-shadow(0 1px 0 rgba(255,255,255,.5)) drop-shadow(0 0 8px color-mix(in srgb, var(--t) 60%, #fff));
+    animation: lSheen 5.5s ease-in-out infinite;
+  }
+  @keyframes lSheen { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+  /* размытый двойник — свет неоновой трубки за буквой */
+  .ll.halo {
+    color: var(--t); transform: translateZ(-1px);
+    filter: blur(13px) saturate(160%);
+    opacity: calc(.8 * var(--glow-mult, 1));
+    animation: lFlick 8s steps(1, end) infinite;
+  }
+  @keyframes lFlick { 0%,90%,93%,96%,100% { opacity: calc(.8 * var(--glow-mult,1)); } 91% { opacity: .3; } 94% { opacity: .55; } }
+
+  /* голографические кольца вокруг буквы */
+  .ring { position: absolute; left: 50%; top: 50%; border-radius: 50%; pointer-events: none; }
+  .ring.r1 {
+    width: 92px; height: 92px; margin: -46px 0 0 -46px;
+    background: conic-gradient(from 0deg, transparent 0 54%, var(--t) 62%, var(--t2) 69%, transparent 76%);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+    filter: drop-shadow(0 0 7px var(--tg));
+    animation: ringSpin 4.5s linear infinite;
+  }
+  .ring.r2 {
+    width: 112px; height: 112px; margin: -56px 0 0 -56px;
+    border: 1px dashed color-mix(in srgb, var(--t) 55%, transparent);
+    opacity: .45; animation: ringSpin 14s linear infinite reverse;
+  }
+  @keyframes ringSpin { to { transform: rotate(360deg); } }
+
+  /* уголки-прицелы и сканирующая линия — плашка выглядит как прибор */
+  .hud {
+    position: absolute; width: 13px; height: 13px; z-index: 2; pointer-events: none;
+    border: 2px solid var(--t); opacity: .8; filter: drop-shadow(0 0 4px var(--tg));
+    animation: hudBlink 4.5s ease-in-out infinite;
+  }
+  @keyframes hudBlink { 0%,100% { opacity: .8; } 50% { opacity: .35; } }
+  .hud.h1 { top: 9px; left: 9px; border-right: none; border-bottom: none; border-top-left-radius: 4px; }
+  .hud.h2 { top: 9px; right: 9px; border-left: none; border-bottom: none; border-top-right-radius: 4px; animation-delay: -1.1s; }
+  .hud.h3 { bottom: 9px; left: 9px; border-right: none; border-top: none; border-bottom-left-radius: 4px; animation-delay: -2.2s; }
+  .hud.h4 { bottom: 9px; right: 9px; border-left: none; border-top: none; border-bottom-right-radius: 4px; animation-delay: -3.3s; }
+  .scanline {
+    position: absolute; left: 8%; right: 8%; height: 2px; top: -6%; z-index: 2; pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--t), transparent);
+    opacity: .45; filter: blur(.4px);
+    animation: scanDown 4.2s cubic-bezier(.6,0,.4,1) infinite;
+  }
+  @keyframes scanDown { 0% { top: -6%; opacity: 0; } 12% { opacity: .5; } 88% { opacity: .5; } 100% { top: 104%; opacity: 0; } }
+
+  /* вращающаяся рамка по контуру плашки */
+  .badge::before {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+    z-index: 3; pointer-events: none;
+    background: conic-gradient(from var(--spin), transparent 0 18%, var(--t) 27%, transparent 35%, transparent 52% 70%, var(--t2) 79%, transparent 87%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    animation: frameSpin 6s linear infinite;
+    opacity: .85;
+  }
+  @keyframes frameSpin { to { --spin: 360deg; } }
+
+  @media (max-width: 720px) {
+    .lstage { height: 64px; }
+    .ll { font-size: 44px; }
+    .ring.r1 { width: 62px; height: 62px; margin: -31px 0 0 -31px; }
+    .ring.r2 { width: 76px; height: 76px; margin: -38px 0 0 -38px; }
+  }
+
+  /* объёмная сцена: каркасные тела и точки поверх градиента, но под контентом */
+  .scene3d { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .85; }
+  body.has-photo .scene3d { opacity: .4; }
+  .fx-3d-off .scene3d { display: none; }
 
   /* ─────────────────────────  ФОН-ФОТОГРАФИЯ  ─────────────────────────
      Слой лежит поверх базового градиента, но под всеми декорациями.
@@ -1589,6 +1670,7 @@
 <div class="bg" aria-hidden="true">
   <div class="bg-base"></div>
   <div class="bg-photo" id="bgPhoto"></div>
+  <canvas class="scene3d" id="scene3d"></canvas>
   <div class="aurora"></div>
   <div class="aurora-2"></div>
   <div class="scene-jp" aria-hidden="true">
@@ -2221,9 +2303,16 @@ const ACCENTS = {
   rose:    { name: "Роза",     t: "#ff5c95", t2: "#ff9ec4", g: "rgba(255,92,149,.55)" },
   amber:   { name: "Янтарь",   t: "#ffb347", t2: "#ffd89b", g: "rgba(255,179,71,.50)" },
   ice:     { name: "Лёд",      t: "#8fb8ff", t2: "#cfe0ff", g: "rgba(143,184,255,.48)" },
-  ember:   { name: "Уголь",    t: "#ff7a59", t2: "#ffb098", g: "rgba(255,122,89,.50)" }
+  ember:   { name: "Уголь",    t: "#ff7a59", t2: "#ffb098", g: "rgba(255,122,89,.50)" },
+  neon:    { name: "Кислота",  t: "#c6ff2f", t2: "#e9ffa0", g: "rgba(198,255,47,.48)" },
+  magenta: { name: "Фуксия",   t: "#ff2fd6", t2: "#ff9dee", g: "rgba(255,47,214,.52)" },
+  cyan:    { name: "Циан",     t: "#00f0ff", t2: "#a8fbff", g: "rgba(0,240,255,.50)" },
+  plasma:  { name: "Плазма",   t: "#7b5cff", t2: "#b9a5ff", g: "rgba(123,92,255,.52)" },
+  coral:   { name: "Коралл",   t: "#ff4d6d", t2: "#ffa5b6", g: "rgba(255,77,109,.50)" },
+  jade:    { name: "Нефрит",   t: "#00d8a0", t2: "#93ffdc", g: "rgba(0,216,160,.48)" }
 };
-const ACCENT_ORDER = ["gold", "aqua", "violet", "mint", "rose", "amber", "ice", "ember"];
+const ACCENT_ORDER = ["gold", "aqua", "violet", "mint", "rose", "amber", "ice", "ember",
+                      "neon", "magenta", "cyan", "plasma", "coral", "jade"];
 
 /* стартовые тиры — только рамка, без содержимого */
 const TIER_SEED = [
@@ -3071,6 +3160,58 @@ function accentHue(tier) {
   return Math.round(h * 60 + 360) % 360;
 }
 
+/* ── объёмная буква тира ───────────────────────────────────────────────────
+   Настоящая глубина, а не тень: буква собирается из слоёв, разнесённых по оси Z
+   внутри preserve-3d. Задние слои темнеют — получается литой торец, передний
+   несёт градиент и свечение. Глубина и цвет берутся из акцента тира, поэтому
+   работает с любым набором тиров, а не только с S/A/B/C.                    */
+const LETTER_DEPTH = 9;
+function build3DLetter(host, tier, idx) {
+  if (!host) return;
+  host.innerHTML = "";
+  const inner = document.createElement("div");
+  inner.className = "l3d-in";
+  inner.style.animationDelay = (idx * 0.45) + "s";
+  const frag = document.createDocumentFragment();
+  for (let i = LETTER_DEPTH; i >= 1; i--) {
+    const s = document.createElement("span");
+    s.className = "ll back";
+    s.textContent = tier.id;
+    s.style.transform = "translateZ(" + (-i * 2.6) + "px)";
+    /* дальние слои глуше — иначе торец выглядит плоской заливкой */
+    s.style.opacity = (0.92 - i * 0.075).toFixed(3);
+    frag.appendChild(s);
+  }
+  const face = document.createElement("span");
+  face.className = "ll face";
+  face.textContent = tier.id;
+  frag.appendChild(face);
+  const halo = document.createElement("span");
+  halo.className = "ll halo";
+  halo.textContent = tier.id;
+  frag.appendChild(halo);
+  inner.appendChild(frag);
+  host.appendChild(inner);
+}
+
+/* доворот букв за курсором: одна общая петля на все тиры, значения пишем
+   инлайном — так не зависим от того, как браузер считает calc() в transform */
+(function letterTilt() {
+  if (matchMedia("(hover: none)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let px = 0, py = 0, queued = false;
+  addEventListener("mousemove", e => {
+    px = (e.clientX / innerWidth - 0.5) * 2;
+    py = (e.clientY / innerHeight - 0.5) * 2;
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      const t = "rotateY(" + (px * 17).toFixed(2) + "deg) rotateX(" + (py * -12).toFixed(2) + "deg)";
+      document.querySelectorAll(".l3d").forEach(el => { el.style.transform = t; });
+    });
+  }, { passive: true });
+})();
+
 function render() {
   board.innerHTML = "";
   let total = 0, fav = 0;
@@ -3086,7 +3227,12 @@ function render() {
       <div class="badge">
         <span class="brun"></span>
         <span class="crown" aria-hidden="true"><svg viewBox="0 0 34 24"><path d="M3 21 L4.6 8.5 L10.6 13.8 L17 4.5 L23.4 13.8 L29.4 8.5 L31 21 Z" fill="currentColor"></path><rect x="4" y="20" width="26" height="3.2" rx="1" fill="currentColor"></rect><circle cx="17" cy="9" r="1.5" fill="#fff3cf"></circle><circle cx="6.4" cy="11.4" r="1.2" fill="#fff3cf"></circle><circle cx="27.6" cy="11.4" r="1.2" fill="#fff3cf"></circle></svg></span>
-        <span class="letter" data-l="${tier.id}">${tier.id}</span>
+        <i class="hud h1"></i><i class="hud h2"></i><i class="hud h3"></i><i class="hud h4"></i>
+        <span class="scanline"></span>
+        <div class="lstage">
+          <span class="ring r1"></span><span class="ring r2"></span>
+          <div class="l3d" data-l="${esc(tier.id)}"></div>
+        </div>
         <span class="cnt"><b>${tier.items.length}</b> ${plural(tier.items.length, "тайтл", "тайтла", "тайтлов")}</span>
       </div>
       <div class="panel">
@@ -3097,6 +3243,7 @@ function render() {
         </div>
         <div class="items ${view}"></div>
       </div>`;
+    build3DLetter(art.querySelector(".l3d"), tier, tierIdx);
     const wrap = art.querySelector(".items");
     /* пустой тир без приглашения выглядит сломанным, поэтому плитка «добавить»
        в нём видна всегда, а не только в режиме правки */
@@ -4118,9 +4265,13 @@ function syncServerUi() {
   if (bar) {
     bar.hidden = !readOnly;
     if (readOnly) {
-      document.getElementById("guestTxt").textContent =
-        "Открыт чужой список · /" + viewSlug + " · правки здесь не сохраняются";
-      document.getElementById("guestMine").textContent = me ? "мой список" : "войти и вести свой";
+      const who = viewSlug ? " · /" + viewSlug : "";
+      document.getElementById("guestTxt").textContent = serverMode
+        ? "Открыт чужой список" + who + " · правки здесь не сохраняются"
+        : "Это чужой тир-лист — можно смотреть, но не менять";
+      const act = document.getElementById("guestMine");
+      act.textContent = serverMode ? (me ? "мой список" : "войти и вести свой") : "сделать свой";
+      act.hidden = !serverMode;
     }
   }
   const fbBtn = document.getElementById("fbBtn");
@@ -4600,6 +4751,157 @@ function toast(msg) {
   requestAnimationFrame(() => mast.classList.add("hero-in"));
 })();
 
+/* ════════════════════ ОБЪЁМНАЯ СЦЕНА ФОНА ════════════════════
+
+   Каркасные тела и облако точек в настоящей перспективе. Написано вручную,
+   а не на Three.js, по трём причинам: файл должен открываться с диска без
+   интернета, веб-версия не должна тяжелеть втрое ради трёх фигур, и вся эта
+   математика здесь — сотня строк. Проекция обычная перспективная, сортировки
+   по глубине не нужно: рисуем аддитивно, порядок не важен.                  */
+(function scene3d() {
+  const canvas = document.getElementById("scene3d");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const weak = matchMedia("(hover: none)").matches || innerWidth < 720 ||
+               (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+
+  /* ── тела ── */
+  function icosahedron(r) {
+    const t = (1 + Math.sqrt(5)) / 2;
+    const v = [];
+    [[-1, t, 0], [1, t, 0], [-1, -t, 0], [1, -t, 0],
+     [0, -1, t], [0, 1, t], [0, -1, -t], [0, 1, -t],
+     [t, 0, -1], [t, 0, 1], [-t, 0, -1], [-t, 0, 1]].forEach(p => {
+      const k = r / Math.hypot(p[0], p[1], p[2]);
+      v.push([p[0] * k, p[1] * k, p[2] * k]);
+    });
+    const e = [[0,11],[0,5],[0,1],[0,7],[0,10],[1,5],[5,11],[11,10],[10,7],[7,1],
+               [3,9],[3,4],[3,2],[3,6],[3,8],[4,9],[2,4],[6,2],[8,6],[9,8],
+               [5,9],[11,4],[10,2],[7,6],[1,8],[4,5],[2,11],[6,10],[8,7],[9,1]];
+    return { v, e };
+  }
+  function octahedron(r) {
+    const v = [[r,0,0],[-r,0,0],[0,r,0],[0,-r,0],[0,0,r],[0,0,-r]];
+    const e = [[0,2],[0,3],[0,4],[0,5],[1,2],[1,3],[1,4],[1,5],[2,4],[2,5],[3,4],[3,5]];
+    return { v, e };
+  }
+  /* тор-узел: параметрическая кривая, рёбра — просто соседние точки */
+  function torusKnot(R, r, seg) {
+    const v = [], e = [];
+    for (let i = 0; i < seg; i++) {
+      const u = i / seg * Math.PI * 2;
+      const p = 2, q = 3;
+      const cu = Math.cos(q * u), su = Math.sin(q * u);
+      const rad = R + r * Math.cos(p * u);
+      v.push([rad * cu, r * Math.sin(p * u), rad * su]);
+      e.push([i, (i + 1) % seg]);
+    }
+    return { v, e };
+  }
+
+  const bodies = [
+    { m: torusKnot(4.6, 1.5, 64), pos: [15, 6, -12], rot: [0, 0, 0], spin: [.0045, .0075, .0012], hue: 45 },
+    { m: icosahedron(4.6),        pos: [-16, -7, -10], rot: [1, 0, 0], spin: [-.004, .006, .002], hue: 285 },
+    { m: octahedron(3.6),         pos: [-13, 9, -15], rot: [0, 1, 0], spin: [.003, .008, -.002], hue: 172 }
+  ];
+  if (weak) bodies.length = 2;
+
+  /* ── точки ── */
+  const DOTS = weak ? 130 : 320;
+  const dots = [];
+  for (let i = 0; i < DOTS; i++) {
+    dots.push({
+      x: (Math.random() - .5) * 120, y: (Math.random() - .5) * 80, z: (Math.random() - .5) * 55 - 6,
+      s: .015 + Math.random() * .045, hue: [45, 172, 285, 330][i & 3]
+    });
+  }
+
+  let W = 0, H = 0, dpr = 1;
+  function resize() {
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  addEventListener("resize", resize, { passive: true });
+  resize();
+
+  const FOV = 320;
+  let camX = 0, camY = 0, t = 0, running = true;
+
+  function project(x, y, z) {
+    const zz = z + 34;              /* камера стоит в -34 по Z */
+    if (zz <= 0.5) return null;     /* за спиной камеры не рисуем */
+    const k = FOV / zz;
+    return [W / 2 + (x - camX) * k, H / 2 + (y - camY) * k, k];
+  }
+
+  function frame() {
+    if (!running) return;
+    requestAnimationFrame(frame);
+    if (!W || !H) return;
+    t += reduce ? 0 : .006;
+
+    /* к курсору тянемся мягко: резкий отклик выглядит нервно */
+    const mx = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--mx")) || 0;
+    const my = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--my")) || 0;
+    camX += (mx * 5 - camX) * .045;
+    camY += (my * 3.5 - camY) * .045;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "lighter";
+
+    for (const d of dots) {
+      if (!reduce) {
+        d.y -= d.s;
+        d.x += Math.sin(t * 1.6 + d.z) * .01;
+        if (d.y < -42) { d.y = 42; d.x = (Math.random() - .5) * 120; }
+      }
+      const p = project(d.x, d.y, d.z);
+      if (!p) continue;
+      const r = Math.max(.4, p[2] * .55);
+      ctx.fillStyle = "hsla(" + d.hue + ",90%,72%," + Math.min(.5, p[2] * .5) + ")";
+      ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, 6.283); ctx.fill();
+    }
+
+    for (const b of bodies) {
+      if (!reduce) { b.rot[0] += b.spin[0]; b.rot[1] += b.spin[1]; b.rot[2] += b.spin[2]; }
+      const [rx, ry, rz] = b.rot;
+      const sx = Math.sin(rx), cx = Math.cos(rx);
+      const sy = Math.sin(ry), cy = Math.cos(ry);
+      const sz = Math.sin(rz), cz = Math.cos(rz);
+      const bob = Math.sin(t * 1.7 + b.pos[0]) * 1.5;
+      const pts = b.m.v.map(v => {
+        let [x, y, z] = v;
+        let y1 = y * cx - z * sx, z1 = y * sx + z * cx;
+        let x1 = x * cy + z1 * sy; z1 = -x * sy + z1 * cy;
+        const x2 = x1 * cz - y1 * sz, y2 = x1 * sz + y1 * cz;
+        return project(x2 + b.pos[0], y2 + b.pos[1] + bob, z1 + b.pos[2]);
+      });
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = "hsla(" + b.hue + ",95%,70%,.30)";
+      ctx.beginPath();
+      for (const [a, c] of b.m.e) {
+        const p1 = pts[a], p2 = pts[c];
+        if (!p1 || !p2) continue;
+        ctx.moveTo(p1[0], p1[1]); ctx.lineTo(p2[0], p2[1]);
+      }
+      ctx.stroke();
+    }
+    ctx.globalCompositeOperation = "source-over";
+  }
+
+  /* в фоновой вкладке не жжём батарею */
+  addEventListener("visibilitychange", () => {
+    running = document.visibilityState !== "hidden";
+    if (running) requestAnimationFrame(frame);
+  });
+  requestAnimationFrame(frame);
+})();
+
 /* ── живая подпись под заголовком ───────────────────────────────────────────
    Фразы сменяют друг друга: буквы уходят вразнобой и так же вразнобой
    собираются обратно. Перед экспортом в PNG и при prefers-reduced-motion
@@ -4742,6 +5044,10 @@ render();
       const pub = await fetchPublished();
       if (pub) consider(pub, "сайта");
     } catch (e) {}
+    /* Статический сайт: у гостя нет токена, а значит и права менять общий список.
+       Раньше он видел все кнопки правки и мог нажать «Очистить» — страница у него
+       становилась пустой и сама уже не восстанавливалась.                       */
+    if (published && !admin && !isFileUrl()) readOnly = true;
   }
 
   try {
