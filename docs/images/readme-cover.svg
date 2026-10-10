@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="500" viewBox="0 0 1600 500" role="img" aria-label="myTierAnime — личный канон аниме">
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#100d21"/><stop offset=".55" stop-color="#20132e"/><stop offset="1" stop-color="#0b2228"/></linearGradient>
+ <linearGradient id="text" x2="1" y2=".3"><stop stop-color="#fff2d4"/><stop offset=".4" stop-color="#ffc7df"/><stop offset="1" stop-color="#bfa8ff"/></linearGradient>
+ <linearGradient id="gold" x2=".8" y2="1"><stop stop-color="#fff3c9"/><stop offset=".5" stop-color="#ffd76a"/><stop offset="1" stop-color="#e0356b"/></linearGradient>
+ <linearGradient id="aqua" x2=".8" y2="1"><stop stop-color="#e1fffe"/><stop offset="1" stop-color="#35e0d6"/></linearGradient>
+ <linearGradient id="violet" x2=".8" y2="1"><stop stop-color="#f1e6ff"/><stop offset="1" stop-color="#a779ff"/></linearGradient>
+ <linearGradient id="mint" x2=".8" y2="1"><stop stop-color="#e6ffe9"/><stop offset="1" stop-color="#3ddc84"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#a65ba7" stop-opacity=".2"/><stop offset="1" stop-color="#a65ba7" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="500" rx="28" fill="url(#bg)"/>
+<ellipse cx="1120" cy="255" rx="480" ry="300" fill="url(#glow)"/>
+<g fill="none" stroke="#ffffff" stroke-opacity=".08"><path d="M50 52H1550M50 448H1550"/><path d="M900 52V448M1058 52V448M1216 52V448M1374 52V448"/></g>
+<text x="82" y="102" fill="#eac0d5" font-family="sans-serif" font-size="19" letter-spacing="7">アニメ · PERSONAL CANON</text>
+<text x="77" y="245" fill="url(#text)" font-family="Georgia,serif" font-size="98">myTierAnime</text>
+<text x="84" y="308" fill="#e1d4e6" font-family="sans-serif" font-size="26">Истории, которые остались с тобой.</text>
+<text x="84" y="396" fill="#a699b7" font-family="sans-serif" font-size="17" letter-spacing="2">ТИРЫ  /  ДАТЫ ПРОСМОТРА  /  ЛИЧНАЯ КОЛЛЕКЦИЯ</text>
+<g transform="translate(980 240)"><g fill="none" stroke="url(#gold)" stroke-width="2" opacity=".45"><path d="M0 53Q-68-70-28-103M0 53Q-40-100 0-117M0 53Q40-100 28-103M0 53Q72-60 57-80"/></g><text text-anchor="middle" y="24" fill="url(#gold)" font-family="Georgia,serif" font-size="108">S</text></g>
+<g transform="translate(1138 240)"><g fill="url(#aqua)" opacity=".2"><path d="M0-100L30-50 0-4-30-50Z"/><path d="M65-30L87 15 40 37 25-2Z"/><path d="M-65-30L-87 15-40 37-25-2Z"/></g><text text-anchor="middle" y="24" fill="url(#aqua)" font-family="Georgia,serif" font-size="108">A</text></g>
+<g transform="translate(1296 240)"><path d="M-56 25C-10 60 32 19 67-7M-36 66C-15 33-38-24 20-73M-57-10C-35-46-5 23 42-27" fill="none" stroke="url(#violet)" stroke-width="4" opacity=".36"/><text text-anchor="middle" y="24" fill="url(#violet)" font-family="Georgia,serif" font-size="108">B</text></g>
+<g transform="translate(1454 240)"><path d="M48 60Q15 10 41-53" fill="none" stroke="#86d9b0" stroke-opacity=".5"/><g fill="#ffbad6" opacity=".65"><ellipse cx="40" cy="-70" rx="8" ry="17" transform="rotate(30 40 -70)"/><ellipse cx="53" cy="-52" rx="8" ry="17" transform="rotate(65 53 -52)"/><ellipse cx="21" cy="-50" rx="8" ry="17" transform="rotate(-65 21 -50)"/><ellipse cx="-45" cy="27" rx="5" ry="10" transform="rotate(-25 -45 27)"/></g><text text-anchor="middle" y="24" fill="url(#mint)" font-family="Georgia,serif" font-size="108">C</text></g>
+<g fill="#a699b7" font-family="sans-serif" font-size="14" text-anchor="middle" letter-spacing="2"><text x="980" y="360">СИЯНИЕ</text><text x="1138" y="360">ПРИЗМА</text><text x="1296" y="360">ТУШЬ</text><text x="1454" y="360">САКУРА</text></g>
+<path d="M50 52h18M50 52v18M1550 448h-18M1550 448v-18" stroke="#ffd76a" stroke-width="2" opacity=".7" fill="none"/>
+</svg>
