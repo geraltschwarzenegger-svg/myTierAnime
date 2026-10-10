@@ -1006,15 +1006,15 @@
   .cube {
     position: relative; width: 100%; height: 100%;
     transform-style: preserve-3d;
-    transform: rotateX(-22deg) rotateY(var(--cy, 0deg));
+    transform: rotateX(-22deg) rotateY(0deg);
     animation: cubeSpin 22s linear infinite;
   }
-  @keyframes cubeSpin { to { --cy: 360deg; } }
-  @property --cy { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+  @keyframes cubeSpin { from { transform: rotateX(-22deg) rotateY(0deg); } to { transform: rotateX(-22deg) rotateY(360deg); } }
 
   .cube-stage { --tz: 52px; }
   .cface {
     position: absolute; inset: 0; display: grid; place-items: center;
+    backface-visibility: hidden;
     font-family: var(--serif); font-size: calc(var(--tz) * .77); line-height: 1;
     color: #fff;
     border-radius: var(--radius-sm);
@@ -1179,7 +1179,7 @@
     22%  { transform: translate(0, -50%) scaleX(-1) rotate(-3deg) scale(1.02); }
     100% { transform: translate(6px, -54%) scaleX(-1) rotate(-7deg) scale(1.06); }
   }
-  @media (prefers-reduced-motion: reduce) { #wings { display: none; } }
+  body.motion-calm #wings { display: none; }
 
   /* tweaks panel */
   .fx-gear {
@@ -2011,19 +2011,213 @@
       var(--surface-fill);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-    .tier { opacity: 1 !important; transform: none !important; }
-    /* букве нельзя оставлять «дыхание» через translate — сбрасываем и его */
-    .hl { translate: none !important; }
-    .card:hover, .chip:hover, .btn:hover { transform: none !important; }
+  /* Orbital seals: bounded 3D scenes, coloured by the user's tier accent. */
+  .badge { justify-content: flex-start; padding: 32px 10px; }
+  .badge-body { position: sticky; top: calc(var(--toolbar-height, 78px) + 32px); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .seal-index { font: 600 9px/1.4 var(--sans); letter-spacing: .22em; color: var(--ink-faint); }
+  .seal-index b { color: var(--t2); margin-left: 6px; font-variant-numeric: tabular-nums; }
+  .seal-caption { font: 500 9px/1.5 var(--sans); letter-spacing: .09em; color: var(--ink-soft); text-align: center; }
+  .badge .lstage { --seal-size: 120px; height: 156px; flex: none; }
+  .badge .l3d { transition: transform .3s ease; }
+  .emblems-orbits .l3d { transform: rotateX(var(--bry, 0deg)) rotateY(var(--brx, 0deg)); }
+  .emblems-orbits .l3d-in { animation-name: sealLevitate; animation-duration: 8s; }
+  .badge .ll { font-size: var(--letter-size, 72px); }
+  .emblems-orbits .ll.face { animation: none; background: linear-gradient(145deg, #fff8df, var(--t2) 38%, var(--t) 65%, #fff0db); -webkit-background-clip: text; background-clip: text; text-shadow: 0 2px 16px var(--tg); }
+  .emblems-orbits .ll.halo { animation: sealGlow 6s ease-in-out infinite alternate; opacity: .35; }
+  .emblems-orbits .lstage > .ring { display: none; }
+  .orbit-system { position: absolute; width: var(--seal-size); height: var(--seal-size); left: 50%; top: 50%; transform: translate(-50%, -50%) rotateX(var(--bry, 0deg)) rotateY(var(--brx, 0deg)); transform-style: preserve-3d; transition: transform .3s ease; pointer-events: none; }
+  .orbit-track { --inclination: 62deg; --axis: -25deg; position: absolute; inset: 0; border: 1px solid color-mix(in srgb, var(--t) 68%, transparent); border-radius: 50%; transform-style: preserve-3d; transform: rotateX(var(--inclination)) rotateY(var(--axis)) rotateZ(0deg); box-shadow: inset 0 0 9px var(--tg), 0 0 9px var(--tg); animation: sealOrbit 18s linear infinite; }
+  .orbit-track::before { content: ""; position: absolute; width: 7px; height: 7px; left: 50%; top: -4px; border-radius: 50%; background: #fff8e7; box-shadow: 0 0 7px 2px var(--t), 0 0 18px var(--tg); }
+  .orbit-track.o2 { --inclination: -58deg; --axis: 32deg; inset: 8px; opacity: .6; animation-duration: 24s; animation-direction: reverse; }
+  .orbit-track.o2::before { width: 4px; height: 4px; top: -2px; }
+  .orbit-track.o3 { --inclination: 0deg; --axis: 0deg; inset: 13px; border-style: dashed; opacity: .25; animation-duration: 42s; }
+  .orbit-track.o3::before { display: none; }
+  .seal-corona { position: absolute; inset: 6px; border-radius: 50%; background: repeating-conic-gradient(from 8deg, var(--t2) 0deg 1deg, transparent 1deg 15deg); mask: radial-gradient(circle, transparent 56%, #000 58% 65%, transparent 67%); opacity: .5; animation: sealRevolve 50s linear infinite; }
+  .seal-floor { position: absolute; width: 74%; height: 18px; bottom: 3px; left: 13%; border: 1px solid color-mix(in srgb, var(--t) 25%, transparent); border-radius: 50%; background: radial-gradient(ellipse, var(--tg), transparent 65%); transform: rotateX(62deg); opacity: .6; }
+  .tier[data-rank="1"] .orbit-track { --axis: 0deg; border-color: var(--t2); }
+  .tier[data-rank="2"] .seal-corona { inset: 0; background: conic-gradient(transparent 10%, var(--t) 25%, transparent 40% 60%, var(--t2) 75%, transparent 90%); mask: radial-gradient(circle, transparent 66%, #000 67% 69%, transparent 70%); }
+  .tier[data-rank="2"] .orbit-track.o2 { --inclination: 78deg; --axis: 58deg; }
+  .tier[data-rank="3"] .orbit-track.o3 { inset: 19px; border-radius: 17px; border-style: solid; opacity: .7; --axis: -18deg; --inclination: 18deg; }
+  .tier[data-rank="3"] .seal-corona { background: none; border: 1px solid var(--t2); mask: none; inset: 21px; border-radius: 17px; opacity: .22; animation: sealPrism 14s ease-in-out infinite; }
+  .tier[data-rank="4"] .orbit-track { --inclination: 72deg; --axis: 18deg; animation-duration: 28s; }
+  .tier[data-rank="4"] .seal-corona { background: none; mask: none; border: 1px solid var(--t); opacity: .4; animation: sealWave 5s ease-in-out infinite; }
+  .tier-share { width: 100%; max-width: 100px; padding-top: 12px; border-top: 1px solid color-mix(in srgb, var(--t) 16%, transparent); }
+  .tier-share > span { display: flex; justify-content: space-between; gap: 4px; font-size: 8px; color: var(--ink-faint); }
+  .tier-share b { color: var(--t2); font-variant-numeric: tabular-nums; }
+  .tier-share > i { display: block; height: 2px; margin-top: 8px; border-radius: 2px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .tier-share > i::before { content: ""; display: block; width: var(--tier-share); height: 100%; background: linear-gradient(90deg, var(--t), var(--t2)); }
+  .emblems-classic .orbit-system, .emblems-classic .seal-floor, .emblems-classic .seal-caption { display: none; }
+  .emblems-orbits.fx-tilt .tier:hover .badge { transform: translateY(-2px); }
+  @keyframes sealOrbit { to { transform: rotateX(var(--inclination)) rotateY(var(--axis)) rotateZ(360deg); } }
+  @keyframes sealRevolve { to { transform: rotate(360deg); } }
+  @keyframes sealLevitate { 0%,100% { transform: translateY(3px) rotateY(-16deg) rotateX(6deg); } 50% { transform: translateY(-6px) rotateY(16deg) rotateX(-6deg); } }
+  @keyframes sealGlow { to { opacity: .6; } }
+  @keyframes sealPrism { 0%,100% { transform: rotate(45deg) rotateY(-20deg); } 50% { transform: rotate(135deg) rotateY(20deg); } }
+  @keyframes sealWave { 0%,100% { transform: scale(.83) rotateX(20deg); opacity: .2; } 50% { transform: scale(1.05) rotateX(-20deg); opacity: .55; } }
+  body:not(.fx-tier-motion) .badge *, body:not(.fx-tier-motion) .badge::before, body:not(.fx-tier-motion) .badge::after,
+  .tier:not(.in-view) .badge *, .tier:not(.in-view) .badge::before, .tier:not(.in-view) .badge::after { animation-play-state: paused !important; }
+  body.exporting .orbit-system, body.exporting .seal-floor { display: none; }
+  body.exporting .badge-body { position: static; }
+  body.exporting .l3d, body.exporting .l3d-in, body.exporting .ll.face { transform: none !important; animation: none !important; }
+  body.exporting .ll.back, body.exporting .ll.halo { display: none; }
+  body.exporting .ll.face { background: none; -webkit-text-fill-color: var(--t2); color: var(--t2); filter: none; text-shadow: none; }
+  body.exporting .toolbar, body.exporting .cube-stage,
+  body.exporting .badge::before, body.exporting .badge::after, body.exporting .brun,
+  body.exporting .panel::before, body.exporting .panel::after { display: none !important; }
+  body.exporting .hero-line, body.exporting .hl { transform: none !important; translate: none !important; animation: none !important; }
+  body.exporting .masthead h1 em, body.exporting .hl, body.exporting .sig { background: none !important; -webkit-text-fill-color: #f6e6c6 !important; color: #f6e6c6 !important; filter: none !important; text-shadow: none !important; }
+  body.exporting .panel, body.exporting .badge { background: #14111f !important; border: 1px solid var(--t) !important; box-shadow: none !important; backdrop-filter: none !important; }
+  body.exporting .visit-journal { background: #14111f !important; border-color: #454053; box-shadow: none !important; backdrop-filter: none !important; }
+  .tier.compact .badge { padding: 20px 6px; }
+  .tier.compact .lstage { height: 108px; }
+  .tier.compact .seal-index, .tier.compact .seal-caption, .tier.compact .tier-share { display: none; }
+  .card .ph { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: radial-gradient(ellipse at 25% 12%, color-mix(in srgb, var(--t) 23%, transparent), transparent 64%), linear-gradient(155deg, #251e35, #100d1c); }
+  .ph-seal { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--t) 35%, transparent); color: color-mix(in srgb, var(--t2) 70%, #fff); font: 400 36px/1 var(--serif); box-shadow: 0 0 0 7px color-mix(in srgb, var(--t) 4%, transparent), inset 0 0 20px var(--tg); text-shadow: 0 0 16px var(--tg); }
+  .ph-caption { font: 600 7px var(--sans); text-transform: uppercase; letter-spacing: .14em; color: var(--ink-faint); }
+
+  /* A personal visit marker, independent of published list data. */
+  .visit-journal { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 18px; align-items: center; margin: 0 0 28px; padding: 18px 22px; border: 1px solid rgba(255,255,255,.13); border-radius: 18px; background: radial-gradient(ellipse at 0 0, rgba(255,194,77,.09), transparent 65%), rgba(15,12,26,.65); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); backdrop-filter: blur(16px); }
+  .visit-kicker { display: flex; align-items: center; gap: 8px; font-size: 9px; text-transform: uppercase; letter-spacing: .2em; color: #e2c591; }
+  .visit-kicker::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: #ffd76a; box-shadow: 0 0 10px rgba(255,215,106,.5); }
+  .visit-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; margin-top: 7px; }
+  .visit-title h2 { font: 400 21px/1.3 var(--serif); color: var(--ink); }
+  .visit-title time { font-size: 13px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .visit-note { font-size: 10px; line-height: 1.6; color: var(--ink-faint); margin-top: 7px; }
+  .visit-controls { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 7px; }
+  .visit-controls label { width: 100%; font-size: 10px; color: var(--ink-soft); text-align: right; }
+  .visit-controls input { color-scheme: dark; min-width: 0; width: 146px; height: 36px; padding: 7px 9px; border-radius: 9px; border: 1px solid rgba(255,255,255,.17); background: rgba(255,255,255,.045); color: #fff1ce; font: 600 12px var(--sans); }
+  .visit-btn { height: 36px; padding: 0 11px; border: 1px solid rgba(255,255,255,.13); border-radius: 9px; background: rgba(255,255,255,.045); color: var(--ink-soft); font: 600 11px var(--sans); cursor: pointer; }
+  .visit-btn:hover { border-color: #c7a568; color: #fff1ce; }
+  .visit-btn[aria-pressed="true"] { background: rgba(255,215,106,.12); border-color: rgba(255,215,106,.45); color: #ffdfa0; }
+  .visit-btn:focus-visible, .fx-sw:focus-visible, .fx-seg button:focus-visible { outline: 2px solid #ffd76a; outline-offset: 3px; }
+  .visit-status { width: 100%; min-height: 16px; font-size: 9px; color: var(--ink-faint); text-align: right; }
+  body.exporting .visit-controls { display: none; }
+  body.exporting .visit-journal { grid-template-columns: 1fr; }
+  @media (max-width: 720px) {
+    .badge { padding: 26px 5px; }
+    .badge-body { gap: 10px; }
+    .badge .lstage { --seal-size: 70px; height: 108px; }
+    .badge .ll { font-size: var(--letter-mobile-size, 46px); }
+    .seal-index { font-size: 7px; letter-spacing: .08em; }
+    .seal-caption { font-size: 7px; padding: 0 2px; }
+    .badge .cnt { font-size: 8px; letter-spacing: .08em; }
+    .card .ph { padding-bottom: 26px; }
+    .ph-seal { width: 42px; height: 42px; font-size: 28px; }
+    .ph-caption { display: none; }
+    .tier-share > span { font-size: 7px; }
+    .visit-journal { padding: 16px; grid-template-columns: 1fr; gap: 14px; }
+    .visit-controls { justify-content: flex-start; }
+    .visit-controls label, .visit-status { text-align: left; }
   }
+  /* One motion policy shared by CSS, canvas and interactions. */
+  body.motion-calm *, body.motion-calm *::before, body.motion-calm *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  body.motion-calm .tier { opacity: 1 !important; transform: none !important; }
+  body.motion-calm .hl { translate: none !important; }
+  body.motion-calm .card:hover, body.motion-calm .chip:hover, body.motion-calm .btn:hover { transform: none !important; }
+  body.motion-calm .cube { animation: none !important; transform: rotateX(-22deg) rotateY(28deg); }
+  body.motion-calm.emblems-orbits .l3d-in { animation: none !important; transform: rotateY(-12deg) rotateX(5deg); }
+  body.motion-calm .bg *, body.tab-hidden .bg *, body.tab-hidden .cube { animation-play-state: paused !important; }
+
+
+  /* Original anime environment: three depth planes, vector detail at any DPI. */
+  .anime-city { position: absolute; inset: -14px; display: none; }
+  .bg-city .anime-city { display: block; }
+  .anime-city svg { width: 100%; height: 100%; }
+  .ky-distance { transform: translate(calc(var(--mx, 0) * -3px), calc(var(--my, 0) * -2px)); }
+  .ky-near { transform: translate(calc(var(--mx, 0) * -7px), calc(var(--my, 0) * -4px)); }
+  .ky-foreground, .ky-sakura { transform: translate(calc(var(--mx, 0) * -12px), calc(var(--my, 0) * -6px)); }
+  .ky-clouds { animation: kyCloud 65s ease-in-out infinite alternate; }
+  .ky-clouds-back { animation-duration: 95s; animation-direction: alternate-reverse; }
+  .ky-stars { animation: kyStars 8s ease-in-out infinite alternate; }
+  .ky-windows { animation: kyWindows 19s ease-in-out infinite alternate; }
+  .ky-lanterns { animation: kyLantern 7s ease-in-out infinite alternate; }
+  .ky-train { animation: kyTrain 34s linear infinite; }
+  @keyframes kyCloud { from { transform: translateX(-35px); } to { transform: translateX(60px); } }
+  @keyframes kyStars { from { opacity: .4; } to { opacity: .9; } }
+  @keyframes kyWindows { 0%,70% { opacity: .7; } 100% { opacity: 1; } }
+  @keyframes kyLantern { from { opacity: .65; } to { opacity: 1; } }
+  @keyframes kyTrain { from { transform: translate(-320px, 852px); } to { transform: translate(1640px, 852px); } }
+  body.motion-calm .ky-train { animation: none !important; transform: translate(480px, 852px); }
+  .bg-city .scene-jp, .bg-city .scene3d, .bg-city .aurora, .bg-city .aurora-2, .bg-city .grid-layer, .bg-city .shard, .bg-city .cine-shafts, .bg-city .cine-grid, .bg-city .cine-fog, .bg-city .cine-halo { display: none; }
+  .bg-city .bg-tint { background: linear-gradient(180deg, rgba(6,10,24,.08), rgba(6,10,24,.12) 55%, rgba(6,10,24,.25)); }
+  .bg-city .center-calm { background: radial-gradient(ellipse at 50% 55%, rgba(8,10,25,.32), transparent 70%); }
+  .bg-city .vignette { background: radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(3,6,18,.4)); }
+  .bg-city .grain { opacity: .018; }
+  .bg-city .panel { background-color: rgba(12,15,31,.5); }
+  .motion-status { color: var(--ink-faint); font: 10px/1.6 var(--sans); margin-top: 9px; }
+  .visit-journal { grid-template-columns: minmax(0, 1fr) auto; gap: 12px; padding: 10px 14px; margin-bottom: 20px; border-radius: 13px; }
+  .visit-kicker { font-size: 7px; letter-spacing: .15em; }
+  .visit-title { margin-top: 3px; gap: 9px; }
+  .visit-title h2 { font: 500 13px/1.2 var(--sans); }
+  .visit-title time { font-size: 11px; }
+  .visit-note { margin-top: 3px; font-size: 9px; }
+  .visit-controls label, .visit-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .visit-controls input { height: 31px; width: 132px; font-size: 11px; }
+  .visit-btn { height: 31px; font-size: 10px; padding-inline: 9px; }
+  .visit-journal:focus-within .visit-status { position: static; width: 100%; height: auto; clip-path: none; white-space: normal; margin: 0; font-size: 9px; }
+  .history-modal { max-width: 720px; width: calc(100vw - 28px); }
+  .history-modal .modal-head { padding-bottom: 15px; }
+  .history-tools { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 28px 16px; }
+  .history-tools input, .history-tools select { color-scheme: dark; min-width: 0; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04); padding: 9px 11px; border-radius: 10px; color: var(--ink); font: 12px var(--sans); }
+  .history-tools input { flex: 1; }
+  .history-tabs { display: flex; gap: 6px; padding: 0 28px 12px; }
+  .history-tabs .on { color: #ffe7b1; border-color: #b5a07a; }
+  .history-list { padding: 0 28px 18px; max-height: 50vh; overflow: auto; overscroll-behavior: contain; }
+  .history-month { position: sticky; top: 0; padding: 9px 2px; background: #171421; color: #c5b8d7; font: 600 10px var(--sans); letter-spacing: .05em; z-index: 1; }
+  .history-entry { display: grid; grid-template-columns: 85px minmax(0,1fr) 30px; gap: 12px; align-items: center; width: 100%; padding: 12px 8px; border: 0; border-bottom: 1px solid rgba(255,255,255,.07); text-align: left; background: transparent; color: var(--ink); cursor: pointer; border-radius: 8px; }
+  .history-entry:hover, .history-entry:focus-visible { background: rgba(191,168,230,.08); outline: 1px solid rgba(191,168,230,.25); }
+  .history-entry time { font: 500 11px var(--sans); color: #d8c5a1; font-variant-numeric: tabular-nums; }
+  .history-entry b { display: block; font: 600 12px/1.4 var(--sans); overflow-wrap: anywhere; }
+  .history-entry small { display: block; color: var(--ink-faint); font: 10px/1.4 var(--sans); margin-top: 3px; }
+  .history-tier { color: var(--t2); background: var(--tg); border: 1px solid var(--t); border-radius: 7px; padding: 5px 2px; text-align: center; font: 600 10px var(--sans); overflow: hidden; }
+  .history-empty { padding: 30px 8px; color: var(--ink-soft); font: 12px/1.7 var(--sans); }
+  .card.history-highlight, .chip.history-highlight { animation: historyFocus 1.8s ease-out; }
+  @keyframes historyFocus { 0%,35% { box-shadow: 0 0 0 3px var(--t), 0 0 35px var(--tg); } 100% { box-shadow: none; } }
+  .wrow .wtoday { border: 1px solid rgba(255,255,255,.15); border-radius: 7px; background: transparent; color: #d3bd93; font-size: 9px; padding: 0 6px; cursor: pointer; }
+  @media (max-width: 720px) { .visit-journal { padding: 10px 12px; gap: 8px; grid-template-columns: 1fr; } .visit-controls { gap: 6px; } .history-tools, .history-tabs, .history-list { padding-inline: 16px; } .history-entry { gap: 8px; grid-template-columns: 76px minmax(0,1fr) 26px; } }
+
 </style>
 </head>
 <body>
 
 <div class="bg" aria-hidden="true">
   <div class="bg-base"></div>
+  <div class="anime-city" aria-hidden="true">
+  <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+  <linearGradient id="kySky" x2="0" y2="1"><stop stop-color="#080e24"/><stop offset=".42" stop-color="#253858"/><stop offset=".69" stop-color="#74607f"/><stop offset=".85" stop-color="#ca8e94"/><stop offset="1" stop-color="#b78676"/></linearGradient>
+  <radialGradient id="kyHalo"><stop stop-color="#fbdbb2" stop-opacity=".25"/><stop offset=".28" stop-color="#efc7d2" stop-opacity=".08"/><stop offset="1" stop-color="#b5bddd" stop-opacity="0"/></radialGradient>
+  <linearGradient id="kyMist" x2="0" y2="1"><stop stop-color="#ddb6c5" stop-opacity="0"/><stop offset=".5" stop-color="#ddb6c5" stop-opacity=".18"/><stop offset="1" stop-color="#ddb6c5" stop-opacity="0"/></linearGradient>
+  <linearGradient id="kyMoon" x2="1" y2="1"><stop stop-color="#fff7d4"/><stop offset="1" stop-color="#b5c6df"/></linearGradient>
+  <linearGradient id="kyRoof" x2="0" y2="1"><stop stop-color="#29374c"/><stop offset="1" stop-color="#0c1527"/></linearGradient>
+  <pattern id="kyTiles" width="13" height="10" patternUnits="userSpaceOnUse"><path d="M0 0H13M2 0V10" stroke="#8594ab" stroke-opacity=".14" fill="none"/></pattern>
+  <g id="kyFlower"><path d="M0 0C-15-8-13-21 0-15C10-26 22-11 7-4C26-3 18 16 5 7C10 27-11 25-5 8C-25 14-25-6-8-3Z" fill="#d2a3be"/><circle r="2" fill="#f7dbb3"/><path d="M0 0L-5-8M0 0L8-5M0 0L5 8" stroke="#f8d3e5" stroke-width=".7"/></g>
+  <g id="kyLantern"><path d="M-9-18Q-18 0-9 18H9Q18 0 9-18Z" fill="#cb7081"/><path d="M-9-13H9M-12-6H12M-12 5H12M-9 13H9M0-17V17" stroke="#f2c0a3" stroke-opacity=".45"/><path d="M-9-19H9M-9 19H9M0 20V30" stroke="#202237" stroke-width="3"/></g>
+</defs>
+    <rect width="1600" height="1000" fill="url(#kySky)"/>
+    <g class="ky-stars" fill="#c3d9ea"><circle cx="1461" cy="341" r="0.6" opacity="0.76"/><circle cx="1427" cy="461" r="1.2" opacity="0.71"/><circle cx="1119" cy="48" r="1.2" opacity="0.79"/><circle cx="961" cy="300" r="0.6" opacity="0.79"/><circle cx="1000" cy="337" r="0.9" opacity="0.76"/><circle cx="931" cy="257" r="0.6" opacity="0.78"/><circle cx="166" cy="76" r="0.9" opacity="0.29"/><circle cx="656" cy="214" r="1.2" opacity="0.64"/><circle cx="1268" cy="318" r="0.9" opacity="0.60"/><circle cx="1238" cy="47" r="1.2" opacity="0.59"/><circle cx="1099" cy="243" r="0.6" opacity="0.25"/><circle cx="1408" cy="291" r="0.9" opacity="0.29"/><circle cx="1252" cy="145" r="0.6" opacity="0.43"/><circle cx="1145" cy="111" r="0.6" opacity="0.65"/><circle cx="511" cy="406" r="1.2" opacity="0.42"/><circle cx="530" cy="291" r="1.2" opacity="0.75"/><circle cx="1344" cy="51" r="0.9" opacity="0.40"/><circle cx="481" cy="276" r="0.6" opacity="0.37"/><circle cx="1330" cy="354" r="0.6" opacity="0.49"/><circle cx="279" cy="315" r="1.2" opacity="0.25"/><circle cx="1393" cy="152" r="0.6" opacity="0.49"/><circle cx="331" cy="204" r="0.9" opacity="0.27"/><circle cx="370" cy="62" r="1.2" opacity="0.34"/><circle cx="1100" cy="366" r="0.6" opacity="0.70"/><circle cx="655" cy="272" r="0.6" opacity="0.57"/><circle cx="1178" cy="180" r="0.6" opacity="0.37"/><circle cx="1487" cy="114" r="0.9" opacity="0.57"/><circle cx="1172" cy="380" r="0.6" opacity="0.45"/><circle cx="204" cy="318" r="0.6" opacity="0.37"/><circle cx="416" cy="235" r="0.9" opacity="0.42"/><circle cx="463" cy="76" r="0.9" opacity="0.28"/><circle cx="545" cy="390" r="0.9" opacity="0.74"/><circle cx="1501" cy="284" r="0.9" opacity="0.67"/><circle cx="637" cy="336" r="0.6" opacity="0.72"/><circle cx="1178" cy="374" r="0.6" opacity="0.65"/><circle cx="678" cy="357" r="0.6" opacity="0.77"/><circle cx="1252" cy="293" r="0.6" opacity="0.39"/><circle cx="975" cy="142" r="0.9" opacity="0.80"/><circle cx="1331" cy="212" r="0.6" opacity="0.73"/><circle cx="805" cy="88" r="0.9" opacity="0.52"/><circle cx="205" cy="258" r="1.2" opacity="0.59"/><circle cx="405" cy="364" r="1.2" opacity="0.64"/><circle cx="645" cy="363" r="0.9" opacity="0.27"/><circle cx="358" cy="52" r="1.2" opacity="0.65"/><circle cx="998" cy="334" r="1.2" opacity="0.30"/><circle cx="422" cy="104" r="1.2" opacity="0.45"/><circle cx="469" cy="114" r="0.6" opacity="0.38"/><circle cx="718" cy="458" r="0.6" opacity="0.34"/><circle cx="1340" cy="441" r="0.6" opacity="0.40"/><circle cx="513" cy="80" r="0.6" opacity="0.78"/><circle cx="801" cy="311" r="0.6" opacity="0.77"/><circle cx="385" cy="199" r="1.2" opacity="0.51"/><circle cx="1171" cy="68" r="1.2" opacity="0.55"/><circle cx="670" cy="146" r="0.9" opacity="0.39"/><circle cx="1445" cy="320" r="0.6" opacity="0.48"/><circle cx="1082" cy="440" r="0.9" opacity="0.77"/><circle cx="1143" cy="327" r="0.6" opacity="0.50"/><circle cx="1162" cy="433" r="1.2" opacity="0.36"/><circle cx="195" cy="108" r="0.6" opacity="0.52"/><circle cx="986" cy="219" r="0.6" opacity="0.68"/><circle cx="296" cy="431" r="0.6" opacity="0.57"/><circle cx="1476" cy="34" r="0.9" opacity="0.63"/><circle cx="752" cy="111" r="1.2" opacity="0.33"/><circle cx="341" cy="362" r="1.2" opacity="0.51"/><circle cx="142" cy="70" r="0.6" opacity="0.54"/><circle cx="350" cy="53" r="1.2" opacity="0.60"/><circle cx="1270" cy="159" r="1.2" opacity="0.76"/><circle cx="1188" cy="442" r="0.6" opacity="0.38"/><circle cx="647" cy="213" r="1.2" opacity="0.47"/><circle cx="1282" cy="281" r="1.2" opacity="0.47"/><circle cx="1110" cy="330" r="1.2" opacity="0.28"/><circle cx="1322" cy="287" r="0.6" opacity="0.43"/><circle cx="799" cy="364" r="1.2" opacity="0.55"/><circle cx="1151" cy="247" r="0.6" opacity="0.34"/><circle cx="951" cy="359" r="0.9" opacity="0.45"/><circle cx="360" cy="265" r="0.6" opacity="0.63"/><circle cx="956" cy="365" r="0.9" opacity="0.63"/><circle cx="354" cy="179" r="0.6" opacity="0.46"/><circle cx="191" cy="146" r="0.6" opacity="0.30"/><circle cx="696" cy="454" r="1.2" opacity="0.28"/><circle cx="1254" cy="170" r="0.6" opacity="0.71"/><circle cx="148" cy="338" r="0.9" opacity="0.71"/><circle cx="590" cy="222" r="0.9" opacity="0.28"/><circle cx="1195" cy="365" r="0.6" opacity="0.65"/><circle cx="1371" cy="72" r="0.9" opacity="0.34"/><circle cx="710" cy="267" r="0.6" opacity="0.44"/><circle cx="785" cy="348" r="1.2" opacity="0.54"/><circle cx="1407" cy="469" r="0.9" opacity="0.67"/><circle cx="473" cy="433" r="1.2" opacity="0.71"/><circle cx="927" cy="420" r="0.9" opacity="0.66"/><circle cx="1127" cy="373" r="0.9" opacity="0.29"/><circle cx="354" cy="426" r="0.9" opacity="0.55"/><circle cx="1058" cy="440" r="1.2" opacity="0.54"/><circle cx="409" cy="330" r="1.2" opacity="0.25"/><circle cx="1102" cy="401" r="0.6" opacity="0.69"/></g>
+    <circle cx="1230" cy="225" r="260" fill="url(#kyHalo)"/>
+    <g class="ky-moon"><circle cx="1230" cy="225" r="45" fill="url(#kyMoon)"/><g fill="#a2b1c4" opacity=".16"><ellipse cx="1248" cy="211" rx="12" ry="18"/><circle cx="1214" cy="241" r="8"/><circle cx="1235" cy="254" r="5"/></g><circle cx="1230" cy="225" r="48" fill="none" stroke="#e8dac7" stroke-opacity=".13"/></g>
+    <g class="ky-clouds" fill="#c4b6d0" opacity=".13"><path d="M-110 300Q35 255 165 295T405 286Q545 260 720 297Q510 317 324 318T-110 325Z"/><path d="M960 175Q1110 148 1235 173T1740 180L1740 197Q1500 203 1360 193T960 193Z"/></g>
+    <g class="ky-clouds ky-clouds-back" fill="#ebc9d0" opacity=".09"><path d="M330 480Q560 427 785 462T1300 472L1300 487Q1020 499 795 486T330 497Z"/><path d="M-140 190Q30 164 270 189L490 201Q255 212 50 207T-140 211Z"/></g>
+    <g class="ky-distance"><path d="M0 693L125 605 230 650 407 535 595 674 790 596 950 691 1110 610 1280 661 1430 563 1600 670V1000H0Z" fill="#484662"/><path d="M286 624L407 535 507 610 442 590 416 595 396 575 369 599 345 600Z" fill="#abb0c4" opacity=".3"/><path d="M0 750Q180 642 380 699T745 716Q980 655 1180 720T1600 698V1000H0Z" fill="#3e405a"/><path d="M-20,782V728H4V782Z" fill="#4c4b68"/><path d="M-22,728H6" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-17s"><rect x="-13" y="757" width="4" height="7" fill="#d6b192" opacity="0.30"/></g><path d="M12,782V719H64V782Z" fill="#4c4b68"/><path d="M10,719H66" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M38,719v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-8s"><rect x="19" y="731" width="4" height="7" fill="#efb882" opacity="0.36"/><rect x="43" y="731" width="4" height="7" fill="#d6b192" opacity="0.49"/><rect x="19" y="748" width="4" height="7" fill="#d6b192" opacity="0.78"/><rect x="31" y="748" width="4" height="7" fill="#d6b192" opacity="0.45"/><rect x="43" y="748" width="4" height="7" fill="#efb882" opacity="0.36"/><rect x="55" y="748" width="4" height="7" fill="#d6b192" opacity="0.44"/><rect x="31" y="765" width="4" height="7" fill="#94afc4" opacity="0.38"/><rect x="43" y="765" width="4" height="7" fill="#efb882" opacity="0.38"/></g><path d="M67,782V703H95V782Z" fill="#575370"/><path d="M65,703H97" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-8s"><rect x="74" y="715" width="4" height="7" fill="#efb882" opacity="0.48"/><rect x="74" y="732" width="4" height="7" fill="#94afc4" opacity="0.43"/><rect x="86" y="732" width="4" height="7" fill="#efb882" opacity="0.47"/><rect x="86" y="749" width="4" height="7" fill="#94afc4" opacity="0.54"/><rect x="86" y="766" width="4" height="7" fill="#94afc4" opacity="0.38"/></g><path d="M105,782V717H157V782Z" fill="#575370"/><path d="M103,717H159" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-14s"><rect x="112" y="729" width="4" height="7" fill="#d6b192" opacity="0.80"/><rect x="124" y="729" width="4" height="7" fill="#efb882" opacity="0.31"/><rect x="112" y="746" width="4" height="7" fill="#94afc4" opacity="0.61"/><rect x="136" y="746" width="4" height="7" fill="#94afc4" opacity="0.33"/><rect x="148" y="746" width="4" height="7" fill="#efb882" opacity="0.74"/><rect x="112" y="763" width="4" height="7" fill="#efb882" opacity="0.56"/><rect x="124" y="763" width="4" height="7" fill="#94afc4" opacity="0.34"/></g><path d="M164,782V721H200V782Z" fill="#575370"/><path d="M162,721H202" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M182,721v-17m-9 6h18" stroke="#575370" stroke-width="2"/><g class="ky-windows" style="animation-delay:-18s"><rect x="171" y="733" width="4" height="7" fill="#94afc4" opacity="0.70"/><rect x="183" y="733" width="4" height="7" fill="#efb882" opacity="0.53"/><rect x="195" y="733" width="4" height="7" fill="#d6b192" opacity="0.69"/><rect x="195" y="750" width="4" height="7" fill="#d6b192" opacity="0.77"/><rect x="183" y="767" width="4" height="7" fill="#d6b192" opacity="0.42"/></g><path d="M208,782V703H245V782Z" fill="#45485f"/><path d="M206,703H247" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-3s"><rect x="215" y="715" width="4" height="7" fill="#94afc4" opacity="0.79"/><rect x="239" y="715" width="4" height="7" fill="#efb882" opacity="0.78"/><rect x="215" y="732" width="4" height="7" fill="#94afc4" opacity="0.40"/><rect x="239" y="732" width="4" height="7" fill="#efb882" opacity="0.41"/><rect x="215" y="749" width="4" height="7" fill="#94afc4" opacity="0.46"/><rect x="227" y="749" width="4" height="7" fill="#94afc4" opacity="0.65"/><rect x="239" y="749" width="4" height="7" fill="#94afc4" opacity="0.46"/><rect x="239" y="766" width="4" height="7" fill="#94afc4" opacity="0.73"/></g><path d="M252,782V710H285V782Z" fill="#4c4b68"/><path d="M250,710H287" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-1s"><rect x="259" y="722" width="4" height="7" fill="#94afc4" opacity="0.39"/><rect x="271" y="773" width="4" height="7" fill="#d6b192" opacity="0.65"/></g><path d="M293,782V746H348V782Z" fill="#575370"/><path d="M291,746H350" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-2s"><rect x="300" y="758" width="4" height="7" fill="#efb882" opacity="0.49"/><rect x="312" y="758" width="4" height="7" fill="#94afc4" opacity="0.79"/><rect x="324" y="758" width="4" height="7" fill="#94afc4" opacity="0.74"/><rect x="336" y="758" width="4" height="7" fill="#efb882" opacity="0.48"/></g><path d="M354,782V717H402V782Z" fill="#45485f"/><path d="M352,717H404" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M378,717v-17m-9 6h18" stroke="#45485f" stroke-width="2"/><g class="ky-windows" style="animation-delay:-8s"><rect x="361" y="729" width="4" height="7" fill="#94afc4" opacity="0.49"/><rect x="373" y="729" width="4" height="7" fill="#efb882" opacity="0.60"/><rect x="385" y="729" width="4" height="7" fill="#94afc4" opacity="0.47"/><rect x="397" y="729" width="4" height="7" fill="#efb882" opacity="0.52"/><rect x="373" y="746" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="385" y="746" width="4" height="7" fill="#efb882" opacity="0.48"/><rect x="397" y="746" width="4" height="7" fill="#efb882" opacity="0.78"/><rect x="385" y="763" width="4" height="7" fill="#94afc4" opacity="0.46"/><rect x="397" y="763" width="4" height="7" fill="#efb882" opacity="0.75"/></g><path d="M406,782V742H443V782Z" fill="#575370"/><path d="M404,742H445" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-9s"><rect x="425" y="754" width="4" height="7" fill="#94afc4" opacity="0.40"/><rect x="413" y="771" width="4" height="7" fill="#efb882" opacity="0.51"/><rect x="425" y="771" width="4" height="7" fill="#d6b192" opacity="0.52"/></g><path d="M447,782V729H490V782Z" fill="#45485f"/><path d="M445,729H492" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-16s"><rect x="466" y="741" width="4" height="7" fill="#efb882" opacity="0.61"/><rect x="478" y="741" width="4" height="7" fill="#94afc4" opacity="0.34"/><rect x="466" y="758" width="4" height="7" fill="#d6b192" opacity="0.51"/><rect x="478" y="758" width="4" height="7" fill="#94afc4" opacity="0.36"/></g><path d="M494,782V699H531V782Z" fill="#4c4b68"/><path d="M492,699H533" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M512,699v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-10s"><rect x="501" y="728" width="4" height="7" fill="#efb882" opacity="0.51"/><rect x="513" y="728" width="4" height="7" fill="#efb882" opacity="0.75"/><rect x="501" y="762" width="4" height="7" fill="#94afc4" opacity="0.53"/><rect x="525" y="762" width="4" height="7" fill="#efb882" opacity="0.77"/></g><path d="M536,782V709H569V782Z" fill="#45485f"/><path d="M534,709H571" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-3s"><rect x="543" y="721" width="4" height="7" fill="#94afc4" opacity="0.47"/><rect x="555" y="721" width="4" height="7" fill="#d6b192" opacity="0.72"/><rect x="555" y="738" width="4" height="7" fill="#efb882" opacity="0.35"/><rect x="555" y="772" width="4" height="7" fill="#efb882" opacity="0.67"/></g><path d="M577,782V751H601V782Z" fill="#4c4b68"/><path d="M575,751H603" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-15s"><rect x="584" y="763" width="4" height="7" fill="#efb882" opacity="0.59"/><rect x="596" y="763" width="4" height="7" fill="#efb882" opacity="0.33"/></g><path d="M607,782V698H648V782Z" fill="#575370"/><path d="M605,698H650" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-16s"><rect x="614" y="710" width="4" height="7" fill="#d6b192" opacity="0.47"/><rect x="626" y="710" width="4" height="7" fill="#d6b192" opacity="0.76"/><rect x="638" y="710" width="4" height="7" fill="#94afc4" opacity="0.65"/><rect x="626" y="727" width="4" height="7" fill="#94afc4" opacity="0.43"/><rect x="626" y="744" width="4" height="7" fill="#94afc4" opacity="0.63"/><rect x="638" y="744" width="4" height="7" fill="#94afc4" opacity="0.79"/><rect x="614" y="761" width="4" height="7" fill="#94afc4" opacity="0.63"/><rect x="638" y="761" width="4" height="7" fill="#efb882" opacity="0.50"/></g><path d="M651,782V757H688V782Z" fill="#45485f"/><path d="M649,757H690" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M669,757v-17m-9 6h18" stroke="#45485f" stroke-width="2"/><g class="ky-windows" style="animation-delay:-1s"><rect x="682" y="769" width="4" height="7" fill="#94afc4" opacity="0.51"/></g><path d="M695,782V704H725V782Z" fill="#4c4b68"/><path d="M693,704H727" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M710,704v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-15s"><rect x="702" y="716" width="4" height="7" fill="#d6b192" opacity="0.51"/><rect x="714" y="716" width="4" height="7" fill="#94afc4" opacity="0.55"/><rect x="702" y="733" width="4" height="7" fill="#94afc4" opacity="0.58"/><rect x="714" y="733" width="4" height="7" fill="#d6b192" opacity="0.46"/><rect x="702" y="750" width="4" height="7" fill="#94afc4" opacity="0.68"/><rect x="702" y="767" width="4" height="7" fill="#94afc4" opacity="0.55"/></g><path d="M730,782V750H781V782Z" fill="#45485f"/><path d="M728,750H783" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M755,750v-17m-9 6h18" stroke="#45485f" stroke-width="2"/><g class="ky-windows" style="animation-delay:-17s"><rect x="749" y="762" width="4" height="7" fill="#d6b192" opacity="0.45"/><rect x="761" y="762" width="4" height="7" fill="#efb882" opacity="0.62"/><rect x="773" y="762" width="4" height="7" fill="#94afc4" opacity="0.49"/></g><path d="M791,782V744H843V782Z" fill="#4c4b68"/><path d="M789,744H845" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M817,744v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-9s"><rect x="810" y="773" width="4" height="7" fill="#efb882" opacity="0.60"/></g><path d="M850,782V702H903V782Z" fill="#4c4b68"/><path d="M848,702H905" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-8s"><rect x="857" y="714" width="4" height="7" fill="#94afc4" opacity="0.44"/><rect x="881" y="714" width="4" height="7" fill="#94afc4" opacity="0.69"/><rect x="881" y="731" width="4" height="7" fill="#94afc4" opacity="0.49"/><rect x="869" y="765" width="4" height="7" fill="#d6b192" opacity="0.46"/><rect x="893" y="765" width="4" height="7" fill="#efb882" opacity="0.64"/></g><path d="M908,782V710H942V782Z" fill="#575370"/><path d="M906,710H944" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-18s"><rect x="915" y="722" width="4" height="7" fill="#94afc4" opacity="0.40"/><rect x="927" y="739" width="4" height="7" fill="#d6b192" opacity="0.40"/><rect x="915" y="756" width="4" height="7" fill="#d6b192" opacity="0.32"/></g><path d="M945,782V733H973V782Z" fill="#45485f"/><path d="M943,733H975" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M959,733v-17m-9 6h18" stroke="#45485f" stroke-width="2"/><g class="ky-windows" style="animation-delay:-1s"><rect x="952" y="745" width="4" height="7" fill="#d6b192" opacity="0.38"/><rect x="952" y="762" width="4" height="7" fill="#d6b192" opacity="0.63"/><rect x="964" y="762" width="4" height="7" fill="#d6b192" opacity="0.67"/></g><path d="M978,782V741H1024V782Z" fill="#45485f"/><path d="M976,741H1026" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1001,741v-17m-9 6h18" stroke="#45485f" stroke-width="2"/><g class="ky-windows" style="animation-delay:-1s"><rect x="985" y="753" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="997" y="770" width="4" height="7" fill="#efb882" opacity="0.67"/><rect x="1009" y="770" width="4" height="7" fill="#d6b192" opacity="0.50"/></g><path d="M1033,782V693H1068V782Z" fill="#575370"/><path d="M1031,693H1070" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-3s"><rect x="1040" y="705" width="4" height="7" fill="#94afc4" opacity="0.55"/><rect x="1040" y="722" width="4" height="7" fill="#efb882" opacity="0.77"/><rect x="1040" y="756" width="4" height="7" fill="#d6b192" opacity="0.74"/><rect x="1052" y="756" width="4" height="7" fill="#d6b192" opacity="0.66"/></g><path d="M1073,782V690H1122V782Z" fill="#575370"/><path d="M1071,690H1124" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1097,690v-17m-9 6h18" stroke="#575370" stroke-width="2"/><g class="ky-windows" style="animation-delay:-15s"><rect x="1080" y="702" width="4" height="7" fill="#efb882" opacity="0.49"/><rect x="1116" y="719" width="4" height="7" fill="#94afc4" opacity="0.38"/><rect x="1092" y="736" width="4" height="7" fill="#d6b192" opacity="0.74"/><rect x="1116" y="736" width="4" height="7" fill="#94afc4" opacity="0.52"/><rect x="1080" y="753" width="4" height="7" fill="#efb882" opacity="0.54"/><rect x="1092" y="753" width="4" height="7" fill="#d6b192" opacity="0.38"/><rect x="1116" y="753" width="4" height="7" fill="#efb882" opacity="0.71"/><rect x="1092" y="770" width="4" height="7" fill="#94afc4" opacity="0.41"/><rect x="1104" y="770" width="4" height="7" fill="#d6b192" opacity="0.57"/><rect x="1116" y="770" width="4" height="7" fill="#d6b192" opacity="0.73"/></g><path d="M1131,782V708H1179V782Z" fill="#575370"/><path d="M1129,708H1181" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-13s"><rect x="1138" y="720" width="4" height="7" fill="#efb882" opacity="0.44"/><rect x="1150" y="720" width="4" height="7" fill="#94afc4" opacity="0.44"/><rect x="1174" y="720" width="4" height="7" fill="#efb882" opacity="0.31"/><rect x="1174" y="737" width="4" height="7" fill="#efb882" opacity="0.58"/><rect x="1150" y="754" width="4" height="7" fill="#d6b192" opacity="0.49"/><rect x="1138" y="771" width="4" height="7" fill="#efb882" opacity="0.48"/><rect x="1150" y="771" width="4" height="7" fill="#94afc4" opacity="0.34"/><rect x="1174" y="771" width="4" height="7" fill="#94afc4" opacity="0.68"/></g><path d="M1187,782V699H1237V782Z" fill="#4c4b68"/><path d="M1185,699H1239" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1212,699v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-5s"><rect x="1206" y="711" width="4" height="7" fill="#94afc4" opacity="0.45"/><rect x="1230" y="711" width="4" height="7" fill="#efb882" opacity="0.78"/><rect x="1194" y="728" width="4" height="7" fill="#d6b192" opacity="0.37"/><rect x="1230" y="728" width="4" height="7" fill="#d6b192" opacity="0.62"/><rect x="1194" y="745" width="4" height="7" fill="#94afc4" opacity="0.56"/><rect x="1206" y="745" width="4" height="7" fill="#efb882" opacity="0.58"/><rect x="1218" y="745" width="4" height="7" fill="#efb882" opacity="0.78"/><rect x="1230" y="745" width="4" height="7" fill="#d6b192" opacity="0.39"/><rect x="1206" y="762" width="4" height="7" fill="#efb882" opacity="0.57"/><rect x="1218" y="762" width="4" height="7" fill="#d6b192" opacity="0.70"/><rect x="1230" y="762" width="4" height="7" fill="#94afc4" opacity="0.49"/></g><path d="M1242,782V704H1290V782Z" fill="#4c4b68"/><path d="M1240,704H1292" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1266,704v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-15s"><rect x="1261" y="733" width="4" height="7" fill="#94afc4" opacity="0.48"/><rect x="1273" y="733" width="4" height="7" fill="#efb882" opacity="0.56"/><rect x="1285" y="733" width="4" height="7" fill="#d6b192" opacity="0.74"/><rect x="1273" y="750" width="4" height="7" fill="#d6b192" opacity="0.53"/><rect x="1285" y="750" width="4" height="7" fill="#d6b192" opacity="0.40"/><rect x="1249" y="767" width="4" height="7" fill="#efb882" opacity="0.74"/><rect x="1273" y="767" width="4" height="7" fill="#d6b192" opacity="0.65"/><rect x="1285" y="767" width="4" height="7" fill="#efb882" opacity="0.66"/></g><path d="M1299,782V713H1326V782Z" fill="#575370"/><path d="M1297,713H1328" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-5s"><rect x="1306" y="725" width="4" height="7" fill="#94afc4" opacity="0.38"/><rect x="1318" y="725" width="4" height="7" fill="#94afc4" opacity="0.69"/><rect x="1318" y="742" width="4" height="7" fill="#d6b192" opacity="0.38"/><rect x="1306" y="759" width="4" height="7" fill="#94afc4" opacity="0.54"/></g><path d="M1331,782V698H1383V782Z" fill="#45485f"/><path d="M1329,698H1385" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1357,698v-17m-9 6h18" stroke="#45485f" stroke-width="2"/><g class="ky-windows" style="animation-delay:-3s"><rect x="1338" y="710" width="4" height="7" fill="#94afc4" opacity="0.80"/><rect x="1374" y="710" width="4" height="7" fill="#94afc4" opacity="0.76"/><rect x="1350" y="727" width="4" height="7" fill="#d6b192" opacity="0.33"/><rect x="1362" y="727" width="4" height="7" fill="#94afc4" opacity="0.50"/><rect x="1374" y="727" width="4" height="7" fill="#efb882" opacity="0.60"/><rect x="1338" y="744" width="4" height="7" fill="#94afc4" opacity="0.36"/><rect x="1350" y="744" width="4" height="7" fill="#94afc4" opacity="0.60"/><rect x="1362" y="744" width="4" height="7" fill="#efb882" opacity="0.69"/><rect x="1374" y="744" width="4" height="7" fill="#d6b192" opacity="0.77"/><rect x="1338" y="761" width="4" height="7" fill="#d6b192" opacity="0.36"/><rect x="1350" y="761" width="4" height="7" fill="#94afc4" opacity="0.41"/><rect x="1374" y="761" width="4" height="7" fill="#efb882" opacity="0.62"/></g><path d="M1391,782V740H1442V782Z" fill="#575370"/><path d="M1389,740H1444" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-12s"><rect x="1398" y="752" width="4" height="7" fill="#94afc4" opacity="0.64"/><rect x="1410" y="752" width="4" height="7" fill="#d6b192" opacity="0.78"/><rect x="1422" y="752" width="4" height="7" fill="#efb882" opacity="0.76"/><rect x="1434" y="752" width="4" height="7" fill="#efb882" opacity="0.51"/><rect x="1410" y="769" width="4" height="7" fill="#94afc4" opacity="0.50"/><rect x="1422" y="769" width="4" height="7" fill="#d6b192" opacity="0.70"/><rect x="1434" y="769" width="4" height="7" fill="#efb882" opacity="0.45"/></g><path d="M1447,782V694H1481V782Z" fill="#4c4b68"/><path d="M1445,694H1483" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1464,694v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-7s"><rect x="1454" y="723" width="4" height="7" fill="#efb882" opacity="0.65"/><rect x="1466" y="740" width="4" height="7" fill="#d6b192" opacity="0.49"/><rect x="1454" y="757" width="4" height="7" fill="#94afc4" opacity="0.39"/><rect x="1466" y="757" width="4" height="7" fill="#94afc4" opacity="0.71"/></g><path d="M1484,782V711H1537V782Z" fill="#575370"/><path d="M1482,711H1539" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-6s"><rect x="1491" y="723" width="4" height="7" fill="#d6b192" opacity="0.65"/><rect x="1503" y="723" width="4" height="7" fill="#94afc4" opacity="0.48"/><rect x="1515" y="723" width="4" height="7" fill="#d6b192" opacity="0.43"/><rect x="1527" y="723" width="4" height="7" fill="#d6b192" opacity="0.44"/><rect x="1527" y="740" width="4" height="7" fill="#efb882" opacity="0.46"/><rect x="1491" y="757" width="4" height="7" fill="#d6b192" opacity="0.47"/><rect x="1527" y="757" width="4" height="7" fill="#efb882" opacity="0.50"/></g><path d="M1541,782V720H1596V782Z" fill="#4c4b68"/><path d="M1539,720H1598" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1568,720v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-18s"><rect x="1548" y="732" width="4" height="7" fill="#d6b192" opacity="0.57"/><rect x="1572" y="732" width="4" height="7" fill="#efb882" opacity="0.77"/><rect x="1548" y="749" width="4" height="7" fill="#efb882" opacity="0.72"/><rect x="1572" y="749" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="1548" y="766" width="4" height="7" fill="#efb882" opacity="0.52"/><rect x="1560" y="766" width="4" height="7" fill="#efb882" opacity="0.46"/></g><path d="M1603,782V749H1628V782Z" fill="#4c4b68"/><path d="M1601,749H1630" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-8s"><rect x="1610" y="761" width="4" height="7" fill="#d6b192" opacity="0.33"/><rect x="1622" y="761" width="4" height="7" fill="#d6b192" opacity="0.63"/></g><path d="M1633,782V730H1659V782Z" fill="#4c4b68"/><path d="M1631,730H1661" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1646,730v-17m-9 6h18" stroke="#4c4b68" stroke-width="2"/><g class="ky-windows" style="animation-delay:-11s"><rect x="1640" y="742" width="4" height="7" fill="#94afc4" opacity="0.77"/><rect x="1652" y="742" width="4" height="7" fill="#d6b192" opacity="0.64"/><rect x="1640" y="759" width="4" height="7" fill="#d6b192" opacity="0.51"/><rect x="1652" y="759" width="4" height="7" fill="#efb882" opacity="0.60"/></g><rect y="690" width="1600" height="160" fill="url(#kyMist)"/></g>
+    <g class="ky-near"><path d="M-30,880V742H19V880Z" fill="#2d3a54"/><path d="M-32,742H21" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-14s"><rect x="-11" y="754" width="4" height="7" fill="#d6b192" opacity="0.41"/><rect x="-23" y="771" width="4" height="7" fill="#d6b192" opacity="0.72"/><rect x="1" y="771" width="4" height="7" fill="#d6b192" opacity="0.73"/><rect x="-11" y="788" width="4" height="7" fill="#d6b192" opacity="0.49"/><rect x="-23" y="805" width="4" height="7" fill="#d6b192" opacity="0.37"/><rect x="-11" y="805" width="4" height="7" fill="#94afc4" opacity="0.44"/><rect x="13" y="805" width="4" height="7" fill="#94afc4" opacity="0.77"/><rect x="1" y="822" width="4" height="7" fill="#d6b192" opacity="0.32"/><rect x="13" y="822" width="4" height="7" fill="#efb882" opacity="0.41"/><rect x="-23" y="856" width="4" height="7" fill="#94afc4" opacity="0.79"/><rect x="13" y="856" width="4" height="7" fill="#efb882" opacity="0.52"/></g><path d="M23,880V777H108V880Z" fill="#1b2740"/><path d="M21,777H110" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M65,777v-17m-9 6h18" stroke="#1b2740" stroke-width="2"/><g class="ky-windows" style="animation-delay:-18s"><rect x="30" y="789" width="4" height="7" fill="#d6b192" opacity="0.45"/><rect x="42" y="789" width="4" height="7" fill="#efb882" opacity="0.66"/><rect x="54" y="789" width="4" height="7" fill="#d6b192" opacity="0.71"/><rect x="66" y="789" width="4" height="7" fill="#d6b192" opacity="0.56"/><rect x="42" y="806" width="4" height="7" fill="#d6b192" opacity="0.36"/><rect x="66" y="806" width="4" height="7" fill="#d6b192" opacity="0.32"/><rect x="78" y="806" width="4" height="7" fill="#d6b192" opacity="0.69"/><rect x="90" y="806" width="4" height="7" fill="#d6b192" opacity="0.36"/><rect x="102" y="806" width="4" height="7" fill="#d6b192" opacity="0.72"/><rect x="78" y="823" width="4" height="7" fill="#efb882" opacity="0.70"/><rect x="90" y="823" width="4" height="7" fill="#d6b192" opacity="0.47"/><rect x="42" y="840" width="4" height="7" fill="#d6b192" opacity="0.69"/><rect x="66" y="857" width="4" height="7" fill="#d6b192" opacity="0.71"/><rect x="90" y="857" width="4" height="7" fill="#efb882" opacity="0.36"/></g><path d="M116,880V805H169V880Z" fill="#1b2740"/><path d="M114,805H171" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M142,805v-17m-9 6h18" stroke="#1b2740" stroke-width="2"/><g class="ky-windows" style="animation-delay:-15s"><rect x="135" y="817" width="4" height="7" fill="#d6b192" opacity="0.55"/><rect x="147" y="817" width="4" height="7" fill="#efb882" opacity="0.56"/><rect x="159" y="817" width="4" height="7" fill="#d6b192" opacity="0.45"/><rect x="123" y="834" width="4" height="7" fill="#94afc4" opacity="0.69"/><rect x="135" y="834" width="4" height="7" fill="#efb882" opacity="0.54"/><rect x="147" y="834" width="4" height="7" fill="#d6b192" opacity="0.62"/><rect x="123" y="851" width="4" height="7" fill="#94afc4" opacity="0.51"/><rect x="135" y="851" width="4" height="7" fill="#efb882" opacity="0.79"/><rect x="147" y="851" width="4" height="7" fill="#94afc4" opacity="0.52"/><rect x="159" y="851" width="4" height="7" fill="#94afc4" opacity="0.73"/><rect x="147" y="868" width="4" height="7" fill="#94afc4" opacity="0.71"/></g><path d="M179,880V787H226V880Z" fill="#23314b"/><path d="M177,787H228" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M202,787v-17m-9 6h18" stroke="#23314b" stroke-width="2"/><g class="ky-windows" style="animation-delay:-8s"><rect x="186" y="799" width="4" height="7" fill="#d6b192" opacity="0.37"/><rect x="210" y="799" width="4" height="7" fill="#efb882" opacity="0.38"/><rect x="198" y="816" width="4" height="7" fill="#efb882" opacity="0.48"/><rect x="210" y="816" width="4" height="7" fill="#efb882" opacity="0.75"/><rect x="186" y="850" width="4" height="7" fill="#efb882" opacity="0.73"/><rect x="198" y="850" width="4" height="7" fill="#efb882" opacity="0.57"/><rect x="210" y="850" width="4" height="7" fill="#d6b192" opacity="0.79"/><rect x="186" y="867" width="4" height="7" fill="#efb882" opacity="0.35"/><rect x="198" y="867" width="4" height="7" fill="#efb882" opacity="0.45"/></g><path d="M230,880V782H276V880Z" fill="#2d3a54"/><path d="M228,782H278" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M253,782v-17m-9 6h18" stroke="#2d3a54" stroke-width="2"/><g class="ky-windows" style="animation-delay:-8s"><rect x="237" y="794" width="4" height="7" fill="#94afc4" opacity="0.71"/><rect x="237" y="811" width="4" height="7" fill="#efb882" opacity="0.49"/><rect x="249" y="811" width="4" height="7" fill="#efb882" opacity="0.48"/><rect x="237" y="828" width="4" height="7" fill="#d6b192" opacity="0.32"/><rect x="261" y="828" width="4" height="7" fill="#efb882" opacity="0.49"/><rect x="249" y="845" width="4" height="7" fill="#94afc4" opacity="0.54"/><rect x="261" y="845" width="4" height="7" fill="#94afc4" opacity="0.39"/><rect x="249" y="862" width="4" height="7" fill="#efb882" opacity="0.61"/></g><path d="M280,880V826H345V880Z" fill="#2d3a54"/><path d="M278,826H347" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-5s"><rect x="299" y="838" width="4" height="7" fill="#efb882" opacity="0.79"/><rect x="311" y="838" width="4" height="7" fill="#d6b192" opacity="0.52"/><rect x="335" y="838" width="4" height="7" fill="#d6b192" opacity="0.36"/><rect x="287" y="855" width="4" height="7" fill="#efb882" opacity="0.78"/><rect x="299" y="855" width="4" height="7" fill="#94afc4" opacity="0.59"/><rect x="311" y="855" width="4" height="7" fill="#d6b192" opacity="0.34"/><rect x="335" y="855" width="4" height="7" fill="#efb882" opacity="0.56"/></g><path d="M353,880V730H402V880Z" fill="#1b2740"/><path d="M351,730H404" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M377,730v-17m-9 6h18" stroke="#1b2740" stroke-width="2"/><g class="ky-windows" style="animation-delay:-13s"><rect x="360" y="742" width="4" height="7" fill="#d6b192" opacity="0.67"/><rect x="360" y="759" width="4" height="7" fill="#efb882" opacity="0.43"/><rect x="396" y="759" width="4" height="7" fill="#d6b192" opacity="0.56"/><rect x="360" y="776" width="4" height="7" fill="#efb882" opacity="0.69"/><rect x="372" y="776" width="4" height="7" fill="#efb882" opacity="0.57"/><rect x="396" y="776" width="4" height="7" fill="#d6b192" opacity="0.57"/><rect x="360" y="793" width="4" height="7" fill="#efb882" opacity="0.31"/><rect x="372" y="793" width="4" height="7" fill="#94afc4" opacity="0.63"/><rect x="384" y="793" width="4" height="7" fill="#efb882" opacity="0.51"/><rect x="396" y="793" width="4" height="7" fill="#d6b192" opacity="0.55"/><rect x="360" y="810" width="4" height="7" fill="#d6b192" opacity="0.40"/><rect x="384" y="810" width="4" height="7" fill="#94afc4" opacity="0.68"/><rect x="396" y="810" width="4" height="7" fill="#94afc4" opacity="0.33"/><rect x="360" y="827" width="4" height="7" fill="#94afc4" opacity="0.49"/><rect x="372" y="827" width="4" height="7" fill="#efb882" opacity="0.54"/><rect x="396" y="827" width="4" height="7" fill="#d6b192" opacity="0.61"/><rect x="384" y="844" width="4" height="7" fill="#efb882" opacity="0.79"/><rect x="396" y="844" width="4" height="7" fill="#d6b192" opacity="0.67"/><rect x="360" y="861" width="4" height="7" fill="#d6b192" opacity="0.49"/><rect x="384" y="861" width="4" height="7" fill="#94afc4" opacity="0.56"/></g><path d="M406,880V799H455V880Z" fill="#2d3a54"/><path d="M404,799H457" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-9s"><rect x="425" y="811" width="4" height="7" fill="#d6b192" opacity="0.53"/><rect x="437" y="811" width="4" height="7" fill="#efb882" opacity="0.50"/><rect x="413" y="828" width="4" height="7" fill="#d6b192" opacity="0.68"/><rect x="425" y="828" width="4" height="7" fill="#94afc4" opacity="0.31"/><rect x="437" y="828" width="4" height="7" fill="#d6b192" opacity="0.32"/><rect x="449" y="828" width="4" height="7" fill="#d6b192" opacity="0.76"/><rect x="413" y="845" width="4" height="7" fill="#efb882" opacity="0.47"/><rect x="449" y="845" width="4" height="7" fill="#d6b192" opacity="0.79"/><rect x="413" y="862" width="4" height="7" fill="#d6b192" opacity="0.72"/><rect x="425" y="862" width="4" height="7" fill="#efb882" opacity="0.46"/><rect x="449" y="862" width="4" height="7" fill="#94afc4" opacity="0.76"/></g><path d="M463,880V803H521V880Z" fill="#23314b"/><path d="M461,803H523" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M492,803v-17m-9 6h18" stroke="#23314b" stroke-width="2"/><g class="ky-windows" style="animation-delay:-5s"><rect x="470" y="815" width="4" height="7" fill="#94afc4" opacity="0.66"/><rect x="482" y="832" width="4" height="7" fill="#efb882" opacity="0.32"/><rect x="494" y="832" width="4" height="7" fill="#d6b192" opacity="0.76"/><rect x="506" y="832" width="4" height="7" fill="#efb882" opacity="0.54"/><rect x="482" y="849" width="4" height="7" fill="#efb882" opacity="0.64"/><rect x="470" y="866" width="4" height="7" fill="#94afc4" opacity="0.47"/><rect x="506" y="866" width="4" height="7" fill="#efb882" opacity="0.52"/></g><path d="M529,880V760H578V880Z" fill="#2d3a54"/><path d="M527,760H580" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-3s"><rect x="536" y="772" width="4" height="7" fill="#d6b192" opacity="0.64"/><rect x="548" y="772" width="4" height="7" fill="#94afc4" opacity="0.65"/><rect x="536" y="789" width="4" height="7" fill="#94afc4" opacity="0.40"/><rect x="548" y="789" width="4" height="7" fill="#d6b192" opacity="0.58"/><rect x="536" y="806" width="4" height="7" fill="#efb882" opacity="0.31"/><rect x="548" y="806" width="4" height="7" fill="#efb882" opacity="0.41"/><rect x="560" y="806" width="4" height="7" fill="#94afc4" opacity="0.40"/><rect x="536" y="823" width="4" height="7" fill="#94afc4" opacity="0.34"/><rect x="548" y="823" width="4" height="7" fill="#94afc4" opacity="0.43"/><rect x="560" y="823" width="4" height="7" fill="#efb882" opacity="0.74"/><rect x="572" y="823" width="4" height="7" fill="#efb882" opacity="0.60"/><rect x="548" y="840" width="4" height="7" fill="#d6b192" opacity="0.78"/><rect x="572" y="840" width="4" height="7" fill="#94afc4" opacity="0.72"/><rect x="548" y="857" width="4" height="7" fill="#d6b192" opacity="0.58"/><rect x="572" y="857" width="4" height="7" fill="#d6b192" opacity="0.40"/></g><path d="M588,880V777H650V880Z" fill="#1b2740"/><path d="M586,777H652" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-17s"><rect x="607" y="789" width="4" height="7" fill="#94afc4" opacity="0.73"/><rect x="631" y="789" width="4" height="7" fill="#efb882" opacity="0.74"/><rect x="643" y="789" width="4" height="7" fill="#d6b192" opacity="0.44"/><rect x="607" y="806" width="4" height="7" fill="#94afc4" opacity="0.79"/><rect x="643" y="806" width="4" height="7" fill="#d6b192" opacity="0.33"/><rect x="595" y="823" width="4" height="7" fill="#efb882" opacity="0.67"/><rect x="607" y="823" width="4" height="7" fill="#efb882" opacity="0.79"/><rect x="631" y="823" width="4" height="7" fill="#94afc4" opacity="0.56"/><rect x="643" y="823" width="4" height="7" fill="#efb882" opacity="0.68"/><rect x="595" y="840" width="4" height="7" fill="#d6b192" opacity="0.74"/><rect x="607" y="840" width="4" height="7" fill="#efb882" opacity="0.58"/><rect x="631" y="840" width="4" height="7" fill="#94afc4" opacity="0.73"/><rect x="595" y="857" width="4" height="7" fill="#d6b192" opacity="0.45"/><rect x="619" y="857" width="4" height="7" fill="#d6b192" opacity="0.60"/><rect x="631" y="857" width="4" height="7" fill="#efb882" opacity="0.32"/><rect x="643" y="857" width="4" height="7" fill="#d6b192" opacity="0.48"/></g><path d="M659,880V787H735V880Z" fill="#1b2740"/><path d="M657,787H737" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M697,787v-17m-9 6h18" stroke="#1b2740" stroke-width="2"/><g class="ky-windows" style="animation-delay:-4s"><rect x="678" y="799" width="4" height="7" fill="#efb882" opacity="0.31"/><rect x="690" y="799" width="4" height="7" fill="#efb882" opacity="0.46"/><rect x="702" y="799" width="4" height="7" fill="#efb882" opacity="0.37"/><rect x="714" y="799" width="4" height="7" fill="#d6b192" opacity="0.44"/><rect x="726" y="799" width="4" height="7" fill="#d6b192" opacity="0.47"/><rect x="666" y="816" width="4" height="7" fill="#efb882" opacity="0.32"/><rect x="690" y="816" width="4" height="7" fill="#efb882" opacity="0.43"/><rect x="702" y="816" width="4" height="7" fill="#d6b192" opacity="0.76"/><rect x="714" y="816" width="4" height="7" fill="#d6b192" opacity="0.63"/><rect x="726" y="816" width="4" height="7" fill="#efb882" opacity="0.41"/><rect x="678" y="833" width="4" height="7" fill="#94afc4" opacity="0.63"/><rect x="690" y="833" width="4" height="7" fill="#efb882" opacity="0.33"/><rect x="702" y="833" width="4" height="7" fill="#94afc4" opacity="0.64"/><rect x="714" y="833" width="4" height="7" fill="#94afc4" opacity="0.51"/><rect x="726" y="833" width="4" height="7" fill="#94afc4" opacity="0.46"/><rect x="678" y="850" width="4" height="7" fill="#d6b192" opacity="0.73"/><rect x="714" y="850" width="4" height="7" fill="#94afc4" opacity="0.38"/><rect x="726" y="850" width="4" height="7" fill="#d6b192" opacity="0.75"/><rect x="666" y="867" width="4" height="7" fill="#efb882" opacity="0.66"/><rect x="678" y="867" width="4" height="7" fill="#d6b192" opacity="0.59"/><rect x="690" y="867" width="4" height="7" fill="#d6b192" opacity="0.66"/><rect x="702" y="867" width="4" height="7" fill="#d6b192" opacity="0.65"/><rect x="714" y="867" width="4" height="7" fill="#efb882" opacity="0.33"/></g><path d="M745,880V794H804V880Z" fill="#2d3a54"/><path d="M743,794H806" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-4s"><rect x="764" y="806" width="4" height="7" fill="#94afc4" opacity="0.75"/><rect x="776" y="806" width="4" height="7" fill="#d6b192" opacity="0.45"/><rect x="788" y="806" width="4" height="7" fill="#d6b192" opacity="0.41"/><rect x="752" y="823" width="4" height="7" fill="#efb882" opacity="0.55"/><rect x="776" y="823" width="4" height="7" fill="#d6b192" opacity="0.61"/><rect x="764" y="840" width="4" height="7" fill="#d6b192" opacity="0.79"/><rect x="776" y="840" width="4" height="7" fill="#d6b192" opacity="0.52"/><rect x="752" y="857" width="4" height="7" fill="#94afc4" opacity="0.69"/><rect x="764" y="857" width="4" height="7" fill="#d6b192" opacity="0.50"/><rect x="776" y="857" width="4" height="7" fill="#d6b192" opacity="0.57"/></g><path d="M809,880V745H888V880Z" fill="#2d3a54"/><path d="M807,745H890" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-10s"><rect x="828" y="757" width="4" height="7" fill="#efb882" opacity="0.70"/><rect x="876" y="757" width="4" height="7" fill="#d6b192" opacity="0.36"/><rect x="816" y="774" width="4" height="7" fill="#d6b192" opacity="0.42"/><rect x="828" y="774" width="4" height="7" fill="#94afc4" opacity="0.42"/><rect x="840" y="774" width="4" height="7" fill="#efb882" opacity="0.37"/><rect x="852" y="774" width="4" height="7" fill="#94afc4" opacity="0.31"/><rect x="864" y="774" width="4" height="7" fill="#94afc4" opacity="0.44"/><rect x="876" y="774" width="4" height="7" fill="#94afc4" opacity="0.45"/><rect x="816" y="791" width="4" height="7" fill="#d6b192" opacity="0.80"/><rect x="828" y="791" width="4" height="7" fill="#d6b192" opacity="0.52"/><rect x="840" y="791" width="4" height="7" fill="#efb882" opacity="0.73"/><rect x="864" y="791" width="4" height="7" fill="#efb882" opacity="0.58"/><rect x="828" y="808" width="4" height="7" fill="#d6b192" opacity="0.69"/><rect x="840" y="808" width="4" height="7" fill="#efb882" opacity="0.44"/><rect x="852" y="808" width="4" height="7" fill="#efb882" opacity="0.62"/><rect x="876" y="808" width="4" height="7" fill="#d6b192" opacity="0.72"/><rect x="828" y="825" width="4" height="7" fill="#efb882" opacity="0.35"/><rect x="852" y="825" width="4" height="7" fill="#94afc4" opacity="0.38"/><rect x="864" y="825" width="4" height="7" fill="#94afc4" opacity="0.37"/><rect x="876" y="825" width="4" height="7" fill="#d6b192" opacity="0.66"/><rect x="816" y="842" width="4" height="7" fill="#94afc4" opacity="0.55"/><rect x="828" y="842" width="4" height="7" fill="#efb882" opacity="0.47"/><rect x="840" y="842" width="4" height="7" fill="#94afc4" opacity="0.65"/><rect x="876" y="842" width="4" height="7" fill="#d6b192" opacity="0.80"/><rect x="852" y="859" width="4" height="7" fill="#94afc4" opacity="0.54"/></g><path d="M898,880V814H959V880Z" fill="#2d3a54"/><path d="M896,814H961" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-13s"><rect x="929" y="826" width="4" height="7" fill="#d6b192" opacity="0.69"/><rect x="917" y="843" width="4" height="7" fill="#d6b192" opacity="0.39"/><rect x="953" y="843" width="4" height="7" fill="#d6b192" opacity="0.51"/><rect x="917" y="860" width="4" height="7" fill="#efb882" opacity="0.46"/><rect x="929" y="860" width="4" height="7" fill="#94afc4" opacity="0.72"/><rect x="953" y="860" width="4" height="7" fill="#efb882" opacity="0.55"/></g><path d="M968,880V738H1052V880Z" fill="#23314b"/><path d="M966,738H1054" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1010,738v-17m-9 6h18" stroke="#23314b" stroke-width="2"/><g class="ky-windows" style="animation-delay:-14s"><rect x="975" y="750" width="4" height="7" fill="#94afc4" opacity="0.49"/><rect x="987" y="750" width="4" height="7" fill="#d6b192" opacity="0.31"/><rect x="1023" y="750" width="4" height="7" fill="#d6b192" opacity="0.71"/><rect x="1035" y="750" width="4" height="7" fill="#efb882" opacity="0.50"/><rect x="987" y="767" width="4" height="7" fill="#efb882" opacity="0.76"/><rect x="999" y="767" width="4" height="7" fill="#94afc4" opacity="0.55"/><rect x="1011" y="767" width="4" height="7" fill="#efb882" opacity="0.79"/><rect x="1023" y="767" width="4" height="7" fill="#efb882" opacity="0.71"/><rect x="1035" y="767" width="4" height="7" fill="#94afc4" opacity="0.53"/><rect x="975" y="784" width="4" height="7" fill="#d6b192" opacity="0.60"/><rect x="987" y="784" width="4" height="7" fill="#94afc4" opacity="0.50"/><rect x="999" y="784" width="4" height="7" fill="#94afc4" opacity="0.76"/><rect x="1011" y="784" width="4" height="7" fill="#94afc4" opacity="0.33"/><rect x="975" y="801" width="4" height="7" fill="#efb882" opacity="0.75"/><rect x="999" y="801" width="4" height="7" fill="#efb882" opacity="0.40"/><rect x="1035" y="801" width="4" height="7" fill="#efb882" opacity="0.46"/><rect x="1047" y="801" width="4" height="7" fill="#efb882" opacity="0.32"/><rect x="975" y="818" width="4" height="7" fill="#efb882" opacity="0.54"/><rect x="987" y="818" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="1011" y="818" width="4" height="7" fill="#94afc4" opacity="0.60"/><rect x="1023" y="818" width="4" height="7" fill="#94afc4" opacity="0.46"/><rect x="1047" y="818" width="4" height="7" fill="#d6b192" opacity="0.59"/><rect x="987" y="835" width="4" height="7" fill="#d6b192" opacity="0.63"/><rect x="999" y="835" width="4" height="7" fill="#d6b192" opacity="0.70"/><rect x="1023" y="835" width="4" height="7" fill="#94afc4" opacity="0.48"/><rect x="1047" y="835" width="4" height="7" fill="#94afc4" opacity="0.46"/><rect x="987" y="852" width="4" height="7" fill="#94afc4" opacity="0.42"/><rect x="1011" y="852" width="4" height="7" fill="#d6b192" opacity="0.74"/><rect x="1023" y="852" width="4" height="7" fill="#d6b192" opacity="0.47"/><rect x="975" y="869" width="4" height="7" fill="#d6b192" opacity="0.59"/><rect x="1011" y="869" width="4" height="7" fill="#d6b192" opacity="0.38"/><rect x="1047" y="869" width="4" height="7" fill="#94afc4" opacity="0.41"/></g><path d="M1058,880V827H1104V880Z" fill="#23314b"/><path d="M1056,827H1106" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1081,827v-17m-9 6h18" stroke="#23314b" stroke-width="2"/><g class="ky-windows" style="animation-delay:-4s"><rect x="1089" y="839" width="4" height="7" fill="#d6b192" opacity="0.70"/><rect x="1077" y="856" width="4" height="7" fill="#efb882" opacity="0.66"/></g><path d="M1113,880V776H1162V880Z" fill="#1b2740"/><path d="M1111,776H1164" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1137,776v-17m-9 6h18" stroke="#1b2740" stroke-width="2"/><g class="ky-windows" style="animation-delay:-16s"><rect x="1120" y="788" width="4" height="7" fill="#d6b192" opacity="0.52"/><rect x="1144" y="788" width="4" height="7" fill="#efb882" opacity="0.35"/><rect x="1156" y="788" width="4" height="7" fill="#efb882" opacity="0.59"/><rect x="1120" y="805" width="4" height="7" fill="#d6b192" opacity="0.33"/><rect x="1156" y="805" width="4" height="7" fill="#d6b192" opacity="0.59"/><rect x="1132" y="822" width="4" height="7" fill="#d6b192" opacity="0.37"/><rect x="1144" y="822" width="4" height="7" fill="#d6b192" opacity="0.41"/><rect x="1120" y="839" width="4" height="7" fill="#efb882" opacity="0.77"/><rect x="1144" y="839" width="4" height="7" fill="#d6b192" opacity="0.79"/><rect x="1156" y="839" width="4" height="7" fill="#d6b192" opacity="0.52"/><rect x="1120" y="856" width="4" height="7" fill="#94afc4" opacity="0.52"/></g><path d="M1172,880V807H1238V880Z" fill="#2d3a54"/><path d="M1170,807H1240" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1205,807v-17m-9 6h18" stroke="#2d3a54" stroke-width="2"/><g class="ky-windows" style="animation-delay:-13s"><rect x="1179" y="819" width="4" height="7" fill="#d6b192" opacity="0.47"/><rect x="1215" y="819" width="4" height="7" fill="#94afc4" opacity="0.48"/><rect x="1227" y="819" width="4" height="7" fill="#d6b192" opacity="0.66"/><rect x="1179" y="836" width="4" height="7" fill="#d6b192" opacity="0.70"/><rect x="1191" y="836" width="4" height="7" fill="#efb882" opacity="0.33"/><rect x="1179" y="853" width="4" height="7" fill="#94afc4" opacity="0.44"/><rect x="1191" y="853" width="4" height="7" fill="#efb882" opacity="0.70"/><rect x="1203" y="853" width="4" height="7" fill="#efb882" opacity="0.62"/><rect x="1215" y="853" width="4" height="7" fill="#94afc4" opacity="0.71"/><rect x="1227" y="853" width="4" height="7" fill="#efb882" opacity="0.36"/><rect x="1203" y="870" width="4" height="7" fill="#efb882" opacity="0.74"/><rect x="1227" y="870" width="4" height="7" fill="#d6b192" opacity="0.46"/></g><path d="M1243,880V750H1319V880Z" fill="#23314b"/><path d="M1241,750H1321" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-5s"><rect x="1262" y="762" width="4" height="7" fill="#d6b192" opacity="0.60"/><rect x="1286" y="762" width="4" height="7" fill="#d6b192" opacity="0.34"/><rect x="1310" y="762" width="4" height="7" fill="#efb882" opacity="0.67"/><rect x="1250" y="779" width="4" height="7" fill="#d6b192" opacity="0.54"/><rect x="1262" y="779" width="4" height="7" fill="#d6b192" opacity="0.58"/><rect x="1274" y="779" width="4" height="7" fill="#efb882" opacity="0.65"/><rect x="1310" y="779" width="4" height="7" fill="#94afc4" opacity="0.34"/><rect x="1250" y="796" width="4" height="7" fill="#d6b192" opacity="0.78"/><rect x="1262" y="796" width="4" height="7" fill="#94afc4" opacity="0.59"/><rect x="1298" y="796" width="4" height="7" fill="#d6b192" opacity="0.62"/><rect x="1310" y="796" width="4" height="7" fill="#94afc4" opacity="0.73"/><rect x="1250" y="813" width="4" height="7" fill="#94afc4" opacity="0.30"/><rect x="1274" y="813" width="4" height="7" fill="#d6b192" opacity="0.43"/><rect x="1286" y="813" width="4" height="7" fill="#94afc4" opacity="0.60"/><rect x="1250" y="830" width="4" height="7" fill="#d6b192" opacity="0.66"/><rect x="1262" y="830" width="4" height="7" fill="#efb882" opacity="0.37"/><rect x="1286" y="830" width="4" height="7" fill="#efb882" opacity="0.42"/><rect x="1298" y="830" width="4" height="7" fill="#94afc4" opacity="0.69"/><rect x="1310" y="830" width="4" height="7" fill="#efb882" opacity="0.70"/><rect x="1250" y="847" width="4" height="7" fill="#efb882" opacity="0.71"/><rect x="1250" y="864" width="4" height="7" fill="#efb882" opacity="0.47"/><rect x="1262" y="864" width="4" height="7" fill="#94afc4" opacity="0.65"/></g><path d="M1327,880V738H1413V880Z" fill="#1b2740"/><path d="M1325,738H1415" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1370,738v-17m-9 6h18" stroke="#1b2740" stroke-width="2"/><g class="ky-windows" style="animation-delay:-16s"><rect x="1334" y="750" width="4" height="7" fill="#94afc4" opacity="0.47"/><rect x="1346" y="750" width="4" height="7" fill="#d6b192" opacity="0.41"/><rect x="1358" y="750" width="4" height="7" fill="#94afc4" opacity="0.48"/><rect x="1382" y="750" width="4" height="7" fill="#d6b192" opacity="0.60"/><rect x="1406" y="750" width="4" height="7" fill="#efb882" opacity="0.73"/><rect x="1382" y="767" width="4" height="7" fill="#94afc4" opacity="0.33"/><rect x="1394" y="767" width="4" height="7" fill="#d6b192" opacity="0.54"/><rect x="1406" y="767" width="4" height="7" fill="#94afc4" opacity="0.71"/><rect x="1346" y="784" width="4" height="7" fill="#efb882" opacity="0.58"/><rect x="1358" y="784" width="4" height="7" fill="#d6b192" opacity="0.64"/><rect x="1382" y="784" width="4" height="7" fill="#d6b192" opacity="0.73"/><rect x="1394" y="784" width="4" height="7" fill="#94afc4" opacity="0.45"/><rect x="1406" y="784" width="4" height="7" fill="#efb882" opacity="0.47"/><rect x="1334" y="801" width="4" height="7" fill="#94afc4" opacity="0.30"/><rect x="1358" y="801" width="4" height="7" fill="#94afc4" opacity="0.70"/><rect x="1370" y="801" width="4" height="7" fill="#efb882" opacity="0.76"/><rect x="1394" y="801" width="4" height="7" fill="#efb882" opacity="0.62"/><rect x="1406" y="801" width="4" height="7" fill="#efb882" opacity="0.49"/><rect x="1358" y="818" width="4" height="7" fill="#94afc4" opacity="0.56"/><rect x="1370" y="818" width="4" height="7" fill="#efb882" opacity="0.54"/><rect x="1382" y="818" width="4" height="7" fill="#94afc4" opacity="0.40"/><rect x="1394" y="818" width="4" height="7" fill="#94afc4" opacity="0.37"/><rect x="1406" y="818" width="4" height="7" fill="#d6b192" opacity="0.68"/><rect x="1334" y="835" width="4" height="7" fill="#d6b192" opacity="0.51"/><rect x="1358" y="835" width="4" height="7" fill="#d6b192" opacity="0.35"/><rect x="1382" y="835" width="4" height="7" fill="#d6b192" opacity="0.54"/><rect x="1394" y="835" width="4" height="7" fill="#d6b192" opacity="0.49"/><rect x="1334" y="852" width="4" height="7" fill="#d6b192" opacity="0.62"/><rect x="1370" y="852" width="4" height="7" fill="#94afc4" opacity="0.62"/><rect x="1382" y="852" width="4" height="7" fill="#d6b192" opacity="0.42"/><rect x="1406" y="852" width="4" height="7" fill="#94afc4" opacity="0.34"/><rect x="1334" y="869" width="4" height="7" fill="#efb882" opacity="0.78"/><rect x="1346" y="869" width="4" height="7" fill="#efb882" opacity="0.80"/><rect x="1358" y="869" width="4" height="7" fill="#94afc4" opacity="0.67"/><rect x="1370" y="869" width="4" height="7" fill="#efb882" opacity="0.39"/><rect x="1382" y="869" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="1394" y="869" width="4" height="7" fill="#d6b192" opacity="0.58"/></g><path d="M1419,880V739H1474V880Z" fill="#2d3a54"/><path d="M1417,739H1476" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-18s"><rect x="1450" y="751" width="4" height="7" fill="#d6b192" opacity="0.61"/><rect x="1462" y="751" width="4" height="7" fill="#94afc4" opacity="0.76"/><rect x="1438" y="768" width="4" height="7" fill="#efb882" opacity="0.72"/><rect x="1450" y="768" width="4" height="7" fill="#efb882" opacity="0.54"/><rect x="1462" y="768" width="4" height="7" fill="#94afc4" opacity="0.33"/><rect x="1450" y="785" width="4" height="7" fill="#d6b192" opacity="0.33"/><rect x="1426" y="802" width="4" height="7" fill="#94afc4" opacity="0.65"/><rect x="1438" y="802" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="1450" y="802" width="4" height="7" fill="#94afc4" opacity="0.55"/><rect x="1462" y="802" width="4" height="7" fill="#d6b192" opacity="0.80"/><rect x="1426" y="819" width="4" height="7" fill="#d6b192" opacity="0.35"/><rect x="1438" y="819" width="4" height="7" fill="#efb882" opacity="0.63"/><rect x="1426" y="836" width="4" height="7" fill="#d6b192" opacity="0.70"/><rect x="1462" y="836" width="4" height="7" fill="#efb882" opacity="0.68"/><rect x="1438" y="853" width="4" height="7" fill="#efb882" opacity="0.38"/><rect x="1450" y="853" width="4" height="7" fill="#d6b192" opacity="0.43"/><rect x="1426" y="870" width="4" height="7" fill="#d6b192" opacity="0.62"/></g><path d="M1482,880V736H1561V880Z" fill="#1b2740"/><path d="M1480,736H1563" stroke="#e5b5b1" stroke-opacity=".22"/><path d="M1521,736v-17m-9 6h18" stroke="#1b2740" stroke-width="2"/><g class="ky-windows" style="animation-delay:-9s"><rect x="1489" y="748" width="4" height="7" fill="#d6b192" opacity="0.61"/><rect x="1501" y="748" width="4" height="7" fill="#94afc4" opacity="0.48"/><rect x="1525" y="748" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="1537" y="748" width="4" height="7" fill="#d6b192" opacity="0.55"/><rect x="1549" y="748" width="4" height="7" fill="#d6b192" opacity="0.60"/><rect x="1489" y="765" width="4" height="7" fill="#d6b192" opacity="0.38"/><rect x="1513" y="765" width="4" height="7" fill="#94afc4" opacity="0.59"/><rect x="1525" y="765" width="4" height="7" fill="#efb882" opacity="0.45"/><rect x="1489" y="782" width="4" height="7" fill="#94afc4" opacity="0.59"/><rect x="1537" y="782" width="4" height="7" fill="#94afc4" opacity="0.77"/><rect x="1549" y="782" width="4" height="7" fill="#efb882" opacity="0.64"/><rect x="1489" y="799" width="4" height="7" fill="#efb882" opacity="0.66"/><rect x="1501" y="799" width="4" height="7" fill="#d6b192" opacity="0.74"/><rect x="1537" y="799" width="4" height="7" fill="#efb882" opacity="0.51"/><rect x="1489" y="816" width="4" height="7" fill="#efb882" opacity="0.34"/><rect x="1501" y="816" width="4" height="7" fill="#efb882" opacity="0.57"/><rect x="1549" y="816" width="4" height="7" fill="#d6b192" opacity="0.74"/><rect x="1513" y="833" width="4" height="7" fill="#94afc4" opacity="0.55"/><rect x="1537" y="833" width="4" height="7" fill="#94afc4" opacity="0.76"/><rect x="1549" y="833" width="4" height="7" fill="#d6b192" opacity="0.73"/><rect x="1489" y="850" width="4" height="7" fill="#d6b192" opacity="0.72"/><rect x="1501" y="850" width="4" height="7" fill="#d6b192" opacity="0.65"/><rect x="1513" y="850" width="4" height="7" fill="#94afc4" opacity="0.79"/><rect x="1525" y="850" width="4" height="7" fill="#efb882" opacity="0.53"/><rect x="1549" y="850" width="4" height="7" fill="#94afc4" opacity="0.69"/><rect x="1489" y="867" width="4" height="7" fill="#efb882" opacity="0.61"/><rect x="1501" y="867" width="4" height="7" fill="#94afc4" opacity="0.68"/><rect x="1513" y="867" width="4" height="7" fill="#efb882" opacity="0.41"/><rect x="1537" y="867" width="4" height="7" fill="#d6b192" opacity="0.73"/><rect x="1549" y="867" width="4" height="7" fill="#efb882" opacity="0.64"/></g><path d="M1566,880V778H1641V880Z" fill="#1b2740"/><path d="M1564,778H1643" stroke="#e5b5b1" stroke-opacity=".22"/><g class="ky-windows" style="animation-delay:-6s"><rect x="1585" y="790" width="4" height="7" fill="#d6b192" opacity="0.65"/><rect x="1621" y="790" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="1597" y="807" width="4" height="7" fill="#efb882" opacity="0.50"/><rect x="1621" y="807" width="4" height="7" fill="#94afc4" opacity="0.47"/><rect x="1633" y="807" width="4" height="7" fill="#efb882" opacity="0.74"/><rect x="1597" y="824" width="4" height="7" fill="#efb882" opacity="0.34"/><rect x="1609" y="824" width="4" height="7" fill="#d6b192" opacity="0.73"/><rect x="1633" y="824" width="4" height="7" fill="#d6b192" opacity="0.40"/><rect x="1573" y="841" width="4" height="7" fill="#d6b192" opacity="0.48"/><rect x="1585" y="841" width="4" height="7" fill="#efb882" opacity="0.62"/><rect x="1597" y="841" width="4" height="7" fill="#efb882" opacity="0.70"/><rect x="1609" y="841" width="4" height="7" fill="#94afc4" opacity="0.34"/><rect x="1573" y="858" width="4" height="7" fill="#d6b192" opacity="0.52"/><rect x="1597" y="858" width="4" height="7" fill="#efb882" opacity="0.40"/><rect x="1609" y="858" width="4" height="7" fill="#d6b192" opacity="0.68"/></g><path d="M0 846H1600M0 860H1600" stroke="#142139" stroke-width="5"/><path d="M0 856H1600" stroke="#a09baa" stroke-opacity=".4" stroke-width="1"/><g class="ky-train"><rect x="0" y="-26" width="278" height="26" rx="6" fill="#8793a9"/><path d="M0-3H278" stroke="#c0798c" stroke-width="3"/><rect x="12" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="37" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="62" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="87" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="112" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="137" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="162" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="187" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="212" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><rect x="237" y="-19" width="15" height="10" rx="1" fill="#f4d7ac" opacity=".7"/><path d="M92-25V0M185-25V0" stroke="#36415a" stroke-width="2"/><circle cx="270" cy="-12" r="2" fill="#ffe7b5"/></g><path d="M160 859V1000M485 859V1000M855 859V1000M1220 859V1000M1520 859V1000" stroke="#17243a" stroke-width="13"/></g>
+    <g class="ky-foreground">
+      <path d="M0 798H190V1000H0ZM1385 760H1600V1000H1385Z" fill="#111b2d"/>
+      <path d="M-30 800L75 701 222 795 197 812H-30ZM1340 767L1455 677 1635 760 1610 780H1350Z" fill="url(#kyRoof)" stroke="#8795ad" stroke-opacity=".3" stroke-width="2"/>
+      <path d="M-30 800L75 701 222 795H-30ZM1340 767L1455 677 1635 760H1340Z" fill="url(#kyTiles)"/>
+      <path d="M0 824H183M1385 796H1600" stroke="#76829a" stroke-opacity=".3"/>
+      <g fill="#dbac89" opacity=".48"><rect x="24" y="846" width="36" height="46"/><rect x="86" y="846" width="36" height="46"/><rect x="1420" y="819" width="46" height="51"/><rect x="1510" y="819" width="46" height="51"/></g>
+      <g stroke="#182239" stroke-width="3"><path d="M42 845V893M23 865H61M104 845V893M85 865H123M1443 819V870M1420 843H1466M1533 819V870M1510 843H1556"/></g>
+      <path d="M0 932H180V945H0M1400 910H1600V925H1400" stroke="#101829" stroke-width="4" fill="#423044"/>
+      <rect x="131" y="835" width="35" height="68" rx="3" fill="#553349"/><text x="148" y="858" text-anchor="middle" fill="#d9a5ab" font-size="15">喫<tspan x="148" dy="21">茶</tspan></text>
+      <g class="ky-lanterns"><use href="#kyLantern" x="22" y="946"/><use href="#kyLantern" x="77" y="946"/><use href="#kyLantern" x="147" y="946"/><use href="#kyLantern" x="1435" y="928"/><use href="#kyLantern" x="1505" y="928"/><use href="#kyLantern" x="1575" y="928"/></g>
+      <g fill="#302739"><path d="M205 870V990H216V870M275 870V990H286V870M196 870Q247 859 295 870V881Q247 870 196 881Z"/><path d="M214 896H278V903H214Z"/></g>
+      <g stroke="#101b30" fill="none"><path d="M1340 610V1000M1309 639H1371M1317 666H1363" stroke-width="7"/><path d="M-30 444Q640 660 1340 643Q1480 645 1660 575M-30 461Q670 684 1340 666Q1500 660 1660 590" stroke-width="1.6"/><path d="M1340 645Q1220 684 1140 784" stroke-width="1"/></g>
+    </g>
+    <g class="ky-sakura"><path d="M-25 52Q80 131 281 113M0 147Q139 173 250 211M1540-30Q1530 79 1431 149M1520 63Q1620 159 1660 143" stroke="#252338" stroke-width="12" fill="none"/><path d="M42 106L31 64M121 120L171 72M167 121L232 160M55 161L90 207M1498 86L1430 61M1480 108L1500 158M1576 122L1588 63" stroke="#323047" stroke-width="5"/><use href="#kyFlower" x="209" y="118" transform="rotate(-16 209 118)" opacity="0.77"/><use href="#kyFlower" x="249" y="161" transform="rotate(-34 249 161)" opacity="0.49"/><use href="#kyFlower" x="241" y="122" transform="rotate(-6 241 122)" opacity="0.36"/><use href="#kyFlower" x="281" y="116" transform="rotate(59 281 116)" opacity="0.70"/><use href="#kyFlower" x="91" y="127" transform="rotate(14 91 127)" opacity="0.75"/><use href="#kyFlower" x="95" y="164" transform="rotate(-24 95 164)" opacity="0.30"/><use href="#kyFlower" x="135" y="169" transform="rotate(-4 135 169)" opacity="0.52"/><use href="#kyFlower" x="1" y="67" transform="rotate(-48 1 67)" opacity="0.77"/><use href="#kyFlower" x="137" y="87" transform="rotate(-11 137 87)" opacity="0.42"/><use href="#kyFlower" x="310" y="57" transform="rotate(-53 310 57)" opacity="0.49"/><use href="#kyFlower" x="205" y="142" transform="rotate(-46 205 142)" opacity="0.72"/><use href="#kyFlower" x="57" y="81" transform="rotate(-29 57 81)" opacity="0.45"/><use href="#kyFlower" x="211" y="136" transform="rotate(19 211 136)" opacity="0.65"/><use href="#kyFlower" x="26" y="181" transform="rotate(-20 26 181)" opacity="0.50"/><use href="#kyFlower" x="238" y="185" transform="rotate(-59 238 185)" opacity="0.32"/><use href="#kyFlower" x="222" y="111" transform="rotate(57 222 111)" opacity="0.56"/><use href="#kyFlower" x="-18" y="105" transform="rotate(-69 -18 105)" opacity="0.56"/><use href="#kyFlower" x="90" y="177" transform="rotate(-10 90 177)" opacity="0.78"/><use href="#kyFlower" x="99" y="124" transform="rotate(-50 99 124)" opacity="0.30"/><use href="#kyFlower" x="210" y="163" transform="rotate(-65 210 163)" opacity="0.65"/><use href="#kyFlower" x="34" y="58" transform="rotate(28 34 58)" opacity="0.58"/><use href="#kyFlower" x="59" y="180" transform="rotate(-61 59 180)" opacity="0.36"/><use href="#kyFlower" x="292" y="135" transform="rotate(-56 292 135)" opacity="0.56"/><use href="#kyFlower" x="44" y="175" transform="rotate(-40 44 175)" opacity="0.44"/><use href="#kyFlower" x="11" y="71" transform="rotate(-70 11 71)" opacity="0.37"/><use href="#kyFlower" x="200" y="59" transform="rotate(30 200 59)" opacity="0.35"/><use href="#kyFlower" x="78" y="71" transform="rotate(-41 78 71)" opacity="0.64"/><use href="#kyFlower" x="203" y="64" transform="rotate(41 203 64)" opacity="0.58"/><use href="#kyFlower" x="51" y="117" transform="rotate(4 51 117)" opacity="0.41"/><use href="#kyFlower" x="18" y="111" transform="rotate(52 18 111)" opacity="0.72"/><use href="#kyFlower" x="52" y="58" transform="rotate(-19 52 58)" opacity="0.69"/><use href="#kyFlower" x="256" y="123" transform="rotate(62 256 123)" opacity="0.30"/><use href="#kyFlower" x="186" y="162" transform="rotate(-2 186 162)" opacity="0.69"/><use href="#kyFlower" x="11" y="162" transform="rotate(-2 11 162)" opacity="0.42"/><use href="#kyFlower" x="-27" y="179" transform="rotate(50 -27 179)" opacity="0.49"/><use href="#kyFlower" x="297" y="157" transform="rotate(-7 297 157)" opacity="0.36"/><use href="#kyFlower" x="-31" y="66" transform="rotate(-42 -31 66)" opacity="0.79"/><use href="#kyFlower" x="-5" y="97" transform="rotate(53 -5 97)" opacity="0.79"/><use href="#kyFlower" x="25" y="145" transform="rotate(2 25 145)" opacity="0.54"/><use href="#kyFlower" x="264" y="108" transform="rotate(-27 264 108)" opacity="0.65"/><use href="#kyFlower" x="166" y="95" transform="rotate(-41 166 95)" opacity="0.67"/><use href="#kyFlower" x="287" y="91" transform="rotate(8 287 91)" opacity="0.56"/><use href="#kyFlower" x="225" y="125" transform="rotate(-31 225 125)" opacity="0.30"/><use href="#kyFlower" x="1626" y="73" transform="rotate(-9 1626 73)" opacity="0.62"/><use href="#kyFlower" x="1572" y="93" transform="rotate(27 1572 93)" opacity="0.53"/><use href="#kyFlower" x="1483" y="75" transform="rotate(39 1483 75)" opacity="0.33"/><use href="#kyFlower" x="1439" y="90" transform="rotate(31 1439 90)" opacity="0.35"/><use href="#kyFlower" x="1417" y="61" transform="rotate(19 1417 61)" opacity="0.50"/><use href="#kyFlower" x="1620" y="111" transform="rotate(33 1620 111)" opacity="0.60"/><use href="#kyFlower" x="1615" y="169" transform="rotate(68 1615 169)" opacity="0.69"/><use href="#kyFlower" x="1558" y="81" transform="rotate(26 1558 81)" opacity="0.72"/><use href="#kyFlower" x="1500" y="146" transform="rotate(5 1500 146)" opacity="0.61"/><use href="#kyFlower" x="1443" y="134" transform="rotate(-36 1443 134)" opacity="0.36"/><use href="#kyFlower" x="1505" y="176" transform="rotate(47 1505 176)" opacity="0.53"/><use href="#kyFlower" x="1407" y="101" transform="rotate(0 1407 101)" opacity="0.57"/><use href="#kyFlower" x="1496" y="161" transform="rotate(69 1496 161)" opacity="0.70"/><use href="#kyFlower" x="1556" y="157" transform="rotate(68 1556 157)" opacity="0.66"/><use href="#kyFlower" x="1416" y="96" transform="rotate(-29 1416 96)" opacity="0.75"/><use href="#kyFlower" x="1443" y="134" transform="rotate(70 1443 134)" opacity="0.52"/><use href="#kyFlower" x="1527" y="76" transform="rotate(-55 1527 76)" opacity="0.60"/><use href="#kyFlower" x="1453" y="75" transform="rotate(-54 1453 75)" opacity="0.73"/><use href="#kyFlower" x="1573" y="179" transform="rotate(42 1573 179)" opacity="0.48"/><use href="#kyFlower" x="1630" y="177" transform="rotate(0 1630 177)" opacity="0.46"/><use href="#kyFlower" x="1409" y="64" transform="rotate(56 1409 64)" opacity="0.43"/><use href="#kyFlower" x="1523" y="180" transform="rotate(-18 1523 180)" opacity="0.63"/><use href="#kyFlower" x="1446" y="49" transform="rotate(-61 1446 49)" opacity="0.79"/><use href="#kyFlower" x="1564" y="118" transform="rotate(29 1564 118)" opacity="0.45"/><use href="#kyFlower" x="1484" y="117" transform="rotate(-20 1484 117)" opacity="0.64"/><use href="#kyFlower" x="1621" y="152" transform="rotate(25 1621 152)" opacity="0.51"/><use href="#kyFlower" x="1621" y="140" transform="rotate(70 1621 140)" opacity="0.38"/><use href="#kyFlower" x="1438" y="112" transform="rotate(16 1438 112)" opacity="0.53"/></g>
+  </svg>
+</div>
   <div class="cine-shafts"></div>
   <div class="cine-grid"></div>
   <div class="cine-fog f1"></div>
@@ -2116,6 +2310,7 @@
 <div id="fxPanel" class="fx-panel" role="dialog" aria-label="Эффекты">
   <h4>Эффекты <button id="fxClose" aria-label="Закрыть">✕</button></h4>
   <div class="sub">Настрой характер и атмосферу</div>
+  <div class="fx-group"><span class="fx-lbl">Движение</span><div class="fx-seg cols-3" data-seg="motion"><button type="button" data-v="auto">Авто</button><button type="button" data-v="on">Анимации</button><button type="button" data-v="off">Без движения</button></div><p id="motionStatus" class="motion-status" role="status"></p></div>
   <div class="fx-group">
     <span class="fx-lbl">Атмосфера</span>
     <div class="fx-seg cols-2" data-seg="atm">
@@ -2142,6 +2337,14 @@
       <button data-v="crystal">Кристалл</button>
     </div>
   </div>
+  <div class="fx-group">
+    <span class="fx-lbl">Эмблемы тиров</span>
+    <div class="fx-seg cols-2" data-seg="emblems">
+      <button type="button" data-v="orbits">Орбиты 3D</button>
+      <button type="button" data-v="classic">Классика</button>
+    </div>
+  </div>
+  <div class="fx-row"><span>Анимация эмблем</span><button type="button" class="fx-sw" data-fx="fx-tier-motion" aria-label="Анимация эмблем" aria-pressed="true"></button></div>
   <div class="fx-row"><span>Живой неон по контурам</span><div class="fx-sw" data-fx="fx-neon"></div></div>
   <div class="fx-row"><span>Блик и наклон карточек</span><div class="fx-sw" data-fx="fx-tilt"></div></div>
   <div class="fx-row"><span>Свечение у курсора</span><div class="fx-sw" data-fx="fx-cursor"></div></div>
@@ -2165,6 +2368,7 @@
       <button data-view="grid" class="on" title="Сетка постеров"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span class="seg-lbl">Постеры</span></button>
       <button data-view="chips" title="Компактные чипы"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="14" y2="17"></line></svg><span class="seg-lbl">Чипы</span></button>
     </div>
+    <button class="btn" id="historyBtn" title="История просмотров по датам" aria-label="История просмотров" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18M8 14h3M8 17h6"/></svg></button>
     <button class="btn" id="favBtn" title="Только любимые ♥"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-10-9.2C.5 8.4 2 4.5 5.7 4.5c2 0 3.4 1.2 4.3 2.4.9-1.2 2.3-2.4 4.3-2.4 3.7 0 5.2 3.9 3.7 7.3C19.5 16.3 12 21 12 21z"></path></svg></button>
     <button class="btn" id="statsBtn" title="Статистика вкуса"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4a1 1 0 0 1-1-1V3"></path><path d="M7 16l4-5 3 3 5-7"></path></svg></button>
     <button class="btn" id="editBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg><span class="lbl-edit-off">Редактировать</span><span class="lbl-edit-on">Готово</span></button>
@@ -2206,6 +2410,21 @@
         <span class="stat"><b id="stTiers">4</b>тира</span>
       </div>
     </div>
+
+    <section class="visit-journal" aria-labelledby="visitTitle">
+      <div>
+        <div class="visit-kicker">Дневник коллекции</div>
+        <div class="visit-title"><h2 id="visitTitle">Моя дата</h2><time id="visitDisplay"></time></div>
+        <p class="visit-note">Сегодня: <time id="visitToday"></time> · <span id="visitPrevious">Первый визит</span></p>
+      </div>
+      <div class="visit-controls">
+        <label for="visitDate">Отметь дату вручную или включи автоматическую</label>
+        <input type="date" id="visitDate" min="1900-01-01" max="9999-12-31" aria-describedby="visitStatus">
+        <button type="button" class="visit-btn" id="visitSetToday">Сегодня</button>
+        <button type="button" class="visit-btn" id="visitAuto" aria-pressed="true" title="При каждом визите ставить текущую дату">Авто</button>
+        <p class="visit-status" id="visitStatus" role="status"></p>
+      </div>
+    </section>
 
     <div class="empty" id="emptyState" hidden>
       <div class="empty-art" aria-hidden="true">
@@ -2318,6 +2537,17 @@
   </div>
 </div>
 
+<!-- Watch history, built from the collection's saved dates. -->
+<div class="overlay" id="historyOverlay">
+  <div class="modal history-modal" role="dialog" aria-modal="true" aria-labelledby="historyTitle" tabindex="-1">
+    <div class="modal-head"><h3 id="historyTitle">История просмотров</h3><p id="historySummary"></p></div>
+    <div class="history-tools"><input id="historySearch" type="search" placeholder="Найти аниме или сезон…" aria-label="Поиск в истории"><select id="historyYear" aria-label="Год просмотра"><option value="">Все годы</option></select></div>
+    <div class="history-tabs"><button type="button" class="visit-btn on" id="historyDated" aria-pressed="true">По датам</button><button type="button" class="visit-btn" id="historyUndated" aria-pressed="false">Без даты</button></div>
+    <div class="history-list" id="historyList"></div>
+    <div class="modal-foot"><span class="visit-note" id="historyHint"></span><button type="button" class="btn primary" id="historyClose">Закрыть</button></div>
+  </div>
+</div>
+
 <!-- taste statistics (bento) -->
 <div class="overlay stats" id="statsOverlay">
   <div class="modal statsmodal" role="dialog" aria-modal="true">
@@ -2411,6 +2641,7 @@
       <section class="set-pane" data-pane="bg">
         <div class="field"><label>Сцена</label>
           <div class="bg-grid" id="bgScenes">
+            <button type="button" data-bg="city"><i style="background:radial-gradient(circle at 75% 20%,#f9deb1 0 8%,transparent 9%),linear-gradient(#152645,#685079,#eaa497)"></i><span>Вечер в Киото</span></button>
             <button type="button" data-bg="aurora"><i style="background:radial-gradient(120% 100% at 50% 0%,#1a1230,#07060e)"></i><span>Аврора</span></button>
             <button type="button" data-bg="ember"><i style="background:radial-gradient(120% 100% at 50% 0%,#2a1220,#0d0608)"></i><span>Угли</span></button>
             <button type="button" data-bg="abyss"><i style="background:radial-gradient(120% 100% at 50% 0%,#0b1a2a,#04070e)"></i><span>Бездна</span></button>
@@ -2596,6 +2827,29 @@
 </button>
 
 <script>
+
+/* Saved motion preference is applied before the first render, and stays live. */
+const motionMedia = matchMedia("(prefers-reduced-motion: reduce)");
+let motionChoice = "auto", reduceMotion = motionMedia.matches;
+try { motionChoice = JSON.parse(localStorage.getItem("anime-tierlist-fx") || "{}").motion || "auto"; } catch (e) {}
+function setMotionPreference(choice) {
+  motionChoice = ["auto", "on", "off"].includes(choice) ? choice : "auto";
+  const wasReduced = reduceMotion;
+  reduceMotion = motionChoice === "off" || (motionChoice === "auto" && motionMedia.matches);
+  document.body.classList.toggle("motion-calm", reduceMotion);
+  document.documentElement.style.scrollBehavior = reduceMotion ? "auto" : "";
+  if (reduceMotion) {
+    document.documentElement.style.setProperty("--mx", "0");
+    document.documentElement.style.setProperty("--my", "0");
+  }
+  const note = document.getElementById("motionStatus");
+  if (note) note.textContent = reduceMotion ? "Движение выключено" + (motionChoice === "auto" ? " настройкой устройства. Выбери «Анимации», чтобы включить." : ".") : "Движение включено: куб, орбиты и фон.";
+  if (wasReduced !== reduceMotion) dispatchEvent(new Event("motion-change"));
+}
+setMotionPreference(motionChoice);
+motionMedia.addEventListener("change", () => setMotionPreference(motionChoice));
+document.addEventListener("visibilitychange", () => document.body.classList.toggle("tab-hidden", document.hidden));
+
 /* ════════════════════ COVER IMAGES ════════════════════ */
 const COVERS = {
   "Violet Evergarden": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx103047-odblDHHEdehK.jpg",
@@ -3453,7 +3707,9 @@ function normWatched(w) {
 }
 function parseRuDate(d) {
   const m = /^(\d{1,2})\.(\d{1,2})\.(\d{4})$/.exec((d || "").trim());
-  return m ? new Date(+m[3], +m[2] - 1, +m[1]).getTime() : 0;
+  if (!m || +m[3] < 1900) return 0;
+  const value = new Date(+m[3], +m[2] - 1, +m[1]);
+  return value.getFullYear() === +m[3] && value.getMonth() === +m[2] - 1 && value.getDate() === +m[1] ? value.getTime() : 0;
 }
 function watchedLatest(a) {
   let best = a[0], bt = -1;
@@ -3500,7 +3756,7 @@ function reactionHtml(item) {
 function animateCount(el, target, dur = 900) {
   if (!el) return;
   const start = parseInt(el.textContent, 10) || 0;
-  if (start === target || matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = target; return; }
+  if (start === target || reduceMotion) { el.textContent = target; return; }
   const t0 = performance.now();
   (function step(now) {
     const p = Math.min(1, (now - t0) / dur);
@@ -3569,52 +3825,67 @@ function build3DLetter(host, tier, idx) {
   host.appendChild(inner);
 }
 
-/* доворот букв за курсором: одна общая петля на все тиры, значения пишем
-   инлайном — так не зависим от того, как браузер считает calc() в transform */
-(function letterTilt() {
-  if (matchMedia("(hover: none)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  let px = 0, py = 0, queued = false;
-  addEventListener("mousemove", e => {
-    px = (e.clientX / innerWidth - 0.5) * 2;
-    py = (e.clientY / innerHeight - 0.5) * 2;
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(() => {
-      queued = false;
-      const t = "rotateY(" + (px * 17).toFixed(2) + "deg) rotateX(" + (py * -12).toFixed(2) + "deg)";
-      document.querySelectorAll(".l3d").forEach(el => { el.style.transform = t; });
-    });
-  }, { passive: true });
-})();
+/* Observe newly rendered tiers, releasing old nodes after each edit. */
+let tierVisibilityObserver;
+const toolbarForSeals = document.querySelector(".toolbar");
+function syncToolbarHeight() {
+  document.documentElement.style.setProperty("--toolbar-height", Math.ceil(toolbarForSeals.getBoundingClientRect().height) + "px");
+}
+syncToolbarHeight();
+if ("ResizeObserver" in window) new ResizeObserver(syncToolbarHeight).observe(toolbarForSeals);
+else addEventListener("resize", syncToolbarHeight, { passive: true });
+function watchTierVisibility() {
+  if (tierVisibilityObserver) tierVisibilityObserver.disconnect();
+  if (!("IntersectionObserver" in window)) {
+    board.querySelectorAll(".tier").forEach(t => t.classList.add("in-view"));
+    return;
+  }
+  if (!tierVisibilityObserver) tierVisibilityObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle("in-view", e.isIntersecting));
+  }, { rootMargin: "160px 0px" });
+  board.querySelectorAll(".tier").forEach(t => tierVisibilityObserver.observe(t));
+}
 
 function render() {
   board.innerHTML = "";
   let total = 0, fav = 0;
+  const collectionTotal = itemCount(state);
+  const sealNames = ["Солнечная корона", "Двойная орбита", "Кристалл впечатлений", "Световая волна"];
   state.tiers.forEach((tier, tierIdx) => {
     total += tier.items.length;
     fav += tier.items.filter(i => reactionKey(i)).length;
     const art = document.createElement("article");
-    art.className = "tier";
+    art.className = "tier" + (view === "chips" ? " compact" : "");
     art.dataset.tier = tier.id;
     art.dataset.rank = String(tierIdx + 1);
-    art.setAttribute("style", accentVars(tier));
+    const share = collectionTotal ? Math.round(tier.items.length / collectionTotal * 100) : 0;
+    const letterSize = tier.id.length > 1 ? Math.max(19, Math.floor(100 / tier.id.length)) : 72;
+    const mobileLetterSize = tier.id.length > 1 ? Math.max(11, Math.floor(58 / tier.id.length)) : 46;
+    art.setAttribute("style", accentVars(tier) + `;--tier-share:${share}%;--letter-size:${letterSize}px;--letter-mobile-size:${mobileLetterSize}px`);
     art.innerHTML = `
       <div class="badge">
         <span class="brun"></span>
         <span class="crown" aria-hidden="true"><svg viewBox="0 0 34 24"><path d="M3 21 L4.6 8.5 L10.6 13.8 L17 4.5 L23.4 13.8 L29.4 8.5 L31 21 Z" fill="currentColor"></path><rect x="4" y="20" width="26" height="3.2" rx="1" fill="currentColor"></rect><circle cx="17" cy="9" r="1.5" fill="#fff3cf"></circle><circle cx="6.4" cy="11.4" r="1.2" fill="#fff3cf"></circle><circle cx="27.6" cy="11.4" r="1.2" fill="#fff3cf"></circle></svg></span>
         <i class="hud h1"></i><i class="hud h2"></i><i class="hud h3"></i><i class="hud h4"></i>
         <span class="scanline"></span>
+        <div class="badge-body">
+        <span class="seal-index">ТИР <b>${String(tierIdx + 1).padStart(2, "0")}</b></span>
         <div class="lstage">
+          <div class="orbit-system" aria-hidden="true"><span class="seal-corona"></span><span class="orbit-track o1"></span><span class="orbit-track o2"></span><span class="orbit-track o3"></span></div>
+          <span class="seal-floor" aria-hidden="true"></span>
           <span class="ring r1"></span><span class="ring r2"></span>
           <div class="l3d" data-l="${esc(tier.id)}"></div>
         </div>
+        <span class="seal-caption">${sealNames[tierIdx] || "Орбита коллекции"}</span>
         <span class="cnt"><b>${tier.items.length}</b> ${plural(tier.items.length, "тайтл", "тайтла", "тайтлов")}</span>
+        <div class="tier-share"><span>Коллекция <b>${share}%</b></span><i aria-hidden="true"></i></div>
+        </div>
       </div>
       <div class="panel">
         <div class="panel-head">
           <span class="label">${esc(tier.label)}</span>
           <span class="tagline">${esc(tier.tagline)}</span>
-          <span class="pillct">${tier.id} · ${tier.items.length}</span>
+          <span class="pillct">${esc(tier.id)} · ${tier.items.length}</span>
         </div>
         <div class="items ${view}"></div>
       </div>`;
@@ -3636,7 +3907,9 @@ function render() {
   buildCube();
   document.body.classList.toggle("is-empty", total === 0);
   bindItems();
+  watchTierVisibility();
   applySearch();
+  if (historyOverlay.classList.contains("show")) renderHistory();
   if (firstRender) { firstRender = false; board.classList.add("intro"); setTimeout(() => board.classList.remove("intro"), 1400); }
 }
 
@@ -3663,6 +3936,17 @@ function flipRerender() {
   });
 }
 
+function posterFallback(tierId) {
+  const ph = document.createElement("div");
+  ph.className = "ph"; ph.setAttribute("aria-hidden", "true");
+  const seal = document.createElement("span");
+  seal.className = "ph-seal"; seal.textContent = tierId;
+  if (tierId.length > 1) seal.style.fontSize = Math.max(10, Math.floor(45 / tierId.length)) + "px";
+  const caption = document.createElement("span");
+  caption.className = "ph-caption"; caption.textContent = "Без обложки";
+  ph.append(seal, caption);
+  return ph;
+}
 function cardEl(item, idx, tierId) {
   const el = document.createElement("div");
   el.className = "card";
@@ -3674,13 +3958,14 @@ function cardEl(item, idx, tierId) {
   el.setAttribute("aria-label", item.name);
   const cover = itemCover(item);
   el.innerHTML = `
-    ${cover ? `<img referrerpolicy="no-referrer" alt="">` : `<div class="ph">${esc(item.name)}</div>`}
+    ${cover ? `<img referrerpolicy="no-referrer" alt="">` : ``}
     <div class="scrim"></div>
     <span class="rank">${idx + 1}</span>
     ${reactionHtml(item)}
     <div class="nm">${esc(item.name)}${watchedHtml(item, false)}</div>
     <button type="button" class="item-del" title="Удалить" aria-label="Удалить ${esc(item.name)}">✕</button>`;
-  if (cover) { const img = el.querySelector("img"); img.onload = () => img.classList.add("loaded"); img.onerror = () => { img.remove(); const ph = document.createElement("div"); ph.className = "ph"; ph.textContent = item.name; el.prepend(ph); }; img.src = cover; }
+  if (cover) { const img = el.querySelector("img"); img.onload = () => img.classList.add("loaded"); img.onerror = () => { img.remove(); el.prepend(posterFallback(tierId)); }; img.src = cover; }
+  else el.prepend(posterFallback(tierId));
   return el;
 }
 function chipEl(item, idx, tierId) {
@@ -3905,7 +4190,7 @@ const fWatchedList = document.getElementById("fWatchedList");
 function watchRow(label, date) {
   const r = document.createElement("div");
   r.className = "wrow";
-  r.innerHTML = `<input class="wlabel" type="text" placeholder="Сезон / часть (необяз.)" autocomplete="off" value="${label ? esc(label) : ""}"><input class="wdate" type="text" placeholder="дд.мм.гггг" inputmode="numeric" maxlength="10" autocomplete="off" value="${date ? esc(date) : ""}"><button type="button" class="wdel" title="Убрать">✕</button>`;
+  r.innerHTML = `<input class="wlabel" type="text" placeholder="Сезон / часть (необяз.)" autocomplete="off" value="${label ? esc(label) : ""}"><input class="wdate" type="text" placeholder="дд.мм.гггг" inputmode="numeric" maxlength="10" autocomplete="off" value="${date ? esc(date) : ""}"><button type="button" class="wtoday" title="Поставить сегодняшнюю дату">Сегодня</button><button type="button" class="wdel" title="Убрать">✕</button>`;
   return r;
 }
 function fmtDateInput(el) {
@@ -3917,7 +4202,11 @@ function fmtDateInput(el) {
 }
 fWatchedList.addEventListener("input", e => { if (e.target.classList.contains("wdate")) fmtDateInput(e.target); });
 fWatchedList.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.classList.contains("wdate")) { e.preventDefault(); document.getElementById("mSave").click(); } });
-fWatchedList.addEventListener("click", e => { const b = e.target.closest(".wdel"); if (b) b.parentElement.remove(); });
+fWatchedList.addEventListener("click", e => {
+  const b = e.target.closest(".wdel"); if (b) b.parentElement.remove();
+  const today = e.target.closest(".wtoday");
+  if (today) today.parentElement.querySelector(".wdate").value = new Date().toLocaleDateString("ru-RU");
+});
 document.getElementById("fWatchedAdd").addEventListener("click", () => { const r = watchRow("", ""); fWatchedList.appendChild(r); r.querySelector(".wdate").focus(); });
 
 /* ── живая проверка ссылки на обложку ──────────────────────────────────────
@@ -4030,6 +4319,7 @@ document.addEventListener("keydown", e => {
     if (admOverlay.classList.contains("show")) { closeAdminSetup(); return; }
     if (impOverlay.classList.contains("show")) { closeImportDialog(); return; }
     if (ioOverlay.classList.contains("show")) { closeIo(); return; }
+    if (historyOverlay.classList.contains("show")) { closeHistory(); return; }
     if (statsOverlay.classList.contains("show")) { closeStats(); return; }
     if (confirmOverlay.classList.contains("show")) { closeConfirm(); return; }
     if (overlay.classList.contains("show")) closeModal();
@@ -4042,6 +4332,8 @@ document.getElementById("mSave").addEventListener("click", () => {
   const cover = fCover.value.trim();
   const reaction = pickReaction;
   const watched = [...fWatchedList.querySelectorAll(".wrow")].map(r => ({ label: r.querySelector(".wlabel").value.trim(), date: r.querySelector(".wdate").value.trim() })).filter(e => e.date);
+  const invalid = [...fWatchedList.querySelectorAll(".wdate")].find(input => input.value.trim() && !parseRuDate(input.value.trim()));
+  if (invalid) { invalid.focus(); toast("Укажи существующую дату в формате дд.мм.гггг"); return; }
   if (editUid) {
     const f = findItem(editUid);
     if (f) {
@@ -4107,6 +4399,67 @@ favBtn.addEventListener("click", () => {
 });
 
 /* ════════════════════ TASTE STATISTICS (bento) ════════════════════ */
+/* Chronological history supports multiple seasons, legacy dates and undated titles. */
+const historyOverlay = document.getElementById("historyOverlay");
+let historyTab = "dated";
+function historyEntries() {
+  const dated = [], undated = [];
+  state.tiers.forEach(tier => tier.items.forEach(item => {
+    const dates = normWatched(item.watched).filter(w => parseRuDate(w.date));
+    if (!dates.length) undated.push({ item, tier, label: "", date: "", ms: 0 });
+    dates.forEach(w => dated.push({ item, tier, label: w.label || "", date: w.date, ms: parseRuDate(w.date) }));
+  }));
+  dated.sort((a, b) => b.ms - a.ms || a.item.name.localeCompare(b.item.name, "ru"));
+  undated.sort((a, b) => a.item.name.localeCompare(b.item.name, "ru"));
+  return { dated, undated };
+}
+function renderHistory() {
+  const { dated, undated } = historyEntries();
+  const year = document.getElementById("historyYear"), oldYear = year.value;
+  const years = [...new Set(dated.map(e => String(new Date(e.ms).getFullYear())))].sort().reverse();
+  year.innerHTML = '<option value="">Все годы</option>' + years.map(y => `<option value="${y}">${y}</option>`).join("");
+  year.value = years.includes(oldYear) ? oldYear : "";
+  year.disabled = historyTab === "undated";
+  const q = document.getElementById("historySearch").value.trim().toLocaleLowerCase("ru");
+  const rows = (historyTab === "dated" ? dated : undated).filter(e => (!q || (e.item.name + " " + e.label).toLocaleLowerCase("ru").includes(q)) && (historyTab === "undated" || !year.value || new Date(e.ms).getFullYear() === +year.value));
+  document.getElementById("historySummary").textContent = `${new Set(dated.map(e => e.item.uid)).size} тайтлов с датой · ${dated.length} записей просмотра`;
+  document.getElementById("historyUndated").textContent = `Без даты · ${undated.length}`;
+  ["Dated", "Undated"].forEach(name => { const active = historyTab === name.toLowerCase(); const btn = document.getElementById("history" + name); btn.classList.toggle("on", active); btn.setAttribute("aria-pressed", String(active)); });
+  document.getElementById("historyHint").textContent = readOnly ? "Нажми на запись, чтобы найти аниме в коллекции." : "Нажми на запись, чтобы добавить или изменить дату просмотра.";
+  let month = "";
+  document.getElementById("historyList").innerHTML = rows.map(e => {
+    const d = e.ms ? new Date(e.ms) : null;
+    const key = d ? `${d.getFullYear()}-${d.getMonth()}` : "";
+    const heading = key && key !== month ? `<h4 class="history-month">${esc(d.toLocaleDateString("ru-RU", { month: "long", year: "numeric" }))}</h4>` : "";
+    month = key;
+    const iso = d ? `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}` : "";
+    return heading + `<button type="button" class="history-entry" data-uid="${e.item.uid}" style="${accentVars(e.tier)}"><time${iso ? ` datetime="${iso}"` : ""}>${esc(e.date || "Без даты")}</time><span><b>${esc(e.item.name)}</b><small>${esc(e.label || e.tier.label)}</small></span><span class="history-tier">${esc(e.tier.id)}</span></button>`;
+  }).join("") || '<p class="history-empty">' + (q || year.value ? 'Записей по этому запросу нет.' : historyTab === "dated" ? 'Здесь появятся даты просмотра. Открой аниме в режиме редактирования и укажи дату; для разных сезонов можно добавить отдельные записи.' : 'У всех тайтлов уже есть дата просмотра.') + '</p>';
+}
+function closeHistory() { historyOverlay.classList.remove("show"); document.getElementById("historyBtn").focus({ preventScroll: true }); }
+document.getElementById("historyBtn").addEventListener("click", () => { renderHistory(); historyOverlay.classList.add("show"); document.getElementById("historySearch").focus(); });
+document.getElementById("historyClose").addEventListener("click", closeHistory);
+historyOverlay.addEventListener("click", e => { if (e.target === historyOverlay) closeHistory(); });
+document.getElementById("historySearch").addEventListener("input", renderHistory);
+document.getElementById("historyYear").addEventListener("change", renderHistory);
+["dated", "undated"].forEach(tab => document.getElementById(tab === "dated" ? "historyDated" : "historyUndated").addEventListener("click", () => { historyTab = tab; renderHistory(); }));
+document.getElementById("historyList").addEventListener("click", e => {
+  const row = e.target.closest(".history-entry"); if (!row) return;
+  const uid = +row.dataset.uid;
+  closeHistory();
+  if (!readOnly) { openModal(uid); return; }
+  searchQ = ""; searchInput.value = ""; favOnly = false; favBtn.classList.remove("on"); applySearch();
+  const entry = document.querySelector(`#board [data-uid="${uid}"]`);
+  if (entry) { entry.scrollIntoView({ behavior: reduceMotion ? "instant" : "smooth", block: "center" }); entry.focus({ preventScroll: true }); entry.classList.add("history-highlight"); setTimeout(() => entry.classList.remove("history-highlight"), 1800); }
+});
+historyOverlay.addEventListener("keydown", e => {
+  if (e.key !== "Tab") return;
+  const nodes = [...historyOverlay.querySelectorAll('button, input, select')].filter(el => !el.disabled && el.getClientRects().length);
+  const first = nodes[0], last = nodes[nodes.length-1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
+
 const statsOverlay = document.getElementById("statsOverlay");
 /* a playful verdict derived from how the collection is shaped */
 function tasteVerdict(counts, total, favs) {
@@ -4533,7 +4886,7 @@ document.getElementById("tierAdd").addEventListener("click", () => {
    Своя фотография хранится в IndexedDB как blob: в localStorage она бы не
    влезла, а base64 в состоянии раздул бы каждый экспорт на мегабайты.     */
 const BG_KEY = LS_KEY + ":bg";
-const BG_DEFAULT = { scene: "aurora", url: "", hasFile: false, dim: 62, blur: 6, sat: 100, pos: "center", parallax: true };
+const BG_DEFAULT = { scene: "city", url: "", hasFile: false, dim: 62, blur: 6, sat: 100, pos: "center", parallax: true };
 let bg = Object.assign({}, BG_DEFAULT);
 let bgObjectUrl = null;
 
@@ -4549,6 +4902,8 @@ async function applyBg() {
   document.body.classList.remove("atm-ember", "atm-abyss", "atm-sakura", "atm-shibuya");
   if (bg.scene !== "photo" && bg.scene !== "aurora") document.body.classList.add("atm-" + bg.scene);
   document.body.classList.toggle("has-photo", bg.scene === "photo");
+  document.body.classList.toggle("bg-city", bg.scene === "city");
+  dispatchEvent(new Event("bg-change"));
   if (!layer) return;
 
   if (bg.scene !== "photo") { layer.style.backgroundImage = ""; return; }
@@ -5029,6 +5384,62 @@ function initShortcuts() {
 initShortcuts();
 
 /* ════════════════════ EXPORT PNG ════════════════════ */
+/* html2canvas 1.4 predates CSS Color 4. Let the browser resolve these colours
+   into legacy rgba() in the disposable export clone, including pseudo-elements. */
+function prepareExportColors(doc) {
+  const pixel = doc.createElement("canvas"); pixel.width = pixel.height = 1;
+  const ctx = pixel.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return;
+  const cache = new Map();
+  const pattern = /\b(?:color|color-mix|oklab|oklch|lab|lch)\(/g;
+  function legacyColors(value) {
+    pattern.lastIndex = 0;
+    let match, cursor = 0, result = "";
+    while ((match = pattern.exec(value))) {
+      let end = pattern.lastIndex, depth = 1;
+      while (end < value.length && depth) {
+        if (value[end] === "(") depth++;
+        else if (value[end] === ")") depth--;
+        end++;
+      }
+      if (depth) break;
+      const token = value.slice(match.index, end);
+      if (!cache.has(token)) {
+        ctx.clearRect(0, 0, 1, 1); ctx.fillStyle = token; ctx.fillRect(0, 0, 1, 1);
+        const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
+        cache.set(token, `rgba(${r},${g},${b},${(a / 255).toFixed(4)})`);
+      }
+      result += value.slice(cursor, match.index) + cache.get(token);
+      cursor = end; pattern.lastIndex = end;
+    }
+    return result + value.slice(cursor);
+  }
+  const props = ["color", "background-color", "background-image", "border-top-color", "border-right-color", "border-bottom-color", "border-left-color", "box-shadow", "text-shadow", "outline-color", "fill", "stroke", "-webkit-text-fill-color"];
+  const pseudoRules = [];
+  doc.querySelectorAll("#capture, #capture *").forEach((el, idx) => {
+    const css = doc.defaultView.getComputedStyle(el);
+    props.forEach(prop => {
+      const value = css.getPropertyValue(prop), legacy = legacyColors(value);
+      if (legacy !== value) el.style.setProperty(prop, legacy, "important");
+    });
+    for (const pseudo of ["::before", "::after"]) {
+      const styles = doc.defaultView.getComputedStyle(el, pseudo);
+      if (styles.content === "none") continue;
+      const rules = [];
+      props.forEach(prop => {
+        const value = styles.getPropertyValue(prop), legacy = legacyColors(value);
+        if (legacy !== value) rules.push(`${prop}:${legacy} !important`);
+      });
+      if (rules.length) {
+        el.setAttribute("data-export-color", String(idx));
+        pseudoRules.push(`[data-export-color="${idx}"]${pseudo}{${rules.join(";")}}`);
+      }
+    }
+  });
+  if (pseudoRules.length) {
+    const style = doc.createElement("style"); style.textContent = pseudoRules.join("\n"); doc.head.appendChild(style);
+  }
+}
 document.getElementById("exportBtn").addEventListener("click", async () => {
   if (typeof html2canvas === "undefined") { toast("Библиотека экспорта не загрузилась"); return; }
   const node = document.getElementById("capture");
@@ -5039,14 +5450,14 @@ document.getElementById("exportBtn").addEventListener("click", async () => {
   toast("Готовлю изображение…");
   await new Promise(r => setTimeout(r, 120));
   try {
-    const canvas = await html2canvas(node, { backgroundColor: "#08060f", scale: 2, useCORS: true, logging: false, windowWidth: node.scrollWidth });
+    const canvas = await html2canvas(node, { backgroundColor: "#08060f", scale: 2, useCORS: true, logging: false, windowWidth: node.scrollWidth, onclone: prepareExportColors });
     const link = document.createElement("a");
     link.download = "anime-tier-list.png";
     link.href = canvas.toDataURL("image/png");
     link.click();
     toast("Сохранено в PNG ✓");
   } catch (err) {
-    toast("Не удалось экспортировать обложки (CORS). Попробуй вид «Чипы».");
+    toast("Не удалось создать PNG. Попробуй вид «Чипы» или отключи эффекты.");
   } finally {
     document.body.classList.remove("exporting"); node.classList.remove("exporting");
     if (wasEditing) { editing = true; document.body.classList.add("editing"); editBtn.classList.add("on"); }
@@ -5091,7 +5502,7 @@ addEventListener("scroll", hidePreview, { passive: true });
 
 /* ════════════════════ WINGS FLARE (hover flourish) ════════════════════ */
 const wingsEl = document.getElementById("wings");
-const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 let wingsT;
 function flareWings(card, tierId) {
   if (editing || reduceMotion || !wingsEl) return;
@@ -5175,9 +5586,10 @@ function toast(msg) {
   requestAnimationFrame(() => mast.classList.add("hero-in"));
 
   /* наклон заголовка за курсором: одна запись в CSS-переменные за кадр */
-  if (matchMedia("(hover: none)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (matchMedia("(hover: none)").matches) return;
   let qx = 0, qy = 0, queued = false;
   addEventListener("mousemove", e => {
+    if (reduceMotion) return;
     qx = (e.clientX / innerWidth - 0.5) * 2;
     qy = (e.clientY / innerHeight - 0.5) * 2;
     if (queued) return;
@@ -5203,7 +5615,6 @@ function toast(msg) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
 
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const weak = matchMedia("(hover: none)").matches || innerWidth < 720 ||
                (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
 
@@ -5269,7 +5680,7 @@ function toast(msg) {
   resize();
 
   const FOV = 320;
-  let camX = 0, camY = 0, t = 0, running = true;
+  let camX = 0, camY = 0, t = 0, frameId = 0, lastFrame = 0;
 
   function project(x, y, z) {
     const zz = z + 34;              /* камера стоит в -34 по Z */
@@ -5278,11 +5689,15 @@ function toast(msg) {
     return [W / 2 + (x - camX) * k, H / 2 + (y - camY) * k, k];
   }
 
-  function frame() {
-    if (!running) return;
-    requestAnimationFrame(frame);
-    if (!W || !H) return;
-    t += reduce ? 0 : .006;
+  function frame(now = performance.now()) {
+    frameId = 0;
+    if (document.hidden || document.body.classList.contains("bg-city")) return;
+    const reduce = reduceMotion;
+    if (!reduce) frameId = requestAnimationFrame(frame);
+    if (!W || !H || (!reduce && now - lastFrame < (weak ? 33 : 16))) return;
+    const step = lastFrame ? Math.min((now - lastFrame) / 16.667, 3) : 1;
+    lastFrame = now;
+    t += reduce ? 0 : .006 * step;
 
     /* к курсору тянемся мягко: резкий отклик выглядит нервно */
     const mx = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--mx")) || 0;
@@ -5295,8 +5710,8 @@ function toast(msg) {
 
     for (const d of dots) {
       if (!reduce) {
-        d.y -= d.s;
-        d.x += Math.sin(t * 1.6 + d.z) * .01;
+        d.y -= d.s * step;
+        d.x += Math.sin(t * 1.6 + d.z) * .01 * step;
         if (d.y < -42) { d.y = 42; d.x = (Math.random() - .5) * 120; }
       }
       const p = project(d.x, d.y, d.z);
@@ -5307,7 +5722,7 @@ function toast(msg) {
     }
 
     for (const b of bodies) {
-      if (!reduce) { b.rot[0] += b.spin[0]; b.rot[1] += b.spin[1]; b.rot[2] += b.spin[2]; }
+      if (!reduce) { b.rot[0] += b.spin[0] * step; b.rot[1] += b.spin[1] * step; b.rot[2] += b.spin[2] * step; }
       const [rx, ry, rz] = b.rot;
       const sx = Math.sin(rx), cx = Math.cos(rx);
       const sy = Math.sin(ry), cy = Math.cos(ry);
@@ -5334,11 +5749,17 @@ function toast(msg) {
   }
 
   /* в фоновой вкладке не жжём батарею */
-  addEventListener("visibilitychange", () => {
-    running = document.visibilityState !== "hidden";
-    if (running) requestAnimationFrame(frame);
-  });
-  requestAnimationFrame(frame);
+  function resume() {
+    cancelAnimationFrame(frameId); lastFrame = 0;
+    resize();
+    if (reduceMotion) frame();
+    else frameId = requestAnimationFrame(frame);
+  }
+  document.addEventListener("visibilitychange", resume);
+  addEventListener("motion-change", resume);
+  addEventListener("bg-change", resume);
+  addEventListener("resize", resume);
+  resume();
 })();
 
 /* ── живая подпись под заголовком ───────────────────────────────────────────
@@ -5383,9 +5804,8 @@ const DECK_LINES = [
     });
   }
   paint(DECK_LINES[0], "in");
-  if (reduceMotion) return;
-
   function next() {
+    if (reduceMotion || document.hidden) return;
     const cur = line.textContent;
     paint(cur, "out");
     setTimeout(() => {
@@ -5393,8 +5813,9 @@ const DECK_LINES = [
       paint(DECK_LINES[idx], "in");
     }, 620);
   }
-  function arm() { clearInterval(timer); timer = setInterval(next, 7200); }
+  function arm() { clearInterval(timer); if (!reduceMotion && !document.hidden) timer = setInterval(next, 7200); }
   arm();
+  addEventListener("motion-change", arm);
   /* пока вкладка в фоне, крутить смысла нет */
   addEventListener("visibilitychange", () => {
     if (document.visibilityState === "hidden") clearInterval(timer); else arm();
@@ -5414,8 +5835,74 @@ function buildCube() {
     `<div class="cface cf${i + 1}" style="--fh:${f.h}">${esc(f.ch)}</div>`).join("");
 }
 
-/* stamp */
-document.getElementById("stamp").textContent = "v · " + new Date().toLocaleDateString("ru-RU");
+/* A visit date belongs to this browser, never to another user's published list. */
+(function visitJournal() {
+  const key = "anime-tierlist-visit-journal";
+  const input = document.getElementById("visitDate");
+  const auto = document.getElementById("visitAuto");
+  const status = document.getElementById("visitStatus");
+  const localDay = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+  function validDay(value) {
+    if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const [y, m, d] = value.split("-").map(Number);
+    const date = new Date(y, m - 1, d, 12);
+    return y >= 1900 && date.getFullYear() === y && date.getMonth() === m - 1 && date.getDate() === d;
+  }
+  const formatDay = value => value.split("-").reverse().join(".");
+  let stored;
+  try { stored = JSON.parse(localStorage.getItem(key) || "null"); } catch (e) {}
+  let mode = stored && stored.mode === "manual" && validDay(stored.date) ? "manual" : "auto";
+  let date = mode === "manual" ? stored.date : localDay(new Date());
+  const previous = stored && typeof stored.lastVisited === "string" ? new Date(stored.lastVisited) : null;
+  let visitedAt = new Date().toISOString();
+  let persistent = true;
+  function persist() {
+    try { localStorage.setItem(key, JSON.stringify({ mode, date, lastVisited: visitedAt })); persistent = true; }
+    catch (e) { persistent = false; }
+  }
+  function paint() {
+    const today = localDay(new Date());
+    if (mode === "auto") date = today;
+    input.value = date;
+    auto.setAttribute("aria-pressed", String(mode === "auto"));
+    const display = document.getElementById("visitDisplay");
+    display.textContent = formatDay(date); display.dateTime = date;
+    const todayEl = document.getElementById("visitToday");
+    todayEl.textContent = formatDay(today); todayEl.dateTime = today;
+    document.getElementById("visitPrevious").textContent = previous && Number.isFinite(previous.getTime())
+      ? "Прошлый визит: " + formatDay(localDay(previous)) : "Первый визит в этом браузере";
+    status.textContent = !persistent ? "Браузер не разрешил сохранение этой отметки."
+      : mode === "auto" ? "Авто: дата текущего визита. Сохраняется в этом браузере."
+      : "Ручная отметка сохранена в этом браузере. Автоматически не меняется.";
+    document.getElementById("stamp").textContent = "v · " + formatDay(today);
+  }
+  input.addEventListener("change", () => {
+    if (!validDay(input.value) || !input.checkValidity()) { paint(); status.textContent = "Выбери корректную дату."; return; }
+    mode = "manual"; date = input.value; persist(); paint();
+  });
+  document.getElementById("visitSetToday").addEventListener("click", () => {
+    mode = "manual"; date = localDay(new Date()); persist(); paint();
+  });
+  auto.addEventListener("click", () => {
+    mode = mode === "auto" ? "manual" : "auto";
+    if (mode === "auto") date = localDay(new Date());
+    persist(); paint();
+  });
+  function refreshDay() {
+    visitedAt = new Date().toISOString();
+    if (mode === "auto") date = localDay(new Date());
+    persist(); paint();
+  }
+  addEventListener("focus", refreshDay);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) refreshDay(); });
+  // Re-evaluate at local midnight, including a tab left open overnight.
+  function midnight() {
+    const now = new Date();
+    const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    setTimeout(() => { refreshDay(); midnight(); }, next.getTime() - now.getTime() + 100);
+  }
+  persist(); paint(); midnight();
+})();
 
 render();
 
@@ -5557,6 +6044,7 @@ const isTouch = matchMedia("(hover: none)").matches;
 let mx = 0, my = 0, pScheduled = false;
 if (!isTouch) {
   addEventListener("mousemove", e => {
+    if (reduceMotion) return;
     mx = (e.clientX / innerWidth - 0.5) * 2;
     my = (e.clientY / innerHeight - 0.5) * 2;
     if (!pScheduled) { pScheduled = true; requestAnimationFrame(() => { root.style.setProperty("--mx", mx); root.style.setProperty("--my", my); pScheduled = false; }); }
@@ -5569,23 +6057,25 @@ if (!isTouch) {
   const body = document.body;
   const isTouchDev = matchMedia("(hover: none)").matches;
   const lowDev = isTouchDev || innerWidth < 720 || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
-  const defaults = { "fx-neon": true, "fx-tilt": !isTouchDev, "fx-cursor": !isTouchDev, "fx-particles": !lowDev, "fx-petals": !lowDev, glow: 1, atm: "midnight", rhythm: "standard", glass: "standard" };
+  const defaults = { "fx-neon": true, "fx-tilt": !isTouchDev, "fx-cursor": !isTouchDev, "fx-particles": !lowDev, "fx-petals": !lowDev, "fx-tier-motion": true, motion: "auto", emblems: "orbits", glow: 1, atm: "midnight", rhythm: "standard", glass: "standard" };
   let cfg;
   try { cfg = Object.assign({}, defaults, JSON.parse(localStorage.getItem(FX_KEY) || "{}")); }
   catch(e) { cfg = Object.assign({}, defaults); }
 
   function apply() {
-    ["fx-neon","fx-tilt","fx-cursor","fx-particles","fx-petals"].forEach(k => body.classList.toggle(k, !!cfg[k]));
+    setMotionPreference(cfg.motion);
+    ["fx-neon","fx-tilt","fx-cursor","fx-particles","fx-petals","fx-tier-motion"].forEach(k => body.classList.toggle(k, !!cfg[k]));
     document.documentElement.style.setProperty("--glow-mult", cfg.glow);
-    document.querySelectorAll(".fx-sw").forEach(sw => sw.classList.toggle("on", !!cfg[sw.dataset.fx]));
+    document.querySelectorAll(".fx-sw").forEach(sw => { sw.classList.toggle("on", !!cfg[sw.dataset.fx]); sw.setAttribute("aria-pressed", String(!!cfg[sw.dataset.fx])); });
     const gl = document.getElementById("fxGlow"); if (gl) gl.value = cfg.glow;
     // expressive feel presets
-    const SEGS = { atm: ["midnight","ember","abyss","sakura","shibuya"], rhythm: ["cozy","standard","grand"], glass: ["frosted","standard","crystal"] };
-    const PREFIX = { atm: "atm-", rhythm: "rhythm-", glass: "glass-" };
+    const SEGS = { motion: ["auto","on","off"], atm: ["midnight","ember","abyss","sakura","shibuya"], rhythm: ["cozy","standard","grand"], glass: ["frosted","standard","crystal"], emblems: ["orbits","classic"] };
+    const PREFIX = { motion: "motion-", atm: "atm-", rhythm: "rhythm-", glass: "glass-", emblems: "emblems-" };
     Object.keys(SEGS).forEach(key => {
+      if (!SEGS[key].includes(cfg[key])) cfg[key] = defaults[key];
       SEGS[key].forEach(v => body.classList.remove(PREFIX[key] + v));
       body.classList.add(PREFIX[key] + cfg[key]);
-      document.querySelectorAll(`.fx-seg[data-seg="${key}"] button`).forEach(b => b.classList.toggle("on", b.dataset.v === cfg[key]));
+      document.querySelectorAll(`.fx-seg[data-seg="${key}"] button`).forEach(b => { b.classList.toggle("on", b.dataset.v === cfg[key]); b.setAttribute("aria-pressed", String(b.dataset.v === cfg[key])); });
     });
     window.dispatchEvent(new CustomEvent("fx-change"));
   }
@@ -5599,6 +6089,7 @@ if (!isTouch) {
   document.querySelectorAll(".fx-sw").forEach(sw => sw.addEventListener("click", () => { cfg[sw.dataset.fx] = !cfg[sw.dataset.fx]; apply(); persist(); }));
   document.querySelectorAll(".fx-seg").forEach(seg => seg.addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
+    if (seg.dataset.seg === "motion" && b.dataset.v === "on") cfg["fx-tier-motion"] = true;
     cfg[seg.dataset.seg] = b.dataset.v; apply(); persist();
   }));
   const glow = document.getElementById("fxGlow");
@@ -5618,18 +6109,28 @@ if (!isTouch) {
     el.style.setProperty(vars[1], (-py * amt).toFixed(2) + "deg");
   }
   if (!isTouchDev) {
+    let pointerFrame = 0;
+    let activeTarget = null;
     document.addEventListener("pointermove", e => {
-      if (!body.classList.contains("fx-tilt")) return;
+      if (!body.classList.contains("fx-tilt") || reduceMotion) return;
       const card = e.target.closest && e.target.closest(".card");
-      if (card) { tiltToward(card, e, ["--rx", "--ry"], 9); return; }
       const badge = e.target.closest && e.target.closest(".badge");
-      if (badge) tiltToward(badge, e, ["--brx", "--bry"], 12);
+      if (!card && !(badge && body.classList.contains("fx-tier-motion"))) return;
+      if (pointerFrame) cancelAnimationFrame(pointerFrame);
+      activeTarget = card || badge;
+      pointerFrame = requestAnimationFrame(() => {
+        pointerFrame = 0;
+        tiltToward(activeTarget, e, card ? ["--rx", "--ry"] : ["--brx", "--bry"], card ? 9 : 24);
+      });
     }, { passive: true });
     document.addEventListener("pointerout", e => {
       const card = e.target.closest && e.target.closest(".card");
-      if (card) { card.style.setProperty("--rx", "0deg"); card.style.setProperty("--ry", "0deg"); }
       const badge = e.target.closest && e.target.closest(".badge");
-      if (badge) { badge.style.setProperty("--brx", "0deg"); badge.style.setProperty("--bry", "0deg"); }
+      const target = card || badge;
+      if (!target || (e.relatedTarget instanceof Node && target.contains(e.relatedTarget))) return;
+      if (activeTarget === target && pointerFrame) { cancelAnimationFrame(pointerFrame); pointerFrame = 0; }
+      const vars = card ? ["--rx", "--ry"] : ["--brx", "--bry"];
+      vars.forEach(v => target.style.setProperty(v, "0deg"));
     }, { passive: true });
   }
 })();
@@ -5638,13 +6139,11 @@ if (!isTouch) {
 <script>
 /* ════════════════════ ABSTRACT AMBIENT CANVAS: drifting motes + soft orbs + sparks ════════════════════ */
 (() => {
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const rnd = (a, b) => a + Math.random() * (b - a);
   const pick = a => a[Math.floor(Math.random() * a.length)];
-  if (reduce) return;
 
   const cv = document.getElementById("fx"), ctx = cv.getContext("2d");
-  let W, H, dpr, running = true;
+  let W, H, dpr, loopId = 0, lastPaint = 0;
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = innerWidth; H = innerHeight;
@@ -5848,7 +6347,7 @@ if (!isTouch) {
     bursts = bursts.filter(p => p.life < p.max);
   }
   /* exposed so the app can fire a burst from a tier badge on add/edit */
-  window.__fxBurst = (x, y, hue) => { spawnBurst(x, y, hue == null ? pick(HUES) : hue); };
+  window.__fxBurst = (x, y, hue) => { if (reduceMotion) return; spawnBurst(x, y, hue == null ? pick(HUES) : hue); };
 
   /* slanted luminous rain — used by the «Дождливая Сибуя» atmosphere */
   class Rain {
@@ -5871,11 +6370,12 @@ if (!isTouch) {
     const parts = document.body.classList.contains("fx-particles");
     const petalsOn = document.body.classList.contains("fx-petals");
     const shibuya = atmKey() === "shibuya";
+    const city = document.body.classList.contains("bg-city");
     return {
-      mote: lowDev ? 18 : (parts ? 52 : 32),
-      orb:  lowDev ? 6  : (parts ? 16 : 10),
+      mote: city ? (lowDev ? 8 : 20) : (lowDev ? 18 : (parts ? 52 : 32)),
+      orb: city ? 0 : (lowDev ? 6 : (parts ? 16 : 10)),
       sparkMax: parts ? (lowDev ? 2 : 6) : 0,
-      streakMax: lowDev ? 0 : (parts ? 3 : 2),
+      streakMax: city || lowDev ? 0 : (parts ? 3 : 2),
       streakRate: parts ? 0.006 : 0.0035,
       petal: (!shibuya && petalsOn) ? (lowDev ? 9 : 22) : 0,   /* sakura → off when raining */
       rain: shibuya ? (lowDev ? 60 : 150) : 0
@@ -5895,11 +6395,19 @@ if (!isTouch) {
   seed();
   addEventListener("resize", seed);
   addEventListener("fx-change", seed);
+  addEventListener("bg-change", seed);
   /* pause when tab hidden */
-  document.addEventListener("visibilitychange", () => { running = !document.hidden; if (running) requestAnimationFrame(loop); });
+  function resume() { cancelAnimationFrame(loopId); lastPaint = 0; if (reduceMotion) loop(); else loopId = requestAnimationFrame(loop); }
+  document.addEventListener("visibilitychange", resume);
+  addEventListener("motion-change", resume);
 
-  function loop() {
-    if (!running) return;
+  function loop(now = performance.now()) {
+    loopId = 0;
+    if (document.hidden) return;
+    if (reduceMotion) { ctx.clearRect(0, 0, W, H); bursts = []; return; }
+    loopId = requestAnimationFrame(loop);
+    if (now - lastPaint < (lowDev ? 33 : 16)) return;
+    lastPaint = now;
     ctx.clearRect(0, 0, W, H);
     ctx.globalCompositeOperation = "screen";
     for (const o of orbs) { o.update(); o.draw(); }
@@ -5921,9 +6429,8 @@ if (!isTouch) {
       for (const pt of petals) { pt.update(); pt.draw(); }
     }
     ctx.globalCompositeOperation = "source-over";
-    requestAnimationFrame(loop);
   }
-  requestAnimationFrame(loop);
+  resume();
 })();
 </script>
 
