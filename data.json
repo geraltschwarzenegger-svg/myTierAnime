@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-08-15T07:02:24.536Z",
+  "savedAt": "2026-10-11T16:43:12.059Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -412,6 +412,45 @@
             "fav": true,
             "reaction": "bolt",
             "watched": []
+          },
+          {
+            "uid": 64,
+            "name": "Повелитель тайн",
+            "cover": "https://shikimori.io/uploads/poster/animes/63632/main-f9a1b1fbb7e88c0ef854d865c65f8510.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "17.09.2026"
+              }
+            ]
+          },
+          {
+            "uid": 65,
+            "name": "Золотая пора",
+            "cover": "https://shikimori.io/uploads/poster/animes/17895/main-7b33bb784137e7a9b74f95d662fab33c.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "10.09.2026"
+              }
+            ]
+          },
+          {
+            "uid": 66,
+            "name": "Я подружился со второй самой симпатичной девушкой в классе",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/class-de-2-banme.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "02.10.2026"
+              }
+            ]
           }
         ]
       },
@@ -690,10 +729,23 @@
                 "date": "01.05.2026"
               }
             ]
+          },
+          {
+            "uid": 62,
+            "name": "Токийский гуль",
+            "cover": "https://shikimori.io/uploads/poster/animes/22319/main-ef32e609e445973258c2831d4c8e9967.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "31.08.2026"
+              }
+            ]
           }
         ]
       }
     ],
-    "nextUid": 62
+    "nextUid": 67
   }
 }

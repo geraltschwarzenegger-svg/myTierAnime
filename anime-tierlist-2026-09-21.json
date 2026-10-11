@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-09-21T17:34:38.557Z",
+  "savedAt": "2026-10-11T16:43:12.059Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -438,6 +438,19 @@
                 "date": "10.09.2026"
               }
             ]
+          },
+          {
+            "uid": 66,
+            "name": "Я подружился со второй самой симпатичной девушкой в классе",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/class-de-2-banme.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "02.10.2026"
+              }
+            ]
           }
         ]
       },
@@ -733,6 +746,6 @@
         ]
       }
     ],
-    "nextUid": 66
+    "nextUid": 67
   }
 }
