@@ -121,7 +121,7 @@ test('invalid state cannot overwrite a valid collection',async()=>{
 });
 
 test('published JSON snapshots satisfy the server validation contract',()=>{
- for(const name of ['data.json','anime-tierlist-2026-09-21.json']) {
+ for(const name of ['data.json','anime-tierlist-2026-10-11.json']) {
   const data=JSON.parse(readFileSync(new URL('../../'+name,import.meta.url),'utf8'));
   assert.equal(__test.validateState(data.state),null,name);
  }

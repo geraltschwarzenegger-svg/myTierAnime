@@ -94,7 +94,7 @@ test('read-only and locked lists never write', async () => {
   for (const flag of ['readOnly', 'locked']) { const { context: c, writes } = harness({ [flag]: true }); assert.equal(c.save(), false); await c.flushMirrors(); assert.equal(writes.length, 0); }
 });
 
-for (const name of ['data.json', 'anime-tierlist-2026-09-21.json']) {
+for (const name of ['data.json', 'anime-tierlist-2026-10-11.json']) {
   test(`${name}: schema, IDs, nextUid, reactions and real calendar dates`, () => {
     const env = JSON.parse(readFileSync(new URL('../../' + name, import.meta.url), 'utf8')), state = env.state;
     assert.equal(state.schema, 4); assert.ok(Number.isFinite(Date.parse(env.savedAt)));

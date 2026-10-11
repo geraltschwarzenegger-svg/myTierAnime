@@ -65,4 +65,4 @@
 Даты указаны у всех 65 аниме. Личная отметка «Моя дата» не изменялась.
 
 Актуальные данные: [data.json](../data.json) и
-[anime-tierlist-2026-09-21.json](../anime-tierlist-2026-09-21.json).
+[anime-tierlist-2026-10-11.json](../anime-tierlist-2026-10-11.json).
