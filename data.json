@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-11T16:43:12.059Z",
+  "savedAt": "2026-10-11T17:04:49.112Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -309,7 +309,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21234-XmqW39aQ9o7O.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "05.04.2026"
+              }
+            ]
           },
           {
             "uid": 17,
@@ -317,7 +322,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98436-n7sK6POCd0XV.png",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "12.04.2026"
+              }
+            ]
           },
           {
             "uid": 18,
@@ -325,7 +335,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9253-tIUXF2gfU8Sg.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "24.03.2026"
+              }
+            ]
           },
           {
             "uid": 19,
@@ -333,7 +348,12 @@
             "cover": "https://shikimori.io/uploads/poster/animes/61128/main-f153df8f99d703baf376e57b2977b295.webp",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "03.03.2026"
+              }
+            ]
           },
           {
             "uid": 20,
@@ -371,7 +391,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156023-cY4NC8gCcAg7.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "15.06.2026"
+              }
+            ]
           },
           {
             "uid": 23,
@@ -379,7 +404,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16782-qpFGk18UqaHn.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "12.05.2026"
+              }
+            ]
           },
           {
             "uid": 24,
@@ -387,7 +417,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156039-JnepQcVxXLLW.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "19.04.2026"
+              }
+            ]
           },
           {
             "uid": 25,
@@ -395,7 +430,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx33-PSwfE5B0gejI.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "14.06.2026"
+              }
+            ]
           },
           {
             "uid": 44,
@@ -403,7 +443,12 @@
             "cover": "https://media.kitsu.app/anime/44382/poster_image/large-8ffc8ea9b6a1f9e79bc626e03baab167.jpeg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "29.04.2026"
+              }
+            ]
           },
           {
             "uid": 54,
@@ -411,7 +456,12 @@
             "cover": "https://shikimori.io/uploads/poster/animes/59654/01975809c67b99dc54cac17db6e0dfa7.jpeg",
             "fav": true,
             "reaction": "bolt",
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "30.05.2026"
+              }
+            ]
           },
           {
             "uid": 64,
@@ -451,6 +501,19 @@
                 "date": "02.10.2026"
               }
             ]
+          },
+          {
+            "uid": 67,
+            "name": "Освободите эту ведьму",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/release-that-witch.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "10.06.2026"
+              }
+            ]
           }
         ]
       },
@@ -466,7 +529,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx143338-zhyDVYgEzsm5.png",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "08.03.2026"
+              }
+            ]
           },
           {
             "uid": 27,
@@ -474,7 +542,12 @@
             "cover": "https://shikimori.io/uploads/poster/animes/45613/main-a38d2f57f4d26377a48040fa9d76fddd.webp",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "09.12.2025"
+              }
+            ]
           },
           {
             "uid": 28,
@@ -482,7 +555,12 @@
             "cover": "https://media.kitsu.app/anime/46459/poster_image/large-93bd1be09abb35565d9e183e3895ad02.jpeg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "18.03.2026"
+              }
+            ]
           },
           {
             "uid": 29,
@@ -490,7 +568,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "18.04.2026"
+              }
+            ]
           },
           {
             "uid": 30,
@@ -498,7 +581,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20872-j5PBzzVtrYDM.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "30.04.2026"
+              }
+            ]
           },
           {
             "uid": 31,
@@ -506,7 +594,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20997-axVYrsIfjtYJ.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "21.04.2026"
+              }
+            ]
           },
           {
             "uid": 32,
@@ -514,7 +607,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99629-BXyAJ6PDq4sr.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "08.05.2026"
+              }
+            ]
           },
           {
             "uid": 33,
@@ -522,7 +620,12 @@
             "cover": "https://media.kitsu.app/anime/46370/poster_image/large-338a164d72dacaa07fc4b6ea58fa1efc.jpeg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "13.05.2026"
+              }
+            ]
           },
           {
             "uid": 34,
@@ -530,7 +633,12 @@
             "cover": "https://media.kitsu.app/anime/48391/poster_image/large-da08a161da14064a4f1e18ee46d268a7.jpeg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "16.05.2026"
+              }
+            ]
           },
           {
             "uid": 35,
@@ -538,7 +646,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130003-HTDmeL4RGeJ4.png",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "23.04.2026"
+              }
+            ]
           },
           {
             "uid": 36,
@@ -546,7 +659,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx145260-Yt5W8aQQKqF2.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "21.05.2026"
+              }
+            ]
           },
           {
             "uid": 37,
@@ -554,7 +672,12 @@
             "cover": "https://media.kitsu.app/anime/poster_images/41084/large.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "24.05.2026"
+              }
+            ]
           },
           {
             "uid": 38,
@@ -562,7 +685,12 @@
             "cover": "https://media.kitsu.app/anime/poster_images/7421/large.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "25.04.2026"
+              }
+            ]
           },
           {
             "uid": 39,
@@ -570,7 +698,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx100668-DvOn5bMOt4cy.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "19.06.2026"
+              }
+            ]
           },
           {
             "uid": 60,
@@ -599,7 +732,12 @@
             "cover": "https://media.kitsu.app/anime/poster_images/10028/large.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "11.03.2026"
+              }
+            ]
           },
           {
             "uid": 41,
@@ -633,7 +771,12 @@
             "cover": "https://media.kitsu.app/anime/poster_images/10621/large.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "14.03.2026"
+              }
+            ]
           },
           {
             "uid": 45,
@@ -641,7 +784,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1689-rJKhjLEjQHSy.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "27.05.2026"
+              }
+            ]
           },
           {
             "uid": 46,
@@ -649,7 +797,12 @@
             "cover": "https://shikimori.io/uploads/poster/animes/61316/79e6a0c31589176e3244c6117dab2500.jpeg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "21.03.2026"
+              }
+            ]
           },
           {
             "uid": 47,
@@ -670,7 +823,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20994-pSDk4I58jAK5.jpg",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "04.06.2026"
+              }
+            ]
           },
           {
             "uid": 49,
@@ -678,7 +836,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10408-PlKJ6DAyvMk2.png",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "05.06.2026"
+              }
+            ]
           },
           {
             "uid": 50,
@@ -686,7 +849,12 @@
             "cover": "https://shikimori.io/uploads/poster/animes/11111/main-d6067f1c25b6591949eb67bc70befa72.webp",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "04.07.2026"
+              }
+            ]
           },
           {
             "uid": 51,
@@ -694,7 +862,12 @@
             "cover": "https://shikimori.io/uploads/poster/animes/59484/main-28bea4bc98b74d010868fdd4cc8a8f98.webp",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "05.06.2026"
+              }
+            ]
           },
           {
             "uid": 52,
@@ -702,7 +875,12 @@
             "cover": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx103655-v8Inz6BscNSW.png",
             "fav": false,
             "reaction": null,
-            "watched": []
+            "watched": [
+              {
+                "label": "",
+                "date": "07.06.2026"
+              }
+            ]
           },
           {
             "uid": 55,
@@ -746,6 +924,6 @@
         ]
       }
     ],
-    "nextUid": 67
+    "nextUid": 68
   }
 }
