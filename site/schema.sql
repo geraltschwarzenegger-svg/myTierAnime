@@ -47,3 +47,11 @@ CREATE TABLE IF NOT EXISTS rate_limit (
   count    INTEGER NOT NULL,
   reset_at INTEGER NOT NULL                  -- unix ms
 );
+
+-- Отзываемые сессии. Совместимо с существующей базой: добавляется новая таблица.
+CREATE TABLE IF NOT EXISTS sessions (
+  token_hash TEXT PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  expires_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS sessions_expiry ON sessions(expires_at);

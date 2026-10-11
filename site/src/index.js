@@ -8,12 +8,14 @@
  *   · форма обратной связи с письмом владельцу списка;
  *   · еженедельная сводка по расписанию.
  *
- * Сессия — подписанная кука, отдельной таблицы под неё нет: состояние в базе
- * не нужно, а значит нечего и чистить.
+ * Сессия — подписанная HttpOnly-кука и HMAC-отпечаток в D1.
+ * Выход отзывает сессию; просроченные записи очищаются по расписанию.
  */
 
+import { protectResponse, readJsonBody, validateState, guardMutation, validSecret, HttpError, safeImageUrl } from "./security.mjs";
+
 const SESSION_COOKIE = "atl_s";
-const SESSION_TTL_MS = 60 * 24 * 3600 * 1000;   /* 60 дней */
+const SESSION_TTL_MS = 14 * 24 * 3600 * 1000;   /* 14 дней, с отзывом сессии при выходе */
 const CODE_TTL_MS = 15 * 60 * 1000;
 const CODE_MAX_ATTEMPTS = 5;
 const MAX_LIST_BYTES = 512 * 1024;
@@ -112,39 +114,43 @@ function clientIp(req) {
 /** Скользящее окно на одну запись: дешевле, чем хранить каждое событие. */
 async function rateLimit(env, key, limit, windowMs) {
   const t = now();
-  const row = await env.DB.prepare("SELECT count, reset_at FROM rate_limit WHERE key = ?").bind(key).first();
-  if (!row || row.reset_at <= t) {
-    await env.DB.prepare(
-      "INSERT INTO rate_limit (key, count, reset_at) VALUES (?, 1, ?) " +
-      "ON CONFLICT(key) DO UPDATE SET count = 1, reset_at = excluded.reset_at"
-    ).bind(key, t + windowMs).run();
-    return { ok: true, left: limit - 1, retryAfter: 0 };
-  }
-  if (row.count >= limit) {
-    return { ok: false, left: 0, retryAfter: Math.ceil((row.reset_at - t) / 1000) };
-  }
-  await env.DB.prepare("UPDATE rate_limit SET count = count + 1 WHERE key = ?").bind(key).run();
-  return { ok: true, left: limit - row.count - 1, retryAfter: 0 };
+  const row = await env.DB.prepare(
+    "INSERT INTO rate_limit (key, count, reset_at) VALUES (?, 1, ?) " +
+    "ON CONFLICT(key) DO UPDATE SET " +
+    "count = CASE WHEN rate_limit.reset_at <= ? THEN 1 ELSE rate_limit.count + 1 END, " +
+    "reset_at = CASE WHEN rate_limit.reset_at <= ? THEN excluded.reset_at ELSE rate_limit.reset_at END " +
+    "WHERE rate_limit.reset_at <= ? OR rate_limit.count < ? RETURNING count, reset_at"
+  ).bind(key, t + windowMs, t, t, t, limit).first();
+  if (row) return { ok: true, left: limit - row.count, retryAfter: 0 };
+  const blocked = await env.DB.prepare("SELECT reset_at FROM rate_limit WHERE key = ?").bind(key).first();
+  return { ok: false, left: 0, retryAfter: Math.max(1, Math.ceil((((blocked && blocked.reset_at) || t + windowMs) - t) / 1000)) };
 }
 
 /* ────────────────────────────── сессия ────────────────────────────── */
 
 async function makeSession(env, user) {
-  const payload = b64url(enc.encode(JSON.stringify({ uid: user.id, exp: now() + SESSION_TTL_MS })));
+  const sid = b64url(crypto.getRandomValues(new Uint8Array(32)));
+  const exp = now() + SESSION_TTL_MS;
+  const sessionHash = await hmac(env.SESSION_SECRET, "session:" + sid);
+  await env.DB.prepare("INSERT INTO sessions (token_hash, user_id, expires_at) VALUES (?, ?, ?)").bind(sessionHash, user.id, exp).run();
+  const payload = b64url(enc.encode(JSON.stringify({ uid: user.id, exp, sid })));
   return payload + "." + (await hmac(env.SESSION_SECRET, payload));
 }
 
 async function readSession(env, req) {
   const cookie = req.headers.get("cookie") || "";
   const m = cookie.match(new RegExp("(?:^|;\\s*)" + SESSION_COOKIE + "=([^;]+)"));
-  if (!m) return null;
-  const [payload, sig] = m[1].split(".");
-  if (!payload || !sig) return null;
-  if (!safeEqual(sig, await hmac(env.SESSION_SECRET, payload))) return null;
+  if (!m || m[1].length > 2048) return null;
+  const parts = m[1].split(".");
+  if (parts.length !== 2) return null;
+  const [payload, sig] = parts;
+  if (!payload || !sig || !safeEqual(sig, await hmac(env.SESSION_SECRET, payload))) return null;
   let data;
-  try { data = JSON.parse(new TextDecoder().decode(unb64url(payload))); } catch (e) { return null; }
-  if (!data || !data.uid || !data.exp || data.exp < now()) return null;
-  return await env.DB.prepare("SELECT * FROM users WHERE id = ?").bind(data.uid).first();
+  try { data = JSON.parse(new TextDecoder().decode(unb64url(payload))); } catch { return null; }
+  if (!data || !Number.isSafeInteger(data.uid) || data.uid < 1 || !Number.isSafeInteger(data.exp) || data.exp <= now() || !/^[A-Za-z0-9_-]{43}$/.test(data.sid || "")) return null;
+  const sessionHash = await hmac(env.SESSION_SECRET, "session:" + data.sid);
+  const user = await env.DB.prepare("SELECT u.* FROM users u JOIN sessions s ON s.user_id = u.id WHERE s.token_hash = ? AND s.expires_at > ? AND u.id = ?").bind(sessionHash, now(), data.uid).first();
+  return user ? { ...user, sessionHash } : null;
 }
 
 function sessionCookie(value, maxAgeSec) {
@@ -240,8 +246,7 @@ async function handleConfig(env, req, me) {
   });
 }
 
-async function handleAuthRequest(env, req) {
-  const body = await req.json().catch(() => ({}));
+async function handleAuthRequest(env, req, body) {
   const email = normEmail(body.email);
   if (!email) return fail(400, "Проверь адрес почты");
 
@@ -269,38 +274,35 @@ async function handleAuthRequest(env, req) {
 
   /* Код в ответе — только когда явно включён режим разработки без почтового сервиса.
      В боевой среде DEV_ECHO_CODE не задан, и код уходит исключительно письмом. */
-  const dev = env.DEV_ECHO_CODE === "1" && !env.RESEND_API_KEY;
+  const dev = env.DEV_ECHO_CODE === "1" && !env.RESEND_API_KEY && ["localhost", "127.0.0.1", "[::1]"].includes(new URL(req.url).hostname);
   return json({ ok: true, sent: mail.sent, ...(dev ? { devCode: code } : {}), ...(mail.sent ? {} : { note: mail.reason }) });
 }
 
-async function handleAuthVerify(env, req) {
-  const body = await req.json().catch(() => ({}));
+async function handleAuthVerify(env, req, body) {
   const email = normEmail(body.email);
-  const code = String(body.code || "").replace(/\D/g, "");
-  if (!email || code.length !== 6) return fail(400, "Нужны адрес почты и шестизначный код");
-
-  const row = await env.DB.prepare("SELECT * FROM login_codes WHERE email = ?").bind(email).first();
-  if (!row) return fail(400, "Код не запрашивался — начни сначала");
-  if (row.expires_at < now()) {
-    await env.DB.prepare("DELETE FROM login_codes WHERE email = ?").bind(email).run();
-    return fail(400, "Код просрочен, запроси новый");
-  }
-  if (row.attempts >= CODE_MAX_ATTEMPTS) {
-    await env.DB.prepare("DELETE FROM login_codes WHERE email = ?").bind(email).run();
+  const code = typeof body.code === "string" ? body.code.trim() : "";
+  if (!email || !/^\d{6}$/.test(code)) return fail(400, "Нужны адрес почты и шестизначный код");
+  const lim = await rateLimit(env, "verify-ip:" + clientIp(req), 60, 3600e3);
+  if (!lim.ok) return fail(429, "Слишком много попыток входа", { retryAfter: lim.retryAfter });
+  // Reserve each attempt atomically, including concurrent requests.
+  const row = await env.DB.prepare("UPDATE login_codes SET attempts = attempts + 1 WHERE email = ? AND expires_at > ? AND attempts < ? RETURNING *").bind(email, now(), CODE_MAX_ATTEMPTS).first();
+  if (!row) {
+    const previous = await env.DB.prepare("SELECT expires_at, attempts FROM login_codes WHERE email = ?").bind(email).first();
+    if (!previous) return fail(400, "Код не запрашивался — начни сначала");
+    if (previous.expires_at <= now()) {
+      await env.DB.prepare("DELETE FROM login_codes WHERE email = ? AND expires_at <= ?").bind(email, now()).run();
+      return fail(400, "Код просрочен, запроси новый");
+    }
     return fail(429, "Слишком много неверных попыток, запроси новый код");
   }
   const hash = await hmac(env.SESSION_SECRET, email + ":" + code);
-  if (!safeEqual(hash, row.code_hash)) {
-    await env.DB.prepare("UPDATE login_codes SET attempts = attempts + 1 WHERE email = ?").bind(email).run();
-    return fail(400, "Код не подошёл", { left: CODE_MAX_ATTEMPTS - row.attempts - 1 });
-  }
-
-  await env.DB.prepare("DELETE FROM login_codes WHERE email = ?").bind(email).run();
+  if (!safeEqual(hash, row.code_hash)) return fail(400, "Код не подошёл", { left: CODE_MAX_ATTEMPTS - row.attempts });
+  // Exactly one successful request may consume a code and issue a session.
+  const consumed = await env.DB.prepare("DELETE FROM login_codes WHERE email = ? AND code_hash = ? AND expires_at > ? RETURNING email").bind(email, hash, now()).first();
+  if (!consumed) return fail(400, "Код уже использован или заменён, запроси новый");
   const { user, created } = await ensureUser(env, email);
   const cookie = await makeSession(env, user);
-  return json({ ok: true, created, me: publicUser(user) }, 200, {
-    "set-cookie": sessionCookie(cookie, SESSION_TTL_MS / 1000)
-  });
+  return json({ ok: true, created, me: publicUser(user) }, 200, { "set-cookie": sessionCookie(cookie, SESSION_TTL_MS / 1000) });
 }
 
 async function handleListGet(env, slug) {
@@ -314,14 +316,12 @@ async function handleListGet(env, slug) {
   return json({ slug: row.slug, title: row.title || "", savedAt: row.saved_at, updatedAt: row.updated_at, state });
 }
 
-async function handleListPut(env, req, me) {
+async function handleListPut(env, req, me, body) {
   if (!me) return fail(401, "Нужно войти");
-  const raw = await req.text();
-  if (raw.length > MAX_LIST_BYTES) return fail(413, "Список слишком большой");
-  let body;
-  try { body = JSON.parse(raw); } catch (e) { return fail(400, "Не удалось разобрать JSON"); }
   const state = body && body.state ? body.state : body;
-  if (!state || !Array.isArray(state.tiers)) return fail(400, "В теле запроса нет списка тиров");
+  const invalid = validateState(state);
+  if (invalid) return fail(400, invalid);
+  if (body.savedAt !== undefined && (typeof body.savedAt !== "string" || !Number.isFinite(Date.parse(body.savedAt)) || body.savedAt.length > 40)) return fail(400, "Неправильная дата сохранения");
 
   const savedAt = typeof body.savedAt === "string" ? body.savedAt : iso();
   const items = countItems(state);
@@ -341,9 +341,8 @@ async function handleLists(env) {
   return json({ lists: (rows.results || []).map(r => ({ slug: r.slug, title: r.title || "", items: r.items, updatedAt: r.updated_at })) });
 }
 
-async function handleMePatch(env, req, me) {
+async function handleMePatch(env, req, me, body) {
   if (!me) return fail(401, "Нужно войти");
-  const body = await req.json().catch(() => ({}));
   const sets = [], args = [];
   if (typeof body.title === "string") { sets.push("title = ?"); args.push(body.title.trim().slice(0, 80)); }
   if (typeof body.notify === "boolean") { sets.push("notify = ?"); args.push(body.notify ? 1 : 0); }
@@ -363,8 +362,7 @@ async function handleMePatch(env, req, me) {
   return json({ ok: true, me: publicUser(fresh) });
 }
 
-async function handleFeedback(env, req, me, ctx) {
-  const body = await req.json().catch(() => ({}));
+async function handleFeedback(env, req, me, ctx, body) {
   const text = String(body.body || "").trim();
   const slug = normSlug(body.slug || "");
   if (!slug) return fail(400, "Не указано, кому пишем");
@@ -404,8 +402,14 @@ async function handleFeedbackList(env, me) {
   const rows = await env.DB.prepare(
     "SELECT id, from_email, body, created_at, seen FROM feedback WHERE owner_id = ? ORDER BY created_at DESC LIMIT 100"
   ).bind(me.id).all();
-  await env.DB.prepare("UPDATE feedback SET seen = 1 WHERE owner_id = ?").bind(me.id).run();
   return json({ feedback: rows.results || [] });
+}
+
+async function handleFeedbackRead(env, me, body) {
+  if (!me) return fail(401, "Нужно войти");
+  if (!Array.isArray(body.ids) || body.ids.length > 100 || body.ids.some(id => !Number.isSafeInteger(id) || id < 1)) return fail(400, "Неправильные ID сообщений");
+  if (body.ids.length) await env.DB.prepare("UPDATE feedback SET seen = 1 WHERE owner_id = ? AND id IN (" + body.ids.map(() => "?").join(",") + ")").bind(me.id, ...body.ids).run();
+  return json({ ok: true });
 }
 
 /* ────────────────────────────── маршрутизация ────────────────────────────── */
@@ -413,25 +417,36 @@ async function handleFeedbackList(env, me) {
 async function api(request, env, ctx, url) {
   const path = url.pathname.replace(/^\/api/, "") || "/";
   const method = request.method.toUpperCase();
+  if (!validSecret(env.SESSION_SECRET)) return fail(503, "Серверный вход ещё не настроен");
+  const mutating = ["POST", "PUT", "PATCH", "DELETE"].includes(method);
+  let body = {};
+  if (mutating) {
+    guardMutation(request);
+    body = await readJsonBody(request, path === "/list" ? MAX_LIST_BYTES : path === "/feedback" ? 32768 : 8192);
+  }
   const me = await readSession(env, request);
 
   if (path === "/config" && method === "GET") return handleConfig(env, request, me);
   if (path === "/me" && method === "GET") return json({ me: publicUser(me) });
-  if (path === "/me" && method === "PATCH") return handleMePatch(env, request, me);
-  if (path === "/auth/request" && method === "POST") return handleAuthRequest(env, request);
-  if (path === "/auth/verify" && method === "POST") return handleAuthVerify(env, request);
+  if (path === "/me" && method === "PATCH") return handleMePatch(env, request, me, body);
+  if (path === "/auth/request" && method === "POST") return handleAuthRequest(env, request, body);
+  if (path === "/auth/verify" && method === "POST") return handleAuthVerify(env, request, body);
   if (path === "/auth/logout" && method === "POST") {
+    if (me) await env.DB.prepare("DELETE FROM sessions WHERE token_hash = ?").bind(me.sessionHash).run();
     return json({ ok: true }, 200, { "set-cookie": sessionCookie("", 0) });
   }
   if (path === "/lists" && method === "GET") return handleLists(env);
-  if (path === "/list" && method === "PUT") return handleListPut(env, request, me);
+  if (path === "/list" && method === "PUT") return handleListPut(env, request, me, body);
   if (path.startsWith("/list/") && method === "GET") {
-    const slug = normSlug(decodeURIComponent(path.slice(6)));
+    let decoded;
+    try { decoded = decodeURIComponent(path.slice(6)); } catch { return fail(400, "Неправильный адрес списка"); }
+    const slug = normSlug(decoded);
     if (!slug) return fail(400, "Неправильный адрес списка");
     return handleListGet(env, slug);
   }
-  if (path === "/feedback" && method === "POST") return handleFeedback(env, request, me, ctx);
+  if (path === "/feedback" && method === "POST") return handleFeedback(env, request, me, ctx, body);
   if (path === "/feedback" && method === "GET") return handleFeedbackList(env, me);
+  if (path === "/feedback/read" && method === "POST") return handleFeedbackRead(env, me, body);
 
   return fail(404, "Нет такого метода");
 }
@@ -456,23 +471,22 @@ async function weeklyDigest(env) {
   /* заодно подчищаем просроченные коды и счётчики */
   await env.DB.prepare("DELETE FROM login_codes WHERE expires_at < ?").bind(now()).run();
   await env.DB.prepare("DELETE FROM rate_limit WHERE reset_at < ?").bind(now()).run();
+  await env.DB.prepare("DELETE FROM sessions WHERE expires_at <= ?").bind(now()).run();
   return sent;
 }
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    let response;
     try {
-      if (url.pathname === "/api" || url.pathname.startsWith("/api/")) {
-        return await api(request, env, ctx, url);
-      }
-      /* всё остальное — статика; на неизвестный путь отдаём приложение,
-         чтобы /geralt открывался как обычная страница */
-      if (env.ASSETS) return await env.ASSETS.fetch(request);
-      return new Response("Статика не подключена", { status: 500 });
+      if (url.pathname === "/api" || url.pathname.startsWith("/api/")) response = await api(request, env, ctx, url);
+      else if (env.ASSETS) response = await env.ASSETS.fetch(request);
+      else response = new Response("Статика не подключена", { status: 503 });
     } catch (e) {
-      return fail(500, "Внутренняя ошибка", { detail: String((e && e.message) || e) });
+      response = e instanceof HttpError ? fail(e.status, e.message) : fail(500, "Внутренняя ошибка");
     }
+    return protectResponse(response, request);
   },
 
   async scheduled(event, env, ctx) {
@@ -481,4 +495,4 @@ export default {
 };
 
 /* экспорт для тестов — в рантайме Worker'а не используется */
-export const __test = { normEmail, normSlug, slugFromEmail, rateLimit, weeklyDigest, safeEqual };
+export const __test = { normEmail, normSlug, slugFromEmail, rateLimit, weeklyDigest, safeEqual, safeImageUrl, validateState };

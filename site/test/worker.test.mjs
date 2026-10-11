@@ -34,10 +34,10 @@ function makeClient(env) {
   return {
     env,
     async call(method, path, body, opts = {}) {
-      const headers = { 'cf-connecting-ip': opts.ip || '203.0.113.7' };
+      const headers = { 'cf-connecting-ip': opts.ip || '203.0.113.7', 'x-atl-request': '1' };
       if (body !== undefined) headers['content-type'] = 'application/json';
       if (cookie && !opts.noCookie) headers.cookie = cookie;
-      const req = new Request('https://tier.example' + path, {
+      const req = new Request('https://localhost' + path, {
         method, headers, body: body === undefined ? undefined : JSON.stringify(body)
       });
       const res = await worker.fetch(req, env, ctx);
@@ -137,7 +137,7 @@ test('подделанная кука не пускает', async () => {
   assert.equal(r.body.me, null, 'испорченная подпись — не сессия');
 
   /* и чужим секретом тоже не подписать */
-  const other = makeClient(makeEnv({ SESSION_SECRET: 'другой-секрет' }));
+  const other = makeClient(makeEnv({ SESSION_SECRET: 'другой-секрет-длинный-для-проверки-сессии' }));
   await login(other, 'geralt@example.com');
   c.cookie = other.cookie;
   const r2 = await c.call('GET', '/api/me');

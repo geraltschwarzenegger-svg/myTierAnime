@@ -2,7 +2,7 @@
 <html lang="ru"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Аниме · Тир-лист</title>
+<title>myTierAnime · Твоя коллекция</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <style>/* cyrillic-ext */
@@ -4634,6 +4634,130 @@
   body.motion-calm .memory-effect, body.exporting .memory-effect { display:none; }
 
 </style>
+<style>
+
+/* Collection edition: a calm editorial shell around the saved collection. */
+:root { --ink: #f4f2ec; --ink-soft: #c0c6d1; --ink-faint: #8995a8; }
+#capture { position: relative; z-index: 2; background: rgba(9,14,23,.65); }
+.page { max-width: 1280px; padding: 38px 32px 80px; }
+.skip-link { position: fixed; left: 16px; top: -60px; z-index: 10000; padding: 12px 16px; border-radius: 9px; background: #f1d699; color: #141923; }
+.skip-link:focus { top: 12px; }
+.site-nav { position: sticky; top: 0; z-index: 100; width: 100%; padding: 17px max(24px,calc((100vw - 1216px)/2)); display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 1px solid #ffffff12; background: rgba(11,16,25,.94); backdrop-filter: blur(16px); }
+.site-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; color: #f4f2ec; font: 700 17px var(--sans); letter-spacing: -.04em; }
+.site-logo > span:last-child > span { color: #e7c68e; }
+.site-logo-mark { display: grid; place-items: center; width: 33px; height: 33px; border: 1px solid #e7c68e55; border-radius: 10px; font-size: 22px; color: #e7c68e; background: #e7c68e0d; }
+.site-nav nav { display: flex; gap: 28px; align-items: center; }
+.site-nav nav a,.site-nav nav button { color: #b8c1cf; font: 600 12px var(--sans); text-decoration: none; padding: 7px 0; background: none; border: none; cursor: pointer; }
+.site-nav nav a:hover,.site-nav nav button:hover { color: #f1d699; }
+.nav-storage { color: #e7c68e; font: 600 11px var(--sans); border: 1px solid #e7c68e35; border-radius: 9px; padding: 10px 13px; background: #e7c68e08; cursor: pointer; }
+.site-nav :focus-visible,.hero-actions :focus-visible,.tier-jumps button:focus-visible,.recent-card:focus-visible { outline: 2px solid #e7c68e; outline-offset: 5px; }
+#top,#collection,#sAlbumTitle,.tier { scroll-margin-top: 100px; }
+.masthead { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 32px 55px; text-align: left; padding: 16px 0 34px; }
+.masthead .jp { font: 600 10px var(--sans); color: #e7c68e; letter-spacing: .18em; padding: 0; margin-bottom: 18px; }
+.masthead h1 { font-size: clamp(34px,4.3vw,59px); line-height: 1.12; letter-spacing: -.025em; }
+.masthead h1::before,.masthead h1::after { display: none; }
+.masthead .hl { animation: none !important; color: inherit !important; -webkit-text-fill-color: inherit !important; text-shadow: none !important; transform: none !important; }
+.masthead .hl::before,.masthead .hl::after { display: none !important; }
+.masthead .hero-line { display: block; transform: none !important; }
+.masthead h1 em { background: linear-gradient(100deg,#f1ddb7,#e3b774); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: none; }
+.hero-description { max-width: 430px; margin: 21px 0 0; color: #aab6c9; font-size: 13px; line-height: 1.8; }
+.hero-actions { display: flex; gap: 22px; align-items: center; margin-top: 24px; }
+.hero-cta { display: inline-flex; align-items: center; gap: 22px; padding: 12px 17px; border-radius: 10px; background: #e8c894; color: #141923; font: 700 12px var(--sans); text-decoration: none; }
+.hero-actions button,.text-action { padding: 8px 0; border: none; background: none; color: #c7cfdb; font: 600 11px var(--sans); cursor: pointer; }
+.masthead .deck { margin: 18px 0 0; font-size: 10px; color: #78879d; letter-spacing: .02em; min-height: 14px; }
+.hero-art { position: relative; overflow: hidden; min-width: 0; align-self: stretch; border: 1px solid #e7c68e33; border-radius: 21px; background: #101927; box-shadow: 0 22px 70px #0003; }
+.hero-art-photo { position: absolute; inset: 0 0 67px; overflow: hidden; }
+.hero-art-photo img { display: block; width: 100%; height: 300%; object-fit: fill; }
+.hero-art-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg,transparent 70%,#101927); pointer-events: none; }
+.hero-art-label { position: absolute; left: 19px; right: 110px; bottom: 17px; display: grid; gap: 6px; }
+.hero-art-label span { font: 500 9px var(--sans); color: #a5b1c2; letter-spacing: .07em; }
+.hero-art-label b { font: 500 17px var(--serif); color: #eedab9; }
+.hero-art .cube-stage { position: absolute; right: 12px; bottom: 1px; width: 104px; height: 104px; --tz: 52px; margin: 0; transform: scale(.62); transform-origin: right bottom; }
+.masthead .stats { grid-column: 1/-1; display: grid; width: 100%; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0; margin: 1px 0 0; border: 1px solid #ffffff13; border-radius: 15px; background: #0e1724dd; }
+.masthead .stat { border: none; border-radius: 0; background: none; padding: 19px 25px; backdrop-filter: none; display: grid; gap: 5px; letter-spacing: 0; text-transform: none; font-size: 10px; }
+.masthead .stat + .stat { border-left: 1px solid #ffffff12; }
+.masthead .stat b { font: 600 26px var(--sans); color: #f1ddba; }
+.guestbar { justify-content: flex-start; font-size: 10px; padding: 10px 14px; margin: 0 0 16px; background: #111c2cdd; border-radius: 10px; }
+.section-heading { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 18px; }
+.section-kicker { display: block; font: 600 9px var(--sans); color: #d4b787; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 7px; }
+.section-heading h2 { font: 400 25px var(--serif); color: #f1ede4; }
+.recent-section { margin: 6px 0 25px; }
+.recent-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 13px; }
+.recent-card { display: flex; align-items: center; gap: 12px; width: 100%; min-width: 0; text-align: left; padding: 14px; border: 1px solid #ffffff13; border-radius: 12px; background: #0f1927e8; cursor: pointer; color: #dce1e9; }
+.recent-icon { display: grid; place-items: center; width: 36px; height: 40px; flex: none; border: 1px solid #e7c68e24; background: #e7c68e09; border-radius: 8px; color: #e7c68e; font: 500 18px var(--serif); }
+.recent-text { min-width: 0; display: grid; gap: 5px; }
+.recent-text b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 600 11px var(--sans); }
+.recent-text time { font: 500 10px var(--sans); color: #a1aec1; }
+.recent-empty { grid-column: 1/-1; margin: 0; padding: 18px; border: 1px dashed #ffffff20; border-radius: 12px; color: #a1aec1; font-size: 12px; line-height: 1.6; }
+.visit-journal { background: #0e1724e8; border-color: #ffffff15; border-radius: 13px; margin: 0 0 32px; }
+.collection-tools { margin: 0 0 20px; }
+.collection-note { color: #8391a7; font-size: 10px; }
+.collection-tools .toolbar { position: relative; top: auto; margin: 0; width: 100%; max-width: none; background: #101b2bea; border-color: #ffffff17; border-radius: 14px; padding: 13px; gap: 8px; backdrop-filter: none; box-shadow: none; }
+.collection-tools .brand,.collection-tools .tb-spacer { display: none; }
+.collection-tools .search { margin-right: auto; flex: 1 1 200px; width: auto; max-width: 300px; border-radius: 9px; background: #ffffff05; }
+.collection-tools .btn { border-radius: 9px; padding: 10px 12px; font-size: 10px; background: #ffffff04; }
+.collection-tools .btn.primary { background: #e8c894; color: #141923; box-shadow: none; }
+.collection-tools .seg { border-radius: 9px; padding: 3px; }
+.collection-tools .seg button { border-radius: 7px; }
+.tier-jumps { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 14px; }
+.tier-jumps button { display: inline-flex; gap: 9px; align-items: center; border: 1px solid #ffffff17; border-radius: 8px; background: #111b28e5; padding: 8px 12px; color: #bec9d8; font: 600 10px var(--sans); cursor: pointer; }
+.tier-jumps button b { color: var(--t); font-size: 12px; }
+.tier-jumps button span { color: #8a97ab; }
+.tier { grid-template-columns: 130px minmax(0,1fr); gap: 14px; }
+.panel { background: linear-gradient(140deg,rgba(20,29,45,.97),rgba(15,24,37,.92)); border-color: #ffffff20; border-radius: 18px; box-shadow: 0 18px 50px #0002; }
+.panel-head { padding-bottom: 16px; margin-bottom: 16px; border-color: #ffffff15; }
+.panel-head .label { font-size: 21px; }
+.panel-head .tagline { font-size: 11px; color: #8e9bb0; }
+.badge { border-radius: 16px; }
+.card { border-radius: 11px; }
+.card .nm { padding: 10px; font-size: 11px; }
+.savepill { max-width: calc(100vw - 88px); border-radius: 9px; background: #101b2bf2; }
+body.exporting .site-nav,body.exporting .recent-section .text-action,body.exporting .hero-actions,body.exporting .collection-tools { display: none !important; }
+@media(max-width:1000px) {
+  .masthead { gap: 25px; }
+  .hero-art-label b { font-size: 14px; }
+  .site-nav nav { gap: 18px; }
+}
+@media(max-width:700px) {
+  .site-nav { padding: 12px 16px; flex-wrap: wrap; gap: 12px; }
+  .site-logo { font-size: 15px; }
+  .site-nav nav { gap: 20px; order: 3; width: 100%; justify-content: space-between; }
+  .nav-storage { margin-left: auto; font-size: 10px; }
+  #top,#collection,#sAlbumTitle,.tier { scroll-margin-top: 115px; }
+  .page { padding: 26px 16px 60px; }
+  .masthead { grid-template-columns: minmax(0,1fr); gap: 24px; padding: 8px 0 25px; }
+  .hero-copy { max-width: 520px; }
+  .masthead h1 { font-size: clamp(33px,9vw,46px); }
+  .hero-description { margin-top: 15px; font-size: 12px; }
+  .hero-actions { gap: 17px; margin-top: 19px; }
+  .hero-cta { font-size: 11px; padding: 11px 14px; gap: 15px; }
+  .hero-art { height: 240px; }
+  .hero-art-label b { font-size: 16px; }
+  .masthead .stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .masthead .stat { padding: 15px 17px; }
+  .masthead .stat:nth-child(3) { border-left: none; border-top: 1px solid #ffffff12; }
+  .masthead .stat:nth-child(4) { border-top: 1px solid #ffffff12; }
+  .masthead .stat b { font-size: 23px; }
+  .recent-grid { grid-template-columns: minmax(0,1fr); gap: 8px; }
+  .recent-card { padding: 11px 13px; }
+  .recent-icon { width: 32px; height: 32px; font-size: 15px; }
+  .recent-text { grid-template-columns: minmax(0,1fr) auto; flex: 1; align-items: center; gap: 8px; }
+  .recent-text b { font-size: 10px; }
+  .recent-text time { font-size: 9px; }
+  .section-heading h2 { font-size: 23px; }
+  .collection-note { display: none; }
+  .collection-tools .search { flex-basis: 100%; max-width: none; margin: 0; }
+  .collection-tools .toolbar { gap: 7px; padding: 10px; }
+  .collection-tools .btn { padding: 9px 10px; }
+  .tier { grid-template-columns: 68px minmax(0,1fr); gap: 8px; }
+  .panel { padding: 13px; border-radius: 14px; }
+  .panel-head .label { font-size: 18px; }
+  .panel-head .tagline { font-size: 10px; }
+  .badge { border-radius: 12px; }
+  .tier-jumps button { padding: 7px 10px; }
+}
+
+</style>
 </head>
 <body>
 
@@ -4812,16 +4936,69 @@
   <div class="fx-slider"><span>Интенсивность свечения</span><input type="range" id="fxGlow" min="0.3" max="1.6" step="0.05" value="1"></div>
 </div>
 
+<a class="skip-link" href="#collection">Перейти к коллекции</a>
+<header class="site-nav" data-html2canvas-ignore>
+  <a class="site-logo" href="#top" aria-label="myTierAnime — на главную"><span class="site-logo-mark" aria-hidden="true">✦</span><span>myTier<span>Anime</span></span></a>
+  <nav aria-label="Разделы коллекции"><a href="#collection">Коллекция</a><button type="button" id="navHistory" aria-haspopup="dialog">Календарь</button><a href="#sAlbumTitle">Альбом</a></nav>
+  <button type="button" class="nav-storage" id="navStorage" aria-label="Хранилище и резервная копия">Хранилище <span aria-hidden="true">→</span></button>
+</header>
+
 <div id="capture">
+
+
+  <main class="page">
+    <div class="guestbar" id="guestBar" hidden>
+      <span class="gb-dot"></span>
+      <span class="gb-txt" id="guestTxt"></span>
+      <button type="button" class="gb-act" id="guestMine">мой список</button>
+    </div>
+    <section class="masthead" id="top" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="jp">Каждая история — часть тебя</div>
+        <h1 id="heroTitle">Твой личный<br><em>мир аниме</em></h1>
+        <p class="hero-description">Любимые герои, сильные впечатления и даты, которые хочется помнить. Собери свою историю просмотра.</p>
+        <div class="hero-actions"><a class="hero-cta" href="#collection">Открыть коллекцию <span aria-hidden="true">→</span></a><button type="button" id="heroCalendar">Мой календарь <span aria-hidden="true">→</span></button></div>
+        <div class="deck" id="deck"><span class="deck-line" id="deckLine"></span></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-art-photo"><img id="heroAlbumImage" alt="Иллюстрация героев из альбома коллекции" width="1024" height="1536" decoding="async"></div>
+        <div class="hero-art-label"><span>Кадры, которые остаются</span><b>Больше, чем просто список.</b></div>
+        <div class="cube-stage" id="cubeStage" aria-hidden="true"><div class="cube" id="cube"></div><div class="cube-shadow"></div></div>
+      </div>
+      <div class="stats" aria-label="Коллекция в цифрах">
+        <span class="stat"><b id="stTotal">0</b><span>тайтлов в коллекции</span></span>
+        <span class="stat"><b id="stFav">0</b><span>любимых историй</span></span>
+        <span class="stat"><b id="stYear">0</b><span>аниме в этом году</span></span>
+        <span class="stat"><b id="stTiers">4</b><span>тиров впечатлений</span></span>
+      </div>
+    </section>
+    <section class="recent-section" aria-labelledby="recentTitle"><div class="section-heading"><div><span class="section-kicker">Дневник впечатлений</span><h2 id="recentTitle">Последние отметки</h2></div><button type="button" class="text-action" id="recentCalendar">Все даты <span aria-hidden="true">→</span></button></div><div class="recent-grid" id="recentGrid"></div></section>
+
+    <section class="visit-journal" aria-labelledby="visitTitle">
+      <div>
+        <div class="visit-kicker">Дневник коллекции</div>
+        <div class="visit-title"><h2 id="visitTitle">Моя дата</h2><time id="visitDisplay"></time></div>
+        <p class="visit-note">Сегодня: <time id="visitToday"></time> · <span id="visitPrevious">Первый визит</span></p>
+      </div>
+      <div class="visit-controls">
+        <label for="visitDate">Отметь дату вручную или включи автоматическую</label>
+        <input type="date" id="visitDate" min="1900-01-01" max="9999-12-31" aria-describedby="visitStatus">
+        <button type="button" class="visit-btn" id="visitSetToday">Сегодня</button>
+        <button type="button" class="visit-btn" id="visitAuto" aria-pressed="true" title="При каждом визите ставить текущую дату">Авто</button>
+        <p class="visit-status" id="visitStatus" role="status"></p>
+      </div>
+    </section>
+
+    <section class="collection-tools" id="collection" aria-labelledby="collectionTitle"><div class="section-heading"><div><span class="section-kicker">Твой личный канон</span><h2 id="collectionTitle">Коллекция</h2></div><span class="collection-note">От шедевров до новых знакомств</span></div>
   <header class="toolbar">
     <div class="brand">
-      <div class="mark">殿</div>
-      <div class="txt"><b>Аниме Тир-лист</b><span>личный канон</span></div>
+      <div class="mark">✦</div>
+      <div class="txt"><b>Инструменты</b><span>твоя коллекция</span></div>
     </div>
     <div class="tb-spacer"></div>
     <div class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="searchInput" placeholder="Поиск тайтла…" autocomplete="off" spellcheck="false">
+      <input type="text" id="searchInput" aria-label="Поиск аниме в коллекции" placeholder="Поиск тайтла…" autocomplete="off" spellcheck="false">
     </div>
     <div class="seg" id="viewSeg">
       <button data-view="grid" class="on" title="Сетка постеров"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span class="seg-lbl">Постеры</span></button>
@@ -4847,42 +5024,7 @@
     <button class="btn" id="ioBtn" title="Хранилище: экспорт, импорт, файл на диске"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5.5" rx="8" ry="3"></ellipse><path d="M4 5.5v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"></path><path d="M4 11.5v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"></path></svg></button>
     <button class="btn" id="resetBtn" title="Очистить список"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg></button>
   </header>
-
-  <main class="page">
-    <div class="guestbar" id="guestBar" hidden>
-      <span class="gb-dot"></span>
-      <span class="gb-txt" id="guestTxt"></span>
-      <button type="button" class="gb-act" id="guestMine">мой список</button>
-    </div>
-    <div class="masthead">
-      <div class="cube-stage" id="cubeStage" aria-hidden="true">
-        <div class="cube" id="cube"></div>
-        <div class="cube-shadow"></div>
-      </div>
-      <div class="jp">アニメ 殿堂入り</div>
-      <h1>Аниме <em>Тир-лист</em></h1>
-      <div class="deck" id="deck"><span class="deck-line" id="deckLine"></span></div>
-      <div class="stats">
-        <span class="stat"><b id="stTotal">0</b>тайтлов</span>
-        <span class="stat"><b id="stFav">0</b>любимых</span>
-        <span class="stat"><b id="stYear">0</b>в этом году</span>
-        <span class="stat"><b id="stTiers">4</b>тира</span>
-      </div>
-    </div>
-
-    <section class="visit-journal" aria-labelledby="visitTitle">
-      <div>
-        <div class="visit-kicker">Дневник коллекции</div>
-        <div class="visit-title"><h2 id="visitTitle">Моя дата</h2><time id="visitDisplay"></time></div>
-        <p class="visit-note">Сегодня: <time id="visitToday"></time> · <span id="visitPrevious">Первый визит</span></p>
-      </div>
-      <div class="visit-controls">
-        <label for="visitDate">Отметь дату вручную или включи автоматическую</label>
-        <input type="date" id="visitDate" min="1900-01-01" max="9999-12-31" aria-describedby="visitStatus">
-        <button type="button" class="visit-btn" id="visitSetToday">Сегодня</button>
-        <button type="button" class="visit-btn" id="visitAuto" aria-pressed="true" title="При каждом визите ставить текущую дату">Авто</button>
-        <p class="visit-status" id="visitStatus" role="status"></p>
-      </div>
+      <nav class="tier-jumps" id="tierJumps" aria-label="Перейти к тиру"></nav>
     </section>
 
     <div class="empty" id="emptyState" hidden>
@@ -5339,7 +5481,7 @@
     <div class="modal-head"><h3>Режим владельца</h3><p>Правки будут уходить на сайт одной кнопкой</p></div>
     <div class="modal-body">
       <div class="field"><label>Токен GitHub</label><input type="password" id="admToken" placeholder="github_pat_…" autocomplete="off" spellcheck="false">
-        <small class="field-hint">GitHub → Settings → Developer settings → <b>Fine-grained tokens</b> → Generate new token. Repository access: <b>Only select repositories</b> → этот репозиторий. Permissions → Repository permissions → <b>Contents: Read and write</b>. Токен сохранится только в этом браузере и никогда не попадёт в опубликованный файл.</small>
+        <small class="field-hint">GitHub → Settings → Developer settings → <b>Fine-grained tokens</b> → Generate new token. Repository access: <b>Only select repositories</b> → этот репозиторий. Permissions → Repository permissions → <b>Contents: Read and write</b>. Токен хранится в этой вкладке до её закрытия и не входит в опубликованный файл. Выбирай короткий срок действия и доступ только к этому репозиторию.</small>
       </div>
       <div class="adm-grid">
         <div class="field"><label>Владелец</label><input type="text" id="admOwner" autocomplete="off" spellcheck="false"></div>
@@ -5502,6 +5644,13 @@ function defaultState() {
   };
 }
 
+function safeImageUrl(value) {
+  if (typeof value !== 'string' || !value || /[\u0000-\u0020\u007f]/.test(value)) return '';
+  if (/^data:image\/(?:png|jpeg|webp|gif);base64,[A-Za-z0-9+/]+={0,2}$/.test(value)) return value;
+  try { const u = new URL(value); return u.protocol === 'https:' && !u.username && !u.password ? u.href : ''; } catch { return ''; }
+}
+function catalogCover(name) { return Object.hasOwn(COVERS,name) ? COVERS[name] : ''; }
+
 /* ════════════════════ STATE & PERSISTENCE ════════════════════
 
    Список хранится сразу в трёх местах, чтобы его нельзя было потерять:
@@ -5546,7 +5695,7 @@ function normalizeState(raw) {
              : (meta ? meta.label : "Тир " + id),
         tagline: typeof t.tagline === "string" ? t.tagline.slice(0, 300)
              : (meta ? meta.tagline : ""),
-        accent: ACCENTS[t.accent] ? t.accent : ACCENT_ORDER[i % ACCENT_ORDER.length],
+        accent: Object.hasOwn(ACCENTS,t.accent) ? t.accent : ACCENT_ORDER[i % ACCENT_ORDER.length],
         items: Array.isArray(t.items) ? t.items : []
       };
     })
@@ -5556,19 +5705,19 @@ function normalizeState(raw) {
   /* uid должен быть уникальным числом: на нём держится клик, перетаскивание и
      удаление. Файл без nextUid раньше давал NaN и ломал всё сразу.           */
   const used = new Set();
-  let maxUid = Math.max(0, (Number(src.nextUid) || 0) - 1);
+  let maxUid = Number.isSafeInteger(src.nextUid) && src.nextUid > 0 && src.nextUid < Number.MAX_SAFE_INTEGER - 2000 ? src.nextUid - 1 : 0;
   tiers.forEach(t => {
-    t.items = t.items.filter(it => it && typeof it.name === "string" && it.name.trim());
+    t.items = t.items.filter(it => it && typeof it.name === "string" && it.name.trim()).slice(0,2000);
     t.items.forEach(it => {
-      it.name = it.name.trim();
+      it.name = it.name.trim().slice(0,240);
       const uid = Number(it.uid);
-      if (Number.isFinite(uid) && uid > 0 && !used.has(uid)) { it.uid = uid; used.add(uid); if (uid > maxUid) maxUid = uid; }
+      if (Number.isSafeInteger(uid) && uid > 0 && uid < Number.MAX_SAFE_INTEGER - 2000 && !used.has(uid)) { it.uid = uid; used.add(uid); if (uid > maxUid) maxUid = uid; }
       else it.uid = 0;                                        /* выдадим ниже */
       it.cover = typeof it.cover === "string" ? it.cover.trim() : "";
       /* каталог подставляется только в пустое поле — и только если обложку
          не убрали руками (тогда стоит флаг noCover)                        */
       if (it.noCover) it.noCover = true; else delete it.noCover;
-      if (!it.cover && !it.noCover && COVERS[it.name]) it.cover = COVERS[it.name];
+      if (!it.cover && !it.noCover && catalogCover(it.name)) it.cover = catalogCover(it.name);
       it.watched = normWatched(it.watched);
       if (it.reaction === undefined) it.reaction = it.fav ? "heart" : null;
       if (it.reaction !== null && RX_KEYS.indexOf(it.reaction) < 0) it.reaction = null;
@@ -6010,7 +6159,7 @@ async function apiCall(method, path, body) {
   const r = await fetch("/api" + path, {
     method,
     credentials: "same-origin",
-    headers: body === undefined ? {} : { "content-type": "application/json" },
+    headers: { "x-atl-request": "1", ...(body === undefined ? {} : { "content-type": "application/json" }) },
     body: body === undefined ? undefined : JSON.stringify(body)
   });
   let data = null;
@@ -6031,8 +6180,10 @@ function slugFromPath() {
 
 function loadAdmin() {
   try {
-    const raw = localStorage.getItem(ADMIN_KEY);
+    const raw = sessionStorage.getItem(ADMIN_KEY) || localStorage.getItem(ADMIN_KEY);
+    localStorage.removeItem(ADMIN_KEY);
     admin = raw ? JSON.parse(raw) : null;
+    if (admin) sessionStorage.setItem(ADMIN_KEY,JSON.stringify(admin));
   } catch (e) { admin = null; }
   if (admin && !admin.token) admin = null;
   return admin;
@@ -6040,8 +6191,9 @@ function loadAdmin() {
 function saveAdmin(a) {
   admin = a;
   try {
-    if (a) localStorage.setItem(ADMIN_KEY, JSON.stringify(a));
-    else localStorage.removeItem(ADMIN_KEY);
+    localStorage.removeItem(ADMIN_KEY);
+    if (a) sessionStorage.setItem(ADMIN_KEY, JSON.stringify(a));
+    else sessionStorage.removeItem(ADMIN_KEY);
   } catch (e) {}
   document.body.classList.toggle("is-admin", !!a);
   /* На статическом сайте гостя помечают readOnly, чтобы он не затёр общий список.
@@ -6241,7 +6393,7 @@ function saveStatus(kind, text) {
   pill.classList.add("show");
 }
 function idleStatus() {
-  if (readOnly) saveStatus("idle", "Чужой список · только смотрим");
+  if (readOnly) saveStatus("idle", "Опубликованный список · просмотр");
   else if (lastSaveFailure) saveStatus("warn", lastSaveFailure);
   else if (pendingEncryption || pendingJson !== null || mirrorInFlight) saveStatus("saving", "Сохраняю");
   else if (fileHandle && filePerm === "granted") saveStatus("file", "Автосохранение в файл");
@@ -6272,16 +6424,16 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":
 /* какая обложка показывается: своя ссылка → встроенный каталог → плашка с названием.
    noCover = обложку убрали руками, каталог подставлять нельзя.               */
 function itemCover(item) {
-  if (item.cover) return item.cover;
+  if (item.cover) return safeImageUrl(item.cover);
   if (item.noCover) return "";
-  return COVERS[item.name] || "";
+  return safeImageUrl(catalogCover(item.name));
 }
 
 /* watched-date helpers (supports legacy string + new list form) */
 function normWatched(w) {
   if (!w) return [];
   if (typeof w === "string") return w.trim() ? [{ label: "", date: w.trim() }] : [];
-  if (Array.isArray(w)) return w.filter(e => e && e.date);
+  if (Array.isArray(w)) return w.filter(e => e && typeof e.date === "string" && e.date).slice(0,100).map(e=>({label:typeof e.label==="string"?e.label.slice(0,100):"",date:e.date.slice(0,20)}));
   return [];
 }
 function parseRuDate(d) {
@@ -6358,11 +6510,11 @@ function countWatchedThisYear() {
 /* цвет тира: из выбранного акцента, инлайном — так пользовательский выбор
    перебивает оформление по умолчанию, привязанное к позиции тира */
 function accentVars(tier) {
-  const a = ACCENTS[tier.accent] || ACCENTS[ACCENT_ORDER[0]];
+  const a = Object.hasOwn(ACCENTS,tier.accent) ? ACCENTS[tier.accent] : ACCENTS[ACCENT_ORDER[0]];
   return `--t:${a.t};--t2:${a.t2};--tg:${a.g}`;
 }
 function accentHue(tier) {
-  const a = ACCENTS[tier.accent] || ACCENTS[ACCENT_ORDER[0]];
+  const a = Object.hasOwn(ACCENTS,tier.accent) ? ACCENTS[tier.accent] : ACCENTS[ACCENT_ORDER[0]];
   const [r, g, b] = [1, 3, 5].map(i => parseInt(a.t.substr(i, 2), 16) / 255);
   const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
   if (!d) return 0;
@@ -6453,6 +6605,39 @@ function watchTierVisibility() {
   board.querySelectorAll(".tier").forEach(t => tierVisibilityObserver.observe(t));
 }
 
+function refreshOverview() {
+  const recent = document.getElementById('recentGrid');
+  const jumps = document.getElementById('tierJumps');
+  recent.replaceChildren(); jumps.replaceChildren();
+  const events = [];
+  state.tiers.forEach((tier,index) => {
+    const jump = document.createElement('button'); jump.type = 'button';
+    jump.style.cssText = accentVars(tier);
+    const letter = document.createElement('b'); letter.textContent = tier.id;
+    const count = document.createElement('span'); count.textContent = tier.items.length;
+    jump.append(letter,document.createTextNode(tier.label),count);
+    jump.addEventListener('click',()=>document.querySelector(`.tier[data-rank="${index+1}"]`)?.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'}));
+    jumps.append(jump);
+    tier.items.forEach(item=>normWatched(item.watched).forEach(w=>{const ms=parseRuDate(w.date);if(ms)events.push({item,tier,w,ms});}));
+  });
+  events.sort((a,b)=>b.ms-a.ms);
+  const shown = new Set();
+  for (const entry of events) {
+    const key = entry.item.uid;
+    if (shown.has(key)) continue; shown.add(key);
+    const button=document.createElement('button'); button.type='button';button.className='recent-card';
+    button.setAttribute('aria-label',entry.item.name+', '+entry.w.date+' — открыть календарь');
+    const icon=document.createElement('span');icon.className='recent-icon';icon.textContent=entry.tier.id;icon.setAttribute('aria-hidden','true');
+    const text=document.createElement('span');text.className='recent-text';
+    const name=document.createElement('b');name.textContent=entry.item.name;
+    const date=document.createElement('time');date.textContent=entry.w.date;date.dateTime=dayKey(new Date(entry.ms));
+    text.append(name,date);button.append(icon,text);
+    button.addEventListener('click',()=>{historyTab="calendar";calendarDay=dayKey(new Date(entry.ms));calendarMonth=new Date(new Date(entry.ms).getFullYear(),new Date(entry.ms).getMonth(),1);document.getElementById('historyBtn').click();});
+    recent.append(button);if(recent.children.length===3)break;
+  }
+  if (!recent.children.length) { const hint=document.createElement('p');hint.className='recent-empty';hint.textContent='Добавь дату просмотра к аниме — здесь появятся твои последние отметки.';recent.append(hint); }
+}
+
 function render() {
   clearMemoryEffect();
   board.innerHTML = "";
@@ -6516,6 +6701,7 @@ function render() {
   buildCube();
   renderEffectDemo();
   document.body.classList.toggle("is-empty", total === 0);
+  refreshOverview();
   bindItems();
   watchTierVisibility();
   applySearch();
@@ -6832,23 +7018,24 @@ let coverChkT = null, coverChkUrl = "";
 function coverState(s, msg) { fCoverChk.dataset.s = s; fCoverState.textContent = msg; }
 function coverCheck() {
   clearTimeout(coverChkT);
-  const url = fCover.value.trim();
+  const value = fCover.value.trim();
+  const url = safeImageUrl(value);
+  if (value && !url) { coverChkUrl = ""; fCoverImg.removeAttribute("src"); coverState("err", "Нужна HTTPS-ссылка или встроенная PNG, JPEG, WebP, GIF картинка"); return; }
   if (url === coverChkUrl) return;
   coverChkUrl = url;
   fCoverImg.removeAttribute("src");
   if (!url) { coverState("empty", "Ссылки нет — на карточке будет название. Кнопка «встроенная» подставит обложку из каталога."); return; }
-  if (!/^https?:\/\//i.test(url)) { coverState("err", "Ссылка должна начинаться с https:// — сохранить можно, но картинка не покажется."); return; }
   coverState("load", "Проверяю ссылку…");
   coverChkT = setTimeout(() => {
-    fCoverImg.onload  = () => { if (fCover.value.trim() === url) coverState("ok", "Картинка открывается ✓ " + fCoverImg.naturalWidth + "×" + fCoverImg.naturalHeight); };
-    fCoverImg.onerror = () => { if (fCover.value.trim() === url) coverState("err", "Не открывается: сайт запрещает показ картинки со стороны. Ссылка сохранится, но лучше взять постер с anilist.co или kitsu.app."); };
+    fCoverImg.onload  = () => { if (safeImageUrl(fCover.value.trim()) === url) coverState("ok", "Картинка открывается ✓ " + fCoverImg.naturalWidth + "×" + fCoverImg.naturalHeight); };
+    fCoverImg.onerror = () => { if (safeImageUrl(fCover.value.trim()) === url) coverState("err", "Не открывается: сайт запрещает показ картинки со стороны. Ссылка сохранится, но лучше взять постер с anilist.co или kitsu.app."); };
     fCoverImg.src = url;
   }, 320);
 }
 fCover.addEventListener("input", coverCheck);
 fCover.addEventListener("change", coverCheck);
 document.getElementById("fCoverBuiltin").addEventListener("click", () => {
-  const c = COVERS[fName.value.trim()];
+  const c = catalogCover(fName.value.trim());
   if (!c) { toast("Для этого названия встроенной обложки нет"); return; }
   fCover.value = c; coverCheck();
 });
@@ -6902,7 +7089,7 @@ function openModal(uid, presetTier) {
     fName.value = f.item.name; fCover.value = f.item.cover || ""; setReaction(reactionKey(f.item));
     fWatchedList.innerHTML = ""; const _wl = normWatched(f.item.watched); (_wl.length ? _wl : [{ label: "", date: "" }]).forEach(e => fWatchedList.appendChild(watchRow(e.label, e.date)));
     setPick(f.tier.id);
-    coverChkUrl = " "; coverCheck();
+    coverChkUrl = "\u0000"; coverCheck();
     document.getElementById("mSave").textContent = "Сохранить";
   } else {
     document.getElementById("mTitle").textContent = "Добавить тайтл";
@@ -6942,6 +7129,7 @@ document.getElementById("mSave").addEventListener("click", () => {
   const name = fName.value.trim();
   if (!name) { fName.focus(); fName.style.borderColor = "var(--s)"; return; }
   const cover = fCover.value.trim();
+  if (cover && !safeImageUrl(cover)) { toast("Для обложки нужна HTTPS-ссылка или растровая картинка"); fCover.focus(); return; }
   const reaction = pickReaction;
   const watched = [...fWatchedList.querySelectorAll(".wrow")].map(r => ({ label: r.querySelector(".wlabel").value.trim(), date: r.querySelector(".wdate").value.trim() })).filter(e => e.date);
   const invalid = [...fWatchedList.querySelectorAll(".wdate")].find(input => input.value.trim() && !parseRuDate(input.value.trim()));
@@ -6959,7 +7147,7 @@ document.getElementById("mSave").addEventListener("click", () => {
     }
     toast("Изменено");
   } else {
-    const item = { uid: state.nextUid++, name, cover: cover || COVERS[name] || "", fav: !!reaction, reaction, watched };
+    const item = { uid: state.nextUid++, name, cover: cover || catalogCover(name) || "", fav: !!reaction, reaction, watched };
     state.tiers.find(t => t.id === pickTier).items.push(item);
     toast("Добавлено в " + pickTier);
   }
@@ -7280,6 +7468,7 @@ importFile.addEventListener("change", () => {
   const f = importFile.files && importFile.files[0];
   importFile.value = "";
   if (!f) return;
+  if (f.size > 8 * 1024 * 1024) { toast("JSON должен быть не больше 8 МБ"); return; }
   const reader = new FileReader();
   reader.onload = () => {
     try {
@@ -7338,12 +7527,12 @@ async function disconnectFile() {
 function refreshCoversFromCatalog() {
   const changed = [];
   state.tiers.forEach(t => t.items.forEach(it => {
-    const c = COVERS[it.name];
+    const c = catalogCover(it.name);
     if (c && c !== it.cover) changed.push(it);
   }));
   if (!changed.length) { toast("Все обложки уже совпадают со встроенными"); return; }
   if (!confirm("Заменить " + changed.length + " обложек на встроенные? Твои ссылки для этих тайтлов пропадут.")) return;
-  changed.forEach(it => { it.cover = COVERS[it.name]; });
+  changed.forEach(it => { it.cover = catalogCover(it.name); });
   save(); render();
   toast("Обновлено обложек: " + changed.length);
 }
@@ -7470,9 +7659,9 @@ document.getElementById("bulkGo").addEventListener("click", () => {
   const t = state.tiers.find(x => x.id === bulkTier) || state.tiers[0];
   names.forEach(name => t.items.push({
     uid: state.nextUid++, name,
-    cover: COVERS[name] || "", fav: false, reaction: null, watched: []
+    cover: catalogCover(name) || "", fav: false, reaction: null, watched: []
   }));
-  const withCover = names.filter(n => COVERS[n]).length;
+  const withCover = names.filter(n => catalogCover(n)).length;
   closeBulk(); save(); flipRerender(); celebrate(t.id);
   toast("Добавлено " + names.length + " · с обложкой сразу: " + withCover);
 });
@@ -7605,7 +7794,7 @@ async function applyBg() {
 
   if (bg.scene !== "photo") { layer.style.backgroundImage = ""; return; }
 
-  let src = bg.url || "";
+  let src = safeImageUrl(bg.url) || "";
   if (bg.hasFile) {
     try {
       const blob = await idb.get("bgFile");
@@ -7662,7 +7851,9 @@ document.getElementById("bgPar").addEventListener("click", e => {
   bg.parallax = !bg.parallax; e.currentTarget.classList.toggle("on", bg.parallax); saveBg(); applyBg();
 });
 document.getElementById("bgUrl").addEventListener("change", async e => {
-  bg.url = e.target.value.trim();
+  const url = e.target.value.trim();
+  if (url && !safeImageUrl(url)) { toast("Для фона нужна HTTPS-ссылка или растровая картинка"); return; }
+  bg.url = url;
   if (bg.url) { bg.hasFile = false; try { await idb.del("bgFile"); } catch (err) {} }
   saveBg(); await applyBg(); renderBgPane();
 });
@@ -7681,7 +7872,7 @@ document.getElementById("bgClear").addEventListener("click", async () => {
 });
 
 async function acceptBgFile(f) {
-  if (!/^image\//.test(f.type)) { toast("Это не картинка"); return; }
+  if (!/^image\/(png|jpeg|webp|gif)$/.test(f.type)) { toast("Это не картинка"); return; }
   if (f.size > 12 * 1024 * 1024) { toast("Слишком большой файл — до 12 МБ"); return; }
   try {
     await idb.set("bgFile", f);
@@ -7725,7 +7916,7 @@ function syncServerUi() {
       const who = viewSlug ? " · /" + viewSlug : "";
       document.getElementById("guestTxt").textContent = serverMode
         ? "Открыт чужой список" + who + " · правки здесь не сохраняются"
-        : "Это чужой тир-лист — можно смотреть, но не менять";
+        : "Опубликованная коллекция — режим просмотра";
       const act = document.getElementById("guestMine");
       act.textContent = serverMode ? (me ? "мой список" : "войти и вести свой") : "сделать свой";
       act.hidden = !serverMode;
@@ -7907,6 +8098,7 @@ async function openFeedback() {
       document.getElementById("fbMine").innerHTML = list.length
         ? list.map(f => `<div class="io-row fb-item"><span>${esc(f.body)}</span><b>${esc(f.from_email || "аноним")}<br><i>${new Date(f.created_at).toLocaleDateString("ru-RU")}</i></b></div>`).join("")
         : `<div class="io-row"><span>Пока никто не писал</span><b>—</b></div>`;
+      if (list.length) await apiCall("POST", "/feedback/read", { ids: list.map(f => f.id) });
       const badge = document.getElementById("fbCount");
       badge.hidden = true;
     } catch (e) {
@@ -8718,6 +8910,7 @@ render();
       filePerm = await h.queryPermission({ mode: "readwrite" });
       if (filePerm === "granted") {
         const f = await h.getFile();
+        if (f.size > 8 * 1024 * 1024) throw new Error("JSON должен быть не больше 8 МБ");
         const env = readEnvelope(await f.text());
         fileSavedAt = env && env.savedAt;
         consider(env, "файла " + (h.name || "на диске"));
@@ -9200,6 +9393,9 @@ if (!isTouch) {
 (() => {
   const frames = [...document.querySelectorAll('.album-frame')];
   const sheets = JSON.parse(document.getElementById('albumAssets').textContent);
+  document.getElementById('heroAlbumImage').src = sheets[0];
+  ['navHistory','heroCalendar','recentCalendar'].forEach(id=>document.getElementById(id).addEventListener('click',()=>{historyTab='calendar';document.getElementById('historyBtn').click();}));
+  document.getElementById('navStorage').addEventListener('click',()=>document.getElementById('ioBtn').click());
   frames.forEach((frame,index) => { frame.querySelector('img').src = sheets[Math.floor(index / 3)]; });
   const viewer = document.getElementById('albumViewer');
   const photo = document.getElementById('albumViewerPhoto');
