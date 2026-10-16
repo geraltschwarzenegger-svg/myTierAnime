@@ -11,7 +11,7 @@
 <rect width="1600" height="500" rx="28" fill="url(#bg)"/>
 <ellipse cx="1120" cy="255" rx="480" ry="300" fill="url(#glow)"/>
 <g fill="none" stroke="#ffffff" stroke-opacity=".08"><path d="M50 52H1550M50 448H1550"/><path d="M900 52V448M1058 52V448M1216 52V448M1374 52V448"/></g>
-<text x="82" y="102" fill="#eac0d5" font-family="sans-serif" font-size="19" letter-spacing="7">アニメ · JEWEL ATELIER · V3.0.1</text>
+<text x="82" y="102" fill="#eac0d5" font-family="sans-serif" font-size="19" letter-spacing="7">アニメ · JEWEL ATELIER · V3.0.2</text>
 <text x="77" y="245" fill="url(#text)" font-family="Georgia,serif" font-size="98">myTierAnime</text>
 <text x="84" y="308" fill="#e1d4e6" font-family="sans-serif" font-size="26">Истории, которые остались с тобой.</text>
 <text x="84" y="396" fill="#a699b7" font-family="sans-serif" font-size="17" letter-spacing="2">66 АНИМЕ  /  50 РАМОК  /  ТВОЯ ИСТОРИЯ</text>

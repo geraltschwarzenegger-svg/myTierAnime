@@ -1,4 +1,4 @@
-/* Real browser checks for frame selection and stationary seals.
+/* Real browser checks for frame selection, animated emblems and fixed tier panels.
    Requires Playwright + Chromium. Add --live for the published GitHub Pages build. */
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
@@ -85,6 +85,16 @@ const server = http.createServer((req, res) => {
       errors = [];
     p.on("pageerror", (e) => errors.push(e.message));
     await p.addInitScript(() => {
+      // Reproduce V3.0's forced-off saved preference on the first visit only.
+      if (!localStorage.getItem("anime-tierlist-fx"))
+        localStorage.setItem(
+          "anime-tierlist-fx",
+          JSON.stringify({
+            "fx-tier-motion": false,
+            emblemVersion: 2,
+            motion: "auto",
+          }),
+        );
       window.cspProblems = [];
       document.addEventListener("securitypolicyviolation", (e) =>
         window.cspProblems.push(e.effectiveDirective),
@@ -97,6 +107,106 @@ const server = http.createServer((req, res) => {
     );
     await p.evaluate(() => document.fonts.ready);
     const collection = await p.evaluate(() => JSON.stringify(state));
+    assert.equal(
+      await p.locator('.tier[data-tier="B"] .card[data-uid="40"]').count(),
+      1,
+    );
+    assert.equal(
+      await p.locator('.tier[data-tier="C"] .card[data-uid="40"]').count(),
+      0,
+    );
+    assert.equal(
+      await p.evaluate(() =>
+        document.body.classList.contains("fx-tier-motion"),
+      ),
+      true,
+      "legacy forced-off preference is migrated",
+    );
+    async function moving(selector) {
+      await p.waitForFunction(
+        (selector) => {
+          const el = document.querySelector(selector);
+          if (!el) return false;
+          const css = getComputedStyle(el);
+          return (
+            css.animationName !== "none" && css.animationPlayState === "running"
+          );
+        },
+        selector,
+        { timeout: 5000 },
+      );
+      const before = await p
+        .locator(selector)
+        .first()
+        .evaluate((el) => getComputedStyle(el).transform);
+      await p.waitForFunction(
+        ({ selector, before }) =>
+          getComputedStyle(document.querySelector(selector)).transform !==
+          before,
+        { selector, before },
+        { timeout: 6000 },
+      );
+    }
+    for (const mode of ["elements", "orbits", "classic"]) {
+      await p
+        .locator(`[data-seg="emblems"] [data-v="${mode}"]`)
+        .evaluate((el) => el.click());
+      for (const tier of ["S", "A", "B", "C"]) {
+        const prefix = `.tier[data-tier="${tier}"] .badge`;
+        await p
+          .locator(prefix)
+          .evaluate((el) =>
+            el.scrollIntoView({ block: "start", behavior: "instant" }),
+          );
+        await moving(prefix + " .l3d-in");
+        if (mode === "elements")
+          await moving(
+            prefix +
+              " " +
+              {
+                S: ".radiance-ray",
+                A: ".facet-glass",
+                B: ".ink-drop",
+                C: ".sakura-sprig",
+              }[tier] +
+              ":first-of-type",
+          );
+      }
+    }
+    await p
+      .locator('[data-seg="emblems"] [data-v="elements"]')
+      .evaluate((el) => el.click());
+    await p.locator('[data-fx="fx-tier-motion"]').evaluate((el) => el.click());
+    assert.equal(
+      await p.evaluate(() =>
+        document.body.classList.contains("fx-tier-motion"),
+      ),
+      false,
+    );
+    await p.reload({ waitUntil: "domcontentloaded" });
+    await p.waitForFunction(
+      (n) => document.querySelectorAll(".card").length === n,
+      count,
+    );
+    assert.equal(
+      await p.evaluate(() =>
+        document.body.classList.contains("fx-tier-motion"),
+      ),
+      false,
+      "explicit user choice is preserved after migration",
+    );
+    await p.locator("#fxGear").click();
+    await p.locator("#motionEnable").click();
+    await p.waitForFunction(
+      () =>
+        document
+          .getElementById("motionDiagnostics")
+          .textContent.includes("Анимация работает"),
+      null,
+      { timeout: 6000 },
+    );
+    await p.locator('[data-seg="motion"] [data-v="auto"]').click();
+    await p.locator("#fxClose").click();
     assert.equal(
       await p
         .locator(".card .relic-frame-3d")
@@ -129,15 +239,7 @@ const server = http.createServer((req, res) => {
       await badge.evaluate((el) => getComputedStyle(el).transform),
       "none",
     );
-    assert.equal(
-      await badge.evaluate(
-        (el) =>
-          el
-            .getAnimations({ subtree: true })
-            .filter((a) => a.playState === "running").length,
-      ),
-      0,
-    );
+    await moving('.tier[data-tier="S"] .badge .l3d-in');
     await p.locator("#frameOpen").click();
     const dialog = p.locator("#frameAtelier");
     assert.equal(await dialog.evaluate((el) => el.open), true);
@@ -195,6 +297,11 @@ const server = http.createServer((req, res) => {
     );
     await p.keyboard.press("Escape");
     assert.equal(await dialog.evaluate((el) => el.open), false);
+    await p.waitForFunction(
+      () => document.querySelectorAll(".atelier-tile").length === 0,
+      null,
+      { timeout: 3000 },
+    );
     assert.equal(
       await p.locator(".atelier-tile").count(),
       0,
@@ -228,11 +335,9 @@ const server = http.createServer((req, res) => {
         .then((s) => s.includes("14.10.2026")),
     );
     if (shots)
-      await p
-        .locator("#preview")
-        .screenshot({
-          path: path.join(root, "docs/images/moonlit-anime-v3.png"),
-        });
+      await p.locator("#preview").screenshot({
+        path: path.join(root, "docs/images/moonlit-anime-v3.png"),
+      });
     await p.keyboard.press("Escape");
     await p.locator("#frameOpen").click();
     await p.locator('[data-frame="4"]').click();
@@ -304,7 +409,7 @@ const server = http.createServer((req, res) => {
     assert.deepEqual(errors, []);
     assert.deepEqual(await p.evaluate(() => window.cspProblems), []);
     console.log(
-      "Atelier passed: 50 models, static non-sticky seals, all pages, preview, individual/global selection persists, reset, original collection unchanged, five viewport sizes, Escape/focus restoration, CSP.",
+      "Atelier passed: 50 models, animated S/A/B/C in three modes, actual decoration motion, forced-off migration, persisted motion switch, live diagnostics, fixed tier panels, all pages, preview, individual/global selection persists, reset, original collection unchanged, five viewport sizes, Escape/focus restoration, CSP.",
     );
   } finally {
     await browser.close();
