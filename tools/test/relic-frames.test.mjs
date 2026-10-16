@@ -14,8 +14,9 @@ vm.runInContext(
   ),
   context,
 );
-const frame = (tier, rank, uid, mode = "card") =>
-  context.buildRelicFrame(tier, rank, uid, mode);
+const frame = (tier, rank, uid, mode = "card", design = null) =>
+  context.buildRelicFrame(tier, rank, uid, mode, design);
+const designs = vm.runInContext("RELIC_DESIGNS", context);
 function validateReferences(markup) {
   const ids = [...markup.matchAll(/\bid="([^"]+)"/g)].map((m) => m[1]);
   assert.equal(new Set(ids).size, ids.length, "SVG definition IDs are unique");
@@ -26,27 +27,53 @@ function validateReferences(markup) {
     "all material tokens resolved",
   );
 }
-test("16 distinct frame archetypes include crest, both rails, lower clasp and three relief layers", () => {
-  const designs = new Set();
-  let uid = 100;
-  for (const tier of ["S", "A", "B", "C"])
-    for (let rank = 0; rank < 4; rank++) {
-      const f = frame(tier, rank, uid++);
-      validateReferences(f);
-      for (const region of [
-        "rf-crest",
-        "rf-left",
-        "rf-right",
-        "rf-foot",
-        "rf-main-stone",
-        "rf-aura",
-        "rf-metal",
-        "rf-gems",
-      ])
-        assert.ok(f.includes(region), tier + " " + rank + " " + region);
-      designs.add(f.replace(/rf-\d+-card/g, "rf-ID-card"));
-    }
-  assert.equal(designs.size, 16);
+test("50 named frame models have individual palettes, unique silhouettes and complete relief layers", () => {
+  assert.equal(designs.length, 50);
+  assert.equal(new Set(designs.map((d) => d.name)).size, 50);
+  assert.equal(new Set(designs.map((d) => d.mid + d.gem + d.light)).size, 50);
+  const silhouettes = new Set();
+  for (const d of designs) {
+    const f = frame(d.theme, d.variant, 100 + d.id, "gallery", d.id);
+    validateReferences(f);
+    for (const region of [
+      "rf-crest",
+      "rf-left",
+      "rf-right",
+      "rf-foot",
+      "rf-main-stone",
+      "rf-aura",
+      "rf-metal",
+      "rf-gems",
+    ])
+      assert.ok(f.includes(region), d.name + " " + region);
+    for (const colour of [d.light, d.mid, d.dark, d.gem])
+      assert.match(colour, /^#[a-f0-9]{6}$/i);
+    const crest = vm.runInContext(
+      `relicCrest(${JSON.stringify(d.theme)}, ${d.variant}, () => .5)`,
+      context,
+    );
+    silhouettes.add(crest);
+    assert.ok(f.includes(`data-model="${d.id}"`));
+  }
+  assert.equal(
+    silhouettes.size,
+    50,
+    "each design has different crest geometry, beyond recolouring",
+  );
+});
+test("automatic frames expose all 50 models in the current collection", () => {
+  const { state } = JSON.parse(
+    readFileSync(new URL("../../data.json", import.meta.url), "utf8"),
+  );
+  const used = new Set(
+    state.tiers.flatMap((t) =>
+      t.items.map(
+        (item, rank) =>
+          frame(t.id, rank, item.uid).match(/data-model="(\d+)"/)[1],
+      ),
+    ),
+  );
+  assert.equal(used.size, 50);
 });
 test("frame geometry and energy phase remain deterministic across rerenders", () => {
   assert.equal(frame("B", 3, 61), frame("B", 3, 61));
@@ -88,4 +115,25 @@ test("custom tier names and invalid legacy IDs cannot inject SVG or HTML", () =>
     !f.includes("<script") && !f.includes("onerror") && !f.includes("<img"),
   );
   validateReferences(f);
+});
+
+test("explicit choice, individual choice and collection choice have stable precedence; invalid choices fall back", () => {
+  try {
+    vm.runInContext(
+      'framePreferences = { all: 49, items: { "61": 4, "27": "<img onerror=x>" } }',
+      context,
+    );
+    assert.ok(frame("S", 14, 61).includes('data-model="4"'));
+    assert.ok(frame("S", 14, 61, "preview").includes('data-model="4"'));
+    assert.ok(frame("S", 14, 61, "gallery", 20).includes('data-model="20"'));
+    assert.ok(frame("B", 0, 27).includes('data-model="49"'));
+    vm.runInContext("framePreferences.all = 50", context);
+    assert.ok(frame("B", 0, 27).includes('data-model="26"'));
+    validateReferences(frame("S", Infinity, Infinity));
+  } finally {
+    vm.runInContext(
+      "framePreferences = {all:null, items:Object.create(null)}",
+      context,
+    );
+  }
 });
