@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-25MY11OrOOUux73Z3qxZMXrCti+Dr0wa7rEbJ/m4REM=' 'sha256-qW6ZjLt+ry/VH1j5epwbewnQpfEhkqNO1r7uOWOcV3s=' 'sha256-q2uRFN600xdZ+G59F4g12l1FQ9l+HB5u4k/d97rZc1k='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-El8Yp/Gkf9haYvIZ/dB5WfIoIzcmwc2SDvJGW05SzVk=' 'sha256-qW6ZjLt+ry/VH1j5epwbewnQpfEhkqNO1r7uOWOcV3s=' 'sha256-q2uRFN600xdZ+G59F4g12l1FQ9l+HB5u4k/d97rZc1k='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="myTierAnime — твоя коллекция аниме, тиры, календарь просмотров и альбом любимых героев.">
@@ -2538,25 +2538,13 @@ body.exporting .site-nav,body.exporting .recent-section .text-action,body.export
 .royal-mark { display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px 5px 8px; border: 1px solid #fff0be8c; border-radius: 8px 15px 8px 15px; background: linear-gradient(125deg,#fff6d9,#e6b959 38%,#ffe8a3 65%,#b88130); color: #442812; box-shadow: inset 0 1px 0 #fffaf0,inset 0 -2px 0 #98642470,0 4px 14px #0005,0 0 18px -5px #e8b75099; white-space: nowrap; }
 .royal-mark > span { font: 900 10px/1 var(--sans); letter-spacing: .2em; text-shadow: 0 1px 0 #fff0be; }
 .royal-mark .royal-crown { width: 26px; height: 20px; flex: none; filter: drop-shadow(0 1px 0 #70401688); }
-.elite-frame { position: absolute; inset: 4px; z-index: 2; border: 1px solid #ffe8a666; border-radius: 8px; pointer-events: none; box-shadow: inset 0 0 0 1px #53331055; }
-.elite-flower { position: absolute; width: 24px; height: 24px; color: #ffe8aa; opacity: .85; filter: drop-shadow(0 1px 1px #241409); }
-.elite-flower svg { display: block; width: 100%; height: 100%; }
-.elite-flower.nw { left: -1px; top: -1px; transform: rotate(90deg); }
-.elite-flower.ne { right: -1px; top: -1px; transform: rotate(180deg); }
-.elite-flower.sw { left: -1px; bottom: -1px; }
-.elite-flower.se { right: -1px; bottom: -1px; transform: rotate(-90deg); }
 .tier[data-tier="S"] .card { border-color: #deb969a6; box-shadow: 0 9px 22px -12px #000b,inset 0 0 0 1px #fff0ba30,0 0 15px -7px #eac15b70; }
-.tier[data-tier="S"] .card .elite-flower { width: 19px; height: 19px; }
-.tier[data-tier="S"] .card .elite-flower.sw, .tier[data-tier="S"] .card .elite-flower.se { bottom: 48%; opacity: .75; }
 .tier[data-tier="S"] .card .rank, .preview[data-tier="S"] .pv-rank { color: #402611; border: 1px solid #fff0ae66; background: linear-gradient(140deg,#fff5d4,#d5a13f 65%,#f4d899); text-shadow: 0 1px 0 #fff0ba66; }
-.card-coronet { position: absolute; top: 5px; left: 50%; transform: translateX(-50%); width: 23px; height: 18px; z-index: 3; pointer-events: none; filter: drop-shadow(0 1px 2px #08080a) drop-shadow(0 0 4px #efc36f70); }
 .royal-crown { display: block; width: 100%; height: 100%; }
 body:not(.editing) .tier[data-tier="S"] .card:is(:hover,:focus-visible), .tier[data-tier="S"] .card.preview-open { border-color: #fff0b8; box-shadow: 0 20px 40px -15px #000b,0 0 36px -7px #ffd36f80,inset 0 0 0 1px #ffe8a866; }
 .tier[data-tier="S"] .card.preview-open, .tier[data-tier="S"] .chip.preview-open { outline-color: #ffe7a0; }
 .tier[data-tier="S"] .chip { border-color: #dbb56b88; background: linear-gradient(125deg,#4e3b293b,#182131); box-shadow: inset 0 1px 0 #ffe9b320,0 0 14px -8px #dfb05c80; }
 .chip-coronet { width: 22px; height: 18px; flex: none; }
-.preview .elite-frame { display: none; }
-.preview[data-tier="S"] .elite-frame { display: block; inset: 7px; border-radius: 10px; }
 .preview[data-tier="S"] .preview-card { border: 1px solid #f1cc7cba; background: linear-gradient(145deg,#261e26f7,#101724f7); box-shadow: 0 28px 70px -22px #000d,0 0 65px -18px #edbd6099,inset 0 0 0 1px #fff0bd20; }
 .preview[data-tier="S"] .preview-card::after { height: 3px; background: linear-gradient(90deg,#a16d2a,#fff1bc,#d6a54c,#fff6d4,#a16d2a); }
 .preview[data-tier="S"] .pv-elite { left: 14px; bottom: 14px; padding: 0; background: none; border-radius: 0; box-shadow: none; }
@@ -2570,7 +2558,6 @@ body.tab-hidden .royal-aura::before, body.tab-hidden .royal-aura::after { animat
 body.motion-calm .royal-aura::before, body.motion-calm .royal-aura::after { animation: none !important; transform: none; opacity: calc(.65 * var(--glow-mult,1)); }
 body.motion-calm .tier[data-tier="S"] .crown { animation: none !important; transform: translateX(-50%); }
 body.exporting .royal-aura { display: none; }
-body.exporting .royal-mark, body.exporting .elite-frame { box-shadow: none; filter: none; }
 @media(max-width:700px) {
   .royal-aura { inset: -10px; border-radius: 26px; }
   .tier[data-tier="S"] .crown { width: 48px; height: 35px; top: -18px; }
@@ -2579,6 +2566,70 @@ body.exporting .royal-mark, body.exporting .elite-frame { box-shadow: none; filt
   .tier[data-tier="S"] .panel-head .royal-mark > span { font-size: 8px; }
   .tier[data-tier="S"] .panel-head .royal-crown { width: 20px; height: 16px; }
 }
+</style>
+<style>
+/* Carved poster frames: independent 3D context inside the clipped poster. */
+.relic-frame-3d { --rf-depth: 1; position:absolute; inset:0; z-index:2; pointer-events:none; perspective:720px; transform-style:preserve-3d; display:none; }
+body.fx-relic .relic-frame-3d { display:block; }
+.rf-stage { position:absolute; inset:0; transform-style:preserve-3d; transform:rotateX(var(--rf-ry,0deg)) rotateY(var(--rf-rx,0deg)); transition:transform .18s ease-out; }
+.rf-layer { position:absolute; inset:4px; transform-style:preserve-3d; }
+.rf-aura { transform:translateZ(calc(4px * var(--rf-depth))); }
+.rf-metal { transform:translateZ(calc(12px * var(--rf-depth))); }
+.rf-gems { transform:translateZ(calc(20px * var(--rf-depth))); }
+.rf-aura > svg { width:100%; height:100%; overflow:visible; }
+.rf-aura > svg > path { vector-effect:non-scaling-stroke; }
+.rf-layer svg { display:block; }
+.rf-metal svg, .rf-gems svg { width:100%; height:100%; overflow:visible; filter:drop-shadow(1px 2px 1px #07060dbb); }
+.rf-crest { position:absolute; left:24%; right:24%; top:-1px; height:27px; }
+.rf-rail { position:absolute; top:34px; bottom:38%; width:17px; }
+.rf-left { left:0; }
+.rf-right { right:0; transform:scaleX(-1); }
+.rf-foot { position:absolute; left:18%; right:18%; bottom:-1px; height:7px; }
+.rf-main-stone { position:absolute; left:50%; top:-4px; width:19px; height:22px; transform:translateX(-50%); }
+.rf-side-stone { position:absolute; top:35%; width:12px; height:18px; }
+.rf-side-left { left:-2px; }
+.rf-side-right { right:-2px; }
+.card .relic-frame-3d[data-premier="true"] .rf-crest { left:19%; right:19%; height:32px; }
+.card .relic-frame-3d[data-premier="true"] .rf-main-stone { width:22px; height:27px; }
+.rf-current { position:absolute; top:22%; bottom:39%; width:2px; overflow:hidden; opacity:calc(.6 * var(--glow-mult,1)); }
+.rf-current-left { left:1px; }
+.rf-current-right { right:1px; }
+.rf-current::after { content:""; position:absolute; left:0; right:0; height:40%; border-radius:50%; background:linear-gradient(transparent,var(--rf-glow),#fff7df,transparent); transform:translateY(-120%); animation:relicLight 5.8s var(--rf-delay) ease-in-out infinite; }
+.rf-current-right::after { animation-direction:reverse; animation-delay:calc(var(--rf-delay) - 2.4s); }
+@keyframes relicLight { 0%,15% { transform:translateY(-120%); opacity:0; } 30% { opacity:.9; } 80%,100% { transform:translateY(330%); opacity:0; } }
+.card .rank, .card .rx, .card .nm { z-index:6; }
+.card .item-del { z-index:8; }
+.card .nm { background:linear-gradient(180deg,transparent,rgba(5,8,15,.84) 40%); }
+.card .relic-frame-3d[data-family="thorn"] .rf-main-stone { width:20px; height:25px; }
+.card .relic-frame-3d[data-family="imperial"] .rf-crest { left:22%; right:22%; height:29px; }
+.card:hover .rf-metal svg, .card.preview-open .rf-metal svg { filter:drop-shadow(1px 3px 2px #05040bd9); }
+.preview .relic-frame-3d { --rf-depth:1.15; z-index:2; }
+.preview .rf-layer { inset:6px; }
+.preview .rf-crest { top:1px; left:20%; right:20%; height:53px; }
+.preview .rf-main-stone { top:-2px; width:33px; height:42px; }
+.preview .rf-rail { top:51px; bottom:67px; width:29px; }
+.preview .rf-foot { bottom:1px; height:19px; left:22%; right:22%; }
+.preview[data-tier="S"] .rf-foot { left:48%; right:5%; }
+.preview .rf-metal svg, .preview .rf-gems svg { filter:drop-shadow(2px 4px 2px #05040cc7); }
+.preview .rf-side-stone { top:46%; width:21px; height:31px; }
+.preview .rf-current { top:20%; bottom:70px; width:3px; }
+.preview .rf-current-left { left:3px; }
+.preview .rf-current-right { right:3px; }
+.preview .preview-badges, .preview .pv-elite { z-index:7; }
+.preview .preview-close { z-index:9; }
+.tier:not(.in-view) .rf-current::after, .preview:not(.show) .rf-current::after,
+body.tab-hidden .rf-current::after, body:not(.fx-relic) .rf-current::after,
+body:not(.fx-neon) .rf-current::after { animation-play-state:paused; }
+body:not(.fx-neon) .rf-current { display:none; }
+body.motion-calm .rf-current::after { animation:none !important; opacity:.35; transform:translateY(80%); }
+body.motion-calm .rf-stage, body:not(.fx-tilt) .rf-stage { transform:none !important; }
+body.exporting .rf-stage, body.exporting .rf-layer { transform:none !important; }
+body.exporting .royal-mark { box-shadow:none; filter:none; }
+body.exporting .rf-current { display:none !important; }
+body.exporting .rf-layer svg { filter:none !important; }
+@media(max-width:700px) { .card .relic-frame-3d { --rf-depth:.65; } }
+@media(max-height:520px) { .preview .rf-crest { height:28px; } .preview .rf-main-stone { width:21px; height:26px; } .preview .rf-rail { top:30px; bottom:22px; width:18px; } .preview .rf-foot { height:12px; } .preview .rf-current, .preview .rf-side-stone { display:none; } }
+
 </style>
 </head>
 <body>
@@ -2750,6 +2801,7 @@ body.exporting .royal-mark, body.exporting .elite-frame { box-shadow: none; filt
   </div>
   <div class="fx-row"><span>Послесвечение карточек</span><button type="button" class="fx-sw" data-fx="fx-memory" aria-label="Послесвечение просмотренных карточек" aria-pressed="true"></button></div>
   <div class="fx-row"><span>Анимация эмблем</span><button type="button" class="fx-sw" data-fx="fx-tier-motion" aria-label="Анимация эмблем" aria-pressed="true"></button></div>
+  <div class="fx-row"><span>Рельефные рамки постеров</span><button type="button" class="fx-sw" data-fx="fx-relic" aria-label="Рельефные рамки постеров" aria-pressed="true"></button></div>
   <div class="fx-row"><span>Живой неон по контурам</span><div class="fx-sw" data-fx="fx-neon"></div></div>
   <div class="fx-row"><span>Блик и наклон карточек</span><div class="fx-sw" data-fx="fx-tilt"></div></div>
   <div class="fx-row"><span>Свечение у курсора</span><div class="fx-sw" data-fx="fx-cursor"></div></div>
@@ -4339,10 +4391,82 @@ function royalCrown(key) {
 function eliteMark(key) {
   return `<span class="royal-mark">${royalCrown(key)}<span>ЭЛИТА</span></span>`;
 }
-function floralFrame() {
-  const bloom = '<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 20C4 12 9 2 20 13C31 2 36 12 20 20C36 21 32 36 23 25C24 42 10 35 16 25C1 32 3 17 20 20Z"/><path d="M20 20C12 29 6 30 2 38M20 20C29 12 31 7 38 2M8 30Q1 22 3 19Q11 23 8 30ZM29 9Q23 1 20 3Q23 11 29 9Z"/><circle cx="20" cy="20" r="3"/></g></svg>';
-  return `<span class="elite-frame" aria-hidden="true">${["nw","ne","sw","se"].map(c => `<span class="elite-flower ${c}">${bloom}</span>`).join("")}</span>`;
+/* Procedural frame relief. Pure SVG geometry; no network, canvas loop or saved-data changes. */
+const RELIC_THEMES = {
+  S: { family:"imperial", light:"#fff4cd", mid:"#d5a341", dark:"#59330f", gem:"#bc315b", gemLight:"#ffe3ed", glow:"#efbb60", models:["Арка Серафима","Пламя Дракона","Барочный Акант","Солнечная реликвия"] },
+  A: { family:"sapphire", light:"#e6faff", mid:"#6aafce", dark:"#18394e", gem:"#3279ec", gemLight:"#d5ffff", glow:"#71dfff", models:["Сапфировый компас","Крылья Валькирии","Кристальный бастион","Звёздное копьё"] },
+  B: { family:"thorn", light:"#e9c9ff", mid:"#795194", dark:"#200e32", gem:"#a34be1", gemLight:"#ffe0ff", glow:"#c27aff", models:["Корона терний","Аметистовый жнец","Эфирный плющ","Рунный осколок"] },
+  C: { family:"jade", light:"#e4f3c5", mid:"#ac9856", dark:"#33402b", gem:"#46b58b", gemLight:"#dffff0", glow:"#82deb3", models:["Корни Иггдрасиля","Нефритовый лотос","Изумрудный страж","Роса светлячков"] }
+};
+function relicSvg(key, width, height, art, p, stretch=false) {
+  const ref = name => `url(#${key}-${name})`;
+  const content = art.replaceAll("@metal",ref("metal")).replaceAll("@gem",ref("gem")).replaceAll("@light",p.light).replaceAll("@dark",p.dark).replaceAll("@glow",p.glow);
+  return `<svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="${stretch ? "none" : "xMidYMid meet"}" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${key}-metal" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="${p.light}"/><stop offset=".25" stop-color="${p.mid}"/><stop offset=".44" stop-color="${p.dark}"/><stop offset=".53" stop-color="${p.light}"/><stop offset=".7" stop-color="${p.mid}"/><stop offset="1" stop-color="${p.dark}"/></linearGradient><linearGradient id="${key}-gem" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="${p.gemLight}"/><stop offset=".3" stop-color="${p.gem}"/><stop offset=".66" stop-color="${p.dark}"/><stop offset="1" stop-color="${p.gem}"/></linearGradient></defs>${content}</svg>`;
 }
+function relicLeaf(x,y,scale,angle,jade=false) {
+  return `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})"><path d="M0 0C-11-4-14-17-5-29C-3-17 10-15 0 0Z" fill="${jade?"@gem":"@metal"}" stroke="@light" stroke-width=".65"/><path d="M0 0Q-9-13-5-27L-3-9Z" fill="@dark" opacity=".5"/><path d="M0-2Q-7-14-5-25" fill="none" stroke="@light" stroke-width=".65"/></g>`;
+}
+function relicShard(x,y,scale,angle=0) {
+  return `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})"><path d="M0-20 9-3 0 9-9-3Z" fill="@gem" stroke="@light" stroke-width=".8"/><path d="M0-20 0 9-9-3Z" fill="@light" opacity=".28"/><path d="M0-20 9-3 0-6Z" fill="@light" opacity=".45"/><path d="M0-6 9-3 0 9Z" fill="@dark" opacity=".6"/></g>`;
+}
+function relicThorn(x,y,scale,angle=0) {
+  return `<g transform="translate(${x} ${y}) rotate(${angle}) scale(${scale})"><path d="M0 5C-9-5-2-12-13-26C7-21 12-6 0 5Z" fill="@metal" stroke="@light" stroke-width=".55"/><path d="M0 4Q7-12-11-24L1-5Z" fill="@dark"/><path d="M-1 1Q4-13-10-23" fill="none" stroke="@glow" stroke-width="1.05"/></g>`;
+}
+function relicCrest(theme,variant,noise) {
+  let s='<path d="M9 44Q47 39 71 33L100 23 129 33Q153 39 191 44L180 50Q141 47 119 41L100 36 81 41Q59 47 20 50Z" fill="@metal" stroke="@light" stroke-width=".7"/>';
+  if(theme==="S") {
+    if(variant===0) for(let side of [-1,1]) for(let i=0;i<5;i++) s+=relicLeaf(100+side*(16+i*13),37+i*.8,.85-i*.075,side*(35+i*10));
+    if(variant===1) for(let side of [-1,1]) s+=`<g transform="translate(100 0) scale(${side} 1)"><path d="M12 43C24 16 56 43 78 8C74 35 51 46 33 47C50 44 61 54 89 38C75 59 34 60 12 43Z" fill="@metal" stroke="@light" stroke-width=".8"/><path d="M18 43Q45 28 72 18" fill="none" stroke="@light" stroke-width="1"/></g>`;
+    if(variant===2) for(let side of [-1,1]) {s+=`<path d="M${100+side*13} 40C${100+side*52} 4 ${100+side*90} 25 ${100+side*60} 41C${100+side*45} 48 ${100+side*38} 26 ${100+side*57} 28" fill="none" stroke="@metal" stroke-width="5"/>`;for(let i=0;i<3;i++)s+=relicLeaf(100+side*(26+i*20),37,.75,side*(45+i*12));}
+    if(variant===3) s+='<path d="M18 41 36 31 63 32 79 19 100 14 121 19 137 32 164 31 182 41 162 44 137 40 120 28 100 23 80 28 63 40 38 44Z" fill="@metal" stroke="@light" stroke-width=".8"/>'+relicShard(57,34,.45,-28)+relicShard(143,34,.45,28);
+  } else if(theme==="A") {
+    if(variant===0) for(let side of [-1,1]) s+=`<g transform="translate(100 0) scale(${side} 1)"><path d="M14 40 49 12 43 32 83 23 63 42 35 45Z" fill="@metal" stroke="@light" stroke-width=".8"/></g>`+relicShard(100+side*57,35,.65,side*35);
+    if(variant===1) for(let side of [-1,1])for(let i=0;i<5;i++)s+=relicShard(100+side*(22+i*13),35+i*.4,.85-i*.1,side*(38+i*8));
+    if(variant===2) for(let i=0;i<7;i++)s+=relicShard(40+i*20,37,.65+(.3*Math.cos((i-3)*.6)),(i-3)*10);
+    if(variant===3) s+='<path d="M10 42 79 29 100 3 121 29 190 42 125 43 100 62 75 43Z" fill="@metal" stroke="@light" stroke-width=".8"/><path d="M19 42 100 34 100 8 107 35 181 42 106 42 100 56 94 42Z" fill="@gem"/>';
+  } else if(theme==="B") {
+    if(variant===0)for(let side of [-1,1])for(let i=0;i<5;i++)s+=relicThorn(100+side*(14+i*14),42,.86-i*.05,side*(-20+i*13));
+    if(variant===1)for(let side of [-1,1])s+=`<g transform="translate(100 0) scale(${side} 1)"><path d="M10 41C28 6 69 0 88 20C60 7 52 31 38 38C57 39 71 32 81 29C67 51 37 54 10 41Z" fill="@metal" stroke="@light" stroke-width=".8"/><path d="M19 39Q54 13 79 18" fill="none" stroke="@glow" stroke-width="1.4"/></g>`;
+    if(variant===2)for(let i=0;i<7;i++)s+=relicThorn(30+i*20,41,.65+noise()*.4,-30+i*9)+relicShard(37+i*19,45,.25,0);
+    if(variant===3)for(let i=0;i<7;i++)s+=relicShard(34+i*22,40,.7+noise()*.4,(i-3)*14);
+  } else if(theme==="C") {
+    if(variant===0||variant===3)for(let side of [-1,1]){s+=`<path d="M100 39Q${100+side*47} 20 ${100+side*89} 43" fill="none" stroke="@metal" stroke-width="3"/>`;for(let i=0;i<4;i++)s+=relicLeaf(100+side*(23+i*17),35+i*2,.6+noise()*.2,side*(45+i*12),true);}
+    if(variant===1)for(let i=0;i<9;i++)s+=relicLeaf(100+(i-4)*14,45,.95-Math.abs(i-4)*.09,(i-4)*18,true);
+    if(variant===2)s+='<path d="M14 40 38 23 66 38 100 10 134 38 162 23 186 40 162 49 134 43 100 24 66 43 38 49Z" fill="@metal" stroke="@light" stroke-width=".9"/>'+relicShard(48,37,.55,-35)+relicShard(152,37,.55,35);
+  }
+  return s;
+}
+function relicRail(theme,variant,side,noise) {
+  let s='<path d="M8 5C2 58 15 103 7 158S15 228 8 275" fill="none" stroke="@dark" stroke-width="5"/><path d="M7 4C1 58 14 103 6 158S14 228 7 276" fill="none" stroke="@metal" stroke-width="3"/>';
+  for(let i=0;i<6;i++) {
+    const y=24+i*43+noise()*7,scale=.45+noise()*.25;
+    if(theme==="B") {
+      if(variant===3)s+=relicShard(9,y,.7+noise()*.35,-20+noise()*35);
+      else s+=relicThorn(8,y,scale*(variant===1?1.45:1),58+noise()*25)+(variant===2&&side===0?relicThorn(8,y+18,scale*.8,120):"");
+    } else if(theme==="A")s+=relicShard(8,y,.6+noise()*.3,variant===1?38:variant===3?-28:12);
+    else if(theme==="C")s+=relicLeaf(7,y,scale+(.12*(variant===1)),50+noise()*25,true)+(variant===2&&i%2===0?relicShard(7,y+10,.4,20):"");
+    else if(variant===1)s+=`<path d="M6 ${y+15}Q25 ${y+5} 15 ${y-12}Q32 ${y+2} 11 ${y+20}Z" fill="@metal" stroke="@light" stroke-width=".65"/>`;
+    else if(variant===3)s+=relicShard(8,y,.45,20)+`<path d="M6 ${y}Q25 ${y+12} 7 ${y+26}" fill="none" stroke="@metal" stroke-width="2"/>`;
+    else s+=relicLeaf(7,y,scale,55+noise()*25)+relicLeaf(7,y+16,scale*.8,-18);
+  }
+  return s;
+}
+function buildRelicFrame(tierId, idx, uid, mode="card") {
+  const theme=Object.hasOwn(RELIC_THEMES,tierId)?tierId:"A",p=RELIC_THEMES[theme];
+  const rank=Math.max(0,Math.trunc(Number(idx)||0)),variant=rank%4,id=Math.abs(Math.trunc(Number(uid)||0));
+  const kind=mode==="preview"?"preview":"card",key=`rf-${id}-${kind}`;
+  let seed=(id*131+rank*17)>>>0;
+  const noise=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};
+  const crest=relicSvg(key+"-crest",200,66,relicCrest(theme,variant,noise),p);
+  const left=relicSvg(key+"-left",28,280,relicRail(theme,variant,0,noise),p,true),right=relicSvg(key+"-right",28,280,relicRail(theme,variant,1,noise),p,true);
+  const gemArt=(shape)=>shape===3?'<path d="M22 3 35 10 30 24 24 41 12 32 10 17Z" fill="@gem" stroke="@light" stroke-width=".8"/><path d="M22 3 24 41 10 17Z" fill="@light" opacity=".24"/><path d="M22 3 30 24 35 10Z" fill="@light" opacity=".6"/>':relicShard(22,27,1.18,shape===1?8:0);
+  const gem=relicSvg(key+"-stone",44,44,gemArt(variant),p);
+  const west=relicSvg(key+"-west",44,44,gemArt(variant),p),east=relicSvg(key+"-east",44,44,gemArt(variant),p);
+  const rim=relicSvg(key+"-rim",200,300,'<path d="M25 5H175L195 25V275L175 295H25L5 275V25Z" fill="none" stroke="@dark" stroke-width="4"/><path d="M25 4H175L196 25V275L175 296H25L4 275V25Z" fill="none" stroke="@metal" stroke-width="2"/><path d="M25 9H175L191 25V275L175 291H25L9 275V25Z" fill="none" stroke="@light" stroke-width=".6" opacity=".7"/>',p,true);
+  const foot=relicSvg(key+"-foot",200,32,'<path d="M8 10Q48 15 76 13L100 26 124 13Q152 15 192 10L186 20 124 20 100 31 76 20 14 20Z" fill="@metal" stroke="@light" stroke-width=".65"/>'+relicShard(100,15,.55,0),p);
+  return `<span class="relic-frame-3d" data-family="${p.family}" data-model="${variant}" data-mode="${kind}" data-relic="${id}" data-premier="${theme === "S" && rank === 0}" style="--rf-glow:${p.glow};--rf-delay:${(-noise()*6).toFixed(2)}s" aria-hidden="true"><span class="rf-stage"><span class="rf-layer rf-aura">${rim}</span><span class="rf-layer rf-metal"><span class="rf-crest">${crest}</span><span class="rf-rail rf-left">${left}</span><span class="rf-rail rf-right">${right}</span><span class="rf-foot">${foot}</span></span><span class="rf-layer rf-gems"><span class="rf-main-stone">${gem}</span><span class="rf-side-stone rf-side-left">${west}</span><span class="rf-side-stone rf-side-right">${east}</span><span class="rf-current rf-current-left"></span><span class="rf-current rf-current-right"></span></span></span></span>`;
+}
+
 function accentVars(tier) {
   const a = Object.hasOwn(ACCENTS,tier.accent) ? ACCENTS[tier.accent] : ACCENTS[ACCENT_ORDER[0]];
   if (tier.id === "S" && tier.accent === "gold") return `--t:#f6cf79;--t2:#fff0c7;--tg:rgba(246,196,91,.55)`;
@@ -4596,7 +4720,7 @@ function cardEl(item, idx, tierId) {
   el.innerHTML = `
     ${cover ? `<img referrerpolicy="no-referrer" alt="">` : ``}
     <div class="scrim"></div>
-    ${tierId === "S" ? floralFrame() + `<span class="card-coronet" aria-hidden="true">${royalCrown("card" + item.uid)}</span>` : ""}
+    ${buildRelicFrame(tierId, idx, item.uid, "card")}
     <span class="rank">${idx + 1}</span>
     ${reactionHtml(item)}
     <div class="nm">${esc(item.name)}${watchedHtml(item, false)}</div>
@@ -6120,6 +6244,42 @@ function initShortcuts() {
 initShortcuts();
 
 /* ════════════════════ EXPORT PNG ════════════════════ */
+/* html2canvas copies inherited styles into every SVG node. The embedded garden
+   image would be repeated thousands of times in the clone. Flatten only the
+   decorative relief first, then restore the exact live nodes in finally. */
+function flattenRelicFramesForExport(node) {
+  const plans = [];
+  const serializer = new XMLSerializer();
+  node.querySelectorAll(".relic-frame-3d").forEach(frame => {
+    const r = frame.getBoundingClientRect();
+    if (!r.width || !r.height) {
+      plans.push({ frame, image: null, original: [...frame.childNodes] });
+      return;
+    }
+    const pieces = [];
+    frame.querySelectorAll("svg").forEach(svg => {
+      const box = svg.getBoundingClientRect();
+      if (!box.width || !box.height) return;
+      const copy = svg.cloneNode(true);
+      copy.setAttribute("x", box.left - r.left);
+      copy.setAttribute("y", box.top - r.top);
+      copy.setAttribute("width", box.width);
+      copy.setAttribute("height", box.height);
+      copy.setAttribute("overflow", "visible");
+      if (svg.parentElement.classList.contains("rf-aura")) {
+        copy.querySelectorAll("path").forEach(p => p.setAttribute("vector-effect", "non-scaling-stroke"));
+      }
+      pieces.push(serializer.serializeToString(copy));
+    });
+    const image = document.createElement("img");
+    image.alt = ""; image.className = "loaded"; image.dataset.relicExport = "";
+    image.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:fill;opacity:1";
+    image.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="${r.width}" height="${r.height}" viewBox="0 0 ${r.width} ${r.height}">${pieces.join("")}</svg>`);
+    plans.push({ frame, image, original: [...frame.childNodes] });
+  });
+  plans.forEach(({frame,image}) => frame.replaceChildren(...(image ? [image] : [])));
+  return () => plans.forEach(({frame,original}) => frame.replaceChildren(...original));
+}
 /* html2canvas 1.4 predates CSS Color 4. Let the browser resolve these colours
    into legacy rgba() in the disposable export clone, including pseudo-elements. */
 function prepareExportColors(doc) {
@@ -6176,8 +6336,12 @@ function prepareExportColors(doc) {
     const style = doc.createElement("style"); style.textContent = pseudoRules.join("\n"); doc.head.appendChild(style);
   }
 }
+let pngExporting = false;
 document.getElementById("exportBtn").addEventListener("click", async () => {
+  if (pngExporting) return;
   if (typeof html2canvas === "undefined") { toast("Библиотека экспорта не загрузилась"); return; }
+  pngExporting = true;
+  let restoreFrames = () => {};
   const node = document.getElementById("capture");
   const wasEditing = editing;
   if (editing) { editing = false; document.body.classList.remove("editing"); editBtn.classList.remove("on"); }
@@ -6186,6 +6350,7 @@ document.getElementById("exportBtn").addEventListener("click", async () => {
   toast("Готовлю изображение…");
   await new Promise(r => setTimeout(r, 120));
   try {
+    restoreFrames = flattenRelicFramesForExport(document.body);
     const canvas = await html2canvas(node, { backgroundColor: "#08060f", scale: 2, useCORS: true, logging: false, windowWidth: node.scrollWidth, onclone: prepareExportColors });
     const link = document.createElement("a");
     link.download = "anime-tier-list.png";
@@ -6195,6 +6360,7 @@ document.getElementById("exportBtn").addEventListener("click", async () => {
   } catch (err) {
     toast("Не удалось создать PNG. Попробуй вид «Чипы» или отключи эффекты.");
   } finally {
+    restoreFrames(); pngExporting = false;
     document.body.classList.remove("exporting"); node.classList.remove("exporting");
     if (wasEditing) { editing = true; document.body.classList.add("editing"); editBtn.classList.add("on"); }
   }
@@ -6211,7 +6377,7 @@ const pRx = preview.querySelector(".pv-rx");
 const pClose = document.getElementById("previewClose");
 const pDatesCount = document.getElementById("previewDatesCount");
 preview.querySelector(".pv-elite").innerHTML = eliteMark("preview");
-preview.querySelector(".preview-imgwrap").insertAdjacentHTML("beforeend", floralFrame());
+
 let pHide, pAnchor = null, pUid = null;
 function showPreview(el, uid) {
   if (editing) return;
@@ -6228,6 +6394,8 @@ function showPreview(el, uid) {
   pRank.textContent = "#" + (f.tier.items.indexOf(f.item) + 1);
   preview.querySelector(".pv-monogram").textContent = f.tier.id;
   pRx.innerHTML = reactionHtml(f.item);
+  preview.querySelector(".relic-frame-3d")?.remove();
+  preview.querySelector(".preview-imgwrap").insertAdjacentHTML("beforeend", buildRelicFrame(f.tier.id, f.tier.items.indexOf(f.item), f.item.uid, "preview"));
   pT.textContent = f.item.name;
   pS.textContent = f.tier.id + "-tier · " + f.tier.label;
   const _wl = normWatched(f.item.watched);
@@ -6860,7 +7028,7 @@ if (!isTouch) {
   const body = document.body;
   const isTouchDev = matchMedia("(hover: none)").matches;
   const lowDev = isTouchDev || innerWidth < 720 || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
-  const defaults = { "fx-neon": true, "fx-tilt": !isTouchDev, "fx-cursor": !isTouchDev, "fx-particles": !lowDev, "fx-petals": !lowDev, "fx-tier-motion": true, "fx-memory": true, emblemVersion: 2, motion: "auto", emblems: "elements", glow: 1, cardSize: 128, atm: "midnight", rhythm: "standard", glass: "standard" };
+  const defaults = { "fx-neon": true, "fx-tilt": !isTouchDev, "fx-cursor": !isTouchDev, "fx-particles": !lowDev, "fx-petals": !lowDev, "fx-tier-motion": true, "fx-memory": true, "fx-relic": true, emblemVersion: 2, motion: "auto", emblems: "elements", glow: 1, cardSize: 128, atm: "midnight", rhythm: "standard", glass: "standard" };
   let cfg;
   try { cfg = Object.assign({}, defaults, JSON.parse(localStorage.getItem(FX_KEY) || "{}")); }
   catch(e) { cfg = Object.assign({}, defaults); }
@@ -6903,7 +7071,7 @@ if (!isTouch) {
   }
   function apply() {
     setMotionPreference(cfg.motion);
-    ["fx-neon","fx-tilt","fx-cursor","fx-particles","fx-petals","fx-tier-motion","fx-memory"].forEach(k => body.classList.toggle(k, !!cfg[k]));
+    ["fx-neon","fx-tilt","fx-cursor","fx-particles","fx-petals","fx-tier-motion","fx-memory","fx-relic"].forEach(k => body.classList.toggle(k, !!cfg[k]));
     document.documentElement.style.setProperty("--glow-mult", cfg.glow);
     document.querySelectorAll(".fx-sw").forEach(sw => { sw.classList.toggle("on", !!cfg[sw.dataset.fx]); sw.setAttribute("aria-pressed", String(!!cfg[sw.dataset.fx])); });
     const gl = document.getElementById("fxGlow"); if (gl) gl.value = cfg.glow;
@@ -6953,13 +7121,17 @@ if (!isTouch) {
   const cg = document.getElementById("cursorGlow");
   if (!isTouchDev) addEventListener("mousemove", e => { cg.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`; }, { passive: true });
 
-  /* 3D tilt toward cursor — for posters and tier badges (delegated, survives re-render) */
+  /* Poster relief has its own perspective context; filters stay on the SVG leaves. */
   function tiltToward(el, e, vars, amt) {
     const r = el.getBoundingClientRect();
     const px = (e.clientX - r.left) / r.width - 0.5;
     const py = (e.clientY - r.top) / r.height - 0.5;
     el.style.setProperty(vars[0], (px * amt).toFixed(2) + "deg");
     el.style.setProperty(vars[1], (-py * amt).toFixed(2) + "deg");
+    if (el.matches(".card")) {
+      el.style.setProperty("--rf-rx", (px * 5).toFixed(2) + "deg");
+      el.style.setProperty("--rf-ry", (-py * 5).toFixed(2) + "deg");
+    }
   }
   if (!isTouchDev) {
     let pointerFrame = 0;
@@ -6968,22 +7140,24 @@ if (!isTouch) {
       if (!body.classList.contains("fx-tilt") || reduceMotion) return;
       const card = e.target.closest && e.target.closest(".card");
       const badge = e.target.closest && e.target.closest(".badge");
-      if (!card && !(badge && body.classList.contains("fx-tier-motion"))) return;
+      const poster = e.target.closest && e.target.closest("#preview .preview-imgwrap");
+      if (!card && !poster && !(badge && body.classList.contains("fx-tier-motion"))) return;
       if (pointerFrame) cancelAnimationFrame(pointerFrame);
-      activeTarget = card || badge;
+      activeTarget = card || poster || badge;
       pointerFrame = requestAnimationFrame(() => {
         pointerFrame = 0;
-        tiltToward(activeTarget, e, card ? ["--rx", "--ry"] : ["--brx", "--bry"], card ? 9 : 24);
+        tiltToward(activeTarget, e, poster ? ["--rf-rx", "--rf-ry"] : card ? ["--rx", "--ry"] : ["--brx", "--bry"], poster ? 7 : card ? 9 : 24);
       });
     }, { passive: true });
     document.addEventListener("pointerout", e => {
       const card = e.target.closest && e.target.closest(".card");
       const badge = e.target.closest && e.target.closest(".badge");
-      const target = card || badge;
+      const poster = e.target.closest && e.target.closest("#preview .preview-imgwrap");
+      const target = card || poster || badge;
       if (!target || (e.relatedTarget instanceof Node && target.contains(e.relatedTarget))) return;
       if (activeTarget === target && pointerFrame) { cancelAnimationFrame(pointerFrame); pointerFrame = 0; }
       const vars = card ? ["--rx", "--ry"] : ["--brx", "--bry"];
-      vars.forEach(v => target.style.setProperty(v, "0deg"));
+      [...vars,"--rf-rx","--rf-ry"].forEach(v => target.style.setProperty(v, "0deg"));
     }, { passive: true });
   }
 })();

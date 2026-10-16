@@ -113,6 +113,57 @@ const server = http.createServer((req, res) => {
     const p = await page(c),
       panel = p.locator("#preview"),
       card = p.locator('.card[data-uid="61"]');
+    assert.equal(await p.locator(".card .relic-frame-3d").count(), count);
+    const reliefExport = await p.evaluate(() => {
+      const body = document.body,
+        frames = [...document.querySelectorAll(".relic-frame-3d")];
+      const original = frames.reduce(
+        (n, f) => n + f.querySelectorAll("svg").length,
+        0,
+      );
+      body.classList.add("exporting");
+      let restore = () => {};
+      try {
+        restore = flattenRelicFramesForExport(body);
+        const remaining = frames.reduce(
+          (n, f) => n + f.querySelectorAll("svg").length,
+          0,
+        );
+        restore();
+        restore = () => {};
+        const restored = frames.reduce(
+          (n, f) => n + f.querySelectorAll("svg").length,
+          0,
+        );
+        body.classList.remove("fx-relic");
+        restore = flattenRelicFramesForExport(body);
+        const hiddenRemaining = frames.reduce(
+          (n, f) => n + f.querySelectorAll("svg").length,
+          0,
+        );
+        return { original, remaining, restored, hiddenRemaining };
+      } finally {
+        restore();
+        body.classList.remove("exporting");
+        body.classList.add("fx-relic");
+      }
+    });
+    assert.ok(reliefExport.original > 0);
+    assert.equal(
+      reliefExport.remaining,
+      0,
+      "export clones no heavy relief SVG trees",
+    );
+    assert.equal(
+      reliefExport.restored,
+      reliefExport.original,
+      "live ornaments are restored",
+    );
+    assert.equal(
+      reliefExport.hiddenRemaining,
+      0,
+      "disabled relief does not bloat the export clone",
+    );
     await card.hover();
     assert.equal(
       await panel.isVisible(),
@@ -127,6 +178,11 @@ const server = http.createServer((req, res) => {
     );
     await p.keyboard.press("Enter");
     assert.equal(await panel.isVisible(), true);
+    assert.equal(
+      await panel.locator(".relic-frame-3d").getAttribute("data-model"),
+      await card.locator(".relic-frame-3d").getAttribute("data-model"),
+      "the preview retains the selected poster's frame",
+    );
     assert.equal(await card.getAttribute("aria-expanded"), "true");
     assert.equal(
       await p
