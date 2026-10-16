@@ -397,6 +397,21 @@ const server = http.createServer((req, res) => {
     }
     await p.keyboard.press("Escape");
     await p.emulateMedia({ reducedMotion: "reduce" });
+    // Media-query change events and the final CSS frame arrive asynchronously.
+    await p.waitForFunction(
+      () => document.body.classList.contains("motion-calm"),
+      null,
+      { timeout: 5000 },
+    );
+    await p.waitForFunction(
+      () =>
+        document
+          .querySelector('.tier[data-tier="S"] .badge')
+          .getAnimations({ subtree: true })
+          .every((a) => a.playState !== "running"),
+      null,
+      { timeout: 5000 },
+    );
     assert.equal(
       await badge.evaluate(
         (el) =>
