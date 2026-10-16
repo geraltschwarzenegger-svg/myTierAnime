@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-16T17:43:30.957Z",
+  "savedAt": "2026-10-16T18:05:57.092Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -518,7 +518,7 @@
           {
             "uid": 68,
             "name": "Я влюбился в тебя, когда ты бежала в лунной ночи",
-            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/love-unseen-moonlit-night.jpg",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/love-unseen-selected-cover.jpg",
             "fav": false,
             "reaction": null,
             "watched": [
