@@ -358,12 +358,49 @@ const server = http.createServer((req, res) => {
     });
     await touch.route("**/data.json*", (r) => r.fulfill({ json: fixture }));
     const tp = await page(touch);
+    await tp.evaluate(() => {
+      window.previewTouchTrace = [];
+      for (const type of ["pointerdown", "focusin", "scroll"])
+        document.addEventListener(
+          type,
+          (e) => {
+            const p = document.getElementById("preview"),
+              r = p.getBoundingClientRect();
+            window.previewTouchTrace.push({
+              type,
+              id: e.target.id,
+              tag: e.target.tagName,
+              cls:
+                typeof e.target.className === "string"
+                  ? e.target.className.slice(0, 70)
+                  : "svg",
+              show: p.classList.contains("show"),
+              x: r.x,
+              y: r.y,
+              w: r.width,
+              h: r.height,
+            });
+            if (window.previewTouchTrace.length > 25)
+              window.previewTouchTrace.shift();
+          },
+          true,
+        );
+    });
     await tp.locator('.card[data-uid="61"]').tap();
     assert.equal(await tp.locator("#preview").isVisible(), true);
     const bb = await tp.locator("#preview .wlist").boundingBox();
     const client = await touch.newCDPSession(tp);
     const tx = Math.floor(bb.x + bb.width / 2),
       ty = Math.floor(bb.y + bb.height - 12);
+    assert.equal(
+      await tp.evaluate(
+        ({ x, y }) =>
+          !!document.elementFromPoint(x, y)?.closest("#preview .wlist"),
+        { x: tx, y: ty },
+      ),
+      true,
+      "storage indicator must not intercept touch scrolling",
+    );
     await client.send("Input.dispatchTouchEvent", {
       type: "touchStart",
       touchPoints: [{ x: tx, y: ty }],
@@ -385,6 +422,7 @@ const server = http.createServer((req, res) => {
       await tp.locator("#preview .wlist").evaluate((el) => el.scrollTop > 0),
       JSON.stringify({
         bb,
+        trace: await tp.evaluate(() => window.previewTouchTrace),
         state: await tp.locator("#preview .wlist").evaluate((el) => ({
           top: el.scrollTop,
           height: el.clientHeight,

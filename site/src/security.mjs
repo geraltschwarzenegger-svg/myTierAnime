@@ -1,4 +1,5 @@
 import { WEB_CSP } from './security-policy.mjs';
+import { REACTION_KEYS } from './reactions.mjs';
 
 export class HttpError extends Error {
   constructor(status, message) { super(message); this.status = status; }
@@ -78,7 +79,8 @@ export function validateState(state) {
       uids.add(item.uid); max = Math.max(max, item.uid);
       if (typeof item.name !== 'string' || !item.name.trim() || item.name.length > 240) return 'Проверь название аниме';
       if (item.cover !== undefined && (typeof item.cover !== 'string' || (item.cover && !safeImageUrl(item.cover)))) return 'Обложка должна быть HTTPS-ссылкой или растровой картинкой';
-      if (item.reaction != null && !['heart', 'goldheart', 'bolt', 'fire', 'star'].includes(item.reaction)) return 'Неизвестная реакция';
+      if (item.fav !== undefined && typeof item.fav !== 'boolean') return 'Неправильная отметка избранного';
+      if (item.reaction != null && !REACTION_KEYS.includes(item.reaction)) return 'Неизвестная реакция';
       if (item.watched !== undefined) {
         if (!Array.isArray(item.watched) || item.watched.length > 100 || item.watched.some(w => !w || (w.label !== undefined && (typeof w.label !== 'string' || w.label.length > 100)) || (w.date !== '' && !validDate(w.date)))) return 'Проверь даты просмотра';
       }

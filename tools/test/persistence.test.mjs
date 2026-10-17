@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
+import { REACTION_KEYS } from '../../site/src/reactions.mjs';
 
 // Exercise the shipped functions, with controlled storage and encryption timing.
 const source = readFileSync(new URL('../../src/app.html', import.meta.url), 'utf8');
@@ -104,7 +105,7 @@ for (const name of ['data.json', 'anime-tierlist-2026-10-11.json']) {
       for (const item of tier.items) {
         assert.ok(Number.isInteger(item.uid) && item.uid > 0 && !ids.has(item.uid)); ids.add(item.uid);
         assert.ok(typeof item.name === 'string' && item.name.trim());
-        assert.ok(item.reaction == null || ['heart','goldheart','bolt','fire','star'].includes(item.reaction));
+        assert.ok(item.reaction == null || REACTION_KEYS.includes(item.reaction));
         const records = typeof item.watched === 'string' ? (item.watched ? [{ date: item.watched }] : []) : item.watched || [];
         for (const entry of records) {
           const match = /^(\d{1,2})\.(\d{1,2})\.(\d{4})$/.exec(entry.date); assert.ok(match, item.name);

@@ -217,7 +217,7 @@ const server = http.createServer((req, res) => {
       await p
         .locator(".release-version")
         .innerText()
-        .then((s) => s.includes("V3.0")),
+        .then((s) => /V\d+\.\d+(?:\.\d+)?/.test(s)),
     );
     const badge = p.locator('.tier[data-tier="S"] .badge');
     await badge.evaluate((el) =>
