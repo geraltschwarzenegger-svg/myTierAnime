@@ -164,10 +164,10 @@ const server = http.createServer((req, res) => {
             prefix +
               " " +
               {
-                S: ".radiance-ray",
-                A: ".facet-glass",
-                B: ".ink-drop",
-                C: ".sakura-sprig",
+                S: ".lumen-plate",
+                A: ".lumen-plate",
+                B: ".lumen-plate",
+                C: ".lumen-plate",
               }[tier] +
               ":first-of-type",
           );
@@ -239,6 +239,7 @@ const server = http.createServer((req, res) => {
       await badge.evaluate((el) => getComputedStyle(el).transform),
       "none",
     );
+    await p.locator('.tier[data-tier="S"] .badge .lstage').evaluate(el=>el.scrollIntoView({block:"center",behavior:"instant"}));
     await moving('.tier[data-tier="S"] .badge .l3d-in');
     await p.locator("#frameOpen").click();
     const dialog = p.locator("#frameAtelier");
@@ -257,7 +258,7 @@ const server = http.createServer((req, res) => {
     await p.locator('[data-frame="4"]').click();
     assert.equal(
       await p.locator("#atelierName").textContent(),
-      "Рубиновая роза",
+      "Сад Серафима",
     );
     assert.equal(
       await p.evaluate(() => JSON.stringify(state)),
@@ -266,7 +267,7 @@ const server = http.createServer((req, res) => {
     );
     if (shots)
       await dialog.screenshot({
-        path: path.join(root, "docs/images/atelier-v3.png"),
+        path: path.join(root, "docs/images/bloom-atelier.png"),
       });
     await p.locator("#atelierScope").selectOption("68");
     assert.ok(

@@ -1,0 +1,87 @@
+{
+  "context": {
+    "browser": "Chromium headless",
+    "viewport": "1440x1080",
+    "warmupMs": 4000,
+    "sampleMs": 3000,
+    "covers": "same deterministic image fixtures",
+    "baselineCommit": "f076465",
+    "note": "Single environment sample; frame times are not a promise for other devices."
+  },
+  "before": [
+    {
+      "stage": "hero",
+      "nodes": 19801,
+      "frameNodes": 16183,
+      "svgs": 528,
+      "animations": 333,
+      "running": 47,
+      "runningOffscreen": 4,
+      "infiniteRunning": 8,
+      "infiniteOffscreen": 4,
+      "frames": 43,
+      "frameMedian": 66.69999999999982,
+      "frameP95": 133.30000000000018,
+      "TaskDuration": 0.559174,
+      "ScriptDuration": 0.020828000000000003,
+      "LayoutDuration": 0.0016120000000000002,
+      "RecalcStyleDuration": 0.040070999999999996
+    },
+    {
+      "stage": "collection",
+      "nodes": 19800,
+      "frameNodes": 16183,
+      "svgs": 528,
+      "animations": 334,
+      "running": 165,
+      "runningOffscreen": 75,
+      "infiniteRunning": 125,
+      "infiniteOffscreen": 35,
+      "frames": 22,
+      "frameMedian": 133.29999999999927,
+      "frameP95": 250,
+      "TaskDuration": 0.4918529999999999,
+      "ScriptDuration": 0.010957000000000008,
+      "LayoutDuration": 0.0020410000000000003,
+      "RecalcStyleDuration": 0.069185
+    }
+  ],
+  "after": [
+    {
+      "stage": "hero",
+      "nodes": 7887,
+      "frameNodes": 4172,
+      "svgs": 66,
+      "animations": 107,
+      "running": 41,
+      "runningOffscreen": 0,
+      "infiniteRunning": 2,
+      "infiniteOffscreen": 0,
+      "frames": 76,
+      "frameMedian": 49.900000000000546,
+      "frameP95": 83.40000000000055,
+      "TaskDuration": 0.340245,
+      "ScriptDuration": 0.026413000000000002,
+      "LayoutDuration": 0.001326,
+      "RecalcStyleDuration": 0.06896600000000001
+    },
+    {
+      "stage": "collection",
+      "nodes": 7887,
+      "frameNodes": 4172,
+      "svgs": 66,
+      "animations": 103,
+      "running": 9,
+      "runningOffscreen": 0,
+      "infiniteRunning": 9,
+      "infiniteOffscreen": 0,
+      "frames": 85,
+      "frameMedian": 33.29999999999927,
+      "frameP95": 66.70000000000073,
+      "TaskDuration": 0.47992400000000024,
+      "ScriptDuration": 0.025766999999999998,
+      "LayoutDuration": 0,
+      "RecalcStyleDuration": 0.05791400000000002
+    }
+  ]
+}

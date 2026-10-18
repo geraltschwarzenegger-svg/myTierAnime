@@ -1,14 +1,7 @@
 {
-  "version": 1,
-  "total": 102,
-  "columns": [
-    "heart",
-    "bolt",
-    "laugh",
-    "cry",
-    "fire",
-    "goldheart"
-  ],
+  "version": 2,
+  "total": 138,
+  "legacyAliases": 12,
   "packs": [
     {
       "id": "s-violet",
@@ -233,6 +226,150 @@
         "Дзэницу",
         "Тандзиро",
         "Синобу"
+      ]
+    },
+    {
+      "id": "call-night",
+      "title": "Песнь ночных сов",
+      "uid": 14,
+      "sheet": 4,
+      "cols": 4,
+      "rows": 3,
+      "moods": [
+        "heart",
+        "goldheart",
+        "bolt",
+        "fire",
+        "star",
+        "laugh",
+        "cry",
+        "cozy",
+        "think",
+        "shock",
+        "sleep",
+        "angry"
+      ],
+      "characters": [
+        "Назуна",
+        "Назуна",
+        "Ко",
+        "Назуна",
+        "Назуна",
+        "Назуна",
+        "Ко",
+        "Назуна",
+        "Ко",
+        "Назуна",
+        "Назуна",
+        "Акира"
+      ]
+    },
+    {
+      "id": "dress-up",
+      "title": "Фарфоровая кукла влюбилась",
+      "uid": 44,
+      "sheet": 5,
+      "cols": 4,
+      "rows": 3,
+      "moods": [
+        "heart",
+        "goldheart",
+        "bolt",
+        "fire",
+        "star",
+        "laugh",
+        "cry",
+        "cozy",
+        "think",
+        "shock",
+        "sleep",
+        "angry"
+      ],
+      "characters": [
+        "Марин",
+        "Марин",
+        "Марин",
+        "Марин",
+        "Марин",
+        "Марин",
+        "Марин",
+        "Марин",
+        "Вакана",
+        "Марин",
+        "Марин",
+        "Вакана"
+      ]
+    },
+    {
+      "id": "angel",
+      "title": "Ангел по соседству",
+      "uid": 26,
+      "sheet": 6,
+      "cols": 4,
+      "rows": 3,
+      "moods": [
+        "heart",
+        "goldheart",
+        "bolt",
+        "fire",
+        "star",
+        "laugh",
+        "cry",
+        "cozy",
+        "think",
+        "shock",
+        "sleep",
+        "angry"
+      ],
+      "characters": [
+        "Махиру",
+        "Махиру",
+        "Махиру",
+        "Аманэ",
+        "Махиру",
+        "Махиру",
+        "Махиру",
+        "Махиру",
+        "Аманэ",
+        "Махиру",
+        "Махиру",
+        "Аманэ"
+      ]
+    },
+    {
+      "id": "jujutsu",
+      "title": "Магическая битва",
+      "uid": 54,
+      "sheet": 7,
+      "cols": 4,
+      "rows": 3,
+      "moods": [
+        "heart",
+        "goldheart",
+        "bolt",
+        "fire",
+        "star",
+        "laugh",
+        "cry",
+        "cozy",
+        "think",
+        "shock",
+        "sleep",
+        "angry"
+      ],
+      "characters": [
+        "Нобара",
+        "Годзё",
+        "Годзё",
+        "Юдзи",
+        "Нобара",
+        "Годзё",
+        "Юдзи",
+        "Юдзи",
+        "Мэгуми",
+        "Мэгуми",
+        "Годзё",
+        "Нобара"
       ]
     }
   ]

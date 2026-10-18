@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-16T18:11:29.154Z",
+  "savedAt": "2026-10-18T13:10:23.834Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -23,7 +23,8 @@
                 "label": "",
                 "date": "30.03.2026"
               }
-            ]
+            ],
+            "sticker": "s-violet-bolt"
           },
           {
             "uid": 2,
@@ -36,7 +37,8 @@
                 "label": "",
                 "date": "09.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-titan-laugh"
           },
           {
             "uid": 3,
@@ -65,7 +67,8 @@
                 "label": "5 / 16",
                 "date": "26.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-classroom-cry"
           },
           {
             "uid": 4,
@@ -78,7 +81,8 @@
                 "label": "",
                 "date": "02.02.2026"
               }
-            ]
+            ],
+            "sticker": "s-chainsaw-fire"
           },
           {
             "uid": 5,
@@ -91,7 +95,8 @@
                 "label": "",
                 "date": "11.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-franxx-goldheart"
           },
           {
             "uid": 6,
@@ -104,7 +109,8 @@
                 "label": "",
                 "date": "28.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-paradise-heart"
           },
           {
             "uid": 7,
@@ -117,7 +123,8 @@
                 "label": "",
                 "date": "13.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-eighty-six-bolt"
           },
           {
             "uid": 8,
@@ -130,7 +137,8 @@
                 "label": "",
                 "date": "15.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-shadow-laugh"
           },
           {
             "uid": 9,
@@ -143,7 +151,8 @@
                 "label": "",
                 "date": "20.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-solo-cry"
           },
           {
             "uid": 10,
@@ -156,7 +165,8 @@
                 "label": "",
                 "date": "17.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-frieren-fire"
           },
           {
             "uid": 11,
@@ -169,7 +179,8 @@
                 "label": "",
                 "date": "02.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-dead-goldheart"
           },
           {
             "uid": 56,
@@ -182,7 +193,8 @@
                 "label": "",
                 "date": "12.07.2026"
               }
-            ]
+            ],
+            "sticker": "s-death-note-laugh"
           },
           {
             "uid": 57,
@@ -195,7 +207,8 @@
                 "label": "3 / 11",
                 "date": "20.07.2026"
               }
-            ]
+            ],
+            "sticker": "s-oshi-cry"
           },
           {
             "uid": 58,
@@ -208,7 +221,8 @@
                 "label": "3 / 24",
                 "date": "09.07.2026"
               }
-            ]
+            ],
+            "sticker": "s-mushoku-fire"
           },
           {
             "uid": 61,
@@ -241,7 +255,8 @@
                 "label": "фильм  Бесконечный замок",
                 "date": "25.07.2026"
               }
-            ]
+            ],
+            "sticker": "s-demon-bolt"
           }
         ]
       },
@@ -262,7 +277,8 @@
                 "label": "",
                 "date": "08.12.2025"
               }
-            ]
+            ],
+            "sticker": "s-classroom-heart"
           },
           {
             "uid": 13,
@@ -275,7 +291,8 @@
                 "label": "",
                 "date": "25.03.2026"
               }
-            ]
+            ],
+            "sticker": "s-franxx-laugh"
           },
           {
             "uid": 14,
@@ -288,7 +305,8 @@
                 "label": "",
                 "date": "25.11.2025"
               }
-            ]
+            ],
+            "sticker": "call-night-bolt"
           },
           {
             "uid": 15,
@@ -301,7 +319,8 @@
                 "label": "",
                 "date": "12.12.2025"
               }
-            ]
+            ],
+            "sticker": "s-solo-goldheart"
           },
           {
             "uid": 16,
@@ -314,7 +333,8 @@
                 "label": "Примерная дата",
                 "date": "05.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-death-note-bolt"
           },
           {
             "uid": 17,
@@ -327,7 +347,8 @@
                 "label": "Примерная дата",
                 "date": "12.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-mushoku-cry"
           },
           {
             "uid": 18,
@@ -340,7 +361,8 @@
                 "label": "Примерная дата",
                 "date": "24.03.2026"
               }
-            ]
+            ],
+            "sticker": "call-night-cry"
           },
           {
             "uid": 19,
@@ -353,7 +375,8 @@
                 "label": "Примерная дата",
                 "date": "03.03.2026"
               }
-            ]
+            ],
+            "sticker": "dress-up-cry"
           },
           {
             "uid": 20,
@@ -366,7 +389,8 @@
                 "label": "",
                 "date": "29.03.2026"
               }
-            ]
+            ],
+            "sticker": "angel-think"
           },
           {
             "uid": 21,
@@ -383,7 +407,8 @@
                 "label": "3 / 12",
                 "date": "30.08.2026"
               }
-            ]
+            ],
+            "sticker": "jujutsu-shock"
           },
           {
             "uid": 22,
@@ -396,7 +421,8 @@
                 "label": "Примерная дата",
                 "date": "15.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-titan-goldheart"
           },
           {
             "uid": 23,
@@ -409,7 +435,8 @@
                 "label": "Примерная дата",
                 "date": "12.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-franxx-fire"
           },
           {
             "uid": 24,
@@ -422,7 +449,8 @@
                 "label": "Примерная дата",
                 "date": "19.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-shadow-cry"
           },
           {
             "uid": 25,
@@ -435,7 +463,8 @@
                 "label": "Примерная дата",
                 "date": "14.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-dead-bolt"
           },
           {
             "uid": 44,
@@ -448,7 +477,8 @@
                 "label": "Примерная дата",
                 "date": "29.04.2026"
               }
-            ]
+            ],
+            "sticker": "dress-up-think"
           },
           {
             "uid": 54,
@@ -461,7 +491,8 @@
                 "label": "Примерная дата",
                 "date": "30.05.2026"
               }
-            ]
+            ],
+            "sticker": "jujutsu-cry"
           },
           {
             "uid": 64,
@@ -474,7 +505,8 @@
                 "label": "",
                 "date": "17.09.2026"
               }
-            ]
+            ],
+            "sticker": "s-classroom-fire"
           },
           {
             "uid": 65,
@@ -487,7 +519,8 @@
                 "label": "",
                 "date": "10.09.2026"
               }
-            ]
+            ],
+            "sticker": "s-eighty-six-laugh"
           },
           {
             "uid": 66,
@@ -500,7 +533,8 @@
                 "label": "",
                 "date": "02.10.2026"
               }
-            ]
+            ],
+            "sticker": "s-frieren-goldheart"
           },
           {
             "uid": 67,
@@ -513,7 +547,8 @@
                 "label": "Примерная дата",
                 "date": "10.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-mushoku-laugh"
           },
           {
             "uid": 68,
@@ -526,7 +561,8 @@
                 "label": "",
                 "date": "14.10.2026"
               }
-            ]
+            ],
+            "sticker": "call-night-angry"
           }
         ]
       },
@@ -547,7 +583,8 @@
                 "label": "Примерная дата",
                 "date": "08.03.2026"
               }
-            ]
+            ],
+            "sticker": "angel-bolt"
           },
           {
             "uid": 27,
@@ -560,7 +597,8 @@
                 "label": "Примерная дата",
                 "date": "09.12.2025"
               }
-            ]
+            ],
+            "sticker": "jujutsu-think"
           },
           {
             "uid": 28,
@@ -573,7 +611,8 @@
                 "label": "Примерная дата",
                 "date": "18.03.2026"
               }
-            ]
+            ],
+            "sticker": "s-classroom-laugh"
           },
           {
             "uid": 29,
@@ -586,7 +625,8 @@
                 "label": "Примерная дата",
                 "date": "18.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-paradise-goldheart"
           },
           {
             "uid": 30,
@@ -599,7 +639,8 @@
                 "label": "Примерная дата",
                 "date": "30.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-frieren-bolt"
           },
           {
             "uid": 31,
@@ -612,7 +653,8 @@
                 "label": "Примерная дата",
                 "date": "21.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-oshi-fire"
           },
           {
             "uid": 32,
@@ -625,7 +667,8 @@
                 "label": "Примерная дата",
                 "date": "08.05.2026"
               }
-            ]
+            ],
+            "sticker": "call-night-laugh"
           },
           {
             "uid": 33,
@@ -638,7 +681,8 @@
                 "label": "Примерная дата",
                 "date": "13.05.2026"
               }
-            ]
+            ],
+            "sticker": "dress-up-angry"
           },
           {
             "uid": 34,
@@ -651,7 +695,8 @@
                 "label": "Примерная дата",
                 "date": "16.05.2026"
               }
-            ]
+            ],
+            "sticker": "jujutsu-fire"
           },
           {
             "uid": 35,
@@ -664,7 +709,8 @@
                 "label": "Примерная дата",
                 "date": "23.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-titan-fire"
           },
           {
             "uid": 36,
@@ -677,7 +723,8 @@
                 "label": "Примерная дата",
                 "date": "21.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-eighty-six-heart"
           },
           {
             "uid": 37,
@@ -690,7 +737,8 @@
                 "label": "Примерная дата",
                 "date": "24.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-dead-heart"
           },
           {
             "uid": 38,
@@ -703,7 +751,8 @@
                 "label": "Примерная дата",
                 "date": "25.04.2026"
               }
-            ]
+            ],
+            "sticker": "s-demon-heart"
           },
           {
             "uid": 39,
@@ -716,7 +765,8 @@
                 "label": "Примерная дата",
                 "date": "19.06.2026"
               }
-            ]
+            ],
+            "sticker": "dress-up-bolt"
           },
           {
             "uid": 60,
@@ -729,7 +779,8 @@
                 "label": "",
                 "date": "02.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-death-note-goldheart"
           },
           {
             "uid": 40,
@@ -742,7 +793,8 @@
                 "label": "Примерная дата",
                 "date": "11.03.2026"
               }
-            ]
+            ],
+            "sticker": "jujutsu-sleep"
           }
         ]
       },
@@ -763,7 +815,8 @@
                 "label": "",
                 "date": "10.02.2026"
               }
-            ]
+            ],
+            "sticker": "s-chainsaw-cry"
           },
           {
             "uid": 42,
@@ -776,7 +829,8 @@
                 "label": "",
                 "date": "28.02.2026"
               }
-            ]
+            ],
+            "sticker": "s-solo-heart"
           },
           {
             "uid": 43,
@@ -789,7 +843,8 @@
                 "label": "Примерная дата",
                 "date": "14.03.2026"
               }
-            ]
+            ],
+            "sticker": "s-oshi-goldheart"
           },
           {
             "uid": 45,
@@ -802,7 +857,8 @@
                 "label": "Примерная дата",
                 "date": "27.05.2026"
               }
-            ]
+            ],
+            "sticker": "dress-up-sleep"
           },
           {
             "uid": 46,
@@ -815,7 +871,8 @@
                 "label": "Примерная дата",
                 "date": "21.03.2026"
               }
-            ]
+            ],
+            "sticker": "jujutsu-cozy"
           },
           {
             "uid": 47,
@@ -828,7 +885,8 @@
                 "label": "",
                 "date": "03.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-franxx-heart"
           },
           {
             "uid": 48,
@@ -841,7 +899,8 @@
                 "label": "",
                 "date": "04.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-frieren-heart"
           },
           {
             "uid": 49,
@@ -854,7 +913,8 @@
                 "label": "",
                 "date": "05.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-demon-fire"
           },
           {
             "uid": 50,
@@ -867,7 +927,8 @@
                 "label": "Примерная дата",
                 "date": "04.07.2026"
               }
-            ]
+            ],
+            "sticker": "angel-heart"
           },
           {
             "uid": 51,
@@ -880,7 +941,8 @@
                 "label": "",
                 "date": "05.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-violet-laugh"
           },
           {
             "uid": 52,
@@ -893,7 +955,8 @@
                 "label": "",
                 "date": "07.06.2026"
               }
-            ]
+            ],
+            "sticker": "s-paradise-fire"
           },
           {
             "uid": 55,
@@ -906,7 +969,8 @@
                 "label": "",
                 "date": "05.07.2026"
               }
-            ]
+            ],
+            "sticker": "call-night-cozy"
           },
           {
             "uid": 59,
@@ -919,7 +983,8 @@
                 "label": "",
                 "date": "01.05.2026"
               }
-            ]
+            ],
+            "sticker": "s-franxx-bolt"
           },
           {
             "uid": 62,
@@ -932,7 +997,8 @@
                 "label": "",
                 "date": "31.08.2026"
               }
-            ]
+            ],
+            "sticker": "call-night-goldheart"
           }
         ]
       }

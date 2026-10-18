@@ -27,7 +27,7 @@ function validateReferences(markup) {
     "all material tokens resolved",
   );
 }
-test("50 named frame models have individual palettes, unique silhouettes and complete relief layers", () => {
+test("50 named frame models have individual palettes, unique botanical silhouettes and one lightweight SVG", () => {
   assert.equal(designs.length, 50);
   assert.equal(new Set(designs.map((d) => d.name)).size, 50);
   assert.equal(new Set(designs.map((d) => d.mid + d.gem + d.light)).size, 50);
@@ -35,21 +35,12 @@ test("50 named frame models have individual palettes, unique silhouettes and com
   for (const d of designs) {
     const f = frame(d.theme, d.variant, 100 + d.id, "gallery", d.id);
     validateReferences(f);
-    for (const region of [
-      "rf-crest",
-      "rf-left",
-      "rf-right",
-      "rf-foot",
-      "rf-main-stone",
-      "rf-aura",
-      "rf-metal",
-      "rf-gems",
-    ])
-      assert.ok(f.includes(region), d.name + " " + region);
+    assert.equal((f.match(/<svg /g)||[]).length,1,"one SVG per frame");
+    for(const region of ["bf-crest","bf-left","bf-right","bf-foot","bf-stone","bf-metal"])assert.ok(f.includes(region),d.name+" "+region);
     for (const colour of [d.light, d.mid, d.dark, d.gem])
       assert.match(colour, /^#[a-f0-9]{6}$/i);
     const crest = vm.runInContext(
-      `relicCrest(${JSON.stringify(d.theme)}, ${d.variant}, () => .5)`,
+      `botanicalGeometry(RELIC_DESIGNS[${d.id}], .5)`,
       context,
     );
     silhouettes.add(crest);

@@ -26,20 +26,20 @@ function harness() {
   );
   return c;
 }
-test("102 original sticker reactions retain five legacy keys and match server/client validation", () => {
+test("138 anime stickers and twelve compatible aliases retain five legacy keys and match server/client validation", () => {
   const c = harness(),
     order = JSON.parse(vm.runInContext("JSON.stringify(RX_ORDER)", c));
   assert.deepEqual(order, REACTION_KEYS);
   const client = JSON.parse(source.match(/const RX_KEYS = (\[[^;]+\]);/)[1]);
   assert.deepEqual(client, REACTION_KEYS);
   const indices = vm.runInContext(
-    "Object.values(REACTIONS).map(r=>r.pack+':'+(r.index??r.col))",
+    "STICKER_ORDER.map(k=>{const r=REACTIONS[k];return r.sheet+':'+r.row+':'+r.col})",
     c,
   );
-  assert.equal(new Set(indices).size, 102);
-  assert.equal(vm.runInContext("STICKER_PACKS.length", c),15);
+  assert.equal(new Set(indices).size, 138);
+  assert.equal(vm.runInContext("STICKER_PACKS.length", c),19);
   for (const pack of JSON.parse(vm.runInContext("JSON.stringify(STICKER_PACKS)", c))) {
-    assert.equal(vm.runInContext(`RX_ORDER.filter(k=>REACTIONS[k].pack===${JSON.stringify(pack.id)}).length`, c),6);
+    assert.equal(vm.runInContext(`STICKER_ORDER.filter(k=>REACTIONS[k].pack===${JSON.stringify(pack.id)}).length`, c),pack.moods?12:6);
     assert.equal(c.reactionMood(pack.id+"-cry"), "cry");
   }
   for (const key of REACTION_KEYS) {
@@ -129,4 +129,13 @@ test("server accepts all sticker reactions with either favourite state and rejec
   state.tiers[0].items[0].reaction = "cozy";
   state.tiers[0].items[0].fav = "yes";
   assert.equal(validateState(state), "Неправильная отметка избранного");
+});
+
+test("all 66 anime receive distinct decorative stickers without replacing saved impressions",()=>{
+ const data=JSON.parse(readFileSync(new URL("../../data.json",import.meta.url),"utf8"));
+ const items=data.state.tiers.flatMap(t=>t.items);assert.equal(items.length,66);
+ assert.equal(new Set(items.map(i=>i.sticker)).size,66);
+ for(const i of items)assert.ok(REACTION_KEYS.includes(i.sticker));
+ const copy=structuredClone(data.state);copy.tiers[0].items[0].sticker="constructor";
+ assert.equal(validateState(copy),"Неизвестный стикер");
 });

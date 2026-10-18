@@ -105,36 +105,34 @@ const server = http.createServer((req, res) => {
       () => document.getElementById("reactionDialog").open,
     );
     assert.equal(await p.locator("#nekoOptions [data-rx]").count(), 12);
-    assert.equal(await p.locator("#nekoPack option").count(),16);
+    assert.equal(await p.locator("#nekoPack option").count(),19);
     const packIds=await p.locator("#nekoPack option").evaluateAll(options=>options.map(o=>o.value).filter(v=>v!=="cats"));
     const distinct=new Set();
     for(const pack of packIds){
       await p.locator("#nekoPack").selectOption(pack);
-      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),6,pack);
+      const total=["call-night","dress-up","angel","jujutsu"].includes(pack)?12:6;
+      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),total,pack);
       for(const key of await p.locator("#nekoOptions [data-rx]").evaluateAll(bs=>bs.map(b=>b.dataset.rx)))distinct.add(key);
-      assert.equal(await p.locator("#nekoOptions .cat-sticker").first().evaluate(el=>getComputedStyle(el).backgroundSize),"600% 500%");
+      assert.equal(await p.locator("#nekoOptions .cat-sticker").first().evaluate(el=>getComputedStyle(el).backgroundSize),total===12?"400% 300%":"600% 500%");
       await p.locator("#nekoMood").selectOption("cry");
       assert.equal(await p.locator("#nekoOptions [data-rx]").count(),1);
       await p.locator("#nekoMood").selectOption("cozy");
-      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),0);
-      assert.ok(await p.locator("#nekoOptions .sticker-empty").isVisible());
+      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),total===12?1:0);
+      if(total===6)assert.ok(await p.locator("#nekoOptions .sticker-empty").isVisible());
       await p.locator("#nekoMood").selectOption("all");
     }
-    assert.equal(distinct.size,90);
+    assert.equal(distinct.size,138);
     if(shots){
-      for(const [pack,mood,name] of [["s-oshi","cry","neko-picker"],["s-mushoku","heart","stickers-mushoku"],["s-franxx","heart","stickers-franxx"]]){
+      for(const [pack,mood,name] of [["s-oshi","cry","bloom-oshi"],["s-mushoku","heart","bloom-mushoku"],["s-franxx","heart","bloom-franxx"]]){
         await p.locator("#nekoPack").selectOption(pack);
         await p.locator(`#nekoOptions [data-rx="${pack}-${mood}"]`).click();
         await p.locator("#reactionDialog").screenshot({ animations:"disabled",path:path.join(root,`docs/images/${name}.png`)});
       }
     }
-    await p.locator("#nekoPack").selectOption("cats");
-    await p.locator('#nekoOptions [data-rx="cozy"]').click();
-    if (shots)
-      await p
-        .locator("#reactionDialog")
-        .screenshot({ animations:"disabled", path: path.join(root, "docs/images/stickers-cats.png") });
-    await p.locator('#nekoOptions [data-rx="cry"]').click();
+    await p.locator("#nekoPack").selectOption("dress-up");
+    await p.locator('#nekoOptions [data-rx="dress-up-cozy"]').click();
+
+    await p.locator('#nekoOptions [data-rx="dress-up-cry"]').click();
     await p.locator("#nekoSave").click();
     await p.waitForFunction(
       () =>
@@ -143,7 +141,7 @@ const server = http.createServer((req, res) => {
     );
     assert.equal(
       await card.locator(".neko-mark").getAttribute("data-reaction"),
-      "cry",
+      "dress-up-cry",
     );
     assert.equal(await card.locator(".fav-mark").count(), 0);
     assert.equal(
@@ -153,21 +151,21 @@ const server = http.createServer((req, res) => {
     );
     assert.equal(
       await p.locator("#previewReactionLabel").textContent(),
-      "До слёз",
+      "До слёз · Марин",
     );
     if (shots)
       await p
         .locator("#preview")
-        .screenshot({ animations:"disabled", path: path.join(root, "docs/images/neko-preview.png") });
+        .screenshot({ animations:"disabled", path: path.join(root, "docs/images/bloom-reaction-preview.png") });
     await p.locator("#previewReaction").click();
-    await p.locator('#nekoOptions [data-rx="angry"]').click();
+    await p.locator('#nekoOptions [data-rx="dress-up-angry"]').click();
     await p.locator("#nekoCancel").click();
     await p.waitForFunction(
       () => !document.getElementById("reactionDialog").open,
     );
     assert.equal(
       await card.locator(".neko-mark").getAttribute("data-reaction"),
-      "cry",
+      "dress-up-cry",
       "cancel keeps current reaction",
     );
     await p.reload({ waitUntil: "domcontentloaded" });
@@ -178,7 +176,7 @@ const server = http.createServer((req, res) => {
     );
     assert.equal(
       await card.locator(".neko-mark").getAttribute("data-reaction"),
-      "cry",
+      "dress-up-cry",
       "personal sticker persists",
     );
     await p.locator('#impressionRail [data-mood="cry"]').click();
@@ -198,7 +196,7 @@ const server = http.createServer((req, res) => {
       await p
         .locator(".impressions")
         .screenshot({ animations:"disabled",
-          path: path.join(root, "docs/images/neko-impressions.png"),
+          path: path.join(root, "docs/images/bloom-impressions.png"),
         });
     }
     for (const width of [320, 390, 768, 1440]) {
@@ -236,7 +234,7 @@ const server = http.createServer((req, res) => {
       assert.ok(await p.locator("#reactionDialog").evaluate(el=>el.scrollWidth<=el.clientWidth+1),"anime pack fits "+width);
       if (shots && width === 390)
         await p.screenshot({ animations:"disabled",
-          path: path.join(root, "docs/images/neko-mobile.png"),
+          path: path.join(root, "docs/images/bloom-mobile-stickers.png"),
         });
       await p.keyboard.press("Escape");
       await p.waitForFunction(
@@ -251,7 +249,7 @@ const server = http.createServer((req, res) => {
       await p
         .locator('.chip[data-uid="68"] .neko-mark')
         .getAttribute("data-reaction"),
-      "cry",
+      "dress-up-cry",
     );
     await p.locator('.chip[data-uid="68"] .neko-mark').click();
     await p.locator("#previewReaction").click();
@@ -275,11 +273,11 @@ const server = http.createServer((req, res) => {
     await p.waitForFunction(
       () => !document.getElementById("reactionDialog").open,
     );
-    assert.equal(await p.locator('.chip[data-uid="68"] .neko-mark').count(), 0);
+    assert.equal(await p.locator('.chip[data-uid="68"] .neko-mark').getAttribute("data-sticker-kind"),"decoration");
     assert.deepEqual(errors, []);
     assert.deepEqual(await p.evaluate(() => window.cspProblems), []);
     console.log(
-      "Public reactions PASS: 102 stickers in 16 packs, 90 distinct S-tier character reactions, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
+      "Public reactions PASS: 138 stickers in 19 anime packs, 66 decorative poster stickers, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
     );
     if (!live) {
       const own = await browser.newContext({
@@ -341,8 +339,8 @@ const server = http.createServer((req, res) => {
       );
       await op.locator('.card[data-uid="68"]').click();
       await op.locator("#previewReaction").click();
-      await op.locator("#nekoPack").selectOption("cats");
-      await op.locator('#nekoOptions [data-rx="cry"]').click();
+      await op.locator("#nekoPack").selectOption("dress-up");
+      await op.locator('#nekoOptions [data-rx="dress-up-cry"]').click();
       await op.locator("#nekoFavourite").uncheck();
       await op.locator("#nekoSave").click();
       await op.waitForFunction(
