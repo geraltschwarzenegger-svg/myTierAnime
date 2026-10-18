@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-wuKSK2hj/JJsbhrKtqFFZNiA6oJU4InNLPsh6K5oV6Q=' 'sha256-p1NtpVTyR9gglu+Col22ztHlyL2N5C4k9DxDTnMUuTI=' 'sha256-OXkM0oURAnJFLu0e3Senc2CI/63XA8BooDNtDTPRL0M=' 'sha256-Hj6B2t5qNdXXD/Jt75Qk+PnI+BPwEFgu/faFyJMtnOc=' 'sha256-02Y1O4BGV6TEMiV9cx0HqlVhc/eVZ/UtkWAqUBaOsSQ=' 'sha256-M1TMB4hUveUW1MkOKPdAfGaoCWRcD9nSJtr+o41hpPg=' 'sha256-ZuUYPc7fBhpYdM3LPQd4HjRba8c9CTMYdNZTtyNbNBI='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-wuKSK2hj/JJsbhrKtqFFZNiA6oJU4InNLPsh6K5oV6Q=' 'sha256-p1NtpVTyR9gglu+Col22ztHlyL2N5C4k9DxDTnMUuTI=' 'sha256-OXkM0oURAnJFLu0e3Senc2CI/63XA8BooDNtDTPRL0M=' 'sha256-Hj6B2t5qNdXXD/Jt75Qk+PnI+BPwEFgu/faFyJMtnOc=' 'sha256-02Y1O4BGV6TEMiV9cx0HqlVhc/eVZ/UtkWAqUBaOsSQ=' 'sha256-25+RnGj7L0Bf1iK1ak0FGlxqTVBljg0XEIevh/oopB8=' 'sha256-ZuUYPc7fBhpYdM3LPQd4HjRba8c9CTMYdNZTtyNbNBI='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="myTierAnime — твоя коллекция аниме, тиры, календарь просмотров и альбом любимых героев.">
@@ -8243,7 +8243,8 @@ renderImpressions();layoutReactionMarks();
     const exportUid=uid;exporting=true;button.disabled=true;status.textContent='Создаю открытку…';let restore=()=>{};
     try{
       await document.fonts.ready;await capture.querySelector('img').decode();
-      restore=flattenRelicFramesForExport(capture);
+      // The export library clones the whole document, including frames outside this card.
+      restore=flattenRelicFramesForExport(document.body);
       const canvas=await html2canvas(capture,{backgroundColor:null,scale:960/capture.offsetWidth,useCORS:true,logging:false,onclone:prepareExportColors});
       const output=document.createElement('canvas');output.width=960;output.height=1440;output.getContext('2d').drawImage(canvas,0,0,960,1440);
       const blob=await new Promise(resolve=>output.toBlob(resolve,'image/png'));if(!blob)throw Error('Empty PNG');

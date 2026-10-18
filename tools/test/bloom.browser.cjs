@@ -76,6 +76,7 @@ const server = http.createServer((req, res) => {
     const p = await c.newPage(),
       errors = [];
     p.on("pageerror", (e) => errors.push(e.message));
+    p.on("crash",()=>console.log("Browser renderer crashed"));
     await p.addInitScript(() => {
       window.cspProblems = [];
       document.addEventListener("securitypolicyviolation", (e) =>
@@ -143,12 +144,13 @@ const server = http.createServer((req, res) => {
     await p.locator('#postcardTheme').selectOption('lagoon');
     assert.equal(await p.locator('#postcardCapture').getAttribute('data-theme'),'lagoon');
     if(shots)await p.locator('#postcardDialog').screenshot({path:path.join(root,'docs/images/bloom-postcard.png'),animations:'disabled'});
-    const downloaded=p.waitForEvent('download',{timeout:120000});await p.locator('#postcardDownload').click();const file=await downloaded;
+    const downloaded=p.waitForEvent('download',{timeout:120000}).then(file=>({file}),error=>({error}));await p.locator('#postcardDownload').click();const result=await downloaded;if(result.error){console.log('POSTCARD STATE',await p.locator('#postcardStatus').textContent());throw result.error;}const file=result.file;
     const target='/workspace/artifacts/myTierAnime/bloom/postcard-violet.png';fs.mkdirSync(path.dirname(target),{recursive:true});await file.saveAs(target);
     const png=fs.readFileSync(target);assert.equal(png.subarray(1,4).toString(),'PNG');assert.equal(png.readUInt32BE(16),960);assert.equal(png.readUInt32BE(20),1440);
     await p.waitForFunction(()=>!document.getElementById('postcardDownload').disabled);
     assert.equal(await p.locator('#postcardFrame svg').count(),1,'frame restored after PNG');
-    assert.equal(await p.locator('#postcardFrame [data-relic-export]').count(),0);
+    assert.equal(await p.locator('[data-relic-export]').count(),0);
+    assert.equal(await p.locator('.card .botanical-frame svg').count(),66,'all poster frames restored after postcard export');
     await p.locator('#postcardClose').click();await p.waitForFunction(()=>!document.getElementById('postcardDialog').open&&document.getElementById('preview').classList.contains('show'));await p.keyboard.press('Escape');
     await p.setViewportSize({width:390,height:844});await p.locator('.card[data-uid="14"]').click();await p.locator('#previewReaction').click();await p.locator('#nekoPack').selectOption('call-night');await p.locator('#nekoOptions [data-rx="call-night-star"]').click();
     assert.ok(await p.locator('#reactionDialog').evaluate(el=>el.scrollWidth<=el.clientWidth+1));

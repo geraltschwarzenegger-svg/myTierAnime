@@ -10498,7 +10498,8 @@ renderImpressions();layoutReactionMarks();
     const exportUid=uid;exporting=true;button.disabled=true;status.textContent='Создаю открытку…';let restore=()=>{};
     try{
       await document.fonts.ready;await capture.querySelector('img').decode();
-      restore=flattenRelicFramesForExport(capture);
+      // The export library clones the whole document, including frames outside this card.
+      restore=flattenRelicFramesForExport(document.body);
       const canvas=await html2canvas(capture,{backgroundColor:null,scale:960/capture.offsetWidth,useCORS:true,logging:false,onclone:prepareExportColors});
       const output=document.createElement('canvas');output.width=960;output.height=1440;output.getContext('2d').drawImage(canvas,0,0,960,1440);
       const blob=await new Promise(resolve=>output.toBlob(resolve,'image/png'));if(!blob)throw Error('Empty PNG');
