@@ -92,7 +92,7 @@ const server = http.createServer((req, res) => {
     await p.goto(base, { waitUntil: "domcontentloaded" });
     await p.waitForFunction(
       () =>
-        document.querySelectorAll(".card").length === 66 &&
+        document.querySelectorAll(".card").length === 67 &&
         document.body.classList.contains("read-only"),
     );
     await p.evaluate(() => document.fonts.ready);
@@ -101,10 +101,10 @@ const server = http.createServer((req, res) => {
     const dir='/workspace/artifacts/myTierAnime/bloom';fs.mkdirSync(dir,{recursive:true});await download.saveAs(dir+'/collection.png');
     const png=fs.readFileSync(dir+'/collection.png');assert.equal(png.subarray(1,4).toString(),'PNG');assert.ok(png.readUInt32BE(16)>2000&&png.readUInt32BE(20)>5000);
     await p.waitForFunction(()=>!document.body.classList.contains('exporting'));
-    assert.equal(await p.locator('.card .relic-frame-3d svg').count(),66);assert.equal(await p.locator('[data-relic-export]').count(),0);
+    assert.equal(await p.locator('.card .relic-frame-3d svg').count(),67);assert.equal(await p.locator('[data-relic-export]').count(),0);
     assert.ok(await p.locator('.card img').evaluateAll(images=>images.every(img=>img.getAttribute('loading')==='lazy')));
     assert.deepEqual(errors,[]);assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);
-    console.log('Collection PNG PASS:',png.readUInt32BE(16)+'x'+png.readUInt32BE(20),png.length,'bytes; 66 frames and lazy loading restored.');
+    console.log('Collection PNG PASS:',png.readUInt32BE(16)+'x'+png.readUInt32BE(20),png.length,'bytes; 67 frames and lazy loading restored.');
   } finally {
     await browser.close();
     if (!live) await new Promise((r) => server.close(r));

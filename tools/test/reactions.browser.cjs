@@ -92,7 +92,7 @@ const server = http.createServer((req, res) => {
     await p.goto(base, { waitUntil: "domcontentloaded" });
     await p.waitForFunction(
       () =>
-        document.querySelectorAll(".card").length === 66 &&
+        document.querySelectorAll(".card").length === 67 &&
         document.body.classList.contains("read-only"),
     );
     await p.evaluate(() => document.fonts.ready);
@@ -171,7 +171,7 @@ const server = http.createServer((req, res) => {
     await p.reload({ waitUntil: "domcontentloaded" });
     await p.waitForFunction(
       () =>
-        document.querySelectorAll(".card").length === 66 &&
+        document.querySelectorAll(".card").length === 67 &&
         document.body.classList.contains("read-only"),
     );
     assert.equal(
@@ -264,7 +264,7 @@ const server = http.createServer((req, res) => {
     await p.locator('#impressionRail [data-mood="fire"]').click();
     assert.ok(await p.locator('.chip[data-uid="68"]').isVisible(),"anime characters share the emotion filter with cats");
     await p.reload({waitUntil:"domcontentloaded"});
-    await p.waitForFunction(()=>document.querySelectorAll(".chip").length===66);
+    await p.waitForFunction(()=>document.querySelectorAll(".chip").length===67);
     assert.equal(await p.locator('.chip[data-uid="68"] .neko-mark').getAttribute("data-reaction"),"s-mushoku-fire");
     await p.locator('.chip[data-uid="68"]').click();
     await p.locator("#previewReaction").click();
@@ -277,7 +277,7 @@ const server = http.createServer((req, res) => {
     assert.deepEqual(errors, []);
     assert.deepEqual(await p.evaluate(() => window.cspProblems), []);
     console.log(
-      "Public reactions PASS: 138 stickers in 19 anime packs, 66 decorative poster stickers, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
+      "Public reactions PASS: 138 stickers in 19 anime packs, 67 decorative poster stickers, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
     );
     if (!live) {
       const own = await browser.newContext({
@@ -299,7 +299,7 @@ const server = http.createServer((req, res) => {
       await op.goto(base, { waitUntil: "domcontentloaded" });
       await op.waitForFunction(
         () =>
-          document.querySelectorAll(".card").length === 66 &&
+          document.querySelectorAll(".card").length === 67 &&
           !document.body.classList.contains("read-only"),
       );
       await op.locator('.card[data-uid="68"]').click();
@@ -315,7 +315,7 @@ const server = http.createServer((req, res) => {
       assert.equal(await op.evaluate(() => findItem(68).item.fav), true);
       await op.reload({ waitUntil: "domcontentloaded" });
       await op.waitForFunction(
-        () => document.querySelectorAll(".card").length === 66,
+        () => document.querySelectorAll(".card").length === 67,
       );
       assert.equal(await op.evaluate(() => findItem(68).item.reaction), "s-mushoku-heart");
       const download = op.waitForEvent("download");

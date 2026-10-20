@@ -131,10 +131,10 @@ test("server accepts all sticker reactions with either favourite state and rejec
   assert.equal(validateState(state), "Неправильная отметка избранного");
 });
 
-test("all 66 anime receive distinct decorative stickers without replacing saved impressions",()=>{
+test("all 67 anime receive distinct decorative stickers without replacing saved impressions",()=>{
  const data=JSON.parse(readFileSync(new URL("../../data.json",import.meta.url),"utf8"));
- const items=data.state.tiers.flatMap(t=>t.items);assert.equal(items.length,66);
- assert.equal(new Set(items.map(i=>i.sticker)).size,66);
+ const items=data.state.tiers.flatMap(t=>t.items);assert.equal(items.length,67);
+ assert.equal(new Set(items.map(i=>i.sticker)).size,67);
  for(const i of items)assert.ok(REACTION_KEYS.includes(i.sticker));
  const copy=structuredClone(data.state);copy.tiers[0].items[0].sticker="constructor";
  assert.equal(validateState(copy),"Неизвестный стикер");
