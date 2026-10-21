@@ -1,5 +1,6 @@
 import { WEB_CSP } from './security-policy.mjs';
 import { REACTION_KEYS } from './reactions.mjs';
+import { watchDurationIssue } from './watchtime.mjs';
 
 export class HttpError extends Error {
   constructor(status, message) { super(message); this.status = status; }
@@ -82,8 +83,14 @@ export function validateState(state) {
       if (item.fav !== undefined && typeof item.fav !== 'boolean') return 'Неправильная отметка избранного';
       if (item.reaction != null && !REACTION_KEYS.includes(item.reaction)) return 'Неизвестная реакция';
       if (item.sticker != null && !REACTION_KEYS.includes(item.sticker)) return 'Неизвестный стикер';
+      if (item.watchTotal !== undefined && item.watchTotal !== null) {
+        const issue = watchDurationIssue(item.watchTotal); if (issue) return issue;
+      }
       if (item.watched !== undefined) {
         if (!Array.isArray(item.watched) || item.watched.length > 100 || item.watched.some(w => !w || (w.label !== undefined && (typeof w.label !== 'string' || w.label.length > 100)) || (w.date !== '' && !validDate(w.date)))) return 'Проверь даты просмотра';
+        for (const record of item.watched) if (record.duration !== undefined && record.duration !== null) {
+          const issue = watchDurationIssue(record.duration); if (issue) return issue;
+        }
       }
     }
   }

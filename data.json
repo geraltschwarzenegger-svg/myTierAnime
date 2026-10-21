@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-20T05:29:06.521Z",
+  "savedAt": "2026-10-21T04:00:07.137Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -21,7 +21,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "30.03.2026"
+                "date": "30.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 543,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-1",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 13 серий + 2 фильма",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-violet-bolt"
@@ -35,7 +44,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "09.05.2026"
+                "date": "09.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 2182,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-2",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 89 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-titan-laugh"
@@ -49,7 +67,17 @@
             "watched": [
               {
                 "label": "1 / 12",
-                "date": "26.08.2024"
+                "date": "26.08.2024",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/35507",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               },
               {
                 "label": "2 / 12",
@@ -68,7 +96,16 @@
                 "date": "26.06.2026"
               }
             ],
-            "sticker": "s-classroom-cry"
+            "sticker": "s-classroom-cry",
+            "watchTotal": {
+              "mode": "total",
+              "basis": "catalog",
+              "minutes": 1254,
+              "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-3",
+              "sourceTitle": "MyAnimeList · сверка частей",
+              "scopeLabel": "Все учтённые части · 54 серий",
+              "note": "Сводный итог 4 сезонов заменяет сумму старых дат. Пять прежних подписей сохранены: они не совпадают с 4 сезонами каталога."
+            }
           },
           {
             "uid": 4,
@@ -79,7 +116,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "02.02.2026"
+                "date": "02.02.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 387,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-4",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 12 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-chainsaw-fire"
@@ -93,7 +139,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "11.04.2026"
+                "date": "11.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 24,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/35849",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-franxx-goldheart"
@@ -107,7 +163,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "28.04.2026"
+                "date": "28.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 600,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-6",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 25 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-paradise-heart"
@@ -121,7 +186,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "13.04.2026"
+                "date": "13.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 529,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-7",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 23 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-eighty-six-bolt"
@@ -135,7 +209,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "15.04.2026"
+                "date": "15.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 736,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-8",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 32 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-shadow-laugh"
@@ -149,7 +232,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "20.05.2026"
+                "date": "20.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 575,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-9",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 25 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-solo-cry"
@@ -163,7 +255,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "17.05.2026"
+                "date": "17.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 912,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-10",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 38 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-frieren-fire"
@@ -177,7 +278,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "02.06.2026"
+                "date": "02.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/8074",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-dead-goldheart"
@@ -191,7 +302,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "12.07.2026"
+                "date": "12.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 37,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/1535",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-death-note-laugh"
@@ -204,8 +325,17 @@
             "reaction": "heart",
             "watched": [
               {
-                "label": "3 / 11",
-                "date": "20.07.2026"
+                "label": "1–3 сезоны · 35 серий",
+                "date": "20.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 952,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-57",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 35 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-oshi-cry"
@@ -218,8 +348,18 @@
             "reaction": "fire",
             "watched": [
               {
-                "label": "3 / 24",
-                "date": "09.07.2026"
+                "label": "3 сезона · 76 серий",
+                "date": "09.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "manual",
+                  "episodes": 76,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/59193",
+                  "sourceTitle": "23 мин на серию · MyAnimeList",
+                  "scopeLabel": "3 сезона · 76 серий",
+                  "note": "Количество серий задано владельцем; длительность серии — каталожная оценка."
+                }
               }
             ],
             "sticker": "s-mushoku-fire"
@@ -233,27 +373,85 @@
             "watched": [
               {
                 "label": "1 / 26",
-                "date": "20.07.2026"
+                "date": "20.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 26,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/38000",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               },
               {
                 "label": "фильм  Бесконечный поезд",
-                "date": "21.07.2026"
+                "date": "21.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 116,
+                  "sourceUrl": "https://myanimelist.net/anime/40456",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм · Бесконечный поезд",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               },
               {
                 "label": "1 / 11 Квартал красных фонарей",
-                "date": "22.07.2026"
+                "date": "22.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 11,
+                  "episodeMinutes": 26,
+                  "sourceUrl": "https://myanimelist.net/anime/47778",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Квартал красных фонарей",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               },
               {
                 "label": "1 / 11  Деревня кузнецов",
-                "date": "23.07.2026"
+                "date": "23.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 11,
+                  "episodeMinutes": 28,
+                  "sourceUrl": "https://myanimelist.net/anime/51019",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Деревня кузнецов",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               },
               {
                 "label": "1 / 8 Тренировка столпов",
-                "date": "24.07.2026"
+                "date": "24.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 8,
+                  "episodeMinutes": 29,
+                  "sourceUrl": "https://myanimelist.net/anime/55701",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Тренировка столпов",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               },
               {
                 "label": "фильм  Бесконечный замок",
-                "date": "25.07.2026"
+                "date": "25.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 155,
+                  "sourceUrl": "https://myanimelist.net/anime/59192",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм · Бесконечный замок",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-demon-bolt"
@@ -275,7 +473,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "08.12.2025"
+                "date": "08.12.2025",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/59845",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-classroom-heart"
@@ -289,7 +497,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "25.03.2026"
+                "date": "25.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 106,
+                  "sourceUrl": "https://myanimelist.net/anime/32281",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-franxx-laugh"
@@ -303,7 +520,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "25.11.2025"
+                "date": "25.11.2025",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 550,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-14",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 25 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "call-night-bolt"
@@ -317,7 +543,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "12.12.2025"
+                "date": "12.12.2025",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/54744",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-solo-goldheart"
@@ -331,7 +567,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "05.04.2026"
+                "date": "05.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/31043",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-death-note-bolt"
@@ -345,7 +591,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "12.04.2026"
+                "date": "12.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1152,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-17",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 48 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-mushoku-cry"
@@ -359,7 +614,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "24.03.2026"
+                "date": "24.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1195,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-18",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 47 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "call-night-cry"
@@ -373,7 +637,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "03.03.2026"
+                "date": "03.03.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/61128",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "dress-up-cry"
@@ -387,7 +661,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "29.03.2026"
+                "date": "29.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-20",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "angel-think"
@@ -401,11 +684,31 @@
             "watched": [
               {
                 "label": "1, 2 / 24",
-                "date": "05.06.2026"
+                "date": "05.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 24,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-21",
+                  "sourceTitle": "MyAnimeList · 1 и 2 сезоны",
+                  "scopeLabel": "1–2 сезоны · 24 серии",
+                  "note": "12 + 12 серий, без повторного добавления к сводному итогу."
+                }
               },
               {
                 "label": "3 / 12",
-                "date": "30.08.2026"
+                "date": "30.08.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/62811",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "3 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "jujutsu-shock"
@@ -419,7 +722,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "15.06.2026"
+                "date": "15.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/53434",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-titan-goldheart"
@@ -433,7 +746,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "12.05.2026"
+                "date": "12.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 46,
+                  "sourceUrl": "https://myanimelist.net/anime/16782",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-franxx-fire"
@@ -447,7 +769,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "19.04.2026"
+                "date": "19.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/53439",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-shadow-cry"
@@ -461,7 +793,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "14.06.2026"
+                "date": "14.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1151,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-25",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 49 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-dead-bolt"
@@ -475,7 +816,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "29.04.2026"
+                "date": "29.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-44",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "dress-up-think"
@@ -489,7 +839,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "30.05.2026"
+                "date": "30.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1461,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-54",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 59 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "jujutsu-cry"
@@ -503,7 +862,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "17.09.2026"
+                "date": "17.09.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 35,
+                  "sourceUrl": "https://myanimelist.net/anime/49818",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-classroom-fire"
@@ -517,7 +886,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "10.09.2026"
+                "date": "10.09.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 24,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/17895",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-eighty-six-laugh"
@@ -531,7 +910,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "02.10.2026"
+                "date": "02.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/56734",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-frieren-goldheart"
@@ -545,7 +934,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "10.06.2026"
+                "date": "10.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 8,
+                  "episodeMinutes": 26,
+                  "sourceUrl": "https://myanimelist.net/anime/62927",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-mushoku-laugh"
@@ -559,7 +958,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "14.10.2026"
+                "date": "14.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/62936",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "call-night-angry"
@@ -573,7 +982,17 @@
             "watched": [
               {
                 "label": "1 сезон · 12 серий",
-                "date": "20.10.2026"
+                "date": "20.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 25,
+                  "sourceUrl": "https://myanimelist.net/anime/46471",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-violet-heart"
@@ -595,7 +1014,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "08.03.2026"
+                "date": "08.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-26",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "angel-bolt"
@@ -609,7 +1037,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "09.12.2025"
+                "date": "09.12.2025",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/45613",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "jujutsu-think"
@@ -623,7 +1061,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "18.03.2026"
+                "date": "18.03.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/52990",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-classroom-laugh"
@@ -637,7 +1085,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "18.04.2026"
+                "date": "18.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 22,
+                  "episodeMinutes": 22,
+                  "sourceUrl": "https://myanimelist.net/anime/23273",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-paradise-goldheart"
@@ -651,7 +1109,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "30.04.2026"
+                "date": "30.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/27775",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-frieren-bolt"
@@ -665,7 +1133,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "21.04.2026"
+                "date": "21.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/28999",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-oshi-fire"
@@ -679,7 +1157,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "08.05.2026"
+                "date": "08.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 16,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/35994",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "call-night-laugh"
@@ -693,7 +1181,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "13.05.2026"
+                "date": "13.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/52830",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "dress-up-angry"
@@ -707,7 +1205,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "16.05.2026"
+                "date": "16.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/57362",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "jujutsu-fire"
@@ -721,7 +1229,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "23.04.2026"
+                "date": "23.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/47917",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-titan-fire"
@@ -735,7 +1253,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "21.05.2026"
+                "date": "21.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/51064",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-eighty-six-heart"
@@ -749,7 +1277,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "24.05.2026"
+                "date": "24.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1176,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-37",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 48 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-dead-heart"
@@ -763,7 +1300,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "25.04.2026"
+                "date": "25.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1492,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-38",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 58 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-demon-heart"
@@ -777,7 +1323,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "19.06.2026"
+                "date": "19.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 943,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-39",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 41 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "dress-up-bolt"
@@ -791,7 +1346,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "02.05.2026"
+                "date": "02.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 108,
+                  "sourceUrl": "https://myanimelist.net/anime/36098",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-death-note-goldheart"
@@ -805,7 +1369,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "11.03.2026"
+                "date": "11.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 130,
+                  "sourceUrl": "https://myanimelist.net/anime/28851",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "jujutsu-sleep"
@@ -827,7 +1400,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "10.02.2026"
+                "date": "10.02.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 82,
+                  "sourceUrl": "https://myanimelist.net/anime/50593",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-chainsaw-cry"
@@ -841,7 +1423,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "28.02.2026"
+                "date": "28.02.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 25,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/57181",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Учтён 1 сезон. Для незавершённого 2 сезона количество просмотренных серий не задано; его можно добавить вручную."
+                }
               }
             ],
             "sticker": "s-solo-heart"
@@ -855,7 +1447,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "14.03.2026"
+                "date": "14.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 576,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-43",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-oshi-goldheart"
@@ -869,7 +1470,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "27.05.2026"
+                "date": "27.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 63,
+                  "sourceUrl": "https://en.wikipedia.org/wiki/5_Centimeters_per_Second",
+                  "sourceTitle": "Wikipedia · хронометраж фильма",
+                  "scopeLabel": "Фильм целиком · 3 новеллы",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "dress-up-sleep"
@@ -883,7 +1493,16 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "21.03.2026"
+                "date": "21.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 2259,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-46",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 85 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "jujutsu-cozy"
@@ -897,7 +1516,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "03.06.2026"
+                "date": "03.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 114,
+                  "sourceUrl": "https://myanimelist.net/anime/35851",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-franxx-heart"
@@ -911,7 +1539,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "04.06.2026"
+                "date": "04.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-48",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-frieren-heart"
@@ -925,7 +1562,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "05.06.2026"
+                "date": "05.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 45,
+                  "sourceUrl": "https://myanimelist.net/anime/10408",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-demon-fire"
@@ -939,7 +1585,17 @@
             "watched": [
               {
                 "label": "Примерная дата",
-                "date": "04.07.2026"
+                "date": "04.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/11111",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "angel-heart"
@@ -953,7 +1609,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "05.06.2026"
+                "date": "05.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/59484",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-violet-laugh"
@@ -967,7 +1633,17 @@
             "watched": [
               {
                 "label": "",
-                "date": "07.06.2026"
+                "date": "07.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/61026",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "s-paradise-fire"
@@ -981,7 +1657,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "05.07.2026"
+                "date": "05.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 95,
+                  "sourceUrl": "https://myanimelist.net/anime/38594",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
               }
             ],
             "sticker": "call-night-cozy"
@@ -995,7 +1680,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "01.05.2026"
+                "date": "01.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1128,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-59",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 47 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "s-franxx-bolt"
@@ -1009,7 +1703,16 @@
             "watched": [
               {
                 "label": "",
-                "date": "31.08.2026"
+                "date": "31.08.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1152,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-62",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 48 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
               }
             ],
             "sticker": "call-night-goldheart"

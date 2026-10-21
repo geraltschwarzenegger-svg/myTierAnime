@@ -1,0 +1,3683 @@
+{
+  "checkedAt": "2026-10-21",
+  "method": "Основные сезоны и сюжетные фильмы; каталог даёт округлённые минуты. Объём пользователя приоритетнее. OVA, пересказы и проморолики автоматически не добавлены.",
+  "items": [
+    {
+      "uid": 1,
+      "name": "Violet Evergarden",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/33352",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · 140 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 140,
+            "sourceUrl": "https://myanimelist.net/anime/37987",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · 91 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 91,
+            "sourceUrl": "https://myanimelist.net/anime/39741",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 13 серий + 2 фильма",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 543,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-1",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 13 серий + 2 фильма",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Violet Evergarden",
+          "url": "https://myanimelist.net/anime/33352",
+          "episodes": 13,
+          "episodeMinutes": 24,
+          "totalMinutes": 312,
+          "film": false
+        },
+        {
+          "label": "Фильм",
+          "title": "Violet Evergarden Movie (Violet Evergarden: The Movie, Movie 2020)",
+          "url": "https://myanimelist.net/anime/37987",
+          "episodes": 1,
+          "episodeMinutes": 140,
+          "totalMinutes": 140,
+          "film": true
+        },
+        {
+          "label": "Фильм",
+          "title": "Violet Evergarden Gaiden: Eien to Jidou Shuki Ningyou (Movie 2019)",
+          "url": "https://myanimelist.net/anime/39741",
+          "episodes": 1,
+          "episodeMinutes": 91,
+          "totalMinutes": 91,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 2,
+      "name": "Атака Титанов",
+      "options": [
+        {
+          "label": "1 сезон · 25 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 25,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/16498",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "2 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/25777",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "3 сезон · часть 1 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/35760",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "3 сезон · часть 1",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "3 сезон · часть 2 · 10 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 10,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/38524",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "3 сезон · часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "4 сезон · часть 1 · 16 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 16,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/40028",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "4 сезон · часть 1",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "4 сезон · часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/48583",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "4 сезон · часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Финальные главы · 2 спецвыпуска · 2 серий × 72 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 2,
+            "episodeMinutes": 72,
+            "sourceUrl": "https://myanimelist.net/anime/51535",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Финальные главы · 2 спецвыпуска",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 89 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 2182,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-2",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 89 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Shingeki no Kyojin (Attack on Titan, TV 2013)",
+          "url": "https://myanimelist.net/anime/16498",
+          "episodes": 25,
+          "episodeMinutes": 24,
+          "totalMinutes": 600,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "Shingeki no Kyojin Season 2 (Attack on Titan Season 2, TV 2017)",
+          "url": "https://myanimelist.net/anime/25777",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "3 сезон · часть 1",
+          "title": "Shingeki no Kyojin Season 3 (Attack on Titan Season 3, TV 2018)",
+          "url": "https://myanimelist.net/anime/35760",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "3 сезон · часть 2",
+          "title": "Shingeki no Kyojin Season 3 Part 2",
+          "url": "https://myanimelist.net/anime/38524",
+          "episodes": 10,
+          "episodeMinutes": 23,
+          "totalMinutes": 230,
+          "film": false
+        },
+        {
+          "label": "4 сезон · часть 1",
+          "title": "Shingeki no Kyojin: The Final Season",
+          "url": "https://myanimelist.net/anime/40028",
+          "episodes": 16,
+          "episodeMinutes": 23,
+          "totalMinutes": 368,
+          "film": false
+        },
+        {
+          "label": "4 сезон · часть 2",
+          "title": "Shingeki no Kyojin: The Final Season Part 2",
+          "url": "https://myanimelist.net/anime/48583",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Финальные главы · 2 спецвыпуска",
+          "title": "Shingeki no Kyojin: The Final Season - Kanketsu-hen (TV Special 2023)",
+          "url": "https://myanimelist.net/anime/51535",
+          "episodes": 2,
+          "episodeMinutes": 72,
+          "totalMinutes": 144,
+          "film": false
+        }
+      ],
+      "notes": [
+        "89 основных серий: 87 обычных и 2 финальных спецвыпуска; фильмы-пересказы исключены."
+      ]
+    },
+    {
+      "uid": 3,
+      "name": "Класс превосходства",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/35507",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "2 сезон · 13 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/51096",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "3 сезон · 13 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/51180",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "3 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "4 сезон · 16 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 16,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/59708",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "4 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 54 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1254,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-3",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 54 серий",
+            "note": "Сводный итог 4 сезонов заменяет сумму старых дат. Пять прежних подписей сохранены: они не совпадают с 4 сезонами каталога."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e",
+          "url": "https://myanimelist.net/anime/35507",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 2nd Season (TV 2022)",
+          "url": "https://myanimelist.net/anime/51096",
+          "episodes": 13,
+          "episodeMinutes": 23,
+          "totalMinutes": 299,
+          "film": false
+        },
+        {
+          "label": "3 сезон",
+          "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 3rd Season",
+          "url": "https://myanimelist.net/anime/51180",
+          "episodes": 13,
+          "episodeMinutes": 23,
+          "totalMinutes": 299,
+          "film": false
+        },
+        {
+          "label": "4 сезон",
+          "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e 4th Season: 2-nensei-hen 1 Gakki (TV 2026)",
+          "url": "https://myanimelist.net/anime/59708",
+          "episodes": 16,
+          "episodeMinutes": 23,
+          "totalMinutes": 368,
+          "film": false
+        }
+      ],
+      "notes": [
+        "Сохранены все 5 старых дат и подписей. 4 сезона: 12+13+13+16=54 серии. Для общего времени используется watchTotal; он заменяет сумму дат."
+      ]
+    },
+    {
+      "uid": 4,
+      "name": "Человек-бензопила",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/44511",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · 99 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 99,
+            "sourceUrl": "https://myanimelist.net/anime/57555",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 12 серий + 1 фильм",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 387,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-4",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 12 серий + 1 фильм",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Chainsaw Man",
+          "url": "https://myanimelist.net/anime/44511",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Фильм",
+          "title": "Chainsaw Man Movie: Reze-hen (Chainsaw Man – The Movie: Reze Arc)",
+          "url": "https://myanimelist.net/anime/57555",
+          "episodes": 1,
+          "episodeMinutes": 99,
+          "totalMinutes": 99,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 5,
+      "name": "Любимый во Франксе",
+      "options": [
+        {
+          "label": "1 сезон · 24 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/35849",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Darling in the FranXX (TV 2018)",
+          "url": "https://myanimelist.net/anime/35849",
+          "episodes": 24,
+          "episodeMinutes": 24,
+          "totalMinutes": 576,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 6,
+      "name": "Адский рай",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/46569",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/55825",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 25 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 600,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-6",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 25 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Jigokuraku (Hell's Paradise)",
+          "url": "https://myanimelist.net/anime/46569",
+          "episodes": 13,
+          "episodeMinutes": 24,
+          "totalMinutes": 312,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Jigokuraku 2nd Season (Hell's Paradise Season 2)",
+          "url": "https://myanimelist.net/anime/55825",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 7,
+      "name": "86",
+      "options": [
+        {
+          "label": "1 сезон · 11 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 11,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/41457",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/48569",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 23 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 529,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-7",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 23 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "86 (86 Eighty-Six)",
+          "url": "https://myanimelist.net/anime/41457",
+          "episodes": 11,
+          "episodeMinutes": 23,
+          "totalMinutes": 253,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "86 Part 2 (86 Eighty-Six Part 2, TV 2021)",
+          "url": "https://myanimelist.net/anime/48569",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 8,
+      "name": "Восхождение в тени",
+      "options": [
+        {
+          "label": "1 сезон · 20 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 20,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/48316",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/54595",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 32 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 736,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-8",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 32 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kage no Jitsuryokusha ni Naritakute! (The Eminence in Shadow, TV 2022)",
+          "url": "https://myanimelist.net/anime/48316",
+          "episodes": 20,
+          "episodeMinutes": 23,
+          "totalMinutes": 460,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Kage no Jitsuryokusha ni Naritakute! 2nd Season",
+          "url": "https://myanimelist.net/anime/54595",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 9,
+      "name": "Поднятие уровня в соло",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/52299",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 13 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/58567",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 25 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 575,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-9",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 25 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Ore dake Level Up na Ken (Solo Leveling)",
+          "url": "https://myanimelist.net/anime/52299",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Ore dake Level Up na Ken Season 2: Arise from the Shadow",
+          "url": "https://myanimelist.net/anime/58567",
+          "episodes": 13,
+          "episodeMinutes": 23,
+          "totalMinutes": 299,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 10,
+      "name": "Фрирен",
+      "options": [
+        {
+          "label": "1 сезон · 28 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 28,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/52991",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 10 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 10,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/59978",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 38 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 912,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-10",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 38 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Sousou no Frieren (Frieren: Beyond Journey's End)",
+          "url": "https://myanimelist.net/anime/52991",
+          "episodes": 28,
+          "episodeMinutes": 24,
+          "totalMinutes": 672,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Sousou no Frieren 2nd Season (TV 2026)",
+          "url": "https://myanimelist.net/anime/59978",
+          "episodes": 10,
+          "episodeMinutes": 24,
+          "totalMinutes": 240,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 11,
+      "name": "Школа мертвецов",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/8074",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Highschool of the Dead (High School of the Dead)",
+          "url": "https://myanimelist.net/anime/8074",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 56,
+      "name": "Тетрадь смерти",
+      "options": [
+        {
+          "label": "1 сезон · 37 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 37,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/1535",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Death Note (TV 2006)",
+          "url": "https://myanimelist.net/anime/1535",
+          "episodes": 37,
+          "episodeMinutes": 23,
+          "totalMinutes": 851,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 57,
+      "name": "Звездное дитя",
+      "options": [
+        {
+          "label": "1 сезон · 11 серий × 30 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 11,
+            "episodeMinutes": 30,
+            "sourceUrl": "https://myanimelist.net/anime/52034",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "2 сезон · 13 серий × 25 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 25,
+            "sourceUrl": "https://myanimelist.net/anime/55791",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "3 сезон · 11 серий × 27 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 11,
+            "episodeMinutes": 27,
+            "sourceUrl": "https://myanimelist.net/anime/60058",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "3 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 35 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 952,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-57",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 35 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "[Oshi no Ko]",
+          "url": "https://myanimelist.net/anime/52034",
+          "episodes": 11,
+          "episodeMinutes": 30,
+          "totalMinutes": 330,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "[Oshi no Ko] 2nd Season ([Oshi No Ko] Season 2)",
+          "url": "https://myanimelist.net/anime/55791",
+          "episodes": 13,
+          "episodeMinutes": 25,
+          "totalMinutes": 325,
+          "film": false
+        },
+        {
+          "label": "3 сезон",
+          "title": "[Oshi no Ko] 3rd Season ([Oshi No Ko] Season 3, TV 2026)",
+          "url": "https://myanimelist.net/anime/60058",
+          "episodes": 11,
+          "episodeMinutes": 27,
+          "totalMinutes": 297,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 58,
+      "name": "Реинкарнация безработного: История о приключениях",
+      "options": [
+        {
+          "label": "1 сезон · 11 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 11,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/39535",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Мой объём · 76 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "manual",
+            "episodes": 76,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/59193",
+            "sourceTitle": "23 мин на серию · MyAnimeList",
+            "scopeLabel": "3 сезона · 76 серий",
+            "note": "Количество серий задано владельцем; длительность серии — каталожная оценка."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Mushoku Tensei: Isekai Ittara Honki Dasu (TV 2021)",
+          "url": "https://myanimelist.net/anime/39535",
+          "episodes": 11,
+          "episodeMinutes": 23,
+          "totalMinutes": 253,
+          "film": false
+        }
+      ],
+      "notes": [
+        "76 серий — количество, явно заданное владельцем; 23 мин на серию — каталожная длительность. Это ручной объём, а не подтверждённое каталогом число серий."
+      ]
+    },
+    {
+      "uid": 61,
+      "name": "Клинок, рассекающий демонов",
+      "options": [
+        {
+          "label": "1 сезон · 26 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 26,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/38000",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · Бесконечный поезд · 116 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 116,
+            "sourceUrl": "https://myanimelist.net/anime/40456",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм · Бесконечный поезд",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Квартал красных фонарей · 11 серий × 26 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 11,
+            "episodeMinutes": 26,
+            "sourceUrl": "https://myanimelist.net/anime/47778",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Квартал красных фонарей",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Деревня кузнецов · 11 серий × 28 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 11,
+            "episodeMinutes": 28,
+            "sourceUrl": "https://myanimelist.net/anime/51019",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Деревня кузнецов",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Тренировка столпов · 8 серий × 29 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 8,
+            "episodeMinutes": 29,
+            "sourceUrl": "https://myanimelist.net/anime/55701",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Тренировка столпов",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · Бесконечный замок · 155 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 155,
+            "sourceUrl": "https://myanimelist.net/anime/59192",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм · Бесконечный замок",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 56 серий + 2 фильма",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1695,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-61",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 56 серий + 2 фильма",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kimetsu no Yaiba (Demon Slayer: Kimetsu no Yaiba)",
+          "url": "https://myanimelist.net/anime/38000",
+          "episodes": 26,
+          "episodeMinutes": 23,
+          "totalMinutes": 598,
+          "film": false
+        },
+        {
+          "label": "Фильм · Бесконечный поезд",
+          "title": "Kimetsu no Yaiba Movie: Mugen Ressha-hen (Movie 2020)",
+          "url": "https://myanimelist.net/anime/40456",
+          "episodes": 1,
+          "episodeMinutes": 116,
+          "totalMinutes": 116,
+          "film": true
+        },
+        {
+          "label": "Квартал красных фонарей",
+          "title": "Kimetsu no Yaiba: Yuukaku-hen",
+          "url": "https://myanimelist.net/anime/47778",
+          "episodes": 11,
+          "episodeMinutes": 26,
+          "totalMinutes": 286,
+          "film": false
+        },
+        {
+          "label": "Деревня кузнецов",
+          "title": "Kimetsu no Yaiba: Katanakaji no Sato-hen (TV 2023)",
+          "url": "https://myanimelist.net/anime/51019",
+          "episodes": 11,
+          "episodeMinutes": 28,
+          "totalMinutes": 308,
+          "film": false
+        },
+        {
+          "label": "Тренировка столпов",
+          "title": "Kimetsu no Yaiba: Hashira Geiko-hen (TV 2024)",
+          "url": "https://myanimelist.net/anime/55701",
+          "episodes": 8,
+          "episodeMinutes": 29,
+          "totalMinutes": 232,
+          "film": false
+        },
+        {
+          "label": "Фильм · Бесконечный замок",
+          "title": "Kimetsu no Yaiba Movie 1: Mugenjou-hen - Akaza Sairai (Movie 2025)",
+          "url": "https://myanimelist.net/anime/59192",
+          "episodes": 1,
+          "episodeMinutes": 155,
+          "totalMinutes": 155,
+          "film": true
+        }
+      ],
+      "notes": [
+        "Фильм «Бесконечный поезд» учтён один раз; его 7-серийная ТВ-версия не добавлена. Компиляции и повторные показы арок исключены."
+      ]
+    },
+    {
+      "uid": 12,
+      "name": "Благоухающий цветок расцветает с достоинством",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/59845",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kaoru Hana wa Rin to Saku (The Fragrant Flower Blooms with Dignity)",
+          "url": "https://myanimelist.net/anime/59845",
+          "episodes": 13,
+          "episodeMinutes": 24,
+          "totalMinutes": 312,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 13,
+      "name": "Твоё имя",
+      "options": [
+        {
+          "label": "Фильм · 106 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 106,
+            "sourceUrl": "https://myanimelist.net/anime/32281",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Kimi no Na wa. (Your Name.)",
+          "url": "https://myanimelist.net/anime/32281",
+          "episodes": 1,
+          "episodeMinutes": 106,
+          "totalMinutes": 106,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 14,
+      "name": "Песнь ночных сов",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 22 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 22,
+            "sourceUrl": "https://myanimelist.net/anime/50346",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 22 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 22,
+            "sourceUrl": "https://myanimelist.net/anime/58390",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 25 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 550,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-14",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 25 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Yofukashi no Uta (Call of the Night)",
+          "url": "https://myanimelist.net/anime/50346",
+          "episodes": 13,
+          "episodeMinutes": 22,
+          "totalMinutes": 286,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Yofukashi no Uta Season 2 (Call of the Night Season 2)",
+          "url": "https://myanimelist.net/anime/58390",
+          "episodes": 12,
+          "episodeMinutes": 22,
+          "totalMinutes": 264,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 15,
+      "name": "Аля кокетничает по-русски",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/54744",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Tokidoki Bosotto Russia-go de Dereru Tonari no Alya-san",
+          "url": "https://myanimelist.net/anime/54744",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 16,
+      "name": "Город, в котором меня нет",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/31043",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Boku dake ga Inai Machi (Erased, TV 2016)",
+          "url": "https://myanimelist.net/anime/31043",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 17,
+      "name": "Невеста чародея",
+      "options": [
+        {
+          "label": "1 сезон · 24 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/35062",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/52955",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 3 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/55742",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 3",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 48 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1152,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-17",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 48 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Mahoutsukai no Yome (The Ancient Magus' Bride)",
+          "url": "https://myanimelist.net/anime/35062",
+          "episodes": 24,
+          "episodeMinutes": 24,
+          "totalMinutes": 576,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Mahoutsukai no Yome Season 2 (The Ancient Magus' Bride Season 2, TV 2023)",
+          "url": "https://myanimelist.net/anime/52955",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Часть 3",
+          "title": "Mahoutsukai no Yome Season 2 Part 2 (TV 2023)",
+          "url": "https://myanimelist.net/anime/55742",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 18,
+      "name": "Врата Штейна",
+      "options": [
+        {
+          "label": "1 сезон · 24 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/9253",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 23 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 23,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/30484",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · 90 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 90,
+            "sourceUrl": "https://myanimelist.net/anime/11577",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 47 серий + 1 фильм",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1195,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-18",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 47 серий + 1 фильм",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Steins;Gate (TV 2011)",
+          "url": "https://myanimelist.net/anime/9253",
+          "episodes": 24,
+          "episodeMinutes": 24,
+          "totalMinutes": 576,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Steins;Gate 0 (TV 2018)",
+          "url": "https://myanimelist.net/anime/30484",
+          "episodes": 23,
+          "episodeMinutes": 23,
+          "totalMinutes": 529,
+          "film": false
+        },
+        {
+          "label": "Фильм",
+          "title": "Steins;Gate Movie: Fuka Ryouiki no Déjà vu",
+          "url": "https://myanimelist.net/anime/11577",
+          "episodes": 1,
+          "episodeMinutes": 90,
+          "totalMinutes": 90,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 19,
+      "name": "Мастера на все руки выгнали из отряда героев",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/61128",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Yuusha Party wo Oidasareta Kiyoubinbou",
+          "url": "https://myanimelist.net/anime/61128",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 20,
+      "name": "Последний Серафим",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/26243",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/28927",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 24 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 552,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-20",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 24 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Owari no Seraph (Seraph of the End: Vampire Reign)",
+          "url": "https://myanimelist.net/anime/26243",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Owari no Seraph: Nagoya Kessen-hen",
+          "url": "https://myanimelist.net/anime/28927",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 21,
+      "name": "Сто девушек, которые очень любят",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/54714",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "2 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/57616",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "3 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/62811",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "3 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 36 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 828,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-21",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 36 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo",
+          "url": "https://myanimelist.net/anime/54714",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 2nd Season (TV 2025)",
+          "url": "https://myanimelist.net/anime/57616",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "3 сезон",
+          "title": "Kimi no Koto ga Daidaidaidaidaisuki na 100-nin no Kanojo 3rd Season",
+          "url": "https://myanimelist.net/anime/62811",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 22,
+      "name": "Я, владыка демонов, взял эльфийку-рабыню в жёны. И как же мне её любить?",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/53434",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Maou no Ore ga Dorei Elf wo Yome ni Shitanda ga, Dou Medereba Ii?",
+          "url": "https://myanimelist.net/anime/53434",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 23,
+      "name": "Сад изящных слов",
+      "options": [
+        {
+          "label": "Фильм · 46 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 46,
+            "sourceUrl": "https://myanimelist.net/anime/16782",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Kotonoha no Niwa (The Garden of Words, Movie 2013)",
+          "url": "https://myanimelist.net/anime/16782",
+          "episodes": 1,
+          "episodeMinutes": 46,
+          "totalMinutes": 46,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 24,
+      "name": "Ненасытный берсерк",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/53439",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Boushoku no Berserk (Berserk of Gluttony)",
+          "url": "https://myanimelist.net/anime/53439",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 25,
+      "name": "Берсерк",
+      "options": [
+        {
+          "label": "1 сезон · 25 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 25,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/33",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/32379",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 3 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/34055",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 3",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 49 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1151,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-25",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 49 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kenpuu Denki Berserk (Berserk)",
+          "url": "https://myanimelist.net/anime/33",
+          "episodes": 25,
+          "episodeMinutes": 23,
+          "totalMinutes": 575,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Berserk (Berserk (2016), TV 2016)",
+          "url": "https://myanimelist.net/anime/32379",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Часть 3",
+          "title": "Berserk 2nd Season (Berserk: Season II)",
+          "url": "https://myanimelist.net/anime/34055",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 44,
+      "name": "Фарфоровая кукла влюбилась",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/48736",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/53065",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 24 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 552,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-44",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 24 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Sono Bisque Doll wa Koi wo Suru (My Dress-Up Darling)",
+          "url": "https://myanimelist.net/anime/48736",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Sono Bisque Doll wa Koi wo Suru Season 2",
+          "url": "https://myanimelist.net/anime/53065",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 54,
+      "name": "Магическая битва",
+      "options": [
+        {
+          "label": "1 сезон · 24 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/40748",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 23 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 23,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/51009",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · 104 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 104,
+            "sourceUrl": "https://myanimelist.net/anime/48561",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 4 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/57658",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 4",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 59 серий + 1 фильм",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1461,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-54",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 59 серий + 1 фильм",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Jujutsu Kaisen (TV 2020)",
+          "url": "https://myanimelist.net/anime/40748",
+          "episodes": 24,
+          "episodeMinutes": 23,
+          "totalMinutes": 552,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Jujutsu Kaisen 2nd Season (Jujutsu Kaisen Season 2, TV 2023)",
+          "url": "https://myanimelist.net/anime/51009",
+          "episodes": 23,
+          "episodeMinutes": 23,
+          "totalMinutes": 529,
+          "film": false
+        },
+        {
+          "label": "Фильм",
+          "title": "Jujutsu Kaisen 0 Movie (Jujutsu Kaisen 0)",
+          "url": "https://myanimelist.net/anime/48561",
+          "episodes": 1,
+          "episodeMinutes": 104,
+          "totalMinutes": 104,
+          "film": true
+        },
+        {
+          "label": "Часть 4",
+          "title": "Jujutsu Kaisen: Shimetsu Kaiyuu - Zenpen (TV 2026)",
+          "url": "https://myanimelist.net/anime/57658",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 64,
+      "name": "Повелитель тайн",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 35 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 35,
+            "sourceUrl": "https://myanimelist.net/anime/49818",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Guimi Zhi Zhu: Xiaochou Pian (Lord of Mysteries)",
+          "url": "https://myanimelist.net/anime/49818",
+          "episodes": 13,
+          "episodeMinutes": 35,
+          "totalMinutes": 455,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 65,
+      "name": "Золотая пора",
+      "options": [
+        {
+          "label": "1 сезон · 24 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/17895",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Golden Time (TV 2013)",
+          "url": "https://myanimelist.net/anime/17895",
+          "episodes": 24,
+          "episodeMinutes": 24,
+          "totalMinutes": 576,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 66,
+      "name": "Я подружился со второй самой симпатичной девушкой в классе",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/56734",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Class de 2-banme ni Kawaii Onnanoko to Tomodachi ni Natta (TV 2026)",
+          "url": "https://myanimelist.net/anime/56734",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 67,
+      "name": "Освободите эту ведьму",
+      "options": [
+        {
+          "label": "1 сезон · 8 серий × 26 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 8,
+            "episodeMinutes": 26,
+            "sourceUrl": "https://myanimelist.net/anime/62927",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Fangkai Nage Nuwu (Release that Witch, ONA 2026)",
+          "url": "https://myanimelist.net/anime/62927",
+          "episodes": 8,
+          "episodeMinutes": 26,
+          "totalMinutes": 208,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 68,
+      "name": "Я влюбился в тебя, когда ты бежала в лунной ночи",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/62936",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Toumei na Yoru ni Kakeru Kimi to, Me ni Mienai Koi wo Shita. (TV 2026)",
+          "url": "https://myanimelist.net/anime/62936",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 69,
+      "name": "Детектив уже мёртв",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 25 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 25,
+            "sourceUrl": "https://myanimelist.net/anime/46471",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Tantei wa Mou, Shindeiru. (The Detective Is Already Dead)",
+          "url": "https://myanimelist.net/anime/46471",
+          "episodes": 12,
+          "episodeMinutes": 25,
+          "totalMinutes": 300,
+          "film": false
+        }
+      ],
+      "notes": [
+        "Сохранён явно указанный владельцем 1 сезон, 12 серий; текущий 2 сезон не добавлен."
+      ]
+    },
+    {
+      "uid": 26,
+      "name": "Ангел по соседству",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/50739",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/56876",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 24 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 552,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-26",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 24 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken (TV 2023)",
+          "url": "https://myanimelist.net/anime/50739",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken 2",
+          "url": "https://myanimelist.net/anime/56876",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 27,
+      "name": "Моя девушка не только милая",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/45613",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kawaii dake ja Nai Shikimori-san (Shikimori's Not Just a Cutie, TV 2022)",
+          "url": "https://myanimelist.net/anime/45613",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 28,
+      "name": "Опытная тебя и неопытного меня",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/52990",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Keikenzumi na Kimi to, Keiken Zero na Ore ga, Otsukiai suru Hanashi.",
+          "url": "https://myanimelist.net/anime/52990",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 29,
+      "name": "Твоя апрельская ложь",
+      "options": [
+        {
+          "label": "1 сезон · 22 серий × 22 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 22,
+            "episodeMinutes": 22,
+            "sourceUrl": "https://myanimelist.net/anime/23273",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Shigatsu wa Kimi no Uso (Your Lie in April)",
+          "url": "https://myanimelist.net/anime/23273",
+          "episodes": 22,
+          "episodeMinutes": 22,
+          "totalMinutes": 484,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 30,
+      "name": "Пластиковые воспоминания",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/27775",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Plastic Memories (TV 2015)",
+          "url": "https://myanimelist.net/anime/27775",
+          "episodes": 13,
+          "episodeMinutes": 24,
+          "totalMinutes": 312,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 31,
+      "name": "Шарлотта",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/28999",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Charlotte (TV 2015)",
+          "url": "https://myanimelist.net/anime/28999",
+          "episodes": 13,
+          "episodeMinutes": 24,
+          "totalMinutes": 312,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 32,
+      "name": "Ангел кровопролития",
+      "options": [
+        {
+          "label": "1 сезон · 16 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 16,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/35994",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Satsuriku no Tenshi (Angels of Death, TV 2018)",
+          "url": "https://myanimelist.net/anime/35994",
+          "episodes": 16,
+          "episodeMinutes": 23,
+          "totalMinutes": 368,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 33,
+      "name": "Я получил читерские способности",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/52830",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Isekai de Cheat Skill wo Te ni Shita Ore wa, Genjitsu Sekai wo mo Musou Suru: Level Up wa Jinsei wo Kaeta",
+          "url": "https://myanimelist.net/anime/52830",
+          "episodes": 13,
+          "episodeMinutes": 24,
+          "totalMinutes": 312,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 34,
+      "name": "Нина в королевстве звёзд",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/57362",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Hoshifuru Oukoku no Nina (Nina the Starry Bride)",
+          "url": "https://myanimelist.net/anime/57362",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 35,
+      "name": "Одинокий рокер!",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/47917",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Bocchi the Rock!",
+          "url": "https://myanimelist.net/anime/47917",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 36,
+      "name": "Чёрный призыватель",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/51064",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kuro no Shoukanshi (Black Summoner)",
+          "url": "https://myanimelist.net/anime/51064",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 37,
+      "name": "Сага о винланде",
+      "options": [
+        {
+          "label": "1 сезон · 24 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/37521",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 24 серий × 25 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 25,
+            "sourceUrl": "https://myanimelist.net/anime/49387",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 48 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1176,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-37",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 48 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Vinland Saga",
+          "url": "https://myanimelist.net/anime/37521",
+          "episodes": 24,
+          "episodeMinutes": 24,
+          "totalMinutes": 576,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Vinland Saga Season 2",
+          "url": "https://myanimelist.net/anime/49387",
+          "episodes": 24,
+          "episodeMinutes": 25,
+          "totalMinutes": 600,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 38,
+      "name": "Рандеву с жизнью",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 25 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 25,
+            "sourceUrl": "https://myanimelist.net/anime/15583",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 10 серий × 28 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 10,
+            "episodeMinutes": 28,
+            "sourceUrl": "https://myanimelist.net/anime/19163",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 3 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/36633",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 3",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 4 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/41461",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 4",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 5 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/52196",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 5",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Фильм · 72 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 72,
+            "sourceUrl": "https://myanimelist.net/anime/24655",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 58 серий + 1 фильм",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1492,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-38",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 58 серий + 1 фильм",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Date A Live",
+          "url": "https://myanimelist.net/anime/15583",
+          "episodes": 12,
+          "episodeMinutes": 25,
+          "totalMinutes": 300,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Date A Live II",
+          "url": "https://myanimelist.net/anime/19163",
+          "episodes": 10,
+          "episodeMinutes": 28,
+          "totalMinutes": 280,
+          "film": false
+        },
+        {
+          "label": "Часть 3",
+          "title": "Date A Live III",
+          "url": "https://myanimelist.net/anime/36633",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Часть 4",
+          "title": "Date A Live IV (TV 2022)",
+          "url": "https://myanimelist.net/anime/41461",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Часть 5",
+          "title": "Date A Live V (TV 2024)",
+          "url": "https://myanimelist.net/anime/52196",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Фильм",
+          "title": "Date A Live Movie: Mayuri Judgment (Movie 2015)",
+          "url": "https://myanimelist.net/anime/24655",
+          "episodes": 1,
+          "episodeMinutes": 72,
+          "totalMinutes": 72,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 39,
+      "name": "Арифурэта",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/36882",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/40507",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 3 · 16 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 16,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/52995",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 3",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 41 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 943,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-39",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 41 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Arifureta Shokugyou de Sekai Saikyou",
+          "url": "https://myanimelist.net/anime/36882",
+          "episodes": 13,
+          "episodeMinutes": 23,
+          "totalMinutes": 299,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Arifureta Shokugyou de Sekai Saikyou 2nd Season (TV 2022)",
+          "url": "https://myanimelist.net/anime/40507",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Часть 3",
+          "title": "Arifureta Shokugyou de Sekai Saikyou Season 3",
+          "url": "https://myanimelist.net/anime/52995",
+          "episodes": 16,
+          "episodeMinutes": 23,
+          "totalMinutes": 368,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 60,
+      "name": "Хочу съесть твою поджелудочную железу",
+      "options": [
+        {
+          "label": "Фильм · 108 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 108,
+            "sourceUrl": "https://myanimelist.net/anime/36098",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Kimi no Suizou wo Tabetai (I Want To Eat Your Pancreas, Movie 2018)",
+          "url": "https://myanimelist.net/anime/36098",
+          "episodes": 1,
+          "episodeMinutes": 108,
+          "totalMinutes": 108,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 40,
+      "name": "Форма голоса",
+      "options": [
+        {
+          "label": "Фильм · 130 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 130,
+            "sourceUrl": "https://myanimelist.net/anime/28851",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Koe no Katachi (A Silent Voice, Movie 2016)",
+          "url": "https://myanimelist.net/anime/28851",
+          "episodes": 1,
+          "episodeMinutes": 130,
+          "totalMinutes": 130,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 41,
+      "name": "Тоннель в лето",
+      "options": [
+        {
+          "label": "Фильм · 82 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 82,
+            "sourceUrl": "https://myanimelist.net/anime/50593",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Natsu e no Tunnel, Sayonara no Deguchi",
+          "url": "https://myanimelist.net/anime/50593",
+          "episodes": 1,
+          "episodeMinutes": 82,
+          "totalMinutes": 82,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 42,
+      "name": "Голубая шкатулка",
+      "options": [
+        {
+          "label": "1 сезон · 25 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 25,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/57181",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Ao no Hako (Blue Box, TV 2024)",
+          "url": "https://myanimelist.net/anime/57181",
+          "episodes": 25,
+          "episodeMinutes": 23,
+          "totalMinutes": 575,
+          "film": false
+        }
+      ],
+      "notes": [
+        "У второго сезона нет подтверждённого числа вышедших серий в проверенных данных; учтён завершённый первый сезон. Добавить просмотренное можно вручную."
+      ]
+    },
+    {
+      "uid": 43,
+      "name": "Красноволосая принцесса",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/30123",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/31173",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 24 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 576,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-43",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 24 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Akagami no Shirayuki-hime (Snow White with the Red Hair, TV 2015)",
+          "url": "https://myanimelist.net/anime/30123",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Akagami no Shirayuki-hime 2nd Season",
+          "url": "https://myanimelist.net/anime/31173",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 45,
+      "name": "5 сантиметра в секунду 2007",
+      "options": [
+        {
+          "label": "Фильм целиком · 3 новеллы · 63 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 63,
+            "sourceUrl": "https://en.wikipedia.org/wiki/5_Centimeters_per_Second",
+            "sourceTitle": "Wikipedia · хронометраж фильма",
+            "scopeLabel": "Фильм целиком · 3 новеллы",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм целиком · 3 новеллы",
+          "title": "Byousoku 5 Centimeter (5 Centimeters per Second, Movie 2007)",
+          "url": "https://en.wikipedia.org/wiki/5_Centimeters_per_Second",
+          "episodes": 1,
+          "episodeMinutes": 63,
+          "totalMinutes": 63,
+          "film": true
+        }
+      ],
+      "notes": [
+        "63 минуты за фильм целиком по Wikipedia. MAL/Kitsu округляют три новеллы до 3×22=66 минут — эта сумма не использована."
+      ]
+    },
+    {
+      "uid": 46,
+      "name": "Re:ZERO",
+      "options": [
+        {
+          "label": "1 сезон · 25 серий × 26 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 25,
+            "episodeMinutes": 26,
+            "sourceUrl": "https://myanimelist.net/anime/31240",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 13 серий × 26 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 13,
+            "episodeMinutes": 26,
+            "sourceUrl": "https://myanimelist.net/anime/39587",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 3 · 12 серий × 29 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 29,
+            "sourceUrl": "https://myanimelist.net/anime/42203",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 3",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 4 · 16 серий × 28 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 16,
+            "episodeMinutes": 28,
+            "sourceUrl": "https://myanimelist.net/anime/54857",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 4",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 5 · 19 серий × 25 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 19,
+            "episodeMinutes": 25,
+            "sourceUrl": "https://myanimelist.net/anime/61316",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 5",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 85 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 2259,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-46",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 85 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu",
+          "url": "https://myanimelist.net/anime/31240",
+          "episodes": 25,
+          "episodeMinutes": 26,
+          "totalMinutes": 650,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season",
+          "url": "https://myanimelist.net/anime/39587",
+          "episodes": 13,
+          "episodeMinutes": 26,
+          "totalMinutes": 338,
+          "film": false
+        },
+        {
+          "label": "Часть 3",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu 2nd Season Part 2 (TV 2021)",
+          "url": "https://myanimelist.net/anime/42203",
+          "episodes": 12,
+          "episodeMinutes": 29,
+          "totalMinutes": 348,
+          "film": false
+        },
+        {
+          "label": "Часть 4",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu 3rd Season (TV 2024)",
+          "url": "https://myanimelist.net/anime/54857",
+          "episodes": 16,
+          "episodeMinutes": 28,
+          "totalMinutes": 448,
+          "film": false
+        },
+        {
+          "label": "Часть 5",
+          "title": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season",
+          "url": "https://myanimelist.net/anime/61316",
+          "episodes": 19,
+          "episodeMinutes": 25,
+          "totalMinutes": 475,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 47,
+      "name": "Укрась прощальное утро цветами",
+      "options": [
+        {
+          "label": "Фильм · 114 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 114,
+            "sourceUrl": "https://myanimelist.net/anime/35851",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Sayonara no Asa ni Yakusoku no Hana wo Kazarou (Movie 2018)",
+          "url": "https://myanimelist.net/anime/35851",
+          "episodes": 1,
+          "episodeMinutes": 114,
+          "totalMinutes": 114,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 48,
+      "name": "Врата: Там бьются наши воины",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/28907",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/31637",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 24 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 552,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-48",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 24 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Gate: Jieitai Kanochi nite, Kaku Tatakaeri (GATE, TV 2015)",
+          "url": "https://myanimelist.net/anime/28907",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Gate: Jieitai Kanochi nite, Kaku Tatakaeri Part 2 (GATE Part 2, TV 2016)",
+          "url": "https://myanimelist.net/anime/31637",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 49,
+      "name": "В лесу где мерцают светлячки",
+      "options": [
+        {
+          "label": "Фильм · 45 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 45,
+            "sourceUrl": "https://myanimelist.net/anime/10408",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Hotarubi no Mori e (Into the Forest of Fireflies' Light, Movie 2011)",
+          "url": "https://myanimelist.net/anime/10408",
+          "episodes": 1,
+          "episodeMinutes": 45,
+          "totalMinutes": 45,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 50,
+      "name": "Иная",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/11111",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Another (TV 2012)",
+          "url": "https://myanimelist.net/anime/11111",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 51,
+      "name": "Механическая Мари",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/59484",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kikaijikake no Marie (Mechanical Marie, TV 2025)",
+          "url": "https://myanimelist.net/anime/59484",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 52,
+      "name": "Мой статус убийцы очевидно превосходит геройский",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://myanimelist.net/anime/61026",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Ansatsusha de Aru Ore no Status ga Yuusha yori mo Akiraka ni Tsuyoi no da ga",
+          "url": "https://myanimelist.net/anime/61026",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 55,
+      "name": "На твоей волне",
+      "options": [
+        {
+          "label": "Фильм · 95 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 95,
+            "sourceUrl": "https://myanimelist.net/anime/38594",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм",
+          "title": "Kimi to, Nami ni Noretara (Ride Your Wave, Movie 2019)",
+          "url": "https://myanimelist.net/anime/38594",
+          "episodes": 1,
+          "episodeMinutes": 95,
+          "totalMinutes": 95,
+          "film": true
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 59,
+      "name": "Кланнад",
+      "options": [
+        {
+          "label": "1 сезон · 23 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 23,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/2167",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 24 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 24,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/4181",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 47 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1128,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-59",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 47 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Clannad (TV 2007)",
+          "url": "https://myanimelist.net/anime/2167",
+          "episodes": 23,
+          "episodeMinutes": 24,
+          "totalMinutes": 552,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Clannad: After Story (TV 2008)",
+          "url": "https://myanimelist.net/anime/4181",
+          "episodes": 24,
+          "episodeMinutes": 24,
+          "totalMinutes": 576,
+          "film": false
+        }
+      ],
+      "notes": []
+    },
+    {
+      "uid": 62,
+      "name": "Токийский гуль",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/22319",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 2 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/27899",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 2",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 3 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/36511",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 3",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Часть 4 · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://myanimelist.net/anime/37799",
+            "sourceTitle": "MyAnimeList",
+            "scopeLabel": "Часть 4",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Все учтённые части · 48 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1152,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-62",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 48 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Tokyo Ghoul",
+          "url": "https://myanimelist.net/anime/22319",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Часть 2",
+          "title": "Tokyo Ghoul √A",
+          "url": "https://myanimelist.net/anime/27899",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Часть 3",
+          "title": "Tokyo Ghoul:re (TV 2018)",
+          "url": "https://myanimelist.net/anime/36511",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Часть 4",
+          "title": "Tokyo Ghoul:re 2nd Season (TV 2018)",
+          "url": "https://myanimelist.net/anime/37799",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

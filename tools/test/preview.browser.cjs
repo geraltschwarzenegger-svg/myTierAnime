@@ -227,7 +227,9 @@ const server = http.createServer((req, res) => {
     await p.mouse.click(1, Math.floor((await p.viewportSize()).height / 2));
     assert.equal(await panel.isVisible(), false);
     await card.click();
-    await p.locator(".preview .wlist").focus();
+    const sourceLinks = p.locator(".preview .wlist a");
+    if (await sourceLinks.count()) await sourceLinks.last().focus();
+    else await p.locator(".preview .wlist").focus();
     await p.keyboard.press("Tab");
     assert.equal(
       await panel.isVisible(),

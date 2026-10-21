@@ -127,6 +127,17 @@ test('published JSON snapshots satisfy the server validation contract',()=>{
  }
 });
 
+test('duration and per-anime override survive server save; invalid time cannot replace them',async()=>{
+ const env=envOf();const cookie=await signIn(env);const state=fixture();
+ state.tiers[0].items[0].watched[0].duration={mode:'episodes',basis:'manual',episodes:12,episodeMinutes:25};
+ state.tiers[0].items[0].watchTotal={mode:'total',basis:'manual',minutes:263};
+ assert.equal((await call(env,'PUT','/api/list',{state},{headers:{cookie}})).status,200);
+ assert.deepEqual((await call(env,'GET','/api/list/owner')).body.state,state);
+ const bad=structuredClone(state);bad.tiers[0].items[0].watched[0].duration.episodes=-12;
+ assert.equal((await call(env,'PUT','/api/list',{state:bad},{headers:{cookie}})).status,400);
+ assert.deepEqual((await call(env,'GET','/api/list/owner')).body.state,state);
+});
+
 test('image URLs reject execution schemes, credentials, HTTP and SVG data',()=>{
  for(const value of ['javascript:alert(1)','file:///etc/passwd','http://evil.example/a.png','https://user:pass@host.test/a.jpg','data:text/html;base64,PHNjcmlwdD4=','data:image/svg+xml;base64,PHN2Zz4=','https://evil.example/\nimage']) assert.equal(__test.safeImageUrl(value),'');
  assert.equal(__test.safeImageUrl('https://cover.test/a.webp'),'https://cover.test/a.webp');
