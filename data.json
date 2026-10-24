@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-21T04:00:07.137Z",
+  "savedAt": "2026-10-24T18:25:52.599Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -996,6 +996,30 @@
               }
             ],
             "sticker": "s-violet-heart"
+          },
+          {
+            "uid": 70,
+            "name": "Хоть я и бездарная злодейка: Сказка о том, как бабочка и крыса поменялись местами в девичьем дворе",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/inept-villainess.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "1 сезон · 11 серий",
+                "date": "24.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 11,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://kitsu.app/anime/49689",
+                  "sourceTitle": "Kitsu",
+                  "scopeLabel": "1 сезон",
+                  "note": "11 просмотренных серий указаны владельцем; по каталогу Kitsu — 24 минуты на серию. Расчёт не учитывает паузы и пропуски."
+                }
+              }
+            ],
+            "sticker": "s-violet-goldheart"
           }
         ]
       },
@@ -1720,6 +1744,6 @@
         ]
       }
     ],
-    "nextUid": 70
+    "nextUid": 71
   }
 }
