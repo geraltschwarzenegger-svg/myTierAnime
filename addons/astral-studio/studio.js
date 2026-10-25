@@ -56,6 +56,7 @@ SOFTWARE.
  }
  const saved=read(KEY),legacy=read(FX_KEY)||{};
  let cfg=normalize(saved?.settings||{...DEFAULT,atm:legacy.atm||SCENES[bg.scene]||'midnight',particles:typeof legacy['fx-particles']==='boolean'?legacy['fx-particles']:true});
+ if(new URL(location.href).searchParams.get('overview')==='1')cfg.focus=false;
  let personal=saved?.personal?normalize(saved.personal):null,storageOK=true,syncingParticles=false,activeTier=0,lastScene=bg.scene,effective='',skin='',captureDepth=0;
  let drawFrame=0,clockTimer=0,scrollFrame=0,lastPaint=0,particles=[],width=1,height=1,phase=0,serial=0;
  const body=document.body,root=document.documentElement,abort=new AbortController(),on=(target,event,fn,options={})=>target.addEventListener(event,fn,{...options,signal:abort.signal});
@@ -145,6 +146,8 @@ SOFTWARE.
  const dashboard=el('div','as-dashboard');stats?.after(dashboard);for(const selector of ['.watchtime-summary','.recent-section']){const n=document.querySelector(selector);if(n)dashboard.append(n);}
  on(document,'keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'&&!document.querySelector('dialog[open]')&&!e.target.closest('input,textarea,select,[contenteditable="true"]')){e.preventDefault();quickFind.click();}});
  nav.querySelectorAll('a,button').forEach(n=>on(n,'click',()=>{nav.querySelectorAll('[aria-current]').forEach(x=>x.removeAttribute('aria-current'));n.setAttribute('aria-current','page');}));home.setAttribute('aria-current','page');
+ function showOverview(){if(cfg.focus)set({focus:false});nav.querySelectorAll('[aria-current]').forEach(n=>n.removeAttribute('aria-current'));home.setAttribute('aria-current','page');}
+ on(home,'click',showOverview);on(navigation.querySelector('.site-logo'),'click',showOverview);
 
  function announce(text) {status.textContent=text;}
  function exportProfile() {const data={application:'myTierAnime.appearance',schema:1,settings:{...cfg}},url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'})),a=el('a');a.href=url;a.download='anime-appearance.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);announce('Экспортировано только оформление, без аниме и личных дат.');}

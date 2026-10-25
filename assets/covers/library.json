@@ -4,13 +4,16 @@
     {
       "uid": 1,
       "name": "Violet Evergarden",
-      "originalUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx103047-odblDHHEdehK.jpg",
-      "sourceUrl": "https://media.kitsu.app/anime/poster_images/12230/large.jpg",
-      "source": "Kitsu · exact MyAnimeList 33352",
-      "file": "assets/covers/library/1.webp",
-      "width": 550,
-      "height": 780,
-      "bytes": 51896
+      "originalUrl": "https://shikimori.io/uploads/poster/animes/37987/main-5b4bfb803a3d59b78689fbdd24d13f6a.webp",
+      "sourceUrl": "https://shikimori.io/uploads/poster/animes/37987/main-5b4bfb803a3d59b78689fbdd24d13f6a.webp",
+      "source": "Shikimori · выбранная владельцем обложка",
+      "file": "assets/covers/library/1-movie-37987.webp",
+      "width": 225,
+      "height": 318,
+      "bytes": 32634,
+      "aliases": [
+        "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx103047-odblDHHEdehK.jpg"
+      ]
     },
     {
       "uid": 2,
@@ -26,13 +29,16 @@
     {
       "uid": 3,
       "name": "Класс превосходства",
-      "originalUrl": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98659-WNyPLIZDpGGY.jpg",
-      "sourceUrl": "https://media.kitsu.app/anime/poster_images/13503/large.jpg",
-      "source": "Kitsu · exact MyAnimeList 35507",
-      "file": "assets/covers/library/3.webp",
-      "width": 550,
-      "height": 780,
-      "bytes": 53784
+      "originalUrl": "https://shikimori.io/uploads/poster/animes/64463/main-e331f01ace37c714ba30d02ab0995aa4.webp",
+      "sourceUrl": "https://shikimori.io/uploads/poster/animes/64463/main-e331f01ace37c714ba30d02ab0995aa4.webp",
+      "source": "Shikimori · выбранная владельцем обложка",
+      "file": "assets/covers/library/3-season-5-64463.webp",
+      "width": 225,
+      "height": 318,
+      "bytes": 8108,
+      "aliases": [
+        "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98659-WNyPLIZDpGGY.jpg"
+      ]
     },
     {
       "uid": 4,

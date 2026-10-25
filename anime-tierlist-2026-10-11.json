@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-24T18:25:52.599Z",
+  "savedAt": "2026-10-25T17:17:48.022Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -15,7 +15,7 @@
           {
             "uid": 1,
             "name": "Violet Evergarden",
-            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx103047-odblDHHEdehK.jpg",
+            "cover": "https://shikimori.io/uploads/poster/animes/37987/main-5b4bfb803a3d59b78689fbdd24d13f6a.webp",
             "fav": true,
             "reaction": "goldheart",
             "watched": [
@@ -61,7 +61,7 @@
           {
             "uid": 3,
             "name": "Класс превосходства",
-            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98659-WNyPLIZDpGGY.jpg",
+            "cover": "https://shikimori.io/uploads/poster/animes/64463/main-e331f01ace37c714ba30d02ab0995aa4.webp",
             "fav": true,
             "reaction": "star",
             "watched": [

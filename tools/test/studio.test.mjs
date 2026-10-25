@@ -20,8 +20,8 @@ test('public artifacts agree on the V5 release, identity, description and favico
 test('each published anime has a documented local cover without rewriting its saved URL',()=>{
  const manifest=JSON.parse(read('assets/covers/library.json')).items;
  const items=snapshot.state.tiers.flatMap(t=>t.items);
- assert.equal(manifest.length,items.length);assert.equal(Object.keys(covers).length,items.length);
- for(const item of items){const entry=manifest.find(e=>e.uid===item.uid);assert.ok(entry);assert.equal(entry.originalUrl,item.cover);assert.equal(covers[item.cover],entry.file);assert.match(entry.sourceUrl,/^https:\/\//);assert.ok(entry.width>100&&entry.height>100);}
+ assert.equal(manifest.length,items.length);assert.equal(Object.keys(covers).length,items.length+manifest.reduce((n,e)=>n+(e.aliases?.length||0),0));
+ for(const item of items){const entry=manifest.find(e=>e.uid===item.uid);assert.ok(entry);assert.equal(entry.originalUrl,item.cover);assert.equal(covers[item.cover],entry.file);for(const alias of entry.aliases||[])assert.equal(covers[alias],entry.file);assert.match(entry.sourceUrl,/^https:\/\//);assert.ok(entry.width>100&&entry.height>100);}
 });
 test('all local poster files and Worker copies are valid WebP files with documented byte sizes',()=>{
  for(const e of JSON.parse(read('assets/covers/library.json')).items){
