@@ -34,6 +34,7 @@ test('standalone bundle embeds every published poster and keeps original collect
  const lines=read('NEWAnime tier list11-08-2026.html').split('\n');
  const i=lines.findIndex(s=>s.includes('<script type="__bundler/template">'));
  const embedded=JSON.parse(lines[i+1]);const map=JSON.parse(embedded.match(block)[1]);
+ assert.equal(embedded.match(/const HERO_BLOOM_ART="([^"]*)";/)[1],app.match(/const HERO_BLOOM_ART="([^"]*)";/)[1],'standalone artwork matches the main application');
  for(const [url,file] of Object.entries(covers)){assert.match(map[url],/^data:image\/webp;base64,/);assert.deepEqual(Buffer.from(map[url].split(',')[1],'base64'),readFileSync(new URL('../../'+file,import.meta.url)));}
  assert.equal(read('data.json'),read('anime-tierlist-2026-10-11.json'));
 });
