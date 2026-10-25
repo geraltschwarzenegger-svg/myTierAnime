@@ -1,6 +1,6 @@
 <div align="center">
 
-![ASTRAVA · The Astral Chapter — Вайолет, Зеро Ту и Лена в лунном саду](docs/images/bloom-banner.webp)
+![ASTRAVA · The Astral Chapter — Вайолет, Зеро Ту, Лена и Шин в поезде-обсерватории](docs/images/astrava-observatory-banner.webp)
 
 **Истории, достойные вечности.**
 
@@ -8,7 +8,7 @@
 
 [![Версия](https://img.shields.io/badge/релиз-V5.0.0-c9b3ee?style=flat-square&labelColor=142238)](#что-нового-на-сайте-changelog) [![Коллекция](https://img.shields.io/badge/аниме-68-a8ddd5?style=flat-square&labelColor=142238)](data.json) [![Стикеры](https://img.shields.io/badge/стикеры-138-e7bed2?style=flat-square&labelColor=142238)](#впечатления-в-персонажах) [![Рамки](https://img.shields.io/badge/рамки-50_+_8-e6cc9b?style=flat-square&labelColor=142238)](#рамки-и-собственный-стиль) [![Атмосферы](https://img.shields.io/badge/миры-9-9ccbb6?style=flat-square&labelColor=142238)](#девять-миров)
 
-[**Открыть ASTRAVA ↗**](https://geraltschwarzenegger-svg.github.io/myTierAnime/?v=5.0.0) &nbsp; · &nbsp; [**Скачать офлайн-версию · ZIP**](https://raw.githubusercontent.com/geraltschwarzenegger-svg/myTierAnime/main/downloads/ASTRAVA-v5.0.0.zip) &nbsp; · &nbsp; [**Резервный JSON**](anime-tierlist-2026-10-11.json)
+[**Открыть ASTRAVA ↗**](https://geraltschwarzenegger-svg.github.io/myTierAnime/?v=5.0.0&art=observatory) &nbsp; · &nbsp; [**Скачать офлайн-версию · ZIP**](https://raw.githubusercontent.com/geraltschwarzenegger-svg/myTierAnime/main/downloads/ASTRAVA-v5.0.0.zip) &nbsp; · &nbsp; [**Резервный JSON**](anime-tierlist-2026-10-11.json)
 
 [Коллекция](#коллекция) · [Студия](#студия-оформления) · [Спираль памяти](#спираль-памяти) · [Сохранения](#твоя-коллекция-и-сохранения) · [Обновления](#что-нового-на-сайте-changelog)
 
@@ -18,7 +18,7 @@
 
 ## The Astral Chapter
 
-**ASTRAVA** — новое имя проекта **myTierAnime**. В V5 коллекция получила Студию оформления: меняй атмосферу, переключай дневную и вечернюю палитры, выбирай украшения и собирай собственные сочетания. Вайолет, Зеро Ту и Лена остаются частью визуального образа.
+**ASTRAVA** — новое имя проекта **myTierAnime**. В V5 коллекция получила Студию оформления: меняй атмосферу, переключай дневную и вечернюю палитры, выбирай украшения и собирай собственные сочетания. Новая ключевая сцена — ночной поезд-обсерватория над облаками: Вайолет собирает страницы альбома, Зеро Ту показывает фотокарточку, Лена изучает звёздную карту, а Шин помогает собирать альбом воспоминаний.
 
 Главная страница объединяет коллекцию, время просмотра и последние отметки. Нажатие на постер открывает подробную карточку с сезонами, датами и впечатлением. Для другого взгляда на знакомые истории есть интерактивная **3D-спираль памяти**.
 
@@ -348,7 +348,7 @@ ZIP-архив содержит автономный HTML, резервный JS
 
 ## Изображения и проект
 
-Ключевой образ сохраняет Вайолет, Зеро Ту и Лену. В README используется обновлённый лунный сад; [прежняя ключевая иллюстрация](docs/images/bloom-keyvisual.webp) сохранена. Персонажи и оригинальные постеры принадлежат соответствующим правообладателям; источники локальных обложек доступны в [манифесте](assets/covers/library.json).
+Ключевой образ объединяет Вайолет, Зеро Ту, Лену и Шина в новой сцене поезда-обсерватории. Одна иллюстрация используется на главном экране, в README и в оформлении открытки; [полная иллюстрация](docs/images/astrava-observatory.webp) доступна отдельно. [Прежняя ключевая иллюстрация](docs/images/bloom-keyvisual.webp) сохранена. Персонажи и оригинальные постеры принадлежат соответствующим правообладателям; источники локальных обложек доступны в [манифесте](assets/covers/library.json).
 
 Иконки навигации — [Tabler Icons](https://github.com/tabler/tabler-icons), лицензия MIT.
 

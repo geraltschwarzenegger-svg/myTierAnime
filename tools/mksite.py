@@ -35,7 +35,7 @@ EXTRA_HEAD = """<meta name="theme-color" content="#0c1422">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ASTRAVA · The Astral Chapter · V5">
 <meta property="og:description" content="Твоя вселенная аниме: тиры, календарь, спираль памяти и девять атмосфер.">
-<meta property="og:image" content="https://geraltschwarzenegger-svg.github.io/myTierAnime/docs/images/bloom-banner.webp">
+<meta property="og:image" content="https://geraltschwarzenegger-svg.github.io/myTierAnime/docs/images/astrava-observatory-banner.webp">
 """
 
 
