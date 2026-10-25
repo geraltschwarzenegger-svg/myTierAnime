@@ -8,7 +8,7 @@
 
 [![Версия](https://img.shields.io/badge/релиз-V5.0.0-c9b3ee?style=flat-square&labelColor=142238)](#что-нового-на-сайте-changelog) [![Коллекция](https://img.shields.io/badge/аниме-68-a8ddd5?style=flat-square&labelColor=142238)](data.json) [![Стикеры](https://img.shields.io/badge/стикеры-138-e7bed2?style=flat-square&labelColor=142238)](#впечатления-в-персонажах) [![Рамки](https://img.shields.io/badge/рамки-50_+_8-e6cc9b?style=flat-square&labelColor=142238)](#рамки-и-собственный-стиль) [![Атмосферы](https://img.shields.io/badge/миры-9-9ccbb6?style=flat-square&labelColor=142238)](#девять-миров)
 
-[**Открыть ASTRAVA ↗**](https://geraltschwarzenegger-svg.github.io/myTierAnime/?v=5.0.0) &nbsp; · &nbsp; [**Скачать автономный HTML**](https://github.com/geraltschwarzenegger-svg/myTierAnime/releases/download/v5.0.0/ASTRAVA-v5.0.0.html) &nbsp; · &nbsp; [**Резервный JSON**](anime-tierlist-2026-10-11.json)
+[**Открыть ASTRAVA ↗**](https://geraltschwarzenegger-svg.github.io/myTierAnime/?v=5.0.0) &nbsp; · &nbsp; [**Скачать офлайн-версию · ZIP**](https://raw.githubusercontent.com/geraltschwarzenegger-svg/myTierAnime/main/downloads/ASTRAVA-v5.0.0.zip) &nbsp; · &nbsp; [**Резервный JSON**](anime-tierlist-2026-10-11.json)
 
 [Коллекция](#коллекция) · [Студия](#студия-оформления) · [Спираль памяти](#спираль-памяти) · [Сохранения](#твоя-коллекция-и-сохранения) · [Обновления](#что-нового-на-сайте-changelog)
 
@@ -279,6 +279,8 @@
 
 <details>
 <summary><b>Автономный HTML, постеры и PNG</b></summary>
+
+ZIP-архив содержит автономный HTML, резервный JSON, краткую инструкцию и контрольные суммы. Распакуй архив перед открытием HTML.
 
 Автономный файл содержит приложение, шрифты, библиотеку экспорта, встроенные иллюстрации и **все 68 опубликованных обложек**. В новом браузере импортируй свежий JSON коллекции через «Хранилище». Личный список намеренно не подменяется встроенным опубликованным списком.
 
