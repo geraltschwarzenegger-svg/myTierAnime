@@ -164,12 +164,12 @@ const server = http.createServer((req, res) => {
             prefix +
               " " +
               {
-                S: ".lumen-plate",
-                A: ".lumen-plate",
-                B: ".lumen-plate",
-                C: ".lumen-plate",
+                S: ".as-emblem-plane:not(.back)",
+                A: ".as-emblem-plane:not(.back)",
+                B: ".as-emblem-plane:not(.back)",
+                C: ".as-emblem-plane:not(.back)",
               }[tier] +
-              ":first-of-type",
+              "",
           );
       }
     }

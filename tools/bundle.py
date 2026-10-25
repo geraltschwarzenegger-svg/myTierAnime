@@ -14,6 +14,9 @@ pack переписывает только строку с шаблоном, м�
 """
 import json
 import sys
+import base64
+import re
+from pathlib import Path
 
 TEMPLATE_TAG = '<script type="__bundler/template">'
 
@@ -36,6 +39,21 @@ def pack(bundle_path, app_path):
     lines = open(bundle_path, encoding="utf-8").read().split("\n")
     idx = find_template_line(lines)
     inner = open(app_path, encoding="utf-8").read()
+    # Published covers travel inside the standalone file. Original collection
+    # URLs remain untouched, so JSON exports and personal collections stay portable.
+    cover_block = re.compile(r'(/\* LOCAL COVER MANIFEST BEGIN \*/\s*const LOCAL_COVERS = )(.*?)(;\s*/\* LOCAL COVER MANIFEST END \*/)', re.S)
+    def embed_covers(match):
+        covers = json.loads(match[2])
+        root = Path(__file__).resolve().parent.parent
+        library = (root / 'assets/covers/library').resolve()
+        embedded = {}
+        for url, name in covers.items():
+            file = (root / name).resolve()
+            if file.parent != library or file.suffix != '.webp':
+                raise ValueError('Unexpected local cover path')
+            embedded[url] = 'data:image/webp;base64,' + base64.b64encode(file.read_bytes()).decode()
+        return match[1] + json.dumps(embedded, ensure_ascii=False, separators=(',', ':')) + match[3]
+    inner = cover_block.sub(embed_covers, inner)
     encoded = json.dumps(inner, ensure_ascii=False)
     # экранируем косую черту в закрывающих тегах: иначе </script> внутри строки
     # закрыл бы сам <script type="__bundler/template">

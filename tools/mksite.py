@@ -30,13 +30,12 @@ def replacement():
     integrity = 'sha384-' + base64.b64encode(hashlib.sha384((VENDOR / 'html2canvas-1.4.1.min.js').read_bytes()).digest()).decode()
     return '<link rel="stylesheet" href="assets/vendor/fonts.css">\n' + f'<script src="assets/vendor/html2canvas-1.4.1.min.js" integrity="{integrity}" defer></script>'
 
-EXTRA_HEAD = """<meta name="description" content="myTierAnime — твоя коллекция аниме, тиры, календарь просмотров и альбом любимых героев.">
-<meta name="theme-color" content="#0b1019">
+EXTRA_HEAD = """<meta name="theme-color" content="#0c1422">
 <meta name="referrer" content="no-referrer">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Аниме · Тир-лист">
-<meta property="og:description" content="Личный канон: тиры S · A · B · C, обложки, даты просмотра.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23120e24'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23ff5c95' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="ASTRAVA · The Astral Chapter · V5">
+<meta property="og:description" content="Твоя вселенная аниме: тиры, календарь, спираль памяти и девять атмосфер.">
+<meta property="og:image" content="https://geraltschwarzenegger-svg.github.io/myTierAnime/docs/images/bloom-banner.webp">
 """
 
 
@@ -68,6 +67,10 @@ def build(app_path: str, out_path: str) -> None:
     target = Path(out_path).resolve().parent / 'assets/vendor'
     if target != VENDOR:
         shutil.copytree(VENDOR, target, dirs_exist_ok=True)
+        covers = REPO / 'assets/covers/library'
+        if covers.exists():
+            shutil.copytree(covers, target.parent / 'covers/library', dirs_exist_ok=True)
+        shutil.copy2(REPO / 'assets/astrava-mark.svg', target.parent / 'astrava-mark.svg')
 
     open(out_path, "w", encoding="utf-8").write(out)
     before, after = len(src.encode()), len(out.encode())

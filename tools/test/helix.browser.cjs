@@ -65,11 +65,11 @@ async function otherPoint(p){return p.evaluate(()=>{
   await p.locator('#memoryHelixClose').click();await p.locator('#qualityControls [data-quality="detail"]').evaluate(el=>el.click());
   await p.locator('#memoryHelixOpen').click();await choose(p,chosenIndex);
   // The selected UID survives a live redraw; custom tiers have navigation too.
-  await p.evaluate(()=>{state.tiers.push({id:'X',label:'Новый тир',accent:'rose',tagline:'',items:[{uid:70,name:'<img src=x onerror=alert(1)>',cover:'',fav:false,reaction:null,watched:[]}]});state.nextUid=71;render();});
+  await p.evaluate(()=>{state.tiers.push({id:'X',label:'Новый тир',accent:'rose',tagline:'',items:[{uid:state.nextUid,name:'<img src=x onerror=alert(1)>',cover:'',fav:false,reaction:null,watched:[]}]});state.nextUid++;render();});
   assert.equal(await p.locator('#memoryProgress').getAttribute('max'),String(count));assert.ok((await p.locator('#memoryCurrentTitle').textContent()).includes('Детектив'));
   await p.locator('#memoryTiers [data-tier="X"]').click();assert.equal(await p.locator('#memoryCurrentTitle').textContent(),'<img src=x onerror=alert(1)>');
   assert.equal(await p.locator('.memory-poster-name img').count(),0,'custom names are text, never HTML');
-  await p.evaluate(()=>{state.tiers.pop();state.nextUid=70;render();});assert.equal(await p.locator('#memoryProgress').getAttribute('max'),String(count-1));
+  await p.evaluate(()=>{state.tiers.pop();state.nextUid--;render();});assert.equal(await p.locator('#memoryProgress').getAttribute('max'),String(count-1));
   await p.evaluate(text=>{state=JSON.parse(text);render();},original);await choose(p,chosenIndex-1);
   await p.waitForFunction(()=>document.querySelector('.memory-poster[data-uid="68"] img')?.naturalWidth>0);
   if(shots)await p.locator('#memoryHelix').screenshot({path:path.join(root,'docs/images/memory-helix-desktop.png'),animations:'disabled'});
@@ -102,6 +102,6 @@ async function otherPoint(p){return p.evaluate(()=>{
   assert.ok(Number(await mp.locator('#memoryProgress').inputValue())>start,'real touch drag rotates on a phone');assert.ok(await mp.locator('.memory-poster').count()<=9);
   assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);assert.deepEqual(await mp.evaluate(()=>window.cspProblems),[]);assert.deepEqual(errors,[]);
   assert.equal(await p.evaluate(()=>JSON.stringify(state)),original);
-  console.log((live?'Published':'Local')+' helix PASS: 67 titles, 17/9-node budget, actual poster taps, drag/wheel/keyboard, chips, filters, edit-to-preview, custom tiers/live render, four sizes, real touch, motion/lite, unchanged data, CSP'+(exportsOn?', collection PNG and 960x1440 postcard.':'.'));
+  console.log((live?'Published':'Local')+' helix PASS: 68 titles, 17/9-node budget, actual poster taps, drag/wheel/keyboard, chips, filters, edit-to-preview, custom tiers/live render, four sizes, real touch, motion/lite, unchanged data, CSP'+(exportsOn?', collection PNG and 960x1440 postcard.':'.'));
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

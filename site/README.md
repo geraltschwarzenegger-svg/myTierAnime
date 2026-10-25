@@ -1,4 +1,4 @@
-# myTierAnime · серверная коллекция
+# ASTRAVA · серверная коллекция
 
 Обновлённый интерфейс, вход по коду на почту, собственный адрес коллекции,
 обратная связь и еженедельная сводка. Сервер работает на Cloudflare Workers + D1.
@@ -22,9 +22,10 @@ cookie больше не открывает аккаунт. Другие уст�
 
 ## Сборка
 
-Из корня репозитория:
+Из корня репозитория после изменения `addons/astral-studio/studio.css` или `studio.js` сначала синхронизируй Студию:
 
 ```bash
+python3 tools/sync-studio.py
 python3 tools/mksite.py src/app.html index.html
 python3 tools/mksite.py src/app.html site/public/index.html
 python3 tools/bundle.py pack 'NEWAnime tier list11-08-2026.html' src/app.html

@@ -441,6 +441,7 @@ const server = http.createServer((req, res) => {
     );
     assert.equal(await tp.locator("#preview").isVisible(), true);
     await tp.locator("#previewClose").tap();
+    await tp.waitForFunction(()=>!document.getElementById("preview").classList.contains("show"));
     assert.equal(await tp.locator("#preview").isVisible(), false);
     await touch.close();
     if (!live) {

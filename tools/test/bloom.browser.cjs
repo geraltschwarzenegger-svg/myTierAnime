@@ -85,25 +85,25 @@ const server = http.createServer((req, res) => {
     });
     await p.goto(base, { waitUntil: "domcontentloaded" });
     await p.waitForFunction(
-      () =>
-        document.querySelectorAll(".card").length === 67 &&
+      (n) => document.querySelectorAll(".card").length === n &&
         document.body.classList.contains("read-only"),
+      count,
     );
     await p.evaluate(() => document.fonts.ready);
     const original=await p.evaluate(()=>JSON.stringify(state));
     assert.equal(await p.evaluate(()=>STICKER_ORDER.length),138);
     assert.equal(await p.evaluate(()=>STICKER_PACKS.length),19);
-    assert.equal(await p.locator('.card .neko-mark').count(),67);
-    assert.equal(await p.locator('.card .neko-mark').evaluateAll(els=>new Set(els.map(el=>el.dataset.reaction)).size),67);
-    assert.equal(await p.locator('.card .botanical-frame svg').count(),67);
-    assert.ok((await p.locator('.release-version').textContent()).includes('V4.2.0'));
+    assert.equal(await p.locator('.card .neko-mark').count(),count);
+    assert.equal(await p.locator('.card .neko-mark').evaluateAll(els=>new Set(els.map(el=>el.dataset.reaction)).size),count);
+    assert.equal(await p.locator('.card .botanical-frame svg').count(),count);
+    assert.ok((await p.locator('.release-version').textContent()).includes('V5.0.0'));
     assert.ok(await p.locator('.hero-art-photo img').evaluate(el=>el.complete&&el.naturalWidth>=1400));
     assert.equal(await p.locator('img[loading="lazy"]').count()>20,true);
     const originalDates=await p.evaluate(()=>JSON.stringify(state.tiers.flatMap(t=>t.items.map(i=>[i.uid,i.watched,i.reaction,i.fav]))));
     await p.locator('#fxGear').click();
     await p.locator('#qualityControls [data-quality="lite"]').click();
     assert.equal(await p.evaluate(()=>document.body.classList.contains('performance-lite')),true);
-    await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(()=>document.querySelectorAll('.card').length===67);
+    await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(n=>document.querySelectorAll('.card').length===n,count);
     assert.equal(await p.evaluate(()=>document.body.dataset.quality),'lite');
     assert.equal(await p.evaluate(()=>document.body.classList.contains('performance-lite')),true);
     await p.locator('#fxGear').click();await p.locator('#qualityControls [data-quality="detail"]').click();await p.locator('#fxClose').click();
@@ -111,8 +111,8 @@ const server = http.createServer((req, res) => {
     if(shots)await p.screenshot({path:path.join(root,'docs/images/bloom-home.png'),animations:'disabled'});
     await p.locator('.tier[data-tier="S"]').evaluate(el=>el.scrollIntoView({block:'start',behavior:'instant'}));
     await p.waitForFunction(()=>document.querySelector('.tier[data-tier="S"] .lstage').classList.contains('motion-visible'));
-    const sculpture=p.locator('.tier[data-tier="S"] .lumen-plate').first(),before=await sculpture.evaluate(el=>getComputedStyle(el).transform);
-    await p.waitForFunction(before=>getComputedStyle(document.querySelector('.tier[data-tier="S"] .lumen-plate')).transform!==before,before);
+    const sculpture=p.locator('.tier[data-tier="S"] .as-emblem-plane:not(.back)').first(),before=await sculpture.evaluate(el=>getComputedStyle(el).transform);
+    await p.waitForFunction(before=>getComputedStyle(document.querySelector('.tier[data-tier="S"] .as-emblem-plane:not(.back)')).transform!==before,before);
     if(shots){const r=await p.locator('.tier[data-tier="S"] .badge').boundingBox();await p.screenshot({path:path.join(root,'docs/images/bloom-seal.png'),clip:{x:r.x-4,y:Math.max(0,r.y-28),width:r.width+8,height:r.height+32},animations:'disabled'});}
     for(const width of [320,390,768,1440]){
       await p.setViewportSize({width,height:844});
@@ -150,7 +150,7 @@ const server = http.createServer((req, res) => {
     await p.waitForFunction(()=>!document.getElementById('postcardDownload').disabled);
     assert.equal(await p.locator('#postcardFrame svg').count(),1,'frame restored after PNG');
     assert.equal(await p.locator('[data-relic-export]').count(),0);
-    assert.equal(await p.locator('.card .botanical-frame svg').count(),67,'all poster frames restored after postcard export');
+    assert.equal(await p.locator('.card .botanical-frame svg').count(),count,'all poster frames restored after postcard export');
     await p.locator('#postcardClose').click();await p.waitForFunction(()=>!document.getElementById('postcardDialog').open&&document.getElementById('preview').classList.contains('show'));await p.keyboard.press('Escape');
     await p.setViewportSize({width:390,height:844});await p.locator('.card[data-uid="14"]').click();await p.locator('#previewReaction').click();await p.locator('#nekoPack').selectOption('call-night');await p.locator('#nekoOptions [data-rx="call-night-star"]').click();
     assert.ok(await p.locator('#reactionDialog').evaluate(el=>el.scrollWidth<=el.clientWidth+1));
@@ -159,7 +159,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await p.evaluate(()=>JSON.stringify(state)),original,'visual customization and postcards do not change collection data');
     assert.equal(await p.evaluate(()=>JSON.stringify(state.tiers.flatMap(t=>t.items.map(i=>[i.uid,i.watched,i.reaction,i.fav])))),originalDates);
     assert.deepEqual(errors,[]);assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);
-    console.log('Bloom PASS: 138 anime stickers, 67 unique decorations, one SVG per frame, adaptive quality preference, visible 3D motion, two new 12-sticker packs, four sizes, full PNG postcard 960x1440, restored frame, unchanged dates/impressions, CSP.');
+    console.log('Bloom PASS: 138 anime stickers, 68 unique decorations, one SVG per frame, adaptive quality preference, visible 3D motion, two new 12-sticker packs, four sizes, full PNG postcard 960x1440, restored frame, unchanged dates/impressions, CSP.');
   } finally {
     await browser.close();
     if (!live) await new Promise((r) => server.close(r));
