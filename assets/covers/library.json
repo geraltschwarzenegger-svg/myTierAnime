@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-25",
+  "checkedAt": "2026-10-27",
   "items": [
     {
       "uid": 1,
@@ -754,6 +754,17 @@
       "width": 460,
       "height": 645,
       "bytes": 81130
+    },
+    {
+      "uid": 71,
+      "name": "Убийца гоблинов",
+      "originalUrl": "https://media.kitsu.app/anime/44010/poster_image/large-b59ee2ea21daf339774d6903dc75e210.jpeg",
+      "sourceUrl": "https://media.kitsu.app/anime/44010/poster_image/large-b59ee2ea21daf339774d6903dc75e210.jpeg",
+      "source": "Kitsu · Goblin Slayer II (44010)",
+      "file": "assets/covers/library/71.webp",
+      "width": 550,
+      "height": 780,
+      "bytes": 105756
     }
   ]
 }

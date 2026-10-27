@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-21",
+  "checkedAt": "2026-10-27",
   "method": "Основные сезоны и сюжетные фильмы; каталог даёт округлённые минуты. Объём пользователя приоритетнее. OVA, пересказы и проморолики автоматически не добавлены.",
   "items": [
     {
@@ -3712,6 +3712,94 @@
         }
       ],
       "notes": []
+    },
+    {
+      "uid": 71,
+      "name": "Убийца гоблинов",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://kitsu.app/anime/40597",
+            "sourceTitle": "Kitsu",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 12,
+            "episodeMinutes": 23
+          }
+        },
+        {
+          "label": "Фильм «Корона гоблина» · 85 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "sourceUrl": "https://kitsu.app/anime/42204",
+            "sourceTitle": "Kitsu",
+            "scopeLabel": "Фильм «Корона гоблина»",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "minutes": 85
+          }
+        },
+        {
+          "label": "2 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://kitsu.app/anime/44010",
+            "sourceTitle": "Kitsu",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 12,
+            "episodeMinutes": 23
+          }
+        },
+        {
+          "label": "Все учтённые части · 24 серии + 1 фильм",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 637,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-71",
+            "sourceTitle": "Kitsu · сверка частей",
+            "scopeLabel": "Все учтённые части · 24 серии + 1 фильм",
+            "note": "Основные сезоны и сюжетный фильм; пересказ и специальные выпуски не добавлены."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Goblin Slayer",
+          "url": "https://kitsu.app/anime/40597",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "Фильм «Корона гоблина»",
+          "title": "Goblin Slayer: Goblin's Crown",
+          "url": "https://kitsu.app/anime/42204",
+          "episodes": 1,
+          "episodeMinutes": 85,
+          "totalMinutes": 85,
+          "film": true
+        },
+        {
+          "label": "2 сезон",
+          "title": "Goblin Slayer 2nd Season",
+          "url": "https://kitsu.app/anime/44010",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": [
+        "Дата 03.07.2026 выбрана в пределах указанного владельцем начала июля; точный день не известен."
+      ]
     }
   ],
   "updatedAt": "2026-10-24"

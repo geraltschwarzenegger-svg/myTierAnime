@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-25T17:17:48.022Z",
+  "savedAt": "2026-10-27T05:25:06.238Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -1740,10 +1740,33 @@
               }
             ],
             "sticker": "call-night-goldheart"
+          },
+          {
+            "uid": 71,
+            "name": "Убийца гоблинов",
+            "cover": "https://media.kitsu.app/anime/44010/poster_image/large-b59ee2ea21daf339774d6903dc75e210.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "2 сезона · 24 серии + фильм",
+                "date": "03.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 637,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-71",
+                  "sourceTitle": "Kitsu · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серии + 1 фильм",
+                  "note": "Основные сезоны и сюжетный фильм; пересказ и специальные выпуски не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-violet-cry"
           }
         ]
       }
     ],
-    "nextUid": 71
+    "nextUid": 72
   }
 }

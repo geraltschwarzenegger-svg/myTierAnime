@@ -54,14 +54,14 @@ test('frontend and server share the same duration math; old dates and imported t
 test('both published JSON snapshots match, validate and sum once to the documented total',()=>{
  assert.equal(read('data.json'),read('anime-tierlist-2026-10-11.json'));
  const state=JSON.parse(read('data.json')).state;assert.equal(validateState(state),null);
- const total=collectionWatchTime(state);assert.equal(total.minutes,40530);assert.equal(total.completeItems,68);assert.equal(total.unknownItems,0);
+ const total=collectionWatchTime(state);assert.equal(total.minutes,41167);assert.equal(total.completeItems,69);assert.equal(total.unknownItems,0);
  const all=state.tiers.flatMap(t=>t.items);
  assert.equal(watchMinutes(all.find(i=>i.uid===69).watched[0]),300);
  assert.equal(all.find(i=>i.uid===58).watched[0].duration.episodes,76);
  assert.equal(itemWatchTime(all.find(i=>i.uid===21)).minutes,36*23);
  const added=all.find(i=>i.uid===70);assert.equal(watchMinutes(added.watched[0]),264);assert.equal(added.watched[0].date,'24.10.2026');assert.equal(added.watched[0].duration.episodes,11);assert.equal(added.watched[0].duration.episodeMinutes,24);
  assert.ok(state.tiers.find(t=>t.id==='A').items.includes(added));
- const catalogData=JSON.parse(read('assets/catalog/watchtime.json'));assert.equal(catalogData.items.length,68);
+ const catalogData=JSON.parse(read('assets/catalog/watchtime.json'));assert.equal(catalogData.items.length,69);
  assert.deepEqual(JSON.parse(source.match(/const WATCHTIME_CATALOG = (\[.*?\]);\n/s)[1]),catalogData.items,'runtime catalog and documented catalog stay synchronized');
  for(const entry of catalogData.items){
   for(const option of entry.options)assert.equal(watchDurationIssue(option.duration),null,entry.name);

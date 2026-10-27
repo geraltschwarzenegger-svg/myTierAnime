@@ -6,7 +6,7 @@ const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('data.json'));
 test('helix reads every title in tier order without changing names, dates or time',()=>{
  const before=JSON.stringify(data.state),items=helixEntries(data.state);
- assert.equal(items.length,68);assert.equal(new Set(items.map(e=>e.uid)).size,68);
+ assert.equal(items.length,69);assert.equal(new Set(items.map(e=>e.uid)).size,69);
  assert.deepEqual(items.map(e=>e.uid),data.state.tiers.flatMap(t=>t.items.map(i=>i.uid)));
  assert.equal(items.find(e=>e.uid===69).item.watched[0].duration.episodeMinutes,25);
  assert.equal(JSON.stringify(data.state),before);
