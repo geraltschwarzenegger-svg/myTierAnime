@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-07T09:57:50.148Z",
+  "browser": "151.0.7922.173",
+  "device": "1440×1080, headless Chromium, SwiftShader software GPU in cloud environment",
+  "method": "After 1.2 s warmup, count completed scene frames over ~4 s. Not a hardware GPU prediction.",
+  "records": [
+    {
+      "mode": "auto",
+      "measuredFps": 46.8,
+      "stats": {
+        "calls": 4,
+        "triangles": 9224,
+        "fps": 45,
+        "frames": 254,
+        "geometries": 4,
+        "textures": 2,
+        "quality": "Баланс",
+        "paused": false,
+        "reason": "Активна",
+        "model": "Солнечный венец"
+      }
+    },
+    {
+      "mode": "low",
+      "measuredFps": 46.6,
+      "stats": {
+        "calls": 3,
+        "triangles": 9224,
+        "fps": 44,
+        "frames": 500,
+        "geometries": 4,
+        "textures": 2,
+        "quality": "Лёгкий",
+        "paused": false,
+        "reason": "Активна",
+        "model": "Солнечный венец"
+      }
+    },
+    {
+      "mode": "high",
+      "measuredFps": 12.5,
+      "stats": {
+        "calls": 18,
+        "triangles": 9238,
+        "fps": 12,
+        "frames": 567,
+        "geometries": 5,
+        "textures": 15,
+        "quality": "Детальный",
+        "paused": false,
+        "reason": "Активна",
+        "model": "Солнечный венец"
+      }
+    }
+  ],
+  "pausedExtraFrames": 0
+}

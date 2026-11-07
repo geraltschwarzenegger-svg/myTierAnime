@@ -1,0 +1,3 @@
+NOTE: direct file:// navigation is blocked by browser administration policy in this environment.
+PASS: self-contained laboratory over a mocked HTTPS origin, 69 anime, four 3D models, local covers, regular preview; zero HTTP requests.
+PASS: self-contained isolated V5 copy, JSON import, 69 cards, zero HTTP requests, no JavaScript exceptions.

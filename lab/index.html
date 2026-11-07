@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ASTRAVA Lab — отдельная мастерская объёмных эмблем и личной коллекции аниме. Основной сайт не изменён."
+    />
+    <meta name="theme-color" content="#f2f1eb" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'self'"
+    />
+    <link rel="icon" href="./mark.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./vendor/fonts.css" />
+    <title>ASTRAVA Lab · Мастерская историй</title>
+  </head>
+  <body>
+    <a href="#collection" class="skip">К коллекции</a>
+    <header class="header">
+      <a class="brand" href="#top" aria-label="ASTRAVA Lab — начало"
+        ><img src="./mark.svg" width="35" height="35" alt="" /><span
+          >ASTRAVA<small>ATELIER / LAB 01</small></span
+        ></a
+      >
+      <nav aria-label="Главная навигация">
+        <a href="#workspace" class="nav-active">Мастерская</a
+        ><a href="#collection">Коллекция</a
+        ><button id="journalOpen" class="nav-button">Журнал</button>
+      </nav>
+      <a class="classic-link" href="./classic/"
+        >Привычный вид <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="top">
+      <div class="test-banner">
+        <span class="status-dot"></span> Отдельная тестовая версия
+        <span class="banner-divider">/</span
+        ><span>Твоя основная коллекция в безопасности</span
+        ><a
+          href="https://geraltschwarzenegger-svg.github.io/myTierAnime/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Основной сайт ↗</a
+        >
+      </div>
+      <section class="intro" aria-labelledby="pageTitle">
+        <div>
+          <p class="eyebrow">ИСТОРИИ ОБРЕТАЮТ ФОРМУ</p>
+          <h1 id="pageTitle">
+            Больше, чем список.<br /><em>Твоя вселенная.</em>
+          </h1>
+        </div>
+        <p class="intro-note">
+          Любимые истории, отлитые в свет.<br />Четыре тира. Четыре
+          характера.<br />Новая глубина твоей коллекции.
+        </p>
+      </section>
+      <section
+        id="workspace"
+        class="workspace"
+        aria-label="Мастерская объёмных эмблем"
+      >
+        <div class="stage-column">
+          <div class="stage-card" data-world="dawn">
+            <div class="stage-topline">
+              <span
+                ><i class="status-dot"></i> ATELIER ·
+                <span id="sceneState">Загрузка сцены</span></span
+              ><button
+                id="captureFrame"
+                class="icon-button"
+                aria-label="Сохранить кадр PNG"
+                title="Сохранить кадр"
+              >
+                ↗
+              </button>
+            </div>
+            <div id="sceneHost" class="scene-host">
+              <div id="sceneLoading" class="scene-loading">
+                <div class="loading-sigil">S</div>
+                <span>Собираем свет и форму…</span>
+              </div>
+            </div>
+            <div id="sceneFallback" class="scene-fallback" hidden>
+              <img
+                src="./models/S.svg"
+                alt="Солнечный венец — изображение эмблемы"
+              />
+              <p>3D сейчас недоступно. Коллекция и настройки работают.</p>
+              <button id="retryScene" class="light-button">
+                Повторить запуск 3D
+              </button>
+            </div>
+            <span class="stage-rank" id="stageRank" aria-hidden="true">S</span>
+            <div class="stage-caption">
+              <span id="stageCaption">Золото хранит лучшие истории.</span
+              ><span>Перетащи, чтобы рассмотреть</span>
+            </div>
+            <div class="camera-controls" aria-label="Управление камерой">
+              <button id="zoomOut" aria-label="Отдалить">−</button
+              ><button id="resetCamera" aria-label="Начальный ракурс">↺</button
+              ><button id="zoomIn" aria-label="Приблизить">+</button>
+            </div>
+          </div>
+          <div
+            class="tier-choices"
+            role="group"
+            aria-label="Выбрать эмблему тира"
+          >
+            <button data-tier="S" aria-pressed="true">
+              <span class="tier-monogram">S</span
+              ><span
+                ><b>Солнечный венец</b
+                ><small>Шедевры · <i data-tier-count="S">15</i></small></span
+              ><span class="tier-arrow">↗</span>
+            </button>
+            <button data-tier="A" aria-pressed="false">
+              <span class="tier-monogram">A</span
+              ><span
+                ><b>Нефритовый феникс</b
+                ><small
+                  >Близко к идеалу · <i data-tier-count="A">23</i></small
+                ></span
+              ><span class="tier-arrow">↗</span>
+            </button>
+            <button data-tier="B" aria-pressed="false">
+              <span class="tier-monogram">B</span
+              ><span
+                ><b>Аметистовый архив</b
+                ><small
+                  >Крепкая основа · <i data-tier-count="B">16</i></small
+                ></span
+              ><span class="tier-arrow">↗</span>
+            </button>
+            <button data-tier="C" aria-pressed="false">
+              <span class="tier-monogram">C</span
+              ><span
+                ><b>Лунный гербарий</b
+                ><small>Достойные · <i data-tier-count="C">15</i></small></span
+              ><span class="tier-arrow">↗</span>
+            </button>
+          </div>
+        </div>
+        <aside class="studio-panel" aria-label="Настройки мастерской">
+          <div class="panel-title">
+            <span class="eyebrow"
+              >КОЛЛЕКЦИЯ ОБЪЕКТОВ / <span id="objectNumber">01</span></span
+            ><span class="tiny-star">✧</span>
+          </div>
+          <h2 id="modelTitle">Солнечный венец</h2>
+          <p id="modelDescription">
+            Чеканное золото, гранёные рубины и лучи, собранные в корону.
+          </p>
+          <div class="object-divider"></div>
+          <fieldset>
+            <legend>Окружение</legend>
+            <div class="world-options">
+              <button
+                data-world="astral"
+                title="Звёздный зал"
+                aria-label="Звёздный зал"
+                aria-pressed="false"
+              ></button
+              ><button
+                data-world="dawn"
+                title="Тёплый рассвет"
+                aria-label="Тёплый рассвет"
+                aria-pressed="true"
+              ></button
+              ><button
+                data-world="garden"
+                title="Нефритовый сад"
+                aria-label="Нефритовый сад"
+                aria-pressed="false"
+              ></button
+              ><button
+                data-world="moon"
+                title="Лунная ночь"
+                aria-label="Лунная ночь"
+                aria-pressed="false"
+              ></button
+              ><span id="worldLabel">Тёплый рассвет</span>
+            </div>
+          </fieldset>
+          <label class="switch-row"
+            ><span>Подбирать свет по тиру</span
+            ><input id="followTier" type="checkbox" checked role="switch"
+          /></label>
+          <div class="range-title">
+            <label for="exposure">Яркость света</label
+            ><output id="exposureValue">125%</output>
+          </div>
+          <input
+            id="exposure"
+            type="range"
+            min="0.6"
+            max="2"
+            value="1.25"
+            step="0.05"
+          />
+          <div class="object-divider"></div>
+          <label class="select-row" for="quality"
+            >Качество сцены
+            <select id="quality">
+              <option value="auto">Баланс</option>
+              <option value="low">Лёгкий</option>
+              <option value="high">Детальный</option>
+            </select></label
+          >
+          <p class="control-note" id="qualityNote">
+            Оптимальное разрешение без тяжёлых эффектов.
+          </p>
+          <label class="switch-row"
+            ><span>Живая атмосфера</span
+            ><input id="motion" type="checkbox" checked role="switch" /></label
+          ><label class="switch-row"
+            ><span>Медленное вращение</span
+            ><input id="rotate" type="checkbox" role="switch"
+          /></label>
+          <p id="motionNotice" class="control-note">
+            Эмблема остаётся неподвижной, пока ты её не повернёшь.
+          </p>
+          <div class="model-actions">
+            <button id="exportGlb" class="primary-button">
+              Сохранить модель <span>↓</span></button
+            ><button id="importGlb" class="secondary-button">
+              Загрузить свою GLB <span>+</span></button
+            ><input
+              type="file"
+              id="glbFile"
+              accept=".glb,model/gltf-binary"
+              hidden
+            />
+          </div>
+          <details class="diagnostics">
+            <summary>
+              Пульс сцены <span id="metricSummary">Подготовка</span>
+            </summary>
+            <dl>
+              <div>
+                <dt>Режим</dt>
+                <dd id="metricMode">—</dd>
+              </div>
+              <div>
+                <dt>Частота кадров</dt>
+                <dd id="metricFps">—</dd>
+              </div>
+              <div>
+                <dt>Вызовы рендера</dt>
+                <dd id="metricCalls">—</dd>
+              </div>
+              <div>
+                <dt>Треугольники</dt>
+                <dd id="metricTriangles">—</dd>
+              </div>
+              <div>
+                <dt>Движение</dt>
+                <dd id="metricPause">—</dd>
+              </div>
+            </dl>
+            <p>
+              Показатели этой вкладки и этого устройства. На другом оборудовании
+              результат может отличаться.
+            </p>
+          </details>
+        </aside>
+      </section>
+      <section
+        class="collection-section"
+        id="collection"
+        aria-labelledby="collectionTitle"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ТВОЙ ЛИЧНЫЙ КАНОН</p>
+            <h2 id="collectionTitle">Истории, которые остались.</h2>
+          </div>
+          <div class="collection-actions">
+            <button id="importCollection" class="text-button">
+              Импорт JSON ↗</button
+            ><button id="exportCollection" class="text-button">
+              Скачать JSON ↓</button
+            ><input
+              type="file"
+              id="jsonFile"
+              accept=".json,application/json"
+              hidden
+            />
+          </div>
+        </div>
+        <div class="collection-summary">
+          <span><b id="animeCount">69</b> историй</span
+          ><span><b id="watchHours">686 ч 7 мин</b> воспоминаний</span
+          ><span class="save-state" id="saveState"
+            >Копия опубликованной коллекции</span
+          >
+        </div>
+        <div class="filterbar">
+          <div class="filters" role="group" aria-label="Фильтр коллекции">
+            <button data-filter="all" aria-pressed="true">
+              Все истории <span>69</span></button
+            ><button data-filter="S" aria-pressed="false">S</button
+            ><button data-filter="A" aria-pressed="false">A</button
+            ><button data-filter="B" aria-pressed="false">B</button
+            ><button data-filter="C" aria-pressed="false">C</button
+            ><button data-filter="fav" aria-pressed="false">♡ Избранное</button>
+          </div>
+          <label class="search-field"
+            ><span aria-hidden="true">⌕</span
+            ><input
+              id="search"
+              type="search"
+              placeholder="Найти свою историю"
+              aria-label="Поиск аниме"
+          /></label>
+        </div>
+        <div id="animeGrid" class="anime-grid" aria-live="polite"></div>
+        <p id="emptyState" class="empty-state" hidden>
+          Здесь пока тихо. Попробуй другое название или тир.
+        </p>
+        <button id="loadMore" class="load-more">
+          Ещё истории <span>↓</span>
+        </button>
+        <div class="collection-end">
+          <span id="resultCount">Показываем истории…</span
+          ><button id="resetCollection" class="text-button">
+            Вернуть опубликованную копию
+          </button>
+        </div>
+      </section>
+      <section class="memory-banner">
+        <img
+          src="./observatory.webp"
+          alt="Вайолет, Зеро Ту, Лена и Шин собирают альбом воспоминаний в поезде-обсерватории"
+          loading="lazy"
+        />
+        <div>
+          <p class="eyebrow">ТЕ ЖЕ ИСТОРИИ. НОВАЯ ГЛУБИНА.</p>
+          <h2>Пусть хорошее<br /><em>останется с тобой.</em></h2>
+          <a href="./classic/">Открыть полную тестовую копию V5 ↗</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="#top"
+        ><img src="./mark.svg" alt="" width="26" height="26" /><span
+          >ASTRAVA<small>МЕСТО ДЛЯ ТВОИХ ИСТОРИЙ</small></span
+        ></a
+      >
+      <p>Создано, чтобы хранить впечатления.</p>
+      <a href="./about.html">План и технологии ↗</a
+      ><span class="footer-version">LAB 01 · отдельный эксперимент</span>
+    </footer>
+    <dialog id="preview" aria-labelledby="previewTitle">
+      <div class="preview-layout">
+        <div class="preview-art">
+          <img id="previewImage" alt="" /><span
+            id="previewTier"
+            class="preview-tier"
+            >S</span
+          >
+        </div>
+        <div class="preview-content">
+          <button
+            id="previewClose"
+            class="dialog-close"
+            aria-label="Закрыть подробности"
+          >
+            ×
+          </button>
+          <p class="eyebrow" id="previewTierName"></p>
+          <h2 id="previewTitle"></h2>
+          <p id="previewTotal" class="preview-total"></p>
+          <div class="preview-actions">
+            <button id="toggleFav" class="secondary-button">
+              ♡ В избранное</button
+            ><button id="editWatches" class="text-button">
+              Изменить даты ↗
+            </button>
+          </div>
+          <h3>История просмотра</h3>
+          <div id="watchList" class="watch-list"></div>
+          <form id="watchForm" hidden>
+            <p class="control-note">
+              Редактируется только тестовая коллекция. Каждая строка — отдельный
+              сезон или просмотр.
+            </p>
+            <div id="watchEditor"></div>
+            <button type="button" id="addWatch" class="text-button">
+              + Ещё дата
+            </button>
+            <p id="watchError" class="form-error" role="alert"></p>
+            <div class="form-buttons">
+              <button type="button" id="cancelWatches" class="secondary-button">
+                Отмена</button
+              ><button type="submit" class="primary-button">
+                Сохранить в Lab
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="journal" aria-labelledby="journalTitle">
+      <button
+        id="journalClose"
+        class="dialog-close"
+        aria-label="Закрыть журнал"
+      >
+        ×
+      </button>
+      <p class="eyebrow">ПО ДНЯМ И МЕСЯЦАМ</p>
+      <h2 id="journalTitle">Твой журнал.</h2>
+      <div class="month-toolbar">
+        <button id="prevMonth" aria-label="Предыдущий месяц">←</button>
+        <h3 id="monthTitle"></h3>
+        <button id="nextMonth" aria-label="Следующий месяц">→</button
+        ><button id="latestMonth" class="text-button">Последние даты</button>
+      </div>
+      <div class="weekdays" aria-hidden="true">
+        <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span
+        ><span>Пт</span><span>Сб</span><span>Вс</span>
+      </div>
+      <div id="monthGrid" class="month-grid"></div>
+      <div id="dayEntries" class="day-entries"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <noscript
+      >Для лаборатории нужен JavaScript.
+      <a href="./collection.json">Скачать коллекцию JSON</a>.</noscript
+    >
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

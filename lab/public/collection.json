@@ -1,0 +1,1772 @@
+{
+  "app": "anime-tierlist",
+  "v": 2,
+  "schema": 4,
+  "savedAt": "2026-10-27T05:25:06.238Z",
+  "state": {
+    "schema": 4,
+    "tiers": [
+      {
+        "id": "S",
+        "label": "Шедевры",
+        "tagline": "Истории, которые выходят за пределы жанра, меняют внутренний взгляд на человека и мир и продолжают жить в памяти после финальных титров.",
+        "accent": "gold",
+        "items": [
+          {
+            "uid": 1,
+            "name": "Violet Evergarden",
+            "cover": "https://shikimori.io/uploads/poster/animes/37987/main-5b4bfb803a3d59b78689fbdd24d13f6a.webp",
+            "fav": true,
+            "reaction": "goldheart",
+            "watched": [
+              {
+                "label": "",
+                "date": "30.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 543,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-1",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 13 серий + 2 фильма",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-violet-bolt"
+          },
+          {
+            "uid": 2,
+            "name": "Атака Титанов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16498-buvcRTBx4NSm.jpg",
+            "fav": true,
+            "reaction": "bolt",
+            "watched": [
+              {
+                "label": "",
+                "date": "09.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 2182,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-2",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 89 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-titan-laugh"
+          },
+          {
+            "uid": 3,
+            "name": "Класс превосходства",
+            "cover": "https://shikimori.io/uploads/poster/animes/64463/main-e331f01ace37c714ba30d02ab0995aa4.webp",
+            "fav": true,
+            "reaction": "star",
+            "watched": [
+              {
+                "label": "1 / 12",
+                "date": "26.08.2024",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/35507",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "label": "2 / 12",
+                "date": "28.08.2024"
+              },
+              {
+                "label": "3 / 12",
+                "date": "30.08.2024"
+              },
+              {
+                "label": "4 / 12",
+                "date": "02.09.2024"
+              },
+              {
+                "label": "5 / 16",
+                "date": "26.06.2026"
+              }
+            ],
+            "sticker": "s-classroom-cry",
+            "watchTotal": {
+              "mode": "total",
+              "basis": "catalog",
+              "minutes": 1254,
+              "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-3",
+              "sourceTitle": "MyAnimeList · сверка частей",
+              "scopeLabel": "Все учтённые части · 54 серий",
+              "note": "Сводный итог 4 сезонов заменяет сумму старых дат. Пять прежних подписей сохранены: они не совпадают с 4 сезонами каталога."
+            }
+          },
+          {
+            "uid": 4,
+            "name": "Человек-бензопила",
+            "cover": "https://media.kitsu.app/anime/48323/poster_image/large-5548db6509abef22a2ee53233c97edc9.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "02.02.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 387,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-4",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 12 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-chainsaw-fire"
+          },
+          {
+            "uid": 5,
+            "name": "Любимый во Франксе",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx99423-8MBxtwCeHf8B.png",
+            "fav": true,
+            "reaction": "goldheart",
+            "watched": [
+              {
+                "label": "",
+                "date": "11.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 24,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/35849",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-franxx-goldheart"
+          },
+          {
+            "uid": 6,
+            "name": "Адский рай",
+            "cover": "https://media.kitsu.app/anime/47679/poster_image/large-0720a7e3eb0edcc0ca2243bf37ca495a.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "28.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 600,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-6",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 25 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-paradise-heart"
+          },
+          {
+            "uid": 7,
+            "name": "86",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116589-KawXHB6sApFt.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "13.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 529,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-7",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 23 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-eighty-six-bolt"
+          },
+          {
+            "uid": 8,
+            "name": "Восхождение в тени",
+            "cover": "https://shikimori.io/uploads/poster/animes/57584/main-6aec0e40492030856fdaf2198dbb45fc.webp",
+            "fav": true,
+            "reaction": "goldheart",
+            "watched": [
+              {
+                "label": "",
+                "date": "15.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 736,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-8",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 32 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-shadow-laugh"
+          },
+          {
+            "uid": 9,
+            "name": "Поднятие уровня в соло",
+            "cover": "https://media.kitsu.app/anime/48671/poster_image/large-6156a7475d03dbb788ab1a9ce6c7f962.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "20.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 575,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-9",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 25 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-solo-cry"
+          },
+          {
+            "uid": 10,
+            "name": "Фрирен",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx154587-qQTzQnEJJ3oB.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "17.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 912,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-10",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 38 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-frieren-fire"
+          },
+          {
+            "uid": 11,
+            "name": "Школа мертвецов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx8074-YB63Ik96fjPj.png",
+            "fav": true,
+            "reaction": "fire",
+            "watched": [
+              {
+                "label": "",
+                "date": "02.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/8074",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-dead-goldheart"
+          },
+          {
+            "uid": 56,
+            "name": "Тетрадь смерти",
+            "cover": "https://shikimori.io/uploads/poster/animes/1535/main-6cf8bcadd153679da9c27e299be0a268.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "12.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 37,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/1535",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-death-note-laugh"
+          },
+          {
+            "uid": 57,
+            "name": "Звездное дитя",
+            "cover": "https://shikimori.io/uploads/poster/animes/60058/main-8a48184cdbf01cafdd7bf894d0d669b6.webp",
+            "fav": true,
+            "reaction": "heart",
+            "watched": [
+              {
+                "label": "1–3 сезоны · 35 серий",
+                "date": "20.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 952,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-57",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 35 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-oshi-cry"
+          },
+          {
+            "uid": 58,
+            "name": "Реинкарнация безработного: История о приключениях",
+            "cover": "https://shikimori.io/uploads/poster/animes/59193/main-6c5e4c63e88610136f4a7ece98a8d7a1.webp",
+            "fav": true,
+            "reaction": "fire",
+            "watched": [
+              {
+                "label": "3 сезона · 76 серий",
+                "date": "09.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "manual",
+                  "episodes": 76,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/59193",
+                  "sourceTitle": "23 мин на серию · MyAnimeList",
+                  "scopeLabel": "3 сезона · 76 серий",
+                  "note": "Количество серий задано владельцем; длительность серии — каталожная оценка."
+                }
+              }
+            ],
+            "sticker": "s-mushoku-fire"
+          },
+          {
+            "uid": 61,
+            "name": "Клинок, рассекающий демонов",
+            "cover": "https://shikimori.io/uploads/poster/animes/62547/main-b9a7e6d8f508ecf4940fb62a29853466.webp",
+            "fav": true,
+            "reaction": "heart",
+            "watched": [
+              {
+                "label": "1 / 26",
+                "date": "20.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 26,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/38000",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "label": "фильм  Бесконечный поезд",
+                "date": "21.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 116,
+                  "sourceUrl": "https://myanimelist.net/anime/40456",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм · Бесконечный поезд",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "label": "1 / 11 Квартал красных фонарей",
+                "date": "22.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 11,
+                  "episodeMinutes": 26,
+                  "sourceUrl": "https://myanimelist.net/anime/47778",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Квартал красных фонарей",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "label": "1 / 11  Деревня кузнецов",
+                "date": "23.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 11,
+                  "episodeMinutes": 28,
+                  "sourceUrl": "https://myanimelist.net/anime/51019",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Деревня кузнецов",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "label": "1 / 8 Тренировка столпов",
+                "date": "24.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 8,
+                  "episodeMinutes": 29,
+                  "sourceUrl": "https://myanimelist.net/anime/55701",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Тренировка столпов",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "label": "фильм  Бесконечный замок",
+                "date": "25.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 155,
+                  "sourceUrl": "https://myanimelist.net/anime/59192",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм · Бесконечный замок",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-demon-bolt"
+          }
+        ]
+      },
+      {
+        "id": "A",
+        "label": "Близко к идеалу",
+        "tagline": "Произведения редкой цельности, в которых замысел, эмоция и форма почти достигают совершенного равновесия.",
+        "accent": "aqua",
+        "items": [
+          {
+            "uid": 12,
+            "name": "Благоухающий цветок расцветает с достоинством",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx181444-Ut9DDUZdfHwg.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "08.12.2025",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/59845",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-classroom-heart"
+          },
+          {
+            "uid": 13,
+            "name": "Твоё имя",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21519-SUo3ZQuCbYhJ.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "25.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 106,
+                  "sourceUrl": "https://myanimelist.net/anime/32281",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-franxx-laugh"
+          },
+          {
+            "uid": 14,
+            "name": "Песнь ночных сов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx141391-M3ZgUKTPENUk.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "25.11.2025",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 550,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-14",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 25 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "call-night-bolt"
+          },
+          {
+            "uid": 15,
+            "name": "Аля кокетничает по-русски",
+            "cover": "https://shikimori.io/uploads/poster/animes/59873/main-250a8f2d1f77b93a9ea61c41e6576832.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "12.12.2025",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/54744",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-solo-goldheart"
+          },
+          {
+            "uid": 16,
+            "name": "Город, в котором меня нет",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21234-XmqW39aQ9o7O.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "05.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/31043",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-death-note-bolt"
+          },
+          {
+            "uid": 17,
+            "name": "Невеста чародея",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx98436-n7sK6POCd0XV.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "12.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1152,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-17",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 48 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-mushoku-cry"
+          },
+          {
+            "uid": 18,
+            "name": "Врата Штейна",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx9253-tIUXF2gfU8Sg.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "24.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1195,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-18",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 47 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "call-night-cry"
+          },
+          {
+            "uid": 19,
+            "name": "Мастера на все руки выгнали из отряда героев",
+            "cover": "https://shikimori.io/uploads/poster/animes/61128/main-f153df8f99d703baf376e57b2977b295.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "03.03.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/61128",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "dress-up-cry"
+          },
+          {
+            "uid": 20,
+            "name": "Последний Серафим",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20829-pgsXVjrfyI5V.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "29.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-20",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "angel-think"
+          },
+          {
+            "uid": 21,
+            "name": "Сто девушек, которые очень любят",
+            "cover": "https://shikimori.io/uploads/poster/animes/62811/main-e8bb21c8eda03a5707c096d585705e81.webp",
+            "fav": true,
+            "reaction": "heart",
+            "watched": [
+              {
+                "label": "1, 2 / 24",
+                "date": "05.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 24,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-21",
+                  "sourceTitle": "MyAnimeList · 1 и 2 сезоны",
+                  "scopeLabel": "1–2 сезоны · 24 серии",
+                  "note": "12 + 12 серий, без повторного добавления к сводному итогу."
+                }
+              },
+              {
+                "label": "3 / 12",
+                "date": "30.08.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/62811",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "3 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "jujutsu-shock"
+          },
+          {
+            "uid": 22,
+            "name": "Я, владыка демонов, взял эльфийку-рабыню в жёны. И как же мне её любить?",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156023-cY4NC8gCcAg7.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "15.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/53434",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-titan-goldheart"
+          },
+          {
+            "uid": 23,
+            "name": "Сад изящных слов",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx16782-qpFGk18UqaHn.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "12.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 46,
+                  "sourceUrl": "https://myanimelist.net/anime/16782",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-franxx-fire"
+          },
+          {
+            "uid": 24,
+            "name": "Ненасытный берсерк",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx156039-JnepQcVxXLLW.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "19.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/53439",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-shadow-cry"
+          },
+          {
+            "uid": 25,
+            "name": "Берсерк",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx33-PSwfE5B0gejI.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "14.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1151,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-25",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 49 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-dead-bolt"
+          },
+          {
+            "uid": 44,
+            "name": "Фарфоровая кукла влюбилась",
+            "cover": "https://media.kitsu.app/anime/44382/poster_image/large-8ffc8ea9b6a1f9e79bc626e03baab167.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "29.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-44",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "dress-up-think"
+          },
+          {
+            "uid": 54,
+            "name": "Магическая битва",
+            "cover": "https://shikimori.io/uploads/poster/animes/59654/01975809c67b99dc54cac17db6e0dfa7.jpeg",
+            "fav": true,
+            "reaction": "bolt",
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "30.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1461,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-54",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 59 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "jujutsu-cry"
+          },
+          {
+            "uid": 64,
+            "name": "Повелитель тайн",
+            "cover": "https://shikimori.io/uploads/poster/animes/63632/main-f9a1b1fbb7e88c0ef854d865c65f8510.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "17.09.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 35,
+                  "sourceUrl": "https://myanimelist.net/anime/49818",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-classroom-fire"
+          },
+          {
+            "uid": 65,
+            "name": "Золотая пора",
+            "cover": "https://shikimori.io/uploads/poster/animes/17895/main-7b33bb784137e7a9b74f95d662fab33c.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "10.09.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 24,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/17895",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-eighty-six-laugh"
+          },
+          {
+            "uid": 66,
+            "name": "Я подружился со второй самой симпатичной девушкой в классе",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/class-de-2-banme.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "02.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/56734",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-frieren-goldheart"
+          },
+          {
+            "uid": 67,
+            "name": "Освободите эту ведьму",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/release-that-witch.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "10.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 8,
+                  "episodeMinutes": 26,
+                  "sourceUrl": "https://myanimelist.net/anime/62927",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-mushoku-laugh"
+          },
+          {
+            "uid": 68,
+            "name": "Я влюбился в тебя, когда ты бежала в лунной ночи",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/love-unseen-selected-cover.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "14.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/62936",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "call-night-angry"
+          },
+          {
+            "uid": 69,
+            "name": "Детектив уже мёртв",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/detective-is-already-dead.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "1 сезон · 12 серий",
+                "date": "20.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 25,
+                  "sourceUrl": "https://myanimelist.net/anime/46471",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-violet-heart"
+          },
+          {
+            "uid": 70,
+            "name": "Хоть я и бездарная злодейка: Сказка о том, как бабочка и крыса поменялись местами в девичьем дворе",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/inept-villainess.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "1 сезон · 11 серий",
+                "date": "24.10.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 11,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://kitsu.app/anime/49689",
+                  "sourceTitle": "Kitsu",
+                  "scopeLabel": "1 сезон",
+                  "note": "11 просмотренных серий указаны владельцем; по каталогу Kitsu — 24 минуты на серию. Расчёт не учитывает паузы и пропуски."
+                }
+              }
+            ],
+            "sticker": "s-violet-goldheart"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "label": "Крепкая основа",
+        "tagline": "Истории с собственным голосом и настоящей силой, способные увлечь, растрогать, удивить или заставить задуматься, даже если им недостаёт безупречности.",
+        "accent": "violet",
+        "items": [
+          {
+            "uid": 26,
+            "name": "Ангел по соседству",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx143338-zhyDVYgEzsm5.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "08.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-26",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "angel-bolt"
+          },
+          {
+            "uid": 27,
+            "name": "Моя девушка не только милая",
+            "cover": "https://shikimori.io/uploads/poster/animes/45613/main-a38d2f57f4d26377a48040fa9d76fddd.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "09.12.2025",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/45613",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "jujutsu-think"
+          },
+          {
+            "uid": 28,
+            "name": "Опытная тебя и неопытного меня",
+            "cover": "https://media.kitsu.app/anime/46459/poster_image/large-93bd1be09abb35565d9e183e3895ad02.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "18.03.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/52990",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-classroom-laugh"
+          },
+          {
+            "uid": 29,
+            "name": "Твоя апрельская ложь",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20665-TLgkL8T8IRFd.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "18.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 22,
+                  "episodeMinutes": 22,
+                  "sourceUrl": "https://myanimelist.net/anime/23273",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-paradise-goldheart"
+          },
+          {
+            "uid": 30,
+            "name": "Пластиковые воспоминания",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20872-j5PBzzVtrYDM.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "30.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/27775",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-frieren-bolt"
+          },
+          {
+            "uid": 31,
+            "name": "Шарлотта",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20997-axVYrsIfjtYJ.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "21.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/28999",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-oshi-fire"
+          },
+          {
+            "uid": 32,
+            "name": "Ангел кровопролития",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx99629-BXyAJ6PDq4sr.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "08.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 16,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/35994",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "call-night-laugh"
+          },
+          {
+            "uid": 33,
+            "name": "Я получил читерские способности",
+            "cover": "https://media.kitsu.app/anime/46370/poster_image/large-338a164d72dacaa07fc4b6ea58fa1efc.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "13.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/52830",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "dress-up-angry"
+          },
+          {
+            "uid": 34,
+            "name": "Нина в королевстве звёзд",
+            "cover": "https://media.kitsu.app/anime/48391/poster_image/large-da08a161da14064a4f1e18ee46d268a7.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "16.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/57362",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "jujutsu-fire"
+          },
+          {
+            "uid": 35,
+            "name": "Одинокий рокер!",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx130003-HTDmeL4RGeJ4.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "23.04.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/47917",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-titan-fire"
+          },
+          {
+            "uid": 36,
+            "name": "Чёрный призыватель",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx145260-Yt5W8aQQKqF2.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "21.05.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/51064",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-eighty-six-heart"
+          },
+          {
+            "uid": 37,
+            "name": "Сага о винланде",
+            "cover": "https://media.kitsu.app/anime/poster_images/41084/large.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "24.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1176,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-37",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 48 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-dead-heart"
+          },
+          {
+            "uid": 38,
+            "name": "Рандеву с жизнью",
+            "cover": "https://media.kitsu.app/anime/poster_images/7421/large.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "25.04.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1492,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-38",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 58 серий + 1 фильм",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-demon-heart"
+          },
+          {
+            "uid": 39,
+            "name": "Арифурэта",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx100668-DvOn5bMOt4cy.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "19.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 943,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-39",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 41 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "dress-up-bolt"
+          },
+          {
+            "uid": 60,
+            "name": "Хочу съесть твою поджелудочную железу",
+            "cover": "https://shikimori.io/uploads/poster/animes/36098/main-0b9dc94816600f2ab3ae236c7d57699a.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "02.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 108,
+                  "sourceUrl": "https://myanimelist.net/anime/36098",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-death-note-goldheart"
+          },
+          {
+            "uid": 40,
+            "name": "Форма голоса",
+            "cover": "https://media.kitsu.app/anime/poster_images/10028/large.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "11.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 130,
+                  "sourceUrl": "https://myanimelist.net/anime/28851",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "jujutsu-sleep"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "label": "Достойные",
+        "tagline": "Произведения не без слабостей, но с ярким образом, искренним чувством или ценной мыслью, благодаря которым знакомство с ними было не напрасным.",
+        "accent": "mint",
+        "items": [
+          {
+            "uid": 41,
+            "name": "Тоннель в лето",
+            "cover": "https://media.kitsu.app/anime/45598/poster_image/large-757f81fe372ae4a0b63fc8897416a562.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "10.02.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 82,
+                  "sourceUrl": "https://myanimelist.net/anime/50593",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-chainsaw-cry"
+          },
+          {
+            "uid": 42,
+            "name": "Голубая шкатулка",
+            "cover": "https://media.kitsu.app/anime/48239/poster_image/large-b547e3cfeb2776aa95f8618d0a6ff0fe.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "28.02.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 25,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/57181",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Учтён 1 сезон. Для незавершённого 2 сезона количество просмотренных серий не задано; его можно добавить вручную."
+                }
+              }
+            ],
+            "sticker": "s-solo-heart"
+          },
+          {
+            "uid": 43,
+            "name": "Красноволосая принцесса",
+            "cover": "https://media.kitsu.app/anime/poster_images/10621/large.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "14.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 576,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-43",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-oshi-goldheart"
+          },
+          {
+            "uid": 45,
+            "name": "5 сантиметра в секунду 2007",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx1689-rJKhjLEjQHSy.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "27.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 63,
+                  "sourceUrl": "https://en.wikipedia.org/wiki/5_Centimeters_per_Second",
+                  "sourceTitle": "Wikipedia · хронометраж фильма",
+                  "scopeLabel": "Фильм целиком · 3 новеллы",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "dress-up-sleep"
+          },
+          {
+            "uid": 46,
+            "name": "Re:ZERO",
+            "cover": "https://shikimori.io/uploads/poster/animes/61316/79e6a0c31589176e3244c6117dab2500.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "21.03.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 2259,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-46",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 85 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "jujutsu-cozy"
+          },
+          {
+            "uid": 47,
+            "name": "Укрась прощальное утро цветами",
+            "cover": "https://shikimori.io/uploads/poster/animes/35851/main-46066bcff95f1534d86955be1bc7f3b1.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "03.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 114,
+                  "sourceUrl": "https://myanimelist.net/anime/35851",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-franxx-heart"
+          },
+          {
+            "uid": 48,
+            "name": "Врата: Там бьются наши воины",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20994-pSDk4I58jAK5.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "04.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 552,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-48",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-frieren-heart"
+          },
+          {
+            "uid": 49,
+            "name": "В лесу где мерцают светлячки",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx10408-PlKJ6DAyvMk2.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "05.06.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 45,
+                  "sourceUrl": "https://myanimelist.net/anime/10408",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-demon-fire"
+          },
+          {
+            "uid": 50,
+            "name": "Иная",
+            "cover": "https://shikimori.io/uploads/poster/animes/11111/main-d6067f1c25b6591949eb67bc70befa72.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "Примерная дата",
+                "date": "04.07.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/11111",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "angel-heart"
+          },
+          {
+            "uid": 51,
+            "name": "Механическая Мари",
+            "cover": "https://shikimori.io/uploads/poster/animes/59484/main-28bea4bc98b74d010868fdd4cc8a8f98.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "05.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/59484",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-violet-laugh"
+          },
+          {
+            "uid": 52,
+            "name": "Мой статус убийцы очевидно превосходит геройский",
+            "cover": "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/nx103655-v8Inz6BscNSW.png",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "07.06.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/61026",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-paradise-fire"
+          },
+          {
+            "uid": 55,
+            "name": "На твоей волне",
+            "cover": "https://shikimori.io/uploads/poster/animes/38594/04d61edb0cb9a6721402b1a18380f26f.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "05.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 95,
+                  "sourceUrl": "https://myanimelist.net/anime/38594",
+                  "sourceTitle": "MyAnimeList",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "call-night-cozy"
+          },
+          {
+            "uid": 59,
+            "name": "Кланнад",
+            "cover": "https://shikimori.io/uploads/poster/animes/2167/main-b81029ce72565cf9e8515ba78351e05a.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "01.05.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1128,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-59",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 47 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-franxx-bolt"
+          },
+          {
+            "uid": 62,
+            "name": "Токийский гуль",
+            "cover": "https://shikimori.io/uploads/poster/animes/22319/main-ef32e609e445973258c2831d4c8e9967.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "",
+                "date": "31.08.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1152,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-62",
+                  "sourceTitle": "MyAnimeList · сверка частей",
+                  "scopeLabel": "Все учтённые части · 48 серий",
+                  "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены."
+                }
+              }
+            ],
+            "sticker": "call-night-goldheart"
+          },
+          {
+            "uid": 71,
+            "name": "Убийца гоблинов",
+            "cover": "https://media.kitsu.app/anime/44010/poster_image/large-b59ee2ea21daf339774d6903dc75e210.jpeg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "2 сезона · 24 серии + фильм",
+                "date": "03.07.2026",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 637,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-71",
+                  "sourceTitle": "Kitsu · сверка частей",
+                  "scopeLabel": "Все учтённые части · 24 серии + 1 фильм",
+                  "note": "Основные сезоны и сюжетный фильм; пересказ и специальные выпуски не добавлены."
+                }
+              }
+            ],
+            "sticker": "s-violet-cry"
+          }
+        ]
+      }
+    ],
+    "nextUid": 72
+  }
+}

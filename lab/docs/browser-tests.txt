@@ -1,0 +1,16 @@
+PASS 69 original anime, 41167 minutes, local assets, real WebGL and 18 initial cards
+PASS four distinct real sculptures, stable paused frames and clean tier changes
+PASS manual atmosphere survives quality/exposure changes and reload
+PASS camera keyboard, PNG export and real GLB export/import
+PASS tier filter, search, latest Goblin Slayer date and several season dates in preview
+PASS local date editor, manual minutes, favourite save and reload/export roundtrip
+PASS calendar months, July date markers and return to the selected anime
+PASS responsive layouts at 1440 / 768 / 390 / 320 and a mobile preview
+PASS reduced-motion changes stop all animation and offscreen scenes stop rendering
+PASS visibility handler pauses hidden tabs and repeated model swaps release GPU resources
+PASS WebGL context loss and restoration keep the selected atmosphere
+PASS no access to original collection or appearance keys
+PASS all 69 self-hosted covers decode successfully
+PASS classic V5 compatibility reads and writes only its own storage and IndexedDB
+PASS WebGL-disabled fallback leaves collection, filters and previews usable
+RESULT 15 browser groups passed

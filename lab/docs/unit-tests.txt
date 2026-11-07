@@ -1,0 +1,22 @@
+
+> astrava-lab@0.1.0 test
+> node --import tsx --test --test-isolation=none tests/*.test.ts
+
+✔ published baseline has 69 anime, all exact original records and a valid nextUid (2.851871ms)
+✔ validation returns an independent clone instead of modifying the published object (0.933873ms)
+✔ invalid JSON, duplicate anime and tiers, bad dates and dangerous image URLs are rejected (3.464341ms)
+✔ real calendar days and leap years are validated (0.170997ms)
+✔ unknown, explicit zero and invalid watch durations remain different (0.111628ms)
+✔ overall override replaces season sums and manual hours format correctly (0.203986ms)
+✔ local covers match all saved URLs and have real WebP headers (4.200296ms)
+✔ every tier has an exportable GLB with only a few merged draw objects (86.431427ms)
+✔ GLB import blocks malformed files, external resources and oversized accessors (0.973512ms)
+✔ new UI and compatibility copy use independent storage namespaces (43.642663ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 418.096465

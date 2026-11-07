@@ -1,0 +1,26 @@
+[
+  {
+    "tier": "S",
+    "bytes": 883680,
+    "meshes": 2,
+    "triangles": 9176
+  },
+  {
+    "tier": "A",
+    "bytes": 577184,
+    "meshes": 2,
+    "triangles": 5984
+  },
+  {
+    "tier": "B",
+    "bytes": 281136,
+    "meshes": 3,
+    "triangles": 2888
+  },
+  {
+    "tier": "C",
+    "bytes": 1415952,
+    "meshes": 3,
+    "triangles": 14708
+  }
+]

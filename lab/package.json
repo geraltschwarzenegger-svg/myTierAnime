@@ -1,0 +1,25 @@
+{
+  "name": "astrava-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && node scripts/site-docs.mjs && vite build",
+    "test": "node --import tsx --test --test-isolation=none tests/*.test.ts",
+    "preview": "vite preview --host 0.0.0.0",
+    "models": "node --import tsx scripts/export-models.ts",
+    "test:browser": "node tests/browser.cjs"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/three": "0.187.0",
+    "@types/node": "24.19.2",
+    "typescript": "7.0.2",
+    "vite": "8.3.6",
+    "tsx": "4.23.15",
+    "playwright": "1.62.1"
+  }
+}

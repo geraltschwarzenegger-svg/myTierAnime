@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-07T09:58:19.655Z",
+  "browser": "151.0.7922.173",
+  "webgl": "Chromium SwiftShader software renderer; not a hardware performance guarantee",
+  "results": [
+    {
+      "name": "69 original anime, 41167 minutes, local assets, real WebGL and 18 initial cards",
+      "passed": true,
+      "ms": 251
+    },
+    {
+      "name": "four distinct real sculptures, stable paused frames and clean tier changes",
+      "passed": true,
+      "ms": 1828
+    },
+    {
+      "name": "manual atmosphere survives quality/exposure changes and reload",
+      "passed": true,
+      "ms": 1933
+    },
+    {
+      "name": "camera keyboard, PNG export and real GLB export/import",
+      "passed": true,
+      "ms": 343
+    },
+    {
+      "name": "tier filter, search, latest Goblin Slayer date and several season dates in preview",
+      "passed": true,
+      "ms": 367
+    },
+    {
+      "name": "local date editor, manual minutes, favourite save and reload/export roundtrip",
+      "passed": true,
+      "ms": 2314
+    },
+    {
+      "name": "calendar months, July date markers and return to the selected anime",
+      "passed": true,
+      "ms": 552
+    },
+    {
+      "name": "responsive layouts at 1440 / 768 / 390 / 320 and a mobile preview",
+      "passed": true,
+      "ms": 727
+    },
+    {
+      "name": "reduced-motion changes stop all animation and offscreen scenes stop rendering",
+      "passed": true,
+      "ms": 2661
+    },
+    {
+      "name": "visibility handler pauses hidden tabs and repeated model swaps release GPU resources",
+      "passed": true,
+      "ms": 2800
+    },
+    {
+      "name": "WebGL context loss and restoration keep the selected atmosphere",
+      "passed": true,
+      "ms": 2202
+    },
+    {
+      "name": "no access to original collection or appearance keys",
+      "passed": true,
+      "ms": 2
+    },
+    {
+      "name": "all 69 self-hosted covers decode successfully",
+      "passed": true,
+      "ms": 420
+    },
+    {
+      "name": "classic V5 compatibility reads and writes only its own storage and IndexedDB",
+      "passed": true,
+      "ms": 2019
+    },
+    {
+      "name": "WebGL-disabled fallback leaves collection, filters and previews usable",
+      "passed": true,
+      "ms": 1499
+    }
+  ],
+  "errors": [],
+  "csp": []
+}
