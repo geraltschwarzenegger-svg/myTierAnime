@@ -47,6 +47,17 @@ def build(app_path: str, out_path: str) -> None:
         raise SystemExit("не нашёл встроенный блок шрифтов — формат src/app.html изменился")
 
     out = re.sub(r'<link rel="preconnect"[^>]+>\s*', '', out)
+    # Individual album photos are local files on the site; src/app.html keeps
+    # their data URLs so the standalone HTML can still embed the artwork.
+    def local_album_photos(match):
+        entries = json.loads(match[2])
+        for entry in entries.values():
+            file = (REPO / entry['file']).resolve()
+            if file.parent != (REPO / 'assets/album').resolve() or file.suffix != '.webp' or not file.is_file():
+                raise ValueError('Unexpected album photo path')
+            entry['src'] = entry['file']
+        return match[1] + json.dumps(entries, ensure_ascii=False, separators=(',', ':')) + match[3]
+    out = re.sub(r'(<script type="application/json" id="albumOverrides">)(.*?)(</script>)', local_album_photos, out, count=1, flags=re.S)
     out = out.replace('\x00', r'\u0000')
     out = out.replace("<title>", EXTRA_HEAD + "<title>", 1)
 
@@ -70,6 +81,9 @@ def build(app_path: str, out_path: str) -> None:
         covers = REPO / 'assets/covers/library'
         if covers.exists():
             shutil.copytree(covers, target.parent / 'covers/library', dirs_exist_ok=True)
+        album = REPO / 'assets/album'
+        if album.exists():
+            shutil.copytree(album, target.parent / 'album', dirs_exist_ok=True)
         shutil.copy2(REPO / 'assets/astrava-mark.svg', target.parent / 'astrava-mark.svg')
 
     open(out_path, "w", encoding="utf-8").write(out)

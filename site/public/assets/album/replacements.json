@@ -1,0 +1,49 @@
+{
+  "updatedAt": "2026-11-09",
+  "items": [
+    {
+      "index": 13,
+      "title": "Реинкарнация безработного: История о приключениях",
+      "file": "assets/album/mushoku-garden-2026-11-09.webp",
+      "width": 1774,
+      "height": 887,
+      "alt": "Трое друзей на балконе цветущего сада у замка.",
+      "bytes": 518184,
+      "source": "AI recreation from user-provided visual references; not a byte-identical copy",
+      "generationFile": "exec-58981852-680f-48e0-bc4f-220f33e9e1ec.png"
+    },
+    {
+      "index": 12,
+      "title": "Звездное дитя",
+      "file": "assets/album/oshi-concert-2026-11-09.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Групповое селфи героев на концерте под розовыми и фиолетовыми огнями.",
+      "bytes": 560704,
+      "source": "AI recreation from user-provided visual references; not a byte-identical copy",
+      "generationFile": "exec-acee3459-6bd6-4bbb-85a4-61c2ecbd162d.png"
+    },
+    {
+      "index": 14,
+      "title": "Клинок, рассекающий демонов",
+      "file": "assets/album/kimetsu-wisteria-2026-11-09.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Главные герои и столпы под цветущей глицинией у лунного водопада.",
+      "bytes": 633146,
+      "source": "AI recreation from user-provided visual references; not a byte-identical copy",
+      "generationFile": "exec-3f74d2d6-0bb1-4926-b794-955213d65395.png"
+    },
+    {
+      "index": 3,
+      "title": "Человек-бензопила",
+      "file": "assets/album/chainsaw-sakura-2026-11-09.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Друзья с Почитой на смотровой площадке Токио среди сакуры на закате.",
+      "bytes": 528298,
+      "source": "AI recreation from user-provided visual references; not a byte-identical copy",
+      "generationFile": "exec-d5f7be72-8b83-4465-9163-552f4fd8a4b0.png"
+    }
+  ]
+}

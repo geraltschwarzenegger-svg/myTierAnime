@@ -21,7 +21,23 @@ const mime={'.html':'text/html','.json':'application/json','.svg':'image/svg+xml
  assert.equal(await p.locator('#calendarMonth').evaluate(n=>getComputedStyle(n).color),'rgb(25, 45, 54)','light calendar month remains readable');assert.equal(await p.locator('.history-entry b').first().evaluate(n=>getComputedStyle(n).color),'rgb(25, 45, 54)','light calendar titles remain readable');
  await p.locator('#historyClose').click();await p.evaluate(()=>AstralStudio.reset());
  const titles=await p.locator('.album-title').allTextContents();assert.equal(titles.length,15);assert.equal(await p.locator('.foot-portrait-names').count(),0);
- for(let i=0;i<titles.length;i++){await p.locator('.album-open').nth(i).click();assert.equal(await p.locator('#albumViewerTitle').textContent(),titles[i]);assert.ok(await p.locator('#albumViewerPhoto img').evaluate(n=>n.complete&&n.naturalWidth>0));await p.keyboard.press('Escape');assert.equal(await p.locator('#albumViewer').evaluate(n=>n.open),false);assert.equal(await p.locator('.album-open').nth(i).evaluate(n=>n===document.activeElement),true);}
+ for(let i=0;i<titles.length;i++){await p.locator('.album-open').nth(i).click();assert.equal(await p.locator('#albumViewerTitle').textContent(),titles[i]);await p.locator('#albumViewerPhoto img').evaluate(n=>n.decode());assert.ok(await p.locator('#albumViewerPhoto img').evaluate(n=>n.complete&&n.naturalWidth>0));await p.keyboard.press('Escape');assert.equal(await p.locator('#albumViewer').evaluate(n=>n.open),false);assert.equal(await p.locator('.album-open').nth(i).evaluate(n=>n===document.activeElement),true);}
+ const replacements=JSON.parse(fs.readFileSync(path.join(root,'assets/album/replacements.json'))).items;
+ for(const size of [{width:1440,height:1080},{width:390,height:844},{width:320,height:568},{width:844,height:390}]){
+  await p.setViewportSize(size);
+  for(const entry of replacements){
+   await p.locator('.album-open').nth(entry.index).click();
+   const image=p.locator('#albumViewerPhoto img');await image.evaluate(n=>n.decode());
+   assert.ok((await image.getAttribute('src')).endsWith(entry.file));
+   assert.deepEqual(await image.evaluate(n=>[n.naturalWidth,n.naturalHeight]),[entry.width,entry.height]);
+   assert.equal(await image.evaluate(n=>getComputedStyle(n).objectFit),'contain');
+   assert.equal(await p.locator('#albumViewerPhoto').evaluate(n=>n.classList.contains('album-photo-direct')),true);
+   assert.ok(await p.locator('#albumViewer').evaluate(n=>{const r=n.getBoundingClientRect();return r.left>=-1&&r.right<=innerWidth+1&&r.top>=-1&&r.bottom<=innerHeight+1;}),'whole album photo fits '+size.width);
+   if(shots&&size.width===1440)await p.locator('#albumViewer').screenshot({path:out+'/album-replacement-'+entry.index+'.png'});
+   await p.keyboard.press('Escape');
+  }
+ }
+ await p.setViewportSize({width:1440,height:1080});
  await p.locator('.album-open').first().click();await p.keyboard.press('ArrowLeft');assert.equal(await p.locator('#albumViewerTitle').textContent(),titles[14]);await p.keyboard.press('ArrowRight');assert.equal(await p.locator('#albumViewerTitle').textContent(),titles[0]);await p.locator('#albumNext').click();assert.equal(await p.locator('#albumPosition').textContent(),'2 / 15');await p.locator('#albumClose').click();
  if(shots)await p.locator('.s-album').screenshot({path:out+'/album.png'});
  for(const skin of ['midnight','velvet','jade','pearl'])for(const size of [{width:320,height:568},{width:390,height:844},{width:768,height:900},{width:1440,height:1080},{width:844,height:390}]){await p.evaluate(skin=>AstralStudio.set({skin}),skin);await p.setViewportSize(size);await p.waitForFunction(()=>getComputedStyle(document.getElementById('capture')).marginLeft===(innerWidth>=1100?'214px':'0px'));await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await p.evaluate(()=>scrollTo(0,0));await p.waitForFunction(()=>document.documentElement.scrollWidth<=innerWidth+1,null,{timeout:4000});assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),skin+' '+size.width);await p.locator('#asOpen').click();await p.keyboard.press('Escape');assert.equal(await p.locator('#asOpen').evaluate(n=>n===document.activeElement),true);}
