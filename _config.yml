@@ -1,0 +1,16 @@
+# Publish the static website, not its source copies, tools or downloadable archives.
+exclude:
+  - src
+  - site
+  - addons
+  - tools
+  - downloads
+  - lab
+  - .github
+  - .pages-build
+  - .wrangler
+  - README.md
+  - design-qa.md
+  - Anime tier list27.07.2026 213kb.html
+  - NEWAnime tier list11-08-2026.html
+  - anime-tierlist-2026-08-01.json

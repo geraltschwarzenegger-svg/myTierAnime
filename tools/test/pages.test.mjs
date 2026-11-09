@@ -16,6 +16,10 @@ test('Pages artifact includes the exact application, published data and runtime 
  for(const entry of photos)assert.deepEqual(readFileSync(path.join(built,entry.file)),readFileSync(path.join(root,entry.file)));
  assert.ok(existsSync(path.join(built,'docs/images/astrava-observatory-banner.webp')));
  assert.ok(existsSync(path.join(built,'.nojekyll')));
+ const config=readFileSync(path.join(root,'_config.yml'),'utf8');
+ const excluded=config.split('\n').filter(line=>line.startsWith('  - ')).map(line=>line.slice(4).trim());
+ for(const name of ['src','site','addons','tools','downloads','NEWAnime tier list11-08-2026.html'])assert.ok(excluded.includes(name),'legacy Pages excludes '+name);
+ for(const name of ['index.html','data.json','anime-tierlist-2026-10-11.json','assets','docs'])assert.equal(excluded.includes(name),false,'runtime path stays published: '+name);
  assert.equal(result.animeCount,69);
  assert.ok(result.runtimeBytes<40*1024*1024,'runtime artifact stays below 40 MiB');
  assert.deepEqual(readdirSync(built).sort(),['.astrava-pages-build','.nojekyll','SECURITY.md','anime-tierlist-2026-10-11.json','assets','build-info.json','data.json','docs','index.html'].sort());
