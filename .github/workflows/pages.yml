@@ -47,6 +47,15 @@ jobs:
       name: github-pages
       url: ${{ steps.publish.outputs.page_url }}
     steps:
+      - name: Use Actions as the single Pages publication source
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          PAGES_BUILD_MODE=$(gh api "repos/${GH_REPO}/pages" --jq '.build_type')
+          if [ "$PAGES_BUILD_MODE" != "workflow" ]; then
+            gh api --method PUT "repos/${GH_REPO}/pages" -f build_type=workflow --silent
+          fi
       - name: Publish the verified site
         id: publish
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
