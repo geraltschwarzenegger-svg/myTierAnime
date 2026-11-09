@@ -1,16 +1,24 @@
-name: Verify ASTRAVA website
+name: Verify and recover ASTRAVA Pages
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  workflow_run:
+    workflows: ['pages build and deployment', 'pages-build-deployment']
+    types: [completed]
 permissions:
   contents: read
 concurrency:
-  group: astrava-verification
+  group: astrava-${{ github.event_name }}
   cancel-in-progress: true
 jobs:
   build:
-    if: github.ref == 'refs/heads/main'
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name != 'workflow_run' ||
+       (github.event.workflow_run.conclusion == 'failure' &&
+        github.event.workflow_run.head_branch == 'main' &&
+        github.event.workflow_run.head_repository.full_name == github.repository))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -26,3 +34,26 @@ jobs:
         run: node --test --test-isolation=none tools/test/*.test.mjs site/test/*.test.mjs
       - name: Build runtime-only static site
         run: python3 tools/build-pages.py
+      - name: Upload recovery artifact
+        if: github.event_name != 'push'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: .pages-build
+          retention-days: 1
+  recover:
+    if: github.event_name != 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - name: Publish verified recovery artifact
+        id: publish
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+        with:
+          timeout: '600000'
