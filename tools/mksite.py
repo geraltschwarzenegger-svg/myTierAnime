@@ -36,6 +36,7 @@ EXTRA_HEAD = """<meta name="theme-color" content="#0c1422">
 <meta property="og:title" content="ASTRAVA · The Astral Chapter · V5">
 <meta property="og:description" content="Твоя вселенная аниме: тиры, календарь, спираль памяти и девять атмосфер.">
 <meta property="og:image" content="https://geraltschwarzenegger-svg.github.io/myTierAnime/docs/images/astrava-observatory-banner.webp">
+<link rel="preload" as="image" href="assets/art/astrava-celestial-terrace.webp" fetchpriority="high">
 """
 
 
@@ -47,6 +48,20 @@ def build(app_path: str, out_path: str) -> None:
         raise SystemExit("не нашёл встроенный блок шрифтов — формат src/app.html изменился")
 
     out = re.sub(r'<link rel="preconnect"[^>]+>\s*', '', out)
+    # Keep portable source/standalone builds embedded, and cache real files on
+    # the website. Refuse stale source art instead of silently shipping a mismatch.
+    for pattern, name in [
+        (r'(const HERO_BLOOM_ART=")data:image/webp;base64,([^"]+)(";)', 'astrava-celestial-terrace.webp'),
+        (r'(--garden-image:\s*url\(")data:image/webp;base64,([^"]+)("\))', 'astrava-celestial-palace.webp'),
+    ]:
+        relative = 'assets/art/' + name
+        def local_art(match):
+            if base64.b64decode(match[2], validate=True) != (REPO / relative).read_bytes():
+                raise ValueError('Embedded art differs from ' + relative)
+            return match[1] + relative + match[3]
+        out, count = re.subn(pattern, local_art, out, count=1)
+        if count != 1:
+            raise ValueError('Missing embedded artwork: ' + name)
     # Individual album photos are local files on the site; src/app.html keeps
     # their data URLs so the standalone HTML can still embed the artwork.
     def local_album_photos(match):
@@ -84,6 +99,9 @@ def build(app_path: str, out_path: str) -> None:
         album = REPO / 'assets/album'
         if album.exists():
             shutil.copytree(album, target.parent / 'album', dirs_exist_ok=True)
+        art = REPO / 'assets/art'
+        if art.exists():
+            shutil.copytree(art, target.parent / 'art', dirs_exist_ok=True)
         shutil.copy2(REPO / 'assets/astrava-mark.svg', target.parent / 'astrava-mark.svg')
 
     open(out_path, "w", encoding="utf-8").write(out)

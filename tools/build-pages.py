@@ -40,6 +40,10 @@ def build():
     for entry in json.loads((DEST / 'assets/album/replacements.json').read_text())['items']:
         if not (DEST / entry['file']).is_file():
             raise RuntimeError('A replacement album image is missing')
+    for entry in json.loads((DEST / 'assets/art/celestial-art.json').read_text())['images']:
+        art = DEST / entry['path']
+        if not art.is_file() or hashlib.sha256(art.read_bytes()).hexdigest() != entry['sha256']:
+            raise RuntimeError('A celestial scene image is missing or differs from its manifest')
     commit = os.environ.get('GITHUB_SHA') or subprocess.check_output(
         ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     contents = [p for p in DEST.rglob('*') if p.is_file()]

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "provenance": "Original illustrations supplied by the project owner in the conversation. Converted directly from the provided PNG files without regeneration, cropping, resizing, brightness changes, or retouching.",
+  "encoding": {
+    "format": "WebP",
+    "quality": 93,
+    "method": 6
+  },
+  "images": [
+    {
+      "path": "assets/art/astrava-celestial-terrace.webp",
+      "role": "Main hero and full-scene viewer: nine-character celestial terrace",
+      "width": 1774,
+      "height": 887,
+      "originalFormat": "PNG",
+      "originalByteCount": 3158154,
+      "originalSha256": "0e44359ad4bff7afa85ba906b054af883491a5feb5afe4e6093b1490fc134ea7",
+      "format": "WebP",
+      "sizeBytes": 509300,
+      "sha256": "7bc6232a19aebf43ff3536e6c5cb287e748d5220b6b4c20d7f9250fdad63cc49",
+      "rgbPsnrDb": 35.422,
+      "originalPath": "src/art/astrava-celestial-terrace.png"
+    },
+    {
+      "path": "assets/art/astrava-celestial-palace.webp",
+      "role": "Page background: celestial observatory palace without characters",
+      "width": 1672,
+      "height": 941,
+      "originalFormat": "PNG",
+      "originalByteCount": 3268012,
+      "originalSha256": "ea055f516618891532fcd7fcfe1f7ce1a0fa9fc666228732ccd45bed23e205a5",
+      "format": "WebP",
+      "sizeBytes": 545534,
+      "sha256": "bea12212414a8518150deb4dabaa508dcfd98dcad167bc4bd40e9e5c0594e53b",
+      "rgbPsnrDb": 33.531,
+      "originalPath": "src/art/astrava-celestial-palace.png"
+    }
+  ]
+}
