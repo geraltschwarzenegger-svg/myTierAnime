@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-10-27T05:25:06.238Z",
+  "savedAt": "2026-11-14T07:17:12.251Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -455,6 +455,44 @@
               }
             ],
             "sticker": "s-demon-bolt"
+          },
+          {
+            "uid": 72,
+            "name": "Киберпанк: Бегущие по краю",
+            "cover": "https://cdn.myanimelist.net/images/anime/1431/160542l.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "date": "05.11.2026",
+                "label": "1 / 10",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 10,
+                  "episodeMinutes": 25,
+                  "sourceUrl": "https://myanimelist.net/anime/42310",
+                  "sourceTitle": "MyAnimeList · сверено с Shikimori",
+                  "scopeLabel": "1 сезон",
+                  "note": "Расчёт по каталожной длительности эпизода; отдельные серии, титры, паузы и пропуски могут менять фактическое время."
+                }
+              },
+              {
+                "date": "06.11.2026",
+                "label": "2 / 10",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 10,
+                  "episodeMinutes": 28,
+                  "sourceUrl": "https://myanimelist.net/anime/61990",
+                  "sourceTitle": "MyAnimeList · сверено с Shikimori",
+                  "scopeLabel": "2 сезон",
+                  "note": "Расчёт по каталожной длительности эпизода; отдельные серии, титры, паузы и пропуски могут менять фактическое время."
+                }
+              }
+            ],
+            "sticker": "cyber-talia-heart"
           }
         ]
       },
@@ -1020,6 +1058,44 @@
               }
             ],
             "sticker": "s-violet-goldheart"
+          },
+          {
+            "uid": 73,
+            "name": "Кайдзю № 8",
+            "cover": "https://cdn.myanimelist.net/images/anime/1177/150344l.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "date": "07.11.2026",
+                "label": "1 / 12",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/52588",
+                  "sourceTitle": "MyAnimeList · сверено с Shikimori",
+                  "scopeLabel": "1 сезон",
+                  "note": "Расчёт по каталожной длительности эпизода; отдельные серии, титры, паузы и пропуски могут менять фактическое время."
+                }
+              },
+              {
+                "date": "08.11.2026",
+                "label": "2 / 11",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 11,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://myanimelist.net/anime/59177",
+                  "sourceTitle": "MyAnimeList · сверено с Shikimori",
+                  "scopeLabel": "2 сезон",
+                  "note": "Расчёт по каталожной длительности эпизода; отдельные серии, титры, паузы и пропуски могут менять фактическое время."
+                }
+              }
+            ],
+            "sticker": "jujutsu-bolt"
           }
         ]
       },
@@ -1406,6 +1482,53 @@
               }
             ],
             "sticker": "jujutsu-sleep"
+          },
+          {
+            "uid": 74,
+            "name": "Троецарствие Японии",
+            "cover": "https://cdn.myanimelist.net/images/anime/1623/156387l.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "date": "10.11.2026",
+                "label": "1 / 12",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://myanimelist.net/anime/63375",
+                  "sourceTitle": "MyAnimeList · сверено с Shikimori",
+                  "scopeLabel": "1 сезон",
+                  "note": "Расчёт по каталожной длительности эпизода; отдельные серии, титры, паузы и пропуски могут менять фактическое время."
+                }
+              }
+            ],
+            "sticker": "s-shadow-goldheart"
+          },
+          {
+            "uid": 75,
+            "name": "Кэйон!",
+            "cover": "https://cdn.myanimelist.net/images/anime/10/76120l.jpg",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "date": "12.11.2026",
+                "label": "1–2 / 39 + фильм",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "minutes": 1046,
+                  "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-75",
+                  "sourceTitle": "MyAnimeList · 5680,7791,9617",
+                  "scopeLabel": "Все основные части · 39 серий + фильм",
+                  "note": "13 × 24 + 26 × 24 + 110 = 1046 мин. По ранее разрешённому охвату всех вышедших основных частей. Неуказанные OVA и короткометражки не добавлены. Каталожный расчёт, без учёта пауз и пропусков."
+                }
+              }
+            ],
+            "sticker": "s-frieren-laugh"
           }
         ]
       },
@@ -1767,6 +1890,6 @@
         ]
       }
     ],
-    "nextUid": 72
+    "nextUid": 76
   }
 }

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-27",
+  "checkedAt": "2026-11-14",
   "items": [
     {
       "uid": 1,
@@ -765,6 +765,50 @@
       "width": 550,
       "height": 780,
       "bytes": 105756
+    },
+    {
+      "uid": 72,
+      "name": "Киберпанк: Бегущие по краю",
+      "originalUrl": "https://cdn.myanimelist.net/images/anime/1431/160542l.jpg",
+      "sourceUrl": "https://cdn.myanimelist.net/images/anime/1431/160542l.jpg",
+      "source": "MyAnimeList · проверенный постер последней учтённой части",
+      "file": "assets/covers/library/72.webp",
+      "width": 480,
+      "height": 600,
+      "bytes": 123770
+    },
+    {
+      "uid": 73,
+      "name": "Кайдзю № 8",
+      "originalUrl": "https://cdn.myanimelist.net/images/anime/1177/150344l.jpg",
+      "sourceUrl": "https://cdn.myanimelist.net/images/anime/1177/150344l.jpg",
+      "source": "MyAnimeList · проверенный постер последней учтённой части",
+      "file": "assets/covers/library/73.webp",
+      "width": 425,
+      "height": 600,
+      "bytes": 108468
+    },
+    {
+      "uid": 74,
+      "name": "Троецарствие Японии",
+      "originalUrl": "https://cdn.myanimelist.net/images/anime/1623/156387l.jpg",
+      "sourceUrl": "https://cdn.myanimelist.net/images/anime/1623/156387l.jpg",
+      "source": "MyAnimeList · проверенный постер последней учтённой части",
+      "file": "assets/covers/library/74.webp",
+      "width": 424,
+      "height": 600,
+      "bytes": 108454
+    },
+    {
+      "uid": 75,
+      "name": "Кэйон!",
+      "originalUrl": "https://cdn.myanimelist.net/images/anime/10/76120l.jpg",
+      "sourceUrl": "https://cdn.myanimelist.net/images/anime/10/76120l.jpg",
+      "source": "MyAnimeList · проверенный постер последней учтённой части",
+      "file": "assets/covers/library/75.webp",
+      "width": 318,
+      "height": 450,
+      "bytes": 39754
     }
   ]
 }

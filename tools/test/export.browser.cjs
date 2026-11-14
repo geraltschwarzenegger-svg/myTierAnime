@@ -104,7 +104,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await p.locator('.card .relic-frame-3d svg').count(),count);assert.equal(await p.locator('[data-relic-export]').count(),0);
     assert.ok(await p.locator('.card img').evaluateAll(images=>images.every(img=>img.getAttribute('loading')==='lazy')));
     assert.deepEqual(errors,[]);assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);
-    console.log('Collection PNG PASS:',png.readUInt32BE(16)+'x'+png.readUInt32BE(20),png.length,'bytes; 68 frames and lazy loading restored.');
+    console.log('Collection PNG PASS:',png.readUInt32BE(16)+'x'+png.readUInt32BE(20),png.length,'bytes; 73 frames and lazy loading restored.');
   } finally {
     await browser.close();
     if (!live) await new Promise((r) => server.close(r));

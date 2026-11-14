@@ -91,12 +91,12 @@ const server = http.createServer((req, res) => {
     );
     await p.evaluate(() => document.fonts.ready);
     const original=await p.evaluate(()=>JSON.stringify(state));
-    assert.equal(await p.evaluate(()=>STICKER_ORDER.length),138);
-    assert.equal(await p.evaluate(()=>STICKER_PACKS.length),19);
+    assert.equal(await p.evaluate(()=>STICKER_ORDER.length),199);
+    assert.equal(await p.evaluate(()=>STICKER_PACKS.length),21);
     assert.equal(await p.locator('.card .neko-mark').count(),count);
     assert.equal(await p.locator('.card .neko-mark').evaluateAll(els=>new Set(els.map(el=>el.dataset.reaction)).size),count);
     assert.equal(await p.locator('.card .botanical-frame svg').count(),count);
-    assert.ok((await p.locator('.release-version').textContent()).includes('V5.0.0'));
+    assert.ok((await p.locator('.release-version').textContent()).includes('V5.1.3'));
     assert.ok(await p.locator('.hero-art-photo img').evaluate(el=>el.complete&&el.naturalWidth>=1400));
     assert.equal(await p.locator('img[loading="lazy"]').count()>20,true);
     const originalDates=await p.evaluate(()=>JSON.stringify(state.tiers.flatMap(t=>t.items.map(i=>[i.uid,i.watched,i.reaction,i.fav]))));
@@ -159,7 +159,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await p.evaluate(()=>JSON.stringify(state)),original,'visual customization and postcards do not change collection data');
     assert.equal(await p.evaluate(()=>JSON.stringify(state.tiers.flatMap(t=>t.items.map(i=>[i.uid,i.watched,i.reaction,i.fav])))),originalDates);
     assert.deepEqual(errors,[]);assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);
-    console.log('Bloom PASS: 138 anime stickers, 68 unique decorations, one SVG per frame, adaptive quality preference, visible 3D motion, two new 12-sticker packs, four sizes, full PNG postcard 960x1440, restored frame, unchanged dates/impressions, CSP.');
+    console.log('Bloom PASS: 199 anime stickers, 73 unique decorations, one SVG per frame, adaptive quality preference, visible 3D motion, two new 12-sticker packs, four sizes, full PNG postcard 960x1440, restored frame, unchanged dates/impressions, CSP.');
   } finally {
     await browser.close();
     if (!live) await new Promise((r) => server.close(r));

@@ -44,11 +44,15 @@ def build():
         art = DEST / entry['path']
         if not art.is_file() or hashlib.sha256(art.read_bytes()).hexdigest() != entry['sha256']:
             raise RuntimeError('A celestial scene image is missing or differs from its manifest')
+    for entry in json.loads((DEST / 'assets/reactions/cyberpunk-sources.json').read_text())['items']:
+        atlas = DEST / entry['path']
+        if not atlas.is_file() or hashlib.sha256(atlas.read_bytes()).hexdigest() != entry['sha256']:
+            raise RuntimeError('A Cyberpunk sticker atlas is missing or differs from its manifest')
     commit = os.environ.get('GITHUB_SHA') or subprocess.check_output(
         ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     contents = [p for p in DEST.rglob('*') if p.is_file()]
     info = {
-        'app': 'ASTRAVA', 'version': '5.0.0', 'sourceCommit': commit,
+        'app': 'ASTRAVA', 'version': '5.1.3', 'sourceCommit': commit,
         'builtAt': datetime.now(timezone.utc).isoformat(),
         'files': len(contents), 'runtimeBytes': sum(p.stat().st_size for p in contents),
         'animeCount': sum(len(t['items']) for t in state['tiers']),

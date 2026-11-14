@@ -74,7 +74,7 @@ SOFTWARE.
  body.classList.add('as-enabled');
  const heroTitle=document.getElementById('heroTitle');if(heroTitle)heroTitle.innerHTML='Истории,<br><em>достойные вечности.</em>';
  const heroEyebrow=document.querySelector('.masthead .jp');if(heroEyebrow)heroEyebrow.textContent='ЛИЧНЫЙ АРХИВ · ASTRAL STUDIO';
- const edition=document.querySelector('.hero-edition');if(edition)edition.textContent='THE ASTRAL CHAPTER · V5';
+ const edition=document.querySelector('.hero-edition');if(edition)edition.textContent='THE ASTRAL CHAPTER · V5.1.3';
  const signature=document.querySelector('.sig');if(signature)signature.textContent='Каждая история — часть твоей вселенной.';
  const logoMark=document.querySelector('.site-logo-mark');
  if(logoMark)logoMark.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true"><path d="M20 3 36 35l-12-7-4 5-4-5-12 7Z" fill="#213646"/><path d="m20 3 4 25 12 7Z" fill="#f9ead0"/><path d="m20 13 5 9-5 7-5-7Z" fill="#a5e5df"/></svg>';

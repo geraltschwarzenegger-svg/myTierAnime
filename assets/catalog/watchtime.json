@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-27",
+  "checkedAt": "2026-11-14",
   "method": "Основные сезоны и сюжетные фильмы; каталог даёт округлённые минуты. Объём пользователя приоритетнее. OVA, пересказы и проморолики автоматически не добавлены.",
   "items": [
     {
@@ -3799,6 +3799,263 @@
       ],
       "notes": [
         "Дата 03.07.2026 выбрана в пределах указанного владельцем начала июля; точный день не известен."
+      ]
+    },
+    {
+      "uid": 72,
+      "name": "Киберпанк: Бегущие по краю",
+      "options": [
+        {
+          "label": "1 сезон · 10 серий × 25 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/42310",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 10,
+            "episodeMinutes": 25
+          }
+        },
+        {
+          "label": "2 сезон · 10 серий × 28 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/61990",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 10,
+            "episodeMinutes": 28
+          }
+        },
+        {
+          "label": "Все учтённые части · 20 серий",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 530,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-72",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 20 серий",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены. Общий вариант заменяет сумму частей и не прибавляется к ней повторно."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Cyberpunk: Edgerunners",
+          "url": "https://myanimelist.net/anime/42310",
+          "episodes": 10,
+          "episodeMinutes": 25,
+          "totalMinutes": 250,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "Cyberpunk: Edgerunners 2",
+          "url": "https://myanimelist.net/anime/61990",
+          "episodes": 10,
+          "episodeMinutes": 28,
+          "totalMinutes": 280,
+          "film": false
+        }
+      ],
+      "notes": [
+        "По указанию владельца две части объединены в одной карточке: просмотр 05.11.2026 и 06.11.2026. Официальное название второй части — Cyberpunk: Edgerunners 2; официально это самостоятельное продолжение, а в личной коллекции оно подписано «2 сезон».",
+        "10 серий Cyberpunk: Edgerunners 2 подтверждены официальным сайтом CD PROJEKT RED: https://www.cyberpunk.net/en/edgerunners2 . Длительность 28 минут взята из MyAnimeList и Shikimori, а не из заявления официального сайта."
+      ]
+    },
+    {
+      "uid": 73,
+      "name": "Кайдзю № 8",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/52588",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 12,
+            "episodeMinutes": 23
+          }
+        },
+        {
+          "label": "2 сезон · 11 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/59177",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 11,
+            "episodeMinutes": 23
+          }
+        },
+        {
+          "label": "Все учтённые части · 23 серии",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 529,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-73",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 23 серии",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены. Общий вариант заменяет сумму частей и не прибавляется к ней повторно."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Kaijuu 8-gou",
+          "url": "https://myanimelist.net/anime/52588",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "Kaijuu 8-gou 2nd Season",
+          "url": "https://myanimelist.net/anime/59177",
+          "episodes": 11,
+          "episodeMinutes": 23,
+          "totalMinutes": 253,
+          "film": false
+        }
+      ],
+      "notes": [
+        "Учтены только два прямо названных пользователем сезона. Пересказ, чиби-ролики, игровые трейлеры и неназванные спецэпизоды не добавлены. Обложка второго сезона соответствует последнему просмотренному сезону."
+      ]
+    },
+    {
+      "uid": 74,
+      "name": "Троецарствие Японии",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/63375",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 12,
+            "episodeMinutes": 24
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "Nippon Sangoku",
+          "url": "https://myanimelist.net/anime/63375",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        }
+      ],
+      "notes": [
+        "Релиз первого сезона: 07.04–23.06.2026,12 серий. Продолжение 64905 анонсировано без числа серий; в просмотр не включено."
+      ]
+    },
+    {
+      "uid": 75,
+      "name": "Кэйон!",
+      "options": [
+        {
+          "label": "1 сезон · 13 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/5680",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 13,
+            "episodeMinutes": 24
+          }
+        },
+        {
+          "label": "2 сезон · 26 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/7791",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "episodes": 26,
+            "episodeMinutes": 24
+          }
+        },
+        {
+          "label": "Фильм · 110 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "sourceUrl": "https://myanimelist.net/anime/9617",
+            "sourceTitle": "MyAnimeList · сверено с Shikimori",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться.",
+            "minutes": 110
+          }
+        },
+        {
+          "label": "Все учтённые части · 39 серий + 1 фильм",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 1046,
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-75",
+            "sourceTitle": "MyAnimeList · сверка частей",
+            "scopeLabel": "Все учтённые части · 39 серий + 1 фильм",
+            "note": "Основные сезоны и сюжетные фильмы; пересказы, рекламные ролики и необозначенные OVA не добавлены. Общий вариант заменяет сумму частей и не прибавляется к ней повторно."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "K-On!",
+          "url": "https://myanimelist.net/anime/5680",
+          "episodes": 13,
+          "episodeMinutes": 24,
+          "totalMinutes": 312,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "K-On!!",
+          "url": "https://myanimelist.net/anime/7791",
+          "episodes": 26,
+          "episodeMinutes": 24,
+          "totalMinutes": 624,
+          "film": false
+        },
+        {
+          "label": "Фильм",
+          "title": "K-On! Movie",
+          "url": "https://myanimelist.net/anime/9617",
+          "episodes": 1,
+          "episodeMinutes": 110,
+          "totalMinutes": 110,
+          "film": true
+        }
+      ],
+      "notes": [
+        "Фильм: MAL9617 показывает1ч50мин (110); Shikimori API9617 хранит109. Для единого первичного источника выбран MAL110; расхождение отмечено, без притворной точности.",
+        "У пользователя дляA/B/C разрешены все вышедшие основные сезоны; прежний каталог учитывает также сюжетные фильмы. Предложено39серий+фильм=1046. Если решено учитывать только явно подтверждённые сезоны, альтернатива39серий=936мин; нельзя одновременно сложить оба варианта."
       ]
     }
   ],

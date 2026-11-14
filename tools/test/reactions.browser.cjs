@@ -105,23 +105,45 @@ const server = http.createServer((req, res) => {
       () => document.getElementById("reactionDialog").open,
     );
     assert.equal(await p.locator("#nekoOptions [data-rx]").count(), 12);
-    assert.equal(await p.locator("#nekoPack option").count(),19);
+    assert.equal(await p.locator("#nekoPack option").count(),21);
     const packIds=await p.locator("#nekoPack option").evaluateAll(options=>options.map(o=>o.value).filter(v=>v!=="cats"));
     const distinct=new Set();
     for(const pack of packIds){
       await p.locator("#nekoPack").selectOption(pack);
-      const total=["call-night","dress-up","angel","jujutsu"].includes(pack)?12:6;
+      const definition=await p.evaluate(id=>STICKER_PACKS.find(p=>p.id===id),pack);
+      const moods=definition.moods||["heart","bolt","laugh","cry","fire","goldheart"],total=moods.length;
+      if(pack.startsWith("cyber-")){
+        await p.locator("#nekoOptions [data-rx]").first().click();
+        const inspect=await p.locator(".neko-inspect").boundingBox();assert.ok(inspect.y>=0&&inspect.y<350,"long pack preview stays visible");
+        const image=await p.locator("#nekoOptions .cat-sticker").first().evaluate(async el=>{const url=getComputedStyle(el).backgroundImage.match(/url\(["']?(.*?)["']?\)/)[1];const img=new Image();img.src=url;await img.decode();return [img.naturalWidth,img.naturalHeight];});
+        assert.deepEqual(image,[2048,1024]);
+        if(shots)await p.locator("#reactionDialog").screenshot({path:path.join(root,`docs/images/v513-${pack}.png`),animations:"disabled"});
+      }
+
       assert.equal(await p.locator("#nekoOptions [data-rx]").count(),total,pack);
       for(const key of await p.locator("#nekoOptions [data-rx]").evaluateAll(bs=>bs.map(b=>b.dataset.rx)))distinct.add(key);
-      assert.equal(await p.locator("#nekoOptions .cat-sticker").first().evaluate(el=>getComputedStyle(el).backgroundSize),total===12?"400% 300%":"600% 500%");
+      assert.equal(await p.locator("#nekoOptions .cat-sticker").first().evaluate(el=>getComputedStyle(el).backgroundSize),`${(definition.cols||6)*100}% ${(definition.rows||5)*100}%`);
       await p.locator("#nekoMood").selectOption("cry");
-      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),1);
+      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),moods.filter(m=>m==="cry").length);
       await p.locator("#nekoMood").selectOption("cozy");
-      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),total===12?1:0);
-      if(total===6)assert.ok(await p.locator("#nekoOptions .sticker-empty").isVisible());
+      assert.equal(await p.locator("#nekoOptions [data-rx]").count(),moods.filter(m=>m==="cozy").length);
+      if(!moods.includes("cozy"))assert.ok(await p.locator("#nekoOptions .sticker-empty").isVisible());
       await p.locator("#nekoMood").selectOption("all");
     }
-    assert.equal(distinct.size,138);
+    assert.equal(distinct.size,199);
+    for(const [pack,key] of [["cyber-roman","cyber-roman-fire"],["cyber-talia","cyber-talia-heart"]]){
+      await p.locator("#nekoPack").selectOption(pack);
+      await p.locator(`#nekoOptions [data-rx="${key}"]`).click();
+      await p.locator("#nekoSave").click();
+      await p.waitForFunction(()=>!document.getElementById("reactionDialog").open);
+      assert.equal(await card.locator(".neko-mark").getAttribute("data-reaction"),key);
+      await p.reload({waitUntil:"domcontentloaded"});
+      await p.waitForFunction(n=>document.querySelectorAll(".card").length===n&&document.body.classList.contains("read-only"),count);
+      assert.equal(await card.locator(".neko-mark").getAttribute("data-reaction"),key,"new reaction survives reload");
+      assert.equal(await p.locator('.card[data-uid="72"] .poster-companion').count(),1,"companion is not duplicated during reaction rerenders");
+      await card.click();await p.locator("#previewReaction").click();
+    }
+
     if(shots){
       for(const [pack,mood,name] of [["s-oshi","cry","bloom-oshi"],["s-mushoku","heart","bloom-mushoku"],["s-franxx","heart","bloom-franxx"]]){
         await p.locator("#nekoPack").selectOption(pack);
@@ -277,7 +299,7 @@ const server = http.createServer((req, res) => {
     assert.deepEqual(errors, []);
     assert.deepEqual(await p.evaluate(() => window.cspProblems), []);
     console.log(
-      "Public reactions PASS: 138 stickers in 19 anime packs, 68 decorative poster stickers, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
+      "Public reactions PASS: 199 stickers in 21 packs, 73 decorated posters, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
     );
     if (!live) {
       const own = await browser.newContext({

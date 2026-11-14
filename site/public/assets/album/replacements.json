@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09",
+  "updatedAt": "2026-11-14",
   "items": [
     {
       "index": 13,
@@ -44,6 +44,19 @@
       "bytes": 528298,
       "source": "AI recreation from user-provided visual references; not a byte-identical copy",
       "generationFile": "exec-d5f7be72-8b83-4465-9163-552f4fd8a4b0.png"
+    },
+    {
+      "index": 15,
+      "title": "Киберпанк: Бегущие по краю",
+      "file": "assets/album/cyberpunk-night-city-2026-11-14.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Дэвид, Люси, Ребекка, Роман и Талия на фоне неонового Найт-Сити.",
+      "bytes": 413450,
+      "source": "Original finished illustration supplied by the owner; direct WebP conversion without regeneration or composition changes",
+      "originalPath": "src/art/album/cyberpunk-night-city.png",
+      "originalSha256": "15e7f8ee47d0e128895d63adc1acdf789a8b7b2002da6f4c23016f49074d3a3d",
+      "sha256": "2151fdcf0c1a637cdd660b33a204d600d7047d70e63b2000ad13d275bdaeec24"
     }
   ]
 }

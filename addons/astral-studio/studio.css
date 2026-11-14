@@ -396,6 +396,20 @@ body[data-as-world="snow"] {--as-world:#d2eaf8;--as-glow:#aacbed29;--base-top:#1
 }
 /* Reserve readable poster space and keep stickers clear of rank and caption. */
 .as-enabled .card .rx.neko-mark {width:auto;aspect-ratio:1;height:min(clamp(42px,calc(var(--card-min,128px)*.42),68px),max(24px,calc(100% - var(--rx-caption-height,55px) - 40px)));right:10px;}
+/* Desktop stickers stay above the measured caption and below the rank line. */
+@media(min-width:721px) {
+ .as-enabled .card .rx.neko-mark {height:min(clamp(55px,calc(var(--card-min,128px)*.55),88px),max(24px,calc(100% - var(--rx-caption-height,55px) - 40px)));}
+ /* Stack the S trio instead of squeezing three characters into the narrow rail. */
+ .as-enabled .tier .tier-muses {flex-direction:column;gap:0;height:auto;margin-top:22px;padding:5px 0 10px;}
+ .as-enabled .tier .tier-muses .muse {flex:none;width:70px;max-width:70px;height:70px;margin:0;transform:rotate(-6deg);}
+ .as-enabled .tier .tier-muses .muse:nth-child(2) {margin-top:-10px;transform:translateX(8px) rotate(6deg);}
+ .as-enabled .tier .tier-muses .muse:nth-child(3) {margin-top:-10px;transform:translateX(-5px) rotate(-5deg);}
+ /* Larger casts use a compact portrait cluster rather than a long sidebar. */
+ .as-enabled .tier .tier-muses:has(.muse:nth-child(4)) {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-items:center;gap:4px 0;}
+ .as-enabled .tier .tier-muses:has(.muse:nth-child(4)) .muse {width:62px;max-width:62px;height:62px;margin:0;transform:rotate(-4deg);}
+ .as-enabled .tier .tier-muses:has(.muse:nth-child(4)) .muse:nth-child(even) {transform:rotate(4deg);}
+ .as-enabled .tier .tier-muses:has(.muse:nth-child(4)) .muse:last-child:nth-child(odd) {grid-column:1/-1;}
+}
 @media(max-width:720px) {
  .as-enabled .board .items.grid {grid-template-columns:repeat(auto-fill,minmax(min(calc(var(--card-min,128px)*.9),100%),1fr));}
 }
@@ -671,4 +685,16 @@ body.celestial-edition #bgScenes .celestial-scene-chip {background-image:var(--g
 }
 @media(prefers-reduced-motion:reduce) {
   body.scene-layout-ready .hero-lumen * {animation:none!important;transition:none!important;}
+}
+
+/* Two keepsakes on Cyberpunk: fit above the caption without doubling the badge. */
+.poster-companion {display:none;}
+.as-enabled .card .poster-companion {display:block;position:absolute;left:8px;bottom:calc(var(--rx-caption-height,55px) + 8px);width:auto;aspect-ratio:1;height:min(clamp(32px,calc(var(--card-min,128px)*.32),52px),max(24px,calc(100% - var(--rx-caption-height,55px) - 40px)));z-index:7;pointer-events:none;}
+.as-enabled .card:has(.poster-companion) .rx.neko-mark {right:8px;height:min(clamp(36px,calc(var(--card-min,128px)*.4),56px),max(24px,calc(100% - var(--rx-caption-height,55px) - 40px)));}
+.performance-lite .poster-companion .cat-sticker {filter:none!important;}
+.as-enabled .tier.compact .tier-muses {display:none;}
+/* Long packs keep their selected sticker beside the scrolling catalog. */
+@media(min-width:621px) {
+ .as-enabled .neko-body {align-items:start;}
+ .as-enabled .neko-inspect {position:sticky;top:18px;align-self:start;}
 }

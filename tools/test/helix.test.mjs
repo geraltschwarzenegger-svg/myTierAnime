@@ -6,9 +6,12 @@ const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('data.json'));
 test('helix reads every title in tier order without changing names, dates or time',()=>{
  const before=JSON.stringify(data.state),items=helixEntries(data.state);
- assert.equal(items.length,69);assert.equal(new Set(items.map(e=>e.uid)).size,69);
+ assert.equal(items.length,73);assert.equal(new Set(items.map(e=>e.uid)).size,73);
  assert.deepEqual(items.map(e=>e.uid),data.state.tiers.flatMap(t=>t.items.map(i=>i.uid)));
  assert.equal(items.find(e=>e.uid===69).item.watched[0].duration.episodeMinutes,25);
+ assert.deepEqual(items.filter(e=>e.uid>=72).map(e=>[e.uid,e.tier.id]),[[72,'S'],[73,'A'],[74,'B'],[75,'B']]);
+ assert.deepEqual(items.filter(e=>e.uid>=72).map(e=>[e.uid,e.item.watched.map(w=>w.date)]),[[72,['05.11.2026','06.11.2026']],[73,['07.11.2026','08.11.2026']],[74,['10.11.2026']],[75,['12.11.2026']]]);
+ assert.equal(data.state.nextUid,76);
  assert.equal(JSON.stringify(data.state),before);
 });
 test('custom tiers are included and invalid or duplicated identifiers never create duplicate posters',()=>{
@@ -16,14 +19,14 @@ test('custom tiers are included and invalid or duplicated identifiers never crea
  assert.equal(items.length,2);assert.equal(items[0].item.name,'<img onerror=alert(1)>');assert.equal(items[1].tier.id,'星');
 });
 test('virtual window is bounded to 17 desktop or 9 lite posters, even for 2000 anime',()=>{
- for(const length of [0,1,67,2000])for(const p of [-100,0,.5,36,66,100000,NaN])for(const lite of [true,false]){
+ for(const length of [0,1,67,73,2000])for(const p of [-100,0,.5,36,66,100000,NaN])for(const lite of [true,false]){
   const w=helixWindow(length,p,lite);assert.ok(w.start>=0&&w.end<=length&&w.start<=w.end);assert.ok(w.end-w.start<=(lite?9:17));
   if(length)assert.ok(w.center>=w.start&&w.center<w.end);
  }
 });
 test('3D coordinates stay finite and the selected poster remains centered across phone and desktop widths',()=>{
- for(const width of [280,320,390,768,1440])for(const position of [0,16.5,66]){
-  const w=helixWindow(67,position,false);
+ for(const width of [280,320,390,768,1440])for(const position of [0,16.5,66,72]){
+  const w=helixWindow(73,position,false);
   for(let i=w.start;i<w.end;i++){const pose=helixPose(i,position,width);for(const v of Object.values(pose))assert.ok(Number.isFinite(v));assert.ok(pose.opacity>=.22&&pose.opacity<=1);}
   const selected=helixPose(position,position,width);assert.equal(selected.x,0);assert.equal(selected.y,0);assert.ok(selected.z>0);
  }

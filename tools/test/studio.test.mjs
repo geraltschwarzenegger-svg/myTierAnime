@@ -15,7 +15,7 @@ test('public artifacts agree on the V5 release, identity, description and favico
  assert.equal(web,read('site/public/index.html'));
  assert.equal((web.match(/name="description"/g)||[]).length,1);
  assert.equal((web.match(/rel="icon"/g)||[]).length,1);
- assert.ok(web.includes('<b>V5.0.0</b>'));assert.ok(web.includes('<title>ASTRAVA'));
+ assert.ok(web.includes('<b>V5.1.3</b>'));assert.ok(web.includes('<title>ASTRAVA'));
 });
 test('each published anime has a documented local cover without rewriting its saved URL',()=>{
  const manifest=JSON.parse(read('assets/covers/library.json')).items;

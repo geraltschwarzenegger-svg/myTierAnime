@@ -33,7 +33,7 @@ def replacement():
 EXTRA_HEAD = """<meta name="theme-color" content="#0c1422">
 <meta name="referrer" content="no-referrer">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ASTRAVA · The Astral Chapter · V5">
+<meta property="og:title" content="ASTRAVA · The Astral Chapter · V5.1.3">
 <meta property="og:description" content="Твоя вселенная аниме: тиры, календарь, спираль памяти и девять атмосфер.">
 <meta property="og:image" content="https://geraltschwarzenegger-svg.github.io/myTierAnime/docs/images/astrava-observatory-banner.webp">
 <link rel="preload" as="image" href="assets/art/astrava-celestial-terrace.webp" fetchpriority="high">
@@ -62,6 +62,15 @@ def build(app_path: str, out_path: str) -> None:
         out, count = re.subn(pattern, local_art, out, count=1)
         if count != 1:
             raise ValueError('Missing embedded artwork: ' + name)
+    reaction_sheets = ['s-tier-1', 's-tier-2', 's-tier-3', 'call-of-the-night',
+                       'dress-up-darling', 'angel-next-door', 'jujutsu-kaisen',
+                       'cyber-roman', 'cyber-talia']
+    for sheet, name in enumerate(reaction_sheets, 1):
+        relative = 'assets/reactions/' + name + '.webp'
+        pattern = r'(\.cat-sticker\.sheet-' + str(sheet) + r' \{ background-image:url\(")data:image/webp;base64,([^"]+)("\))'
+        out, count = re.subn(pattern, local_art, out, count=1)
+        if count != 1:
+            raise ValueError('Missing sticker atlas: ' + relative)
     # Individual album photos are local files on the site; src/app.html keeps
     # their data URLs so the standalone HTML can still embed the artwork.
     def local_album_photos(match):
@@ -102,6 +111,9 @@ def build(app_path: str, out_path: str) -> None:
         art = REPO / 'assets/art'
         if art.exists():
             shutil.copytree(art, target.parent / 'art', dirs_exist_ok=True)
+        reactions = REPO / 'assets/reactions'
+        if reactions.exists():
+            shutil.copytree(reactions, target.parent / 'reactions', dirs_exist_ok=True)
         shutil.copy2(REPO / 'assets/astrava-mark.svg', target.parent / 'astrava-mark.svg')
 
     open(out_path, "w", encoding="utf-8").write(out)
