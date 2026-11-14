@@ -611,6 +611,7 @@ body.scene-layout-ready.as-enabled:is(.as-still,.motion-calm,.tab-hidden) .hero-
 /* Complete illustration viewer: no tint or crop is placed over the artwork. */
 .hero-scene-dialog {
   box-sizing:border-box;
+  margin:auto;
   width:min(1500px,calc(100vw - 24px),calc((100dvh - 132px)*2));
   max-width:none;
   max-height:calc(100dvh - 24px);

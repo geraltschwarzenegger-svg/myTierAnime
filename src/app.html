@@ -5193,7 +5193,7 @@ body.exporting .tier-muses,body.exporting .hero-lumen { display:none; }
 .postcard-capture { width:100%; aspect-ratio:2/3; position:relative; overflow:hidden; border-radius:13px; background:linear-gradient(150deg,#6f4b67,#3f334e 45%,#1f354a); color:#fff4e5; }
 .postcard-capture[data-theme="lagoon"] { background:linear-gradient(150deg,#326e78,#234557 45%,#152c44); }
 .postcard-capture[data-theme="amethyst"] { background:linear-gradient(150deg,#66547f,#45355e 45%,#25314d); }
-.postcard-landscape { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.16; }
+.postcard-landscape { position:absolute; inset:0 auto 0 50%; width:auto; max-width:none; height:100%; transform:translateX(-50%); opacity:.16; }
 .postcard-content { position:absolute; inset:0; padding:24px 28px 22px; display:flex; flex-direction:column; align-items:center; }
 .postcard-top { width:100%; display:flex; justify-content:space-between; align-items:center; font:7px var(--sans); letter-spacing:.1em; color:#ecdcce; }
 .postcard-top b { font-size:13px; border:1px solid #efdfb780; background:#e7bd6117; border-radius:6px; padding:5px 9px; }
@@ -5783,8 +5783,8 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
 </dialog>
 
 <dialog id="postcardDialog" class="postcard-dialog" aria-labelledby="postcardHeading">
- <header><div><span>MYTIERANIME · MEMORY CARD</span><h2 id="postcardHeading">Сохрани свою историю</h2></div><button type="button" id="postcardClose" aria-label="Закрыть открытку" autofocus>×</button></header>
- <div class="postcard-layout"><div class="postcard-capture" id="postcardCapture" data-theme="dawn"><img class="postcard-landscape" alt="" decoding="async"><div class="postcard-content"><div class="postcard-top"><span>КОЛЛЕКЦИЯ ВПЕЧАТЛЕНИЙ</span><b id="postcardTier"></b></div><div id="postcardSticker" class="postcard-sticker"></div><div class="postcard-story"><span class="postcard-kicker">ИСТОРИЯ, КОТОРАЯ ОСТАЛАСЬ</span><h3 id="postcardTitle"></h3><p id="postcardMood"></p><div id="postcardDates" class="postcard-dates"></div></div><footer>myTierAnime <span>made with care, watched with love</span></footer></div><div id="postcardFrame"></div></div>
+ <header><div><span>ASTRAVA · MEMORY CARD</span><h2 id="postcardHeading">Сохрани свою историю</h2></div><button type="button" id="postcardClose" aria-label="Закрыть открытку" autofocus>×</button></header>
+ <div class="postcard-layout"><div class="postcard-capture" id="postcardCapture" data-theme="dawn"><img class="postcard-landscape" alt="" decoding="async"><div class="postcard-content"><div class="postcard-top"><span>КОЛЛЕКЦИЯ ВПЕЧАТЛЕНИЙ</span><b id="postcardTier"></b></div><div id="postcardSticker" class="postcard-sticker"></div><div class="postcard-story"><span class="postcard-kicker">ИСТОРИЯ, КОТОРАЯ ОСТАЛАСЬ</span><h3 id="postcardTitle"></h3><p id="postcardMood"></p><div id="postcardDates" class="postcard-dates"></div></div><footer>ASTRAVA <span>Истории соединяют миры.</span></footer></div><div id="postcardFrame"></div></div>
  <section class="postcard-controls" aria-label="Оформление открытки"><p class="postcard-intro">Твоё аниме, персонаж и даты просмотра — в одной коллекционной открытке.</p><label>Атмосфера<select id="postcardTheme"><option value="dawn">Розовое золото</option><option value="lagoon">Лунная лагуна</option><option value="amethyst">Аметистовый вечер</option></select></label><p>PNG · 960 × 1440<br>Создаётся в браузере. Подходит для сохранения и отправки друзьям.</p><button type="button" id="postcardDownload">Сохранить открытку PNG ↓</button><p id="postcardStatus" role="status" aria-live="polite"></p></section></div>
 </dialog>
 
@@ -11782,6 +11782,7 @@ body.scene-layout-ready.as-enabled:is(.as-still,.motion-calm,.tab-hidden) .hero-
 /* Complete illustration viewer: no tint or crop is placed over the artwork. */
 .hero-scene-dialog {
   box-sizing:border-box;
+  margin:auto;
   width:min(1500px,calc(100vw - 24px),calc((100dvh - 132px)*2));
   max-width:none;
   max-height:calc(100dvh - 24px);

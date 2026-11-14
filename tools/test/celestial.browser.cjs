@@ -197,6 +197,10 @@ async function assertStaticPalace(page) {
         const r=n.getBoundingClientRect();
         return r.left >= -1 && r.top >= -1 && r.right <= innerWidth+1 && r.bottom <= innerHeight+1 && n.scrollWidth <= n.clientWidth+1;
       }), 'full viewer fits ' + viewport.width);
+      assert.ok(await viewer.evaluate(n => {
+        const r=n.getBoundingClientRect();
+        return Math.abs(r.left - (innerWidth-r.right)) <= 2 && Math.abs(r.top - (innerHeight-r.bottom)) <= 2;
+      }), 'full viewer is centered horizontally and vertically at ' + viewport.width);
       const full = page.locator('#heroSceneImage');
       const fullGeometry = await assertUncropped(full, 'Full hero at ' + viewport.width);
       assert.deepEqual([fullGeometry.naturalWidth,fullGeometry.naturalHeight], heroSize);
@@ -217,7 +221,7 @@ async function assertStaticPalace(page) {
       await page.evaluate(() => scrollTo({top:0,behavior:'instant'}));
       if (screenshots && [1920,1440,390,320].includes(viewport.width)) await page.screenshot({path:path.join(out,mode+'-home-'+viewport.width+'.png')});
     }
-    reports.push('1920/1440/390/320: whole hero, no horizontal overflow, keyboard opening, modal sizing, Escape/button close and focus return.');
+    reports.push('1920/1440/390/320: whole hero, no horizontal overflow, keyboard opening, centered modal sizing, Escape/button close and focus return.');
 
     await page.setViewportSize({width:1440,height:900});
     await fitViewport(page);
@@ -226,6 +230,9 @@ async function assertStaticPalace(page) {
     await page.locator('#postcardOpen').click();
     const postcard = page.locator('.postcard-landscape');
     await postcard.evaluate(n => n.decode());
+    const backdropAspect = await postcard.evaluate(n => n.clientWidth / n.clientHeight);
+    assert.ok(Math.abs(backdropAspect - 2) < .025, "postcard backdrop keeps the source aspect ratio without relying on unsupported export object-fit");
+    assert.ok((await page.locator("#postcardCapture footer").textContent()).includes("ASTRAVA"));
     assert.equal(await imageDigest(page, await postcard.evaluate(n => n.currentSrc)), await imageDigest(page, heroSrc), 'postcard uses the updated hero source');
     const framesBeforeExport = await page.locator('.card > .as-frame').count();
     const pendingDownload = page.waitForEvent('download', {timeout:180000});
