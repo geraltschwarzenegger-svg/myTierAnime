@@ -1,0 +1,101 @@
+EXOVANCE PROPRIETARY SOFTWARE AND CONTENT LICENSE
+Version 1.0 — 14 November 2026
+
+Copyright © 2026 Geralt Schwarzenegger (Exovance).
+All rights reserved.
+
+PROJECT COVERED BY THIS COPY:
+ASTRAVA (also known as myTierAnime)
+https://github.com/geraltschwarzenegger-svg/myTierAnime
+
+1. DEFINITIONS AND SCOPE
+
+1.1. "Owner" means Geralt Schwarzenegger, publishing original works under the Exovance project/brand designation and the GitHub account geraltschwarzenegger-svg.
+
+1.2. "Covered Product" means ASTRAVA (myTierAnime), including its repository, source files, application interfaces, original documentation, and distributed versions, solely insofar as the Owner holds the relevant rights. This License may also be used for another Exovance product ONLY if that product expressly includes or references this License. Use of the Exovance name alone does not automatically apply it to other repositories or works.
+
+1.3. "Owner Materials" means the original, protectable portions of a Covered Product for which the Owner owns or is authorized to license the relevant exclusive rights. Such portions may include original source code, software architecture as expressed in code, UI artwork and layout, original graphics, text, documentation, and original selections or arrangements of material, where protected by applicable law.
+
+1.4. "Third-Party Materials" means all components, source code, fonts, icons, photographs, posters, fictional characters, artwork, datasets, and other elements in which another party has rights, including material under an open-source or other third-party license and material not eligible for exclusive copyright protection.
+
+2. EXCLUSIVE RIGHTS RESERVED
+
+2.1. All rights in the Owner Materials are reserved to the Owner, to the extent that such rights exist under applicable law. No transfer of ownership or exclusive rights occurs by publication, public accessibility, download, or receipt of the Covered Product.
+
+2.2. This is a proprietary license, NOT an open-source license. Except for the limited permissions below, no license to copy, distribute, publicly host, sublicense, commercially exploit, modify, or prepare derivative works from Owner Materials is granted.
+
+2.3. This notice is an assertion of rights, not independent proof of authorship, ownership, trademark registration, or rights in Third-Party Materials. Rights arising from contracts, employment, co-authorship, earlier licenses, and mandatory law remain unaffected.
+
+3. LIMITED PERMITTED USE
+
+Subject to applicable law and rights in Third-Party Materials, the Owner permits an individual recipient to:
+
+(a) access, display, and use an officially published instance of the Covered Product for personal, non-commercial purposes;
+
+(b) download and run an official stand-alone/offline distribution made available by the Owner, and retain reasonable private backup copies, solely for personal, non-commercial use and without public redistribution; and
+
+(c) view and fork the public GitHub repository to the extent permitted by the GitHub Terms of Service and functionality, without acquiring broader rights to publish, sublicense, commercialize, or distribute the Owner Materials outside those permissions.
+
+Nothing here restricts conduct expressly permitted by mandatory law or by a separately applicable valid license. A separate written grant from the relevant rightsholder may authorize additional uses.
+
+4. USES REQUIRING PRIOR WRITTEN PERMISSION
+
+Unless independently permitted by Section 3, mandatory law, or an applicable third-party license, no person may, with respect to Owner Materials:
+
+(a) reproduce, republish, distribute, sell, rent, license, or sublicense the Covered Product or a substantial part of it;
+
+(b) create, publish, distribute, or commercialize modified, translated, derivative, white-label, or rebranded versions;
+
+(c) deploy a mirror, hosted copy, competing service, or commercially used integration incorporating Owner Materials;
+
+(d) remove or misrepresent copyright, authorship, license, attribution, or provenance notices;
+
+(e) represent that a modified or redistributed copy is an official Exovance product, or falsely claim the Owner's endorsement;
+
+(f) incorporate Owner Materials into a training dataset or use them for model training or fine-tuning where that use requires the Owner's permission under applicable law.
+
+No restriction in this section overrides statutory exceptions, limitations, or compulsory permissions. Any prohibition on reverse engineering, interoperability work, or technical analysis applies only to the extent permitted by applicable law.
+
+5. THIRD-PARTY INTELLECTUAL PROPERTY
+
+5.1. This License does NOT claim ownership of anime or manga characters, names, official illustrations, cover art, promotional graphics, trademarks, or other third-party works, including those used in fan artwork, screenshots, sticker packs, or reference imagery.
+
+5.2. Third-Party Materials remain governed by their respective owners' rights, notices, agreements, and licenses. In this repository, such material includes, without limitation:
+- anime covers obtained or referenced through third-party sources, documented in assets/covers/README.md and assets/covers/library.json;
+- fan-art depictions and character references described in assets/album/README.md and assets/reactions/README.md;
+- Tabler Icons, under its applicable MIT license;
+- html2canvas, under its MIT license;
+- bundled fonts including Manrope, Prata, and Shippori Mincho under their applicable SIL Open Font Licenses.
+
+5.3. Applicable third-party notices are retained in assets/vendor/ and related distribution directories. Those licenses are not replaced, narrowed, or relicensed by this document.
+
+5.4. Source attribution alone is not proof of permission to reproduce a third-party asset. Nothing in this License grants rights that the Owner does not possess. Ownership and protection of AI-assisted or AI-generated material depend on the applicable law and the facts of its creation.
+
+6. EXOVANCE AND PRODUCT NAMES
+
+"Exovance", "ASTRAVA", and other product names identify the Owner's projects. No permission to impersonate, falsely endorse, or misleadingly present an unofficial product as an official Exovance release is granted. This provision does not assert that any name is a registered trademark, and does not restrict lawful identification, commentary, or other use protected by applicable law.
+
+7. CONTRIBUTIONS AND SEPARATE AGREEMENTS
+
+Third-party contributions do not automatically become the Owner's exclusive property. Acceptance of a contribution does not by itself transfer the contributor's copyright. Any assignment, contributor license, or broader license must be separately agreed in a legally effective form. Existing valid third-party and prior grants are preserved.
+
+8. DISCLAIMER AND LIABILITY
+
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, THE OWNER MATERIALS AND COVERED PRODUCT ARE PROVIDED "AS IS", WITHOUT EXPRESS OR IMPLIED WARRANTIES. THE OWNER DISCLAIMS LIABILITY FOR LOSSES ARISING FROM USE TO THE EXTENT SUCH LIABILITY MAY LAWFULLY BE EXCLUDED. NOTHING IN THIS SECTION EXCLUDES NON-WAIVABLE STATUTORY RIGHTS OR LIABILITY.
+
+9. TERM, BREACH, AND RESERVATION
+
+Any permission under Section 3 is conditional on compliance with this License and ceases upon a material breach to the extent enforceable by applicable law. Termination does not terminate valid independent rights, mandatory legal permissions, GitHub platform permissions, or licenses granted by third parties. Rights not expressly granted are reserved.
+
+10. REQUESTING ADDITIONAL PERMISSION
+
+For commercial licensing, distribution, source-code reuse, collaborations, or requests for written authorization, contact the Owner through the GitHub account:
+https://github.com/geraltschwarzenegger-svg
+
+Permission must be given by a person authorized to license the relevant materials. No response or silence constitutes consent.
+
+11. INTERPRETATION AND PRIOR RIGHTS
+
+The laws applicable to ownership, infringement, contract, and statutory exceptions are determined by the relevant jurisdiction and applicable conflict-of-laws rules. This License is not intended to retroactively revoke rights granted under a valid prior agreement. If any provision is unenforceable, the remaining provisions continue to apply to the extent legally possible.
+
+Copyright © 2026 Geralt Schwarzenegger (Exovance). All rights reserved.
