@@ -4124,6 +4124,81 @@
       "notes": [
         "В коллекции две части отмечены как первый и второй сезоны. Даты просмотра указал владелец."
       ]
+    },
+    {
+      "uid": 77,
+      "name": "Мастера Меча Онлайн",
+      "options": [
+        {
+          "label": "Фильм 1 · Прогрессив — Ария в беззвёздной ночи · 97 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "sourceUrl": "https://shikimori.one/animes/42916-sword-art-online-progressive-movie-hoshi-naki-yoru-no-aria",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "Фильм 1 · Прогрессив — Ария в беззвёздной ночи",
+            "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+            "minutes": 97
+          }
+        },
+        {
+          "label": "Фильм 2 · Прогрессив — Скерцо глубокой ночи · 100 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "sourceUrl": "https://shikimori.one/animes/50275-sword-art-online-progressive-movie-kuraki-yuuyami-no-scherzo",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "Фильм 2 · Прогрессив — Скерцо глубокой ночи",
+            "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+            "minutes": 100
+          }
+        },
+        {
+          "label": "1 сезон · 25 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://shikimori.one/animes/z11757-sword-art-online",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+            "episodes": 25,
+            "episodeMinutes": 23
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "Фильм 1 · Прогрессив — Ария в беззвёздной ночи",
+          "title": "Фильм 1 · Прогрессив — Ария в беззвёздной ночи (2021)",
+          "url": "https://shikimori.one/animes/42916-sword-art-online-progressive-movie-hoshi-naki-yoru-no-aria",
+          "episodes": 1,
+          "episodeMinutes": 97,
+          "totalMinutes": 97,
+          "film": true
+        },
+        {
+          "label": "Фильм 2 · Прогрессив — Скерцо глубокой ночи",
+          "title": "Фильм 2 · Прогрессив — Скерцо глубокой ночи (2022)",
+          "url": "https://shikimori.one/animes/50275-sword-art-online-progressive-movie-kuraki-yuuyami-no-scherzo",
+          "episodes": 1,
+          "episodeMinutes": 100,
+          "totalMinutes": 100,
+          "film": true
+        },
+        {
+          "label": "1 сезон",
+          "title": "1 сезон / 25 серий (2012)",
+          "url": "https://shikimori.one/animes/z11757-sword-art-online",
+          "episodes": 25,
+          "episodeMinutes": 23,
+          "totalMinutes": 575,
+          "film": false
+        }
+      ],
+      "notes": [
+        "В карточке учтены два фильма «Прогрессив» и первый сезон. Другие части можно добавить по мере просмотра."
+      ]
     }
   ],
   "updatedAt": "2026-11-21"

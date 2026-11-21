@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14",
+  "updatedAt": "2026-11-21",
   "items": [
     {
       "index": 13,
@@ -57,6 +57,19 @@
       "originalPath": "src/art/album/cyberpunk-night-city.png",
       "originalSha256": "15e7f8ee47d0e128895d63adc1acdf789a8b7b2002da6f4c23016f49074d3a3d",
       "sha256": "2151fdcf0c1a637cdd660b33a204d600d7047d70e63b2000ad13d275bdaeec24"
+    },
+    {
+      "index": 16,
+      "title": "Мастера Меча Онлайн",
+      "file": "assets/album/sao-aincrad.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Кирито и Асуна вместе с героями «Мастеров Меча Онлайн» на фоне Айнкрада.",
+      "bytes": 574696,
+      "source": "Иллюстрация из архива владельца · WebP из предоставленного PNG",
+      "originalPath": "src/art/album/sao-aincrad.png",
+      "originalSha256": "c4fe13eaffac906d0f646a8392a30ccf340b58e76034e1882ff35f66ac58f70a",
+      "sha256": "c05a8ae4a656e97b2d06d7cb540f7fb2f13393cb4155fcb81c8d19ae6d00fb53"
     }
   ]
 }

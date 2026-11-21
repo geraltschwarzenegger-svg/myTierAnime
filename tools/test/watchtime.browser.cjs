@@ -29,16 +29,28 @@ const mime={'.html':'text/html; charset=utf-8','.json':'application/json','.js':
   const p=await context.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
   await p.addInitScript(()=>{window.cspProblems=[];document.addEventListener('securitypolicyviolation',e=>window.cspProblems.push(e.effectiveDirective));});
   await p.goto(base+'?v=5.1.3',{waitUntil:'domcontentloaded'});
-  await p.waitForFunction(()=>document.querySelectorAll('.card').length===74);
-  assert.equal(await p.locator('#watchTimeTotal').textContent(),'≈ 735 часов 12 минут');
-  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44112);
-  assert.equal(await p.evaluate(()=>WATCHTIME_CATALOG.length),74);
-  assert.deepEqual(await p.evaluate(()=>state.tiers.flatMap(t=>t.items).filter(i=>i.uid>=72).map(i=>[i.uid,i.watched.map(w=>w.date)])),[[72,['05.11.2026','06.11.2026']],[73,['07.11.2026','08.11.2026']],[76,['17.11.2026','19.11.2026']],[74,['10.11.2026']],[75,['12.11.2026']]]);
-  assert.equal(await p.evaluate(()=>state.nextUid),77);
+  await p.waitForFunction(()=>document.querySelectorAll('.card').length===75);
+  assert.equal(await p.locator('#watchTimeTotal').textContent(),'≈ 748 часов 4 минуты');
+  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44884);
+  assert.equal(await p.evaluate(()=>WATCHTIME_CATALOG.length),75);
+  assert.deepEqual(await p.evaluate(()=>state.tiers.flatMap(t=>t.items).filter(i=>i.uid>=72).map(i=>[i.uid,i.watched.map(w=>w.date)])),[[72,['05.11.2026','06.11.2026']],[77,['12.11.2026','13.11.2026','17.11.2026']],[73,['07.11.2026','08.11.2026']],[76,['17.11.2026','19.11.2026']],[74,['10.11.2026']],[75,['12.11.2026']]]);
+  assert.equal(await p.evaluate(()=>state.nextUid),78);
   await p.locator('.watchtime-summary').scrollIntoViewIfNeeded();
   if(shots)await p.screenshot({path:path.join(root,'docs/images/watchtime-overview.png'),animations:'disabled'});
   await p.locator('#watchTimeOpen').click();
-  assert.equal(await p.locator('#watchTimeDialog .time-detail-row').count(),74);
+  assert.equal(await p.locator('#watchTimeDialog .time-detail-row').count(),75);
+  await p.locator('[data-time-uid="77"]').click();
+  assert.equal(await p.locator('#preview').getAttribute('data-tier'),'S');
+  assert.deepEqual(await p.locator('#preview .wrow-p time').allTextContents(),[
+   '12.11.2026 г.','13.11.2026 г.','17.11.2026 г.',
+  ]);
+  const saoCover=p.locator('#preview .preview-imgwrap img');
+  assert.equal(await saoCover.getAttribute('src'),'assets/covers/library/77.webp');
+  await p.locator('#preview.wide-cover').waitFor();
+  assert.deepEqual(await saoCover.evaluate(image=>[
+   image.naturalWidth,image.naturalHeight,getComputedStyle(image).objectFit,
+  ]),[1672,941,'contain']);
+  await p.locator('#previewClose').click();await p.locator('#watchTimeOpen').click();
   await p.locator('[data-time-uid="76"]').click();
   const nierRows=await p.locator('#preview .wrow-p').allTextContents();
   assert.equal(nierRows.length,2);
@@ -50,6 +62,7 @@ const mime={'.html':'text/html; charset=utf-8','.json':'application/json','.js':
    await image.decode();
    return [image.naturalWidth,image.naturalHeight];
   }),[1086,1448]);
+  assert.equal(await nierCover.evaluate(image=>getComputedStyle(image).objectFit),'cover');
   await p.locator('#previewClose').click();await p.locator('#watchTimeOpen').click();
   await p.locator('[data-time-uid="72"]').click();
   assert.equal(await p.locator('#preview .wrow-p').count(),2,'Cyberpunk seasons occupy two watch rows in one card');
@@ -67,7 +80,7 @@ const mime={'.html':'text/html; charset=utf-8','.json':'application/json','.js':
   await p.locator('#previewClose').click();
   await p.locator('#watchTimeOpen').click();await p.locator('#watchTimeOwn').click();
   await p.waitForFunction(()=>!document.body.classList.contains('read-only'));
-  assert.equal(await p.locator('#stTotal').textContent(),'74');
+  assert.equal(await p.locator('#stTotal').textContent(),'75');
   await p.locator('#watchTimeOpen').click();await p.locator('[data-time-uid="69"]').click();
   const row=p.locator('#fWatchedList .wrow').first(),editor=row.locator('.wtime-editor');
   assert.equal(await row.locator('.wdate').inputValue(),'20.10.2026');
@@ -78,12 +91,12 @@ const mime={'.html':'text/html; charset=utf-8','.json':'application/json','.js':
   if(shots)await p.locator('#overlay .modal').screenshot({path:path.join(root,'docs/images/watchtime-editor.png'),animations:'disabled'});
   await p.locator('#mSave').click();await p.waitForFunction(()=>!document.getElementById('overlay').classList.contains('show'));
   assert.equal(await p.evaluate(()=>watchMinutes(findItem(69).item.watched[0])),263);
-  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44075);
+  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44847);
   await p.evaluate(()=>flushMirrors());
   const stored=await p.evaluate(()=>JSON.parse(localStorage.getItem('anime-tierlist-v2')));
   assert.equal(stored.state.tiers.flatMap(t=>t.items).find(i=>i.uid===69).watched[0].duration.minutes,263);
   assert.equal(await p.evaluate(async()=>{const data=await idb.get('state');return JSON.parse(data).state.tiers.flatMap(t=>t.items).find(i=>i.uid===69).watched[0].duration.minutes;}),263);
-  await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(()=>document.querySelectorAll('.card').length===74);
+  await p.reload({waitUntil:'domcontentloaded'});await p.waitForFunction(()=>document.querySelectorAll('.card').length===75);
   assert.equal(await p.evaluate(()=>watchMinutes(findItem(69).item.watched[0])),263,'manual value survives normalization and reload');
   const pending=p.waitForEvent('download');await p.evaluate(()=>exportJson());const download=await pending;
   const exported=JSON.parse(fs.readFileSync(await download.path(),'utf8'));
@@ -102,14 +115,14 @@ const mime={'.html':'text/html; charset=utf-8','.json':'application/json','.js':
   assert.ok(await p.locator('#overlay').evaluate(el=>el.classList.contains('show')));
   assert.equal(await p.evaluate(()=>watchMinutes(findItem(69).item.watched[0])),0,'invalid input never overwrites data');
   await editor.locator('.wtime-preset').selectOption('0');await p.locator('#mSave').click();
-  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44112);
+  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44884);
   await p.locator('#watchTimeOpen').click();await p.locator('[data-time-uid="69"]').click();
   const overall=p.locator('#fTotalTime .wtime-editor');
   await overall.locator('.wtime-mode').selectOption('total');await overall.locator('.wtime-hours').fill('4');await overall.locator('.wtime-minutes').fill('23');
-  await p.locator('#mSave').click();assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44075,'anime override does not add the season again');
+  await p.locator('#mSave').click();assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44847,'anime override does not add the season again');
   await p.locator('#watchTimeOpen').click();await p.locator('[data-time-uid="69"]').click();
   await overall.locator('.wtime-mode').selectOption('unknown');await p.locator('#mSave').click();
-  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44112);
+  assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44884);
   await p.setViewportSize({width:390,height:844});await p.locator('#watchTimeOpen').click();await p.locator('[data-time-uid="69"]').click();
   assert.ok(await p.locator('#overlay .modal').evaluate(el=>el.scrollWidth<=el.clientWidth+1),'editor has no mobile horizontal overflow');
   await p.locator('#mCancel').click();
@@ -118,13 +131,13 @@ const mime={'.html':'text/html; charset=utf-8','.json':'application/json','.js':
   await p.locator('#watchTimeOpen').click();await p.locator('[data-time-uid="69"]').click();
   await editor.locator('.wtime-mode').selectOption('total');await editor.locator('.wtime-hours').fill('4');await editor.locator('.wtime-minutes').fill('23');await p.locator('#mSave').click();
   await p.locator('#watchTimeOpen').click();await p.locator('#watchTimePublished').click();
-  await p.waitForFunction(()=>document.body.classList.contains('read-only')&&document.querySelectorAll('.card').length===74);
+  await p.waitForFunction(()=>document.body.classList.contains('read-only')&&document.querySelectorAll('.card').length===75);
   assert.equal(await p.evaluate(()=>watchMinutes(findItem(69).item.watched[0])),300,'author collection is restored independently of newer local edits');
   assert.equal(await p.evaluate(()=>JSON.parse(localStorage.getItem('anime-tierlist-v2')).state.tiers.flatMap(t=>t.items).find(i=>i.uid===69).watched[0].duration.minutes),263,'author view does not overwrite the local list');
   await p.locator('#watchTimeOpen').click();await p.locator('#watchTimeOwn').click();
   await p.waitForFunction(()=>!document.body.classList.contains('read-only'));
   assert.equal(await p.evaluate(()=>watchMinutes(findItem(69).item.watched[0])),263,'opening an existing personal list preserves its time');
   assert.deepEqual(errors,[]);assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);
-  console.log((live?'Published':'Local')+' watch time PASS: 74 titles, 735h12, sources, four sizes, editable copy, manual arithmetic, localStorage/IndexedDB, reload, export/import, explicit zero, validation, catalog reset, anime override, unchanged dates and CSP.');
+  console.log((live?'Published':'Local')+' watch time PASS: 75 titles, 748h04, sources, four sizes, editable copy, manual arithmetic, localStorage/IndexedDB, reload, export/import, explicit zero, validation, catalog reset, anime override, unchanged dates and CSP.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

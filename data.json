@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-11-21T08:33:03.883Z",
+  "savedAt": "2026-11-21T08:55:02.900Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -493,6 +493,56 @@
               }
             ],
             "sticker": "cyber-talia-heart"
+          },
+          {
+            "uid": 77,
+            "name": "Мастера Меча Онлайн",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/library/77.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "date": "12.11.2026",
+                "label": "Фильм 1 · Прогрессив — Ария в беззвёздной ночи (2021)",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "sourceUrl": "https://shikimori.one/animes/42916-sword-art-online-progressive-movie-hoshi-naki-yoru-no-aria",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "Фильм 1 · Прогрессив — Ария в беззвёздной ночи",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+                  "minutes": 97
+                }
+              },
+              {
+                "date": "13.11.2026",
+                "label": "Фильм 2 · Прогрессив — Скерцо глубокой ночи (2022)",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "sourceUrl": "https://shikimori.one/animes/50275-sword-art-online-progressive-movie-kuraki-yuuyami-no-scherzo",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "Фильм 2 · Прогрессив — Скерцо глубокой ночи",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+                  "minutes": 100
+                }
+              },
+              {
+                "date": "17.11.2026",
+                "label": "1 сезон / 25 серий (2012)",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "sourceUrl": "https://shikimori.one/animes/z11757-sword-art-online",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+                  "episodes": 25,
+                  "episodeMinutes": 23
+                }
+              }
+            ],
+            "sticker": "s-solo-bolt"
           }
         ]
       },
@@ -1928,6 +1978,6 @@
         ]
       }
     ],
-    "nextUid": 77
+    "nextUid": 78
   }
 }
