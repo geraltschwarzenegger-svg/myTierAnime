@@ -240,7 +240,7 @@ SOFTWARE.
  function attachFrame(node,uid){let f=node.querySelector(':scope > .as-frame');const key=cfg.frame==='auto'?FRAME_KEYS[Math.abs(Number(uid)||0)%FRAME_KEYS.length]:cfg.frame;if(f&&f.dataset.frame===key)return;if(f)f.remove();f=el('span','as-frame');f.dataset.frame=key;f.setAttribute('aria-hidden','true');if(key!=='foil'&&key!=='none')f.innerHTML=svg(frameArt(key),'0 0 200 300');node.append(f);}
  function decorate(){
   document.querySelectorAll('.tier,.fx-demo-seal').forEach((tier,i)=>{const stage=tier.querySelector('.lstage');if(!stage)return;stage.querySelector('.as-emblem')?.remove();const rank=Number(tier.dataset.rank)||i+1;stage.prepend(buildEmblem(rank-1));const caption=tier.querySelector('.caption-elements');if(caption)caption.textContent=NAMES[(rank-1)%4];});
-  document.querySelectorAll('.card').forEach(n=>attachFrame(n,n.dataset.uid));
+  document.querySelectorAll('.card').forEach(n=>attachFrame(n.querySelector('.showcase-art')||n,n.dataset.uid));
   demos.replaceChildren();['S','A','B','C'].forEach((name,i)=>{const demo=el('div','as-demo');demo.style.setProperty('--t',['#e9c67d','#75d6d8','#c09bef','#94d8b5'][i]);demo.style.setProperty('--tg',['#e9c67d55','#75d6d855','#c09bef55','#94d8b555'][i]);demo.append(buildEmblem(i),el('span','as-demo-letter',name));demos.append(demo);});
   decoratePreview();
  }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-PbH10Op/mPDAkF3cjo/YNAzMG+kOnf0vEAJdv8gvQrs=' 'sha256-ufYPm+kC759yYVzhS3F3Tq/BqLozasae0CVurIGPaj0=' 'sha256-p7yof/27/+ml4RAqp59zIqxCE6sFbjD4mp5WWU7g6lg=' 'sha256-Hj6B2t5qNdXXD/Jt75Qk+PnI+BPwEFgu/faFyJMtnOc=' 'sha256-ISJidZHbfc5IMic4FOkKd01sNHorYT0IQdnV0Oeh9RU=' 'sha256-Zh+hDSUXtgz5NBQdUQIWgidXT2Ms4JgMwY5xV/QQKMU=' 'sha256-ZuUYPc7fBhpYdM3LPQd4HjRba8c9CTMYdNZTtyNbNBI=' 'sha256-VDiY4fHETgN2UM1f6L8P0guKD/0XWoJm2qWQpSv+zOc=' 'sha256-mPx1QX3GhqptEWEByqlf9b3qNO7tuyJd3oPpdbzMkk0='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-JKuKEQLT24FMSvZZ1LUrh2YJn+cUU7RgsFVYVUu2KTU=' 'sha256-ufYPm+kC759yYVzhS3F3Tq/BqLozasae0CVurIGPaj0=' 'sha256-p7yof/27/+ml4RAqp59zIqxCE6sFbjD4mp5WWU7g6lg=' 'sha256-Hj6B2t5qNdXXD/Jt75Qk+PnI+BPwEFgu/faFyJMtnOc=' 'sha256-ISJidZHbfc5IMic4FOkKd01sNHorYT0IQdnV0Oeh9RU=' 'sha256-Zh+hDSUXtgz5NBQdUQIWgidXT2Ms4JgMwY5xV/QQKMU=' 'sha256-ZuUYPc7fBhpYdM3LPQd4HjRba8c9CTMYdNZTtyNbNBI=' 'sha256-VDiY4fHETgN2UM1f6L8P0guKD/0XWoJm2qWQpSv+zOc=' 'sha256-5qS3cuMoioHwSj4e2gKjxiUnjs9lm0I8q8s0GJeJyqw='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0c1422">
@@ -2970,6 +2970,93 @@ body.postcard-open { overflow:hidden; }
 .preview.wide-cover .preview-imgwrap { height:auto; min-height:0; max-height:clamp(55px,calc(var(--preview-vh,100dvh) - 365px),480px); aspect-ratio:16/9; }
 .preview.wide-cover .preview-imgwrap img { object-fit:contain; }
 
+.showcase-tools:not([hidden]) {
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:10px 16px; margin:12px 0 0; padding:10px 14px; border-radius:10px;
+  border:1px solid var(--as-line,#ffffff26); background:var(--as-surface,#142238);
+  color:var(--as-ink,#edf2f8); font:500 12px/1.45 var(--sans);
+}
+.showcase-tools label { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.showcase-tools select {
+  min-height:36px; max-width:100%; padding:4px 9px; border-radius:7px;
+  background:var(--as-page,#101b2b); color:inherit; border:1px solid var(--as-line,#ffffff26);
+  font:inherit;
+}
+.showcase-tools output { color:var(--as-muted,#adbbce); }
+.showcase-empty {
+  margin:0 0 20px; padding:18px; border:1px dashed var(--as-line,#ffffff26);
+  border-radius:12px; background:var(--as-surface,#142238); color:var(--as-ink,#edf2f8);
+}
+.collection-tools #viewSeg button[data-view="showcase"] {
+  padding-inline:10px; font-size:11px; letter-spacing:0;
+}
+.collection-tools #viewSeg button[data-view="showcase"] .seg-lbl { display:inline; }
+.card.showcase-card {
+  aspect-ratio:auto; display:flex; flex-direction:column; border:0; overflow:visible;
+  background:none; box-shadow:none; min-width:0;
+}
+.showcase-art {
+  position:relative; isolation:isolate; overflow:hidden; aspect-ratio:2/3;
+  width:100%; border-radius:11px; --rx-caption-height:0px;
+  background:linear-gradient(150deg,var(--tg),#111a2b);
+  border:1px solid color-mix(in srgb,var(--t) 32%,transparent);
+}
+.showcase-card .showcase-art .scrim {
+  background:linear-gradient(180deg,#07101c5c,transparent 24% 72%,#07101c3d);
+}
+.card.showcase-card .nm {
+  position:static; width:100%; padding:9px 3px 5px; font-size:13px;
+  line-height:1.35; color:var(--as-ink,#edf2f8); text-shadow:none;
+}
+.showcase-card .card-name {
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2;
+  overflow:hidden; overflow-wrap:anywhere; min-height:2.7em;
+}
+.showcase-meta { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; }
+.showcase-meta time,.showcase-meta .showcase-note {
+  color:var(--as-muted,#adbbce); font:500 10px/1.5 var(--sans);
+}
+.showcase-meta .showcase-duration {
+  color:var(--as-ink,#edf2f8); font:650 10px/1.5 var(--sans); white-space:nowrap;
+}
+.showcase-card .rx.neko-mark,.showcase-card .poster-companion { bottom:9px; }
+.showcase-card:hover .card-name { text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:480px) {
+  .card.showcase-card .nm { font-size:12px; }
+  .showcase-tools:not([hidden]) { padding:9px 11px; }
+}
+
+.keepsake-deck {
+  width:min(820px,calc(100% - 24px)); max-height:calc(100dvh - 24px); margin:auto;
+  padding:0; overflow:auto; border-radius:16px; border:1px solid var(--as-line,#ffffff26);
+  background:var(--as-surface,#142238); color:var(--as-ink,#edf2f8);
+  font:500 13px/1.5 var(--sans);
+}
+.keepsake-deck::backdrop { background:#050b17da; }
+.deck-head,.deck-body { padding:clamp(15px,4vw,27px); }
+.deck-head { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; border-bottom:1px solid var(--as-line,#ffffff26); }
+.deck-head h2 { margin:0 0 6px; font:500 clamp(23px,4vw,30px)/1.15 var(--serif); }
+.deck-head p,.deck-status { margin:0; color:var(--as-muted,#adbbce); }
+.deck-close { flex:none; min-width:38px; min-height:38px; justify-content:center; }
+.deck-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; margin-bottom:12px; }
+.deck-actions .btn { min-height:40px; }
+.deck-actions .btn:disabled { opacity:.55; cursor:default; }
+.deck-count { font-weight:650; }
+.deck-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(140px,100%),1fr)); gap:12px; padding:0; margin:20px 0 0; list-style:none; }
+.deck-grid:empty { display:none; }
+.deck-card {
+  min-width:0; border:1px solid color-mix(in srgb,var(--t) 45%,transparent);
+  border-radius:10px; overflow:hidden; background:var(--as-page,#101b2b);
+}
+.deck-card.fresh { outline:1px solid var(--t); outline-offset:2px; }
+.deck-card-art { position:relative; aspect-ratio:2/3; background:radial-gradient(ellipse,var(--tg),transparent); }
+.deck-card-art img { display:block; width:100%; height:100%; object-fit:cover; }
+.deck-card-tier { position:absolute; top:7px; left:7px; background:#0c1221e8; color:var(--t2); padding:2px 7px; border-radius:6px; font-weight:750; }
+.deck-card-name { display:block; padding:8px 10px; overflow-wrap:anywhere; font-size:12px; }
+@media(max-width:480px) {
+  .deck-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+}
+
 </style>
 <style>
 .quality-settings { margin:16px 0; padding-top:12px; border-top:1px solid #ffffff19; color:#c7d6df; font:10px var(--sans); }
@@ -3371,10 +3458,12 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       <input type="text" id="searchInput" aria-label="Поиск аниме в коллекции" placeholder="Поиск тайтла…" autocomplete="off" spellcheck="false">
     </div>
-    <div class="seg" id="viewSeg">
+    <div class="seg" id="viewSeg" role="group" aria-label="Вид коллекции">
+      <button type="button" data-view="showcase" aria-pressed="false" title="Витрина: постер и подпись отдельно"><span class="seg-lbl">Витрина</span></button>
       <button data-view="grid" class="on" title="Сетка постеров"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg><span class="seg-lbl">Постеры</span></button>
       <button data-view="chips" title="Компактные чипы"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="14" y2="17"></line></svg><span class="seg-lbl">Чипы</span></button>
     </div>
+    <button type="button" class="btn" id="keepsakeDeckOpen" aria-haspopup="dialog" aria-controls="keepsakeDeck">Карточки</button>
     <button class="btn" id="historyBtn" title="История просмотров по датам" aria-label="История просмотров" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4M17 3v4M3 10h18M8 14h3M8 17h6"/></svg></button>
     <button class="btn" id="favBtn" title="Только любимые ♥"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-10-9.2C.5 8.4 2 4.5 5.7 4.5c2 0 3.4 1.2 4.3 2.4.9-1.2 2.3-2.4 4.3-2.4 3.7 0 5.2 3.9 3.7 7.3C19.5 16.3 12 21 12 21z"></path></svg></button>
     <button class="btn" id="statsBtn" title="Статистика вкуса"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21H4a1 1 0 0 1-1-1V3"></path><path d="M7 16l4-5 3 3 5-7"></path></svg></button>
@@ -3398,6 +3487,16 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
     <button class="btn" id="resetBtn" title="Очистить список"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg></button>
   </header>
       <nav class="tier-jumps" id="tierJumps" aria-label="Перейти к тиру"></nav>
+      <div class="showcase-tools" id="showcaseTools" hidden>
+        <label>Порядок внутри тиров
+          <select id="showcaseOrder">
+            <option value="rank">По месту в тире</option>
+            <option value="recent">Сначала недавние</option>
+            <option value="title">По названию</option>
+          </select>
+        </label>
+        <output id="showcaseResults" aria-live="polite"></output>
+      </div>
     </section>
 
     <section class="impressions" aria-labelledby="impressionTitle">
@@ -3432,6 +3531,7 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
     </div>
 
     <div class="day-collection-bar" id="dayCollectionBar" hidden><span id="dayCollectionLabel"></span><button type="button" class="visit-btn" id="dayCollectionClear">Снять выделение</button></div>
+    <p class="showcase-empty" id="showcaseEmpty" hidden>Ничего не найдено. Попробуй изменить запрос или убрать фильтр.</p>
     <div class="board" id="board"></div>
 
     <footer class="foot">
@@ -3525,6 +3625,18 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
     </footer>
   </main>
 </div>
+
+<dialog class="keepsake-deck" id="keepsakeDeck" aria-labelledby="keepsakeDeckTitle" data-html2canvas-ignore>
+  <header class="deck-head">
+    <div><h2 id="keepsakeDeckTitle">Коллекционные карточки</h2><p>Открывай наборы из просмотренных аниме. Карточки сохраняются в этом браузере.</p></div>
+    <form method="dialog"><button type="submit" class="btn deck-close" aria-label="Закрыть карточки" autofocus>×</button></form>
+  </header>
+  <div class="deck-body">
+    <div class="deck-actions"><button type="button" class="btn" id="keepsakePackOpen">Открыть набор</button><span class="deck-count" id="keepsakeCount"></span></div>
+    <p class="deck-status" id="keepsakeStatus" role="status"></p>
+    <ul class="deck-grid" id="keepsakeGrid" aria-label="Полученные карточки"></ul>
+  </div>
+</dialog>
 
 <dialog id="frameAtelier" class="frame-atelier" aria-labelledby="frameAtelierTitle" data-html2canvas-ignore>
   <div class="atelier-head"><div><span class="atelier-eyebrow">MY TIER ANIME · ATELIER</span><h2 id="frameAtelierTitle">Искусство обрамления<span>50</span></h2><p>Выбери украшение для своей истории.</p></div><button type="button" id="frameAtelierClose" class="atelier-close" aria-label="Закрыть ателье" autofocus>×</button></div>
@@ -4190,6 +4302,7 @@ function itemWatchTime(item) {
 /* WATCHTIME HELPERS END */
 
 let state, view = "grid", editing = false;
+let showcaseOrder = "rank";
 let lastSavedAt = null;
 
 /* привести любое состояние (localStorage / IndexedDB / файл / импорт) к текущей
@@ -4645,7 +4758,13 @@ function load() {
   lastSavedAt = got.savedAt;
   return normalizeState(got.state);
 }
-function loadView() { try { const v = localStorage.getItem(LS_VIEW); if (v === "grid" || v === "chips") view = v; } catch (e) {} }
+function loadView() {
+  try {
+    const saved = localStorage.getItem(LS_VIEW);
+    if (["grid", "chips", "showcase"].includes(saved)) view = saved;
+  } catch (e) {}
+  if (new URLSearchParams(location.search).get("view") === "showcase") view = "showcase";
+}
 function saveView() { try { localStorage.setItem(LS_VIEW, view); } catch (e) {} }
 
 /* ════════════════════ САЙТ: ОПУБЛИКОВАННАЯ ВЕРСИЯ ════════════════════
@@ -5071,7 +5190,8 @@ function updateReactionMarks() {
   document.querySelectorAll(".card,.chip").forEach(el=>{
     const item=findItem(+el.dataset.uid)?.item;if(!item)return;
     el.querySelectorAll(".rx,.poster-companion,.fav-mark").forEach(mark=>mark.remove());
-    el.insertAdjacentHTML("beforeend",reactionHtml(item)+favouriteHtml(item));
+    const artwork=el.querySelector(".showcase-art") || el;
+    artwork.insertAdjacentHTML("beforeend",reactionHtml(item)+favouriteHtml(item));
   });
   renderImpressions();applySearch();layoutReactionMarks();
   if(pUid!==null){const f=findItem(pUid);if(f)syncPreviewReaction(f.item);}
@@ -5082,7 +5202,7 @@ function layoutReactionMarks() {
   if(typeof ResizeObserver==="function"){
     if(!reactionMarkObserver)reactionMarkObserver=new ResizeObserver(entries=>{for(const {target}of entries)target.parentElement?.style.setProperty("--rx-caption-height",Math.ceil(target.getBoundingClientRect().height)+"px");});
     reactionMarkObserver.disconnect();
-    document.querySelectorAll(".card .nm").forEach(el=>{el.parentElement.style.setProperty("--rx-caption-height",Math.ceil(el.getBoundingClientRect().height)+"px");reactionMarkObserver.observe(el);});
+    document.querySelectorAll(".card:not(.showcase-card) .nm").forEach(el=>{el.parentElement.style.setProperty("--rx-caption-height",Math.ceil(el.getBoundingClientRect().height)+"px");reactionMarkObserver.observe(el);});
   }
 }
 function syncPreviewReaction(item) {
@@ -5377,6 +5497,11 @@ function render() {
   board.innerHTML = "";
   let total = 0, fav = 0;
   const collectionTotal = itemCount(state);
+  const showcase = view === "showcase";
+  document.getElementById("showcaseTools").hidden = !showcase;
+  const orderControl = document.getElementById("showcaseOrder");
+  orderControl.disabled = editing;
+  orderControl.value = editing ? "rank" : showcaseOrder;
 
   state.tiers.forEach((tier, tierIdx) => {
     total += tier.items.length;
@@ -5417,14 +5542,27 @@ function render() {
           <span class="tagline">${esc(tier.tagline)}</span>
           <span class="pillct">${esc(tier.id)} · ${tier.items.length}</span>
         </div>
-        <div class="items ${view}"></div>
+        <div class="items ${view === "chips" ? "chips" : "grid"}${showcase ? " showcase" : ""}"></div>
       </div>`;
     build3DLetter(art.querySelector(".l3d"), tier, tierIdx);
     const wrap = art.querySelector(".items");
     /* пустой тир без приглашения выглядит сломанным, поэтому плитка «добавить»
        в нём видна всегда, а не только в режиме правки */
     if (!tier.items.length) wrap.classList.add("no-items");
-    tier.items.forEach((item, idx) => wrap.appendChild(view === "grid" ? cardEl(item, idx, tier.id) : chipEl(item, idx, tier.id)));
+    const cards = tier.items.map((item, rank) => ({item, rank}));
+    if (showcase && !editing && showcaseOrder === "title") {
+      cards.sort((a, b) => a.item.name.localeCompare(b.item.name, "ru"));
+    }
+    if (showcase && !editing && showcaseOrder === "recent") {
+      for (const card of cards) {
+        const latest = watchedLatest(normWatched(card.item.watched));
+        card.date = latest ? parseRuDate(latest.date) : 0;
+      }
+      cards.sort((a, b) => b.date - a.date || a.rank - b.rank);
+    }
+    for (const {item, rank} of cards) {
+      wrap.appendChild(view === "chips" ? chipEl(item, rank, tier.id) : cardEl(item, rank, tier.id));
+    }
     wrap.appendChild(addEl(tier.id));
     board.appendChild(art);
   });
@@ -5483,7 +5621,8 @@ function posterFallback(tierId) {
 }
 function cardEl(item, idx, tierId) {
   const el = document.createElement("div");
-  el.className = "card";
+  const showcase = view === "showcase";
+  el.className = showcase ? "card showcase-card" : "card";
   el.dataset.uid = item.uid;
   el.dataset.tier = tierId;
   /* карточка кликабельна — значит должна быть достижима и с клавиатуры */
@@ -5494,17 +5633,31 @@ function cardEl(item, idx, tierId) {
   el.setAttribute("aria-controls", editing ? "overlay" : "preview");
   el.setAttribute("aria-expanded", "false");
   const cover = itemCover(item);
-  el.innerHTML = `
+  const artwork = `
     ${cover ? `<img referrerpolicy="no-referrer" alt="" loading="lazy" decoding="async" width="200" height="300">` : ``}
     <div class="scrim"></div><span class="poster-optics" aria-hidden="true"></span>
     ${buildRelicFrame(tierId, idx, item.uid, "card")}
     <span class="rank">${idx + 1}</span>
-    ${reactionHtml(item)}${favouriteHtml(item)}
-    <div class="nm"><span class="card-name">${esc(item.name)}</span>${watchedHtml(item, false)}</div>
+    ${reactionHtml(item)}${favouriteHtml(item)}`;
+  const details = showcase ? showcaseDetails(item) : watchedHtml(item, false);
+  el.innerHTML = `${showcase ? '<div class="showcase-art">' + artwork + '</div>' : artwork}
+    <div class="nm"><span class="card-name">${esc(item.name)}</span>${details}</div>
     <button type="button" class="item-del" title="Удалить" aria-label="Удалить ${esc(item.name)}">✕</button>`;
-  if (cover) { const img = el.querySelector("img"); img.onload = () => img.classList.add("loaded"); img.onerror = () => { img.remove(); el.prepend(posterFallback(tierId)); }; img.src = cover; }
-  else el.prepend(posterFallback(tierId));
+  const art = el.querySelector(".showcase-art") || el;
+  if (cover) { const img = art.querySelector("img"); img.onload = () => img.classList.add("loaded"); img.onerror = () => { img.remove(); art.prepend(posterFallback(tierId)); }; img.src = cover; }
+  else art.prepend(posterFallback(tierId));
   return el;
+}
+function showcaseDetails(item) {
+  const latest = watchedLatest(normWatched(item.watched));
+  if (!latest || !parseRuDate(latest.date)) {
+    return '<span class="showcase-meta"><span class="showcase-note">Без даты</span></span>';
+  }
+  const duration = itemWatchTime(item);
+  const time = duration.known
+    ? `<span class="showcase-duration">${duration.estimated || duration.unknown ? "≈ " : ""}${formatWatchTime(duration.minutes, true)}</span>`
+    : "";
+  return `<span class="showcase-meta"><time datetime="${dayKey(new Date(parseRuDate(latest.date)))}">${esc(latest.date)}</time>${time}</span>`;
 }
 function chipEl(item, idx, tierId) {
   const el = document.createElement("div");
@@ -5527,7 +5680,7 @@ function addEl(tierId) {
   el.type = "button";
   el.className = "additem";
   el.dataset.addTier = tierId;
-  el.innerHTML = view === "grid"
+  el.innerHTML = view !== "chips"
     ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>добавить</span>`
     : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> добавить`;
   el.addEventListener("click", () => openModal(null, tierId));
@@ -6061,23 +6214,42 @@ fName.addEventListener("input",()=>document.querySelectorAll("#overlay .wtime-ed
 fName.addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("mSave").click(); });
 
 /* ════════════════════ TOOLBAR ════════════════════ */
+function syncViewButtons() {
+  document.querySelectorAll("#viewSeg button").forEach(button => {
+    const active = button.dataset.view === view;
+    button.classList.toggle("on", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+}
 function setView(v) {
-  if (v !== "grid" && v !== "chips") return;
-  document.querySelectorAll("#viewSeg button").forEach(x => x.classList.toggle("on", x.dataset.view === v));
-  if (v === view) return;          /* already active — just sync the segmented control */
-  view = v; saveView(); render();
+  if (!["grid", "chips", "showcase"].includes(v)) return;
+  const changed = v !== view;
+  view = v;
+  syncViewButtons();
+  saveView();
+  const url = new URL(location.href);
+  if (url.searchParams.get("view") === "showcase" && v !== "showcase") {
+    url.searchParams.delete("view");
+    history.replaceState(history.state, "", url);
+  }
+  if (changed) render();
 }
 document.getElementById("viewSeg").addEventListener("click", e => {
   const b = e.target.closest("button"); if (b) setView(b.dataset.view);
 });
 // set initial seg state
-document.querySelectorAll("#viewSeg button").forEach(x => x.classList.toggle("on", x.dataset.view === view));
+syncViewButtons();
+document.getElementById("showcaseOrder").addEventListener("change", event => {
+  showcaseOrder = event.target.value;
+  render();
+});
 
 /* live search / filter — search dims non-matches; «только любимые» hides the rest */
 let searchQ = "", favOnly = false;
 const searchInput = document.getElementById("searchInput");
 function applySearch() {
   const q = searchQ;let reactionMatches=0;
+  const showcase = view === "showcase";
   document.querySelectorAll(".tier").forEach(t => {
     let anyVisible = false;
     t.querySelectorAll(".card, .chip").forEach(el => {
@@ -6086,15 +6258,18 @@ function applySearch() {
       el.classList.toggle("day-mark", !!collectionDay && !!f && normWatched(f.item.watched).some(w => { const ms = parseRuDate(w.date); return ms && dayKey(new Date(ms)) === collectionDay; }));
       const key=f?displayReactionKey(f.item):null;
       const moodMatch=reactionFilter==="all"||(reactionFilter==="unmarked"?!key:reactionMood(key)===reactionFilter);
-      const hidden = (favOnly && !isFav)||!moodMatch;
-      el.style.display = hidden ? "none" : "";
       const match = !q || (f && f.item.name.toLowerCase().includes(q));
+      const hidden = (favOnly && !isFav)||!moodMatch||(showcase&&!match);
+      el.style.display = hidden ? "none" : "";
       el.classList.toggle("dim", !hidden && !!q && !match);
       if (!hidden && match) {anyVisible = true;reactionMatches++;}
     });
     t.querySelectorAll(".additem").forEach(a => a.style.display = (q || favOnly || reactionFilter!=="all") ? "none" : "");
     t.style.display = ((q || favOnly || reactionFilter!=="all") && !anyVisible) ? "none" : "";
   });
+  const total = itemCount(state);
+  document.getElementById("showcaseResults").textContent = showcase ? `Показано ${reactionMatches} из ${total}` : "";
+  document.getElementById("showcaseEmpty").hidden = !showcase || !total || reactionMatches > 0;
   const status=document.getElementById("impressionStatus");if(status)status.textContent=reactionFilter==="all"?"Выбери эмоцию — найди истории с таким впечатлением.":`${reactionMatches} аниме · ${reactionFilter==="unmarked"?"без реакции":REACTIONS[reactionFilter].label}${reactionMatches?"":" · попробуй другой фильтр"}`;
   const dayBar = document.getElementById("dayCollectionBar");
   dayBar.hidden = !collectionDay;
@@ -6112,6 +6287,102 @@ favBtn.addEventListener("click", () => {
   applySearch();
   toast(favOnly ? "Только любимые ♥" : "Показаны все");
 });
+
+/* Collectible cards live in local storage separately from the anime list. */
+(() => {
+  const storagePrefix = LS_KEY + ":keepsake:";
+  const sessionCards = new Set();
+  const dialog = document.getElementById("keepsakeDeck");
+  const openButton = document.getElementById("keepsakeDeckOpen");
+  const packButton = document.getElementById("keepsakePackOpen");
+  const count = document.getElementById("keepsakeCount");
+  const status = document.getElementById("keepsakeStatus");
+  const grid = document.getElementById("keepsakeGrid");
+
+  function eligibleCards() {
+    const scope = readOnly ? "published" : "personal";
+    return state.tiers.flatMap(tier => tier.items.filter(watchedAnime).map(item => ({
+      tier, item, key: storagePrefix + scope + ":" + personalReactionKey(item),
+    })));
+  }
+
+  function isCollected(key) {
+    try { return sessionCards.has(key) || localStorage.getItem(key) === "1"; }
+    catch { return sessionCards.has(key); }
+  }
+
+  function cardElement({item, tier}, fresh) {
+    const card = document.createElement("li");
+    card.className = fresh ? "deck-card fresh" : "deck-card";
+    card.style.cssText = accentVars(tier);
+    card.dataset.uid = item.uid;
+    const art = document.createElement("div");
+    art.className = "deck-card-art";
+    const cover = itemCover(item);
+    if (cover) {
+      const image = document.createElement("img");
+      image.alt = "";
+      image.loading = "lazy";
+      image.decoding = "async";
+      image.referrerPolicy = "no-referrer";
+      image.addEventListener("error", () => image.remove(), {once:true});
+      image.src = cover;
+      art.append(image);
+    }
+    const rank = document.createElement("span");
+    rank.className = "deck-card-tier";
+    rank.textContent = tier.id;
+    art.append(rank);
+    const name = document.createElement("b");
+    name.className = "deck-card-name";
+    name.textContent = item.name;
+    card.append(art, name);
+    return card;
+  }
+
+  function drawDeck(fresh = [], message = "") {
+    const eligible = eligibleCards();
+    const collected = eligible.filter(card => isCollected(card.key));
+    const remaining = eligible.length - collected.length;
+    count.textContent = `Собрано ${collected.length} из ${eligible.length}`;
+    packButton.textContent = remaining ? `Открыть набор · ${Math.min(3, remaining)}` : "Открыть набор";
+    packButton.disabled = remaining === 0;
+    status.textContent = message || (remaining ? "" : eligible.length
+      ? "Все доступные карточки собраны."
+      : "Добавь дату просмотра, чтобы появились карточки.");
+    const freshKeys = new Set(fresh.map(card => card.key));
+    grid.replaceChildren(
+      ...fresh.map(card => cardElement(card, true)),
+      ...collected.filter(card => !freshKeys.has(card.key)).map(card => cardElement(card, false)),
+    );
+  }
+
+  openButton.addEventListener("click", () => {
+    hidePreview();
+    drawDeck();
+    dialog.showModal();
+  });
+  packButton.addEventListener("click", () => {
+    const pool = eligibleCards().filter(card => !isCollected(card.key));
+    const fresh = [];
+    let saved = true;
+    while (pool.length && fresh.length < 3) {
+      const index = Math.floor(Math.random() * pool.length);
+      const [card] = pool.splice(index, 1);
+      try { localStorage.setItem(card.key, "1"); }
+      catch { sessionCards.add(card.key); saved = false; }
+      fresh.push(card);
+    }
+    const message = fresh.length
+      ? `Новые карточки: ${fresh.map(card => card.item.name).join(", ")}.`
+      : "";
+    drawDeck(fresh, saved ? message : message + " Хранилище недоступно. Карточки останутся до конца сеанса.");
+  });
+  dialog.addEventListener("close", () => openButton.focus({preventScroll:true}));
+  addEventListener("storage", event => {
+    if (dialog.open && (event.key === null || event.key.startsWith(storagePrefix))) drawDeck();
+  });
+})();
 
 /* ════════════════════ TASTE STATISTICS (bento) ════════════════════ */
 /* Chronological history supports multiple seasons, legacy dates and undated titles. */
@@ -7146,7 +7417,8 @@ editBtn.addEventListener("click", () => {
   editing = !editing;
   document.body.classList.toggle("editing", editing);
   editBtn.classList.toggle("on", editing);
-  setDraggable(editing);
+  if (view === "showcase") render();
+  else setDraggable(editing);
   if (editing) toast("Режим: перетаскивай тайтлы, чтобы менять порядок и тир"); else toast("Готово");
 });
 const firstTierId = () => (state.tiers[0] ? state.tiers[0].id : "S");
@@ -9889,7 +10161,7 @@ SOFTWARE.
  function attachFrame(node,uid){let f=node.querySelector(':scope > .as-frame');const key=cfg.frame==='auto'?FRAME_KEYS[Math.abs(Number(uid)||0)%FRAME_KEYS.length]:cfg.frame;if(f&&f.dataset.frame===key)return;if(f)f.remove();f=el('span','as-frame');f.dataset.frame=key;f.setAttribute('aria-hidden','true');if(key!=='foil'&&key!=='none')f.innerHTML=svg(frameArt(key),'0 0 200 300');node.append(f);}
  function decorate(){
   document.querySelectorAll('.tier,.fx-demo-seal').forEach((tier,i)=>{const stage=tier.querySelector('.lstage');if(!stage)return;stage.querySelector('.as-emblem')?.remove();const rank=Number(tier.dataset.rank)||i+1;stage.prepend(buildEmblem(rank-1));const caption=tier.querySelector('.caption-elements');if(caption)caption.textContent=NAMES[(rank-1)%4];});
-  document.querySelectorAll('.card').forEach(n=>attachFrame(n,n.dataset.uid));
+  document.querySelectorAll('.card').forEach(n=>attachFrame(n.querySelector('.showcase-art')||n,n.dataset.uid));
   demos.replaceChildren();['S','A','B','C'].forEach((name,i)=>{const demo=el('div','as-demo');demo.style.setProperty('--t',['#e9c67d','#75d6d8','#c09bef','#94d8b5'][i]);demo.style.setProperty('--tg',['#e9c67d55','#75d6d855','#c09bef55','#94d8b555'][i]);demo.append(buildEmblem(i),el('span','as-demo-letter',name));demos.append(demo);});
   decoratePreview();
  }
