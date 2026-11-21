@@ -13,10 +13,15 @@ const mime={'.html':'text/html','.json':'application/json','.svg':'image/svg+xml
  await p.locator('#heroAlbumImage').evaluate(n=>n.decode());assert.deepEqual(await p.locator('#heroAlbumImage').evaluate(n=>[n.naturalWidth,n.naturalHeight]),[1774,887]);
  const original=await p.evaluate(()=>JSON.stringify(state));await p.evaluate(()=>document.fonts.ready);
  await p.locator('#historyBtn').click();await p.locator('#calendarLatest').click();assert.ok((await p.locator('#calendarMonth').textContent()).includes('ноябрь 2026'));
+ for(const [day,season] of [['17','1'],['19','2']]){
+  await p.locator(`[data-day="2026-11-${day}"]`).click();
+  const entries=await p.locator('.history-entry').allTextContents();
+  assert.ok(entries.some(entry=>entry.includes('Ниер: Автомата')&&entry.includes(`${season} сезон`)));
+ }
  await p.locator('[data-day="2026-11-12"]').click();assert.ok((await p.locator('.history-entry').innerText()).includes('12.11.2026'));await p.locator('#calendarPrev').click();
  const day=p.locator('[data-day="2026-10-24"]');assert.ok(await day.evaluate(n=>n.classList.contains('has-watches')));await day.click();assert.equal(await p.locator('.history-entry').count(),1);assert.ok((await p.locator('.history-entry').textContent()).includes('Хоть я'));
  await p.locator('#calendarShowDay').click();assert.equal(await p.locator('.card.day-mark').count(),1);assert.equal(await p.locator('.card.day-mark').getAttribute('data-uid'),'70');await p.locator('#dayCollectionClear').click();
- await p.locator('#historyBtn').click();await p.locator('#calendarToday').click();assert.ok(await p.locator('[data-day="2026-10-25"]').evaluate(n=>n.classList.contains('today')&&n.classList.contains('selected')));await p.locator('#calendarClear').click();await p.locator('#historyDatedTab').click();assert.equal(await p.locator('.history-entry').count(),85);
+ await p.locator('#historyBtn').click();await p.locator('#calendarToday').click();assert.ok(await p.locator('[data-day="2026-10-25"]').evaluate(n=>n.classList.contains('today')&&n.classList.contains('selected')));await p.locator('#calendarClear').click();await p.locator('#historyDatedTab').click();assert.equal(await p.locator('.history-entry').count(),87);
  await p.locator('#historySearch').fill('Violet');assert.equal(await p.locator('.history-entry').count(),1);await p.locator('#historySearch').fill('');await p.locator('#historyCalendarTab').click();
  for(const skin of ['midnight','pearl']){await p.evaluate(skin=>AstralStudio.set({skin}),skin);for(const width of [320,390,768,1440]){await p.setViewportSize({width,height:900});await p.waitForFunction(()=>getComputedStyle(document.getElementById('capture')).marginLeft===(innerWidth>=1100?'214px':'0px'));await p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));assert.ok(await p.locator('#historyCalendar').isVisible());const bounds=await p.locator('#historyCalendar').boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width+1);if(shots&&width===1440)await p.screenshot({path:out+(skin==='midnight'?'/calendar.png':'/calendar-pearl.png')});}}
  assert.equal(await p.locator('#calendarMonth').evaluate(n=>getComputedStyle(n).color),'rgb(25, 45, 54)','light calendar month remains readable');assert.equal(await p.locator('.history-entry b').first().evaluate(n=>getComputedStyle(n).color),'rgb(25, 45, 54)','light calendar titles remain readable');
@@ -50,5 +55,5 @@ const mime={'.html':'text/html','.json':'application/json','.svg':'image/svg+xml
   await p.locator('#asOpen').click();await p.locator('.as-preview-row').screenshot({path:out+'/emblems.png'});await p.keyboard.press('Escape');
  }
  assert.equal(await p.evaluate(()=>JSON.stringify(state)),original);assert.deepEqual(errors,[]);assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);
- console.log((live?'Published':'Local')+' journey PASS: 85 calendar records, day markers, today/search, 16 album photos, keyboard/focus, four skins × five viewport sizes, unchanged collection, no JS/CSP errors.');
+ console.log((live?'Published':'Local')+' journey PASS: 87 calendar records, day markers, today/search, 16 album photos, keyboard/focus, four skins × five viewport sizes, unchanged collection, no JS/CSP errors.');
  }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1});

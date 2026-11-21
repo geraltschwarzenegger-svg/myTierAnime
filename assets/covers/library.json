@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-14",
+  "checkedAt": "2026-11-21",
   "items": [
     {
       "uid": 1,
@@ -809,6 +809,18 @@
       "width": 318,
       "height": 450,
       "bytes": 39754
+    },
+    {
+      "uid": 76,
+      "name": "Ниер: Автомата — Версия 1.1а",
+      "originalUrl": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/library/76.webp",
+      "sourceUrl": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/library/76.webp",
+      "source": "Обложка владельца коллекции · WebP из предоставленного PNG",
+      "file": "assets/covers/library/76.webp",
+      "width": 1086,
+      "height": 1448,
+      "bytes": 382912,
+      "originalSha256": "11a1a034415d0ed170799730267ef1746e994030b45407f05a3c5c96846eac8a"
     }
   ]
 }

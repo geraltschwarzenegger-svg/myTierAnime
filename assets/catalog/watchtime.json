@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-14",
+  "checkedAt": "2026-11-21",
   "method": "Основные сезоны и сюжетные фильмы; каталог даёт округлённые минуты. Объём пользователя приоритетнее. OVA, пересказы и проморолики автоматически не добавлены.",
   "items": [
     {
@@ -4057,7 +4057,74 @@
         "Фильм: MAL9617 показывает1ч50мин (110); Shikimori API9617 хранит109. Для единого первичного источника выбран MAL110; расхождение отмечено, без притворной точности.",
         "У пользователя дляA/B/C разрешены все вышедшие основные сезоны; прежний каталог учитывает также сюжетные фильмы. Предложено39серий+фильм=1046. Если решено учитывать только явно подтверждённые сезоны, альтернатива39серий=936мин; нельзя одновременно сложить оба варианта."
       ]
+    },
+    {
+      "uid": 76,
+      "name": "Ниер: Автомата — Версия 1.1а",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://shikimori.one/animes/51105-nier-automata-ver-1-1a",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "2 сезон · 12 серий × 23 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 12,
+            "episodeMinutes": 23,
+            "sourceUrl": "https://shikimori.one/animes/56063-nier-automata-ver1-1a-part-2",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+          }
+        },
+        {
+          "label": "Обе части · 24 серии",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "minutes": 552,
+            "scopeLabel": "Обе части · 24 серии",
+            "sourceUrl": "https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/watchtime-sources.md#a-76",
+            "sourceTitle": "Shikimori · сводка по двум частям",
+            "note": "Сумма длительностей двух частей."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "NieR:Automata Ver1.1a",
+          "url": "https://shikimori.one/animes/51105-nier-automata-ver-1-1a",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "NieR:Automata Ver1.1a Part 2",
+          "url": "https://shikimori.one/animes/56063-nier-automata-ver1-1a-part-2",
+          "episodes": 12,
+          "episodeMinutes": 23,
+          "totalMinutes": 276,
+          "film": false
+        }
+      ],
+      "notes": [
+        "В коллекции две части отмечены как первый и второй сезоны. Даты просмотра указал владелец."
+      ]
     }
   ],
-  "updatedAt": "2026-10-24"
+  "updatedAt": "2026-11-21"
 }

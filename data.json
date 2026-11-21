@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-11-14T07:17:12.251Z",
+  "savedAt": "2026-11-21T08:33:03.883Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -1096,6 +1096,44 @@
               }
             ],
             "sticker": "jujutsu-bolt"
+          },
+          {
+            "uid": 76,
+            "name": "Ниер: Автомата — Версия 1.1а",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/library/76.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "date": "17.11.2026",
+                "label": "1 сезон / 12 серий",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://shikimori.one/animes/51105-nier-automata-ver-1-1a",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "date": "19.11.2026",
+                "label": "2 сезон / 12 серий",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 23,
+                  "sourceUrl": "https://shikimori.one/animes/56063-nier-automata-ver1-1a-part-2",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "2 сезон",
+                  "note": "Каталожная длительность; время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "cyber-talia-think"
           }
         ]
       },
@@ -1890,6 +1928,6 @@
         ]
       }
     ],
-    "nextUid": 76
+    "nextUid": 77
   }
 }
