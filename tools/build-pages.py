@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEST = ROOT / '.pages-build'
 MARKER = '.astrava-pages-build'
 FILES = ('index.html', 'data.json', 'anime-tierlist-2026-10-11.json', 'SECURITY.md')
-DIRECTORIES = ('assets', 'docs/images')
+DIRECTORIES = ('assets', 'docs/images', 'docs/architecture')
 
 
 def build():

@@ -15,6 +15,10 @@ test('Pages artifact includes the exact application, published data and runtime 
  const photos=JSON.parse(readFileSync(path.join(root,'assets/album/replacements.json'))).items;
  for(const entry of photos)assert.deepEqual(readFileSync(path.join(built,entry.file)),readFileSync(path.join(root,entry.file)));
  assert.ok(existsSync(path.join(built,'docs/images/astrava-observatory-banner.webp')));
+ for(const name of ['index.html','graph.json','GRAPH_REPORT.md']){
+  const architecture=path.join('docs','architecture',name);
+  assert.deepEqual(readFileSync(path.join(built,architecture)),readFileSync(path.join(root,architecture)),architecture);
+ }
  assert.ok(existsSync(path.join(built,'.nojekyll')));
  const config=readFileSync(path.join(root,'_config.yml'),'utf8');
  const excluded=config.split('\n').filter(line=>line.startsWith('  - ')).map(line=>line.slice(4).trim());

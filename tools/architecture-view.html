@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101722">
+<title>ASTRAVA · Карта проекта</title>
+<link rel="icon" href="../../assets/astrava-mark.svg">
+<style>
+  :root { color-scheme:dark; --bg:#101722; --panel:#182332; --line:#304054; --ink:#f1edf3; --muted:#b3bed1; --gold:#f1d49b; --aqua:#a6e1dd; font:15px/1.5 system-ui,sans-serif; }
+  * { box-sizing:border-box; }
+  body { margin:0; color:var(--ink); background:radial-gradient(ellipse at 15% 0%,#27283d 0%,transparent 43%),var(--bg); }
+  a { color:var(--aqua); text-underline-offset:3px; }
+  button,input { font:inherit; color:inherit; }
+  button { border:1px solid var(--line); background:#202e3e; border-radius:8px; padding:7px 12px; cursor:pointer; }
+  button:hover { border-color:var(--aqua); }
+  button[aria-pressed=true] { background:var(--aqua); border-color:var(--aqua); color:#13252c; font-weight:650; }
+  button:disabled { opacity:.5; cursor:default; }
+  :focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+  [hidden] { display:none!important; }
+  .frame { max-width:1470px; margin:auto; padding:0 clamp(14px,4vw,56px); }
+  .site-nav { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:9px 18px; padding:16px 0; border-bottom:1px solid var(--line); }
+  .brand { display:flex; align-items:center; gap:10px; color:var(--gold); font-weight:750; letter-spacing:.15em; text-decoration:none; }
+  .brand img { width:30px; height:30px; }
+  .nav-links { display:flex; gap:16px; font-size:.88rem; }
+  .intro { padding:clamp(22px,3vw,40px) 0 18px; display:flex; gap:14px 28px; justify-content:space-between; align-items:end; flex-wrap:wrap; }
+  h1,h2,p { margin:0; }
+  h1 { font:500 clamp(34px,4.4vw,62px)/1.07 Georgia,serif; letter-spacing:-.035em; }
+  .intro p,.caption { color:var(--muted); }
+  .intro p { margin-top:9px; }
+  .stats { display:flex; flex-wrap:wrap; gap:8px; }
+  .stats span { border:1px solid var(--line); border-radius:9px; padding:6px 10px; font-size:.85rem; color:var(--muted); }
+  .stats b { color:var(--gold); margin-right:3px; }
+  .workspace { display:grid; grid-template-columns:minmax(0,1fr) minmax(275px,350px); gap:14px; align-items:start; }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:14px; min-width:0; overflow:hidden; }
+  .toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:9px 14px; padding:11px 13px; border-bottom:1px solid var(--line); }
+  .modes { display:flex; flex-wrap:wrap; gap:6px; }
+  .toggle { color:var(--muted); font-size:.84rem; display:flex; gap:8px; align-items:center; }
+  .toggle input { appearance:auto; width:17px; height:17px; accent-color:var(--aqua); }
+  .map { position:relative; }
+  #graph { height:clamp(390px,60vh,780px); background-color:#111a27; background-image:radial-gradient(#43577278 1px,transparent 1px); background-size:22px 22px; }
+  #graph canvas { touch-action:none; }
+  .tools { position:absolute; right:12px; bottom:12px; display:flex; gap:5px; }
+  .tools button { min-width:38px; background:#203044; }
+  #map-status { padding:8px 13px; border-top:1px solid var(--line); font-size:.82rem; }
+  .side-section { padding:13px 15px; border-bottom:1px solid var(--line); }
+  .side-section:last-child { border-bottom:0; }
+  h2 { font-size:.94rem; margin-bottom:8px; }
+  input[type=search] { display:block; width:100%; background:#101925; border:1px solid var(--line); border-radius:8px; padding:9px 11px; }
+  .list { display:grid; gap:4px; margin-top:8px; max-height:170px; overflow:auto; }
+  .list button,.neighbors button { text-align:left; overflow-wrap:anywhere; width:100%; }
+  .list small,.neighbors small { display:block; color:var(--muted); }
+  .quick { display:flex; flex-wrap:wrap; gap:6px; }
+  .quick button { padding:5px 9px; font-size:.83rem; }
+  .selected { font:600 1.18rem/1.3 ui-monospace,monospace; color:var(--gold); overflow-wrap:anywhere; margin-bottom:5px; }
+  #source-link { display:inline-block; overflow-wrap:anywhere; margin-bottom:8px; }
+  .neighbors { margin-top:8px; display:grid; gap:5px; max-height:285px; overflow:auto; }
+  .neighbors button[data-certainty=INFERRED] { border-style:dashed; }
+  .neighbors button small { margin-top:2px; }
+  .foot { margin:18px 0 34px; color:var(--muted); font-size:.87rem; }
+  .foot p { margin-bottom:7px; }
+  code { color:var(--gold); }
+  @media(max-width:800px) {
+    .workspace { display:flex; flex-direction:column; }
+    .workspace>* { width:100%; }
+    .inspector { display:contents; }
+    .inspector .side-section { width:100%; background:var(--panel); border:1px solid var(--line); border-radius:14px; }
+    .inspector .side-section:nth-child(-n+2) { order:-1; }
+    #graph { height:clamp(320px,51vh,560px); }
+    .neighbors { max-height:135px; }
+  }
+  @media (pointer:coarse) { button,input[type=search] { min-height:44px; } }
+</style>
+</head>
+<body>
+<div class="frame">
+<header class="site-nav">
+  <a class="brand" href="../../"><img src="../../assets/astrava-mark.svg" alt="">ASTRAVA</a>
+  <nav class="nav-links" aria-label="Ссылки"><a href="graph.json" download>Граф JSON</a><a href="https://github.com/geraltschwarzenegger-svg/myTierAnime/tree/main/docs/architecture">Файлы на GitHub</a></nav>
+</header>
+<main>
+<section class="intro" aria-labelledby="page-title">
+  <div>
+    <h1 id="page-title">Карта проекта</h1>
+    <p>От карточки аниме до сборки сайта. Выбери узел, чтобы увидеть его связи.</p>
+  </div>
+  <div id="stats" class="stats" aria-label="Статистика графа"></div>
+</section>
+<div class="workspace">
+  <section class="panel" aria-label="Интерактивная схема">
+    <div class="toolbar">
+      <div class="modes" role="group" aria-label="Область графа">
+        <button type="button" id="near" aria-pressed="true">Вокруг узла</button>
+        <button type="button" id="all" aria-pressed="false">Весь граф</button>
+      </div>
+      <label class="toggle"><input type="checkbox" id="inferred"> Предполагаемые связи</label>
+    </div>
+    <div class="map">
+      <div id="graph" role="region" aria-label="Схема Graphify. Те же связи доступны в списке выбранного узла."></div>
+      <div class="tools" aria-label="Масштаб графа">
+        <button type="button" id="less" aria-label="Уменьшить">−</button>
+        <button type="button" id="fit">Вписать</button>
+        <button type="button" id="more" aria-label="Увеличить">+</button>
+      </div>
+    </div>
+    <p class="caption" id="map-status" aria-live="polite"></p>
+  </section>
+  <aside class="panel inspector" aria-label="Поиск и сведения об узлах">
+    <div class="side-section">
+      <h2><label for="search">Поиск по проекту</label></h2>
+      <input id="search" type="search" placeholder="render(), showPreview(), tools…" autocomplete="off">
+      <div class="list" id="results" hidden></div>
+    </div>
+    <div class="side-section">
+      <h2>Подсистемы</h2>
+      <div class="quick" id="quick"></div>
+    </div>
+    <div class="side-section">
+      <h2>Выбранный узел</h2>
+      <p class="selected" id="selected"></p>
+      <a id="source-link" target="_blank" rel="noopener noreferrer" hidden>Исходник на GitHub</a>
+      <p class="caption" id="connection-count"></p>
+      <div class="neighbors" id="neighbors"></div>
+    </div>
+  </aside>
+</div>
+</main>
+<footer class="foot">
+  <p>Сплошные линии — связи, извлечённые из синтаксиса. Пунктирные — эвристические связи Graphify; их стоит сверять с исходником.</p>
+  <p>В граф вошли исходный JavaScript и Python, тесты и сборщики. Для встроенного JavaScript ссылки ведут на строки <code>src/app.html</code>. CSS, JSON, медиа и готовые сборки опущены.</p>
+  <p><a id="revision" href="https://github.com/geraltschwarzenegger-svg/myTierAnime">Коммит анализа</a> · <a href="https://github.com/geraltschwarzenegger-svg/myTierAnime/blob/main/docs/architecture/GRAPH_REPORT.md">Отчёт Graphify</a> · <a href="https://github.com/Graphify-Labs/graphify">Graphify 0.9.115</a> · <a href="https://github.com/visjs/vis-network/tree/v9.1.6">vis-network</a></p>
+</footer>
+</div>
+<script>
+/* VIS_NETWORK */
+</script>
+<script>
+"use strict";
+const corpus = /* GRAPH_PAYLOAD */;
+const byId = new Map(corpus.nodes.map(([id,label,file,line,group]) => [id,{id,label,file,line,group}]));
+const adjacent = new Map();
+const links = corpus.edges.map(([from,to,relation,certainty],id) => ({id,from,to,relation,certainty}));
+for (const edge of links) {
+  for (const id of new Set([edge.from,edge.to])) {
+    if (!adjacent.has(id)) adjacent.set(id,[]);
+    adjacent.get(id).push(edge);
+  }
+}
+const $ = id => document.getElementById(id);
+const palette = ["#b9c6ff","#f1d49b","#a6e1dd","#eeaeca","#aad0ff","#c9b0ef","#c0dfa8","#ffbfaa"];
+const quick = [
+  ["Карточки","src_app_inline_render"],["Превью","src_app_inline_showpreview"],
+  ["Хранилище","src_app_inline_save"],["Спираль","src_app_inline_reveal"],
+  ["Атмосферы","addons_astral_studio_studio_apply"],["API","site_src_security_validatestate"],
+  ["Публикация","tools_build_pages_build"]
+];
+const relationNames = { calls:"вызов", contains:"содержит", imports:"импорт", imports_from:"импорт из", indirect_call:"косвенный вызов", method:"метод", rationale_for:"обоснование" };
+const github = "https://github.com/geraltschwarzenegger-svg/myTierAnime";
+const format = n => n.toLocaleString("ru-RU");
+const plurals = new Intl.PluralRules("ru-RU");
+const captions = {
+  nodes:{one:"узел",few:"узла",many:"узлов"},
+  edges:{one:"связь",few:"связи",many:"связей"},
+  groups:{one:"группа",few:"группы",many:"групп"},
+  files:{one:"файл",few:"файла",many:"файлов"}
+};
+const noun = (n,type) => captions[type][plurals.select(n)];
+const files = file => file === "src/app.inline.js" ? "src/app.html" : file;
+const allow = edge => $("inferred").checked || edge.certainty === "EXTRACTED";
+const opposite = (edge,id) => edge.from === id ? edge.to : edge.from;
+const network = new vis.Network($("graph"),{nodes:[],edges:[]},{
+  autoResize:true,
+  physics:false,
+  nodes:{shape:"dot",size:12,borderWidth:1,font:{color:"#eff1fc",size:15,strokeWidth:4,strokeColor:"#111a27"}},
+  edges:{color:{color:"#586b84",highlight:"#a6e1dd"},arrows:{to:{enabled:true,scaleFactor:.55}},smooth:{type:"continuous"}},
+  interaction:{hover:true,keyboard:{enabled:true,bindToWindow:false},zoomView:true}
+});
+let chosen = byId.has(quick[0][1]) ? quick[0][1] : corpus.nodes[0][0];
+let whole = false;
+
+function stat(value,type) {
+  const span = document.createElement("span"), number = document.createElement("b");
+  number.textContent = format(value);
+  span.append(number," " + noun(value,type));
+  $("stats").append(span);
+}
+function choice(label,detail,action) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.textContent = label;
+  if (detail) {
+    const small = document.createElement("small");
+    small.textContent = detail;
+    button.append(small);
+  }
+  button.addEventListener("click",action);
+  return button;
+}
+function inspect() {
+  const node = byId.get(chosen), list = $("neighbors");
+  $("selected").textContent = node.label;
+  const source = $("source-link");
+  source.hidden = !node.file;
+  if (node.file) {
+    const location = /^L\d+(?:-L\d+)?$/.test(node.line) ? "#" + node.line : "";
+    source.href = github + "/blob/" + corpus.revision + "/" + files(node.file).split("/").map(encodeURIComponent).join("/") + location;
+    source.textContent = files(node.file) + (location ? ":" + node.line.slice(1) : "");
+  }
+  const connections = (adjacent.get(chosen) || []).filter(allow);
+  $("connection-count").textContent = "Связей в текущем режиме · " + format(connections.length);
+  list.replaceChildren();
+  for (const edge of connections) {
+    const neighbor = byId.get(opposite(edge,chosen));
+    if (!neighbor) continue;
+    const direction = edge.from === chosen ? "→" : "←";
+    const proof = edge.certainty === "EXTRACTED" ? "из кода" : "предположение";
+    const button = choice(direction + " " + neighbor.label,
+      (relationNames[edge.relation] || edge.relation) + " · " + proof, () => select(neighbor.id));
+    button.dataset.certainty = edge.certainty;
+    list.append(button);
+  }
+}
+function draw() {
+  const focusLinks = (adjacent.get(chosen) || []).filter(allow);
+  const ids = whole ? [...byId.keys()] : [chosen,...new Set(focusLinks.map(edge=>opposite(edge,chosen)).filter(id=>id!==chosen))];
+  const edges = whole ? links.filter(allow) : focusLinks;
+  const groups = [...new Set(corpus.nodes.map(node=>node[4]))];
+  const positions = new Map();
+  const nodes = ids.map((id,index) => {
+    const node = byId.get(id);
+    const color = palette[Math.abs(node.group || 0)%palette.length];
+    let x=0,y=0;
+    if (whole) {
+      const group = groups.indexOf(node.group);
+      const offset = positions.get(group) || 0;
+      positions.set(group,offset+1);
+      const origin = group * 2.4, distance = 365 * Math.sqrt(group);
+      const angle = offset * 2.4, radius = 44 * Math.sqrt(offset);
+      x = distance*Math.cos(origin) + radius*Math.cos(angle);
+      y = distance*Math.sin(origin) + radius*Math.sin(angle);
+    } else if (index) {
+      const ring = Math.ceil(index/14);
+      const count = Math.min(14,ids.length-1-(ring-1)*14);
+      const angle = (index-1)%14 / count * Math.PI*2 + ring*.5;
+      x = Math.cos(angle)*ring*195;
+      y = Math.sin(angle)*ring*148;
+    }
+    return {id,label:node.label,x,y,color,size:id===chosen?20:whole?8:12};
+  });
+  network.setData({nodes,edges:edges.map(edge=>({id:edge.id,from:edge.from,to:edge.to,dashes:edge.certainty!=="EXTRACTED"}))});
+  network.selectNodes([chosen],false);
+  network.fit({animation:false});
+  $("map-status").textContent = format(ids.length) + " " + noun(ids.length,"nodes") + " и " + format(edges.length) + " " + noun(edges.length,"edges") + " на схеме";
+}
+function select(id) {
+  if (!byId.has(id)) return;
+  chosen = id;
+  inspect();
+  if (whole) {
+    network.selectNodes([chosen],false);
+    network.focus(chosen,{scale:Math.max(.72,network.getScale()),animation:false});
+  } else draw();
+}
+function mode(all) {
+  whole = all;
+  $("near").setAttribute("aria-pressed",String(!all));
+  $("all").setAttribute("aria-pressed",String(all));
+  draw();
+}
+function search() {
+  const query = $("search").value.trim().toLocaleLowerCase(), list = $("results");
+  list.replaceChildren();
+  list.hidden = !query;
+  if (!query) return;
+  const found = [...byId.values()].filter(node => (node.label+" "+files(node.file)).toLocaleLowerCase().includes(query));
+  found.sort((a,b)=>Number(b.label.toLowerCase()===query)-Number(a.label.toLowerCase()===query));
+  for (const node of found.slice(0,14)) {
+    list.append(choice(node.label,files(node.file),()=>{
+      select(node.id);
+      $("search").value = "";
+      search();
+      $("search").focus();
+    }));
+  }
+  if (!found.length) list.textContent = "Совпадений нет";
+}
+for (const [label,id] of quick) if (byId.has(id)) $("quick").append(choice(label,"",()=>select(id)));
+stat(corpus.nodes.length,"nodes");
+stat(links.length,"edges");
+stat(new Set(corpus.nodes.map(node=>node[4])).size,"groups");
+stat(corpus.files,"files");
+$("revision").href = github + "/commit/" + corpus.revision;
+$("revision").textContent = "Коммит " + corpus.revision.slice(0,7);
+$("search").addEventListener("input",search);
+$("search").addEventListener("keydown",event=>{
+  if (event.key==="Enter") $("results").querySelector("button")?.click();
+  if (event.key==="Escape") { $("search").value=""; search(); }
+});
+$("near").addEventListener("click",()=>mode(false));
+$("all").addEventListener("click",()=>mode(true));
+$("inferred").addEventListener("change",()=>{inspect();draw();});
+$("fit").addEventListener("click",()=>network.fit({animation:false}));
+for (const [id,multiplier] of [["less",.8],["more",1.25]]) {
+  $(id).addEventListener("click",()=>network.moveTo({scale:Math.min(3,Math.max(.025,network.getScale()*multiplier)),animation:false}));
+}
+network.on("selectNode",event=>select(event.nodes[0]));
+select(chosen);
+</script>
+</body>
+</html>
