@@ -23,6 +23,7 @@ const types = {
   ".css": "text/css",
   ".woff2": "font/woff2",
   ".jpg": "image/jpeg",
+  ".webp": "image/webp",
 };
 const server = http.createServer((req, res) => {
   const name =
@@ -236,6 +237,27 @@ const server = http.createServer((req, res) => {
       false,
       "tab out dismisses a nonmodal panel",
     );
+    await p.setViewportSize({ width: 1614, height: 741 });
+    await p.locator('.card[data-uid="77"]').click();
+    await p.waitForFunction(() => {
+      const preview = document.getElementById('preview');
+      return preview.querySelector('img.loaded')?.naturalWidth === 1672 && preview.querySelector('.preview-imgwrap').getBoundingClientRect().width >= 475;
+    });
+    const wideArt = panel.locator('.preview-imgwrap');
+    const desktopArt = await wideArt.boundingBox();
+    assert.ok(desktopArt.width >= 475 && desktopArt.width <= 480 && desktopArt.height >= 260, JSON.stringify(desktopArt));
+    assert.equal(await wideArt.locator('img').evaluate(img => getComputedStyle(img).objectFit), 'contain');
+    assert.equal(await panel.locator('.wrow-p').count(), 3);
+    await p.setViewportSize({ width: 844, height: 390 });
+    await p.waitForFunction(() => {
+      const preview = document.getElementById('preview');
+      const box = preview.getBoundingClientRect();
+      return box.x >= 11 && box.y >= 11 && box.right <= innerWidth - 11 && box.bottom <= innerHeight - 11;
+    });
+    assert.ok((await wideArt.boundingBox()).width >= 300);
+    assert.ok(await panel.locator('.wlist').evaluate(list => list.clientHeight >= 35));
+    await p.keyboard.press('Escape');
+    await p.setViewportSize({ width: 1280, height: 900 });
     // Stress the real renderer with 80 seasons without changing the user's files.
     const fixture = structuredClone(snapshot);
     const target = fixture.state.tiers
@@ -360,6 +382,14 @@ const server = http.createServer((req, res) => {
     });
     await touch.route("**/data.json*", (r) => r.fulfill({ json: fixture }));
     const tp = await page(touch);
+    await tp.locator('.card[data-uid="77"]').tap();
+    await tp.waitForFunction(() => {
+      const preview = document.getElementById('preview');
+      return preview.querySelector('img.loaded')?.naturalWidth === 1672 && preview.querySelector('.preview-imgwrap').getBoundingClientRect().width >= 350;
+    });
+    const phoneArt = await tp.locator('#preview .preview-imgwrap').boundingBox();
+    assert.ok(phoneArt.width >= 350 && phoneArt.x >= 11 && phoneArt.x + phoneArt.width <= 379, JSON.stringify(phoneArt));
+    await tp.locator('#previewClose').tap();
     await tp.evaluate(() => {
       window.previewTouchTrace = [];
       for (const type of ["pointerdown", "focusin", "scroll"])

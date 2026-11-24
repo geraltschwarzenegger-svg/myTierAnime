@@ -5221,9 +5221,23 @@ body.exporting .tier-muses,body.exporting .hero-lumen { display:none; }
 body.postcard-open { overflow:hidden; }
 @media(max-width:620px) { .postcard-layout { display:flex; flex-direction:column; padding:18px; gap:18px; } .postcard-capture { max-width:350px; } .postcard-dialog>header { padding:18px; } .postcard-dialog h2 { font-size:23px; } .postcard-controls { width:100%; } .postcard-controls .postcard-intro { font-size:18px; margin-top:0; } }
 @media(max-height:520px) { .preview-imgwrap { height:55px; min-height:45px; } .preview-utilities { padding-bottom:3px; } .preview-utilities button { font-size:8px; padding:3px 6px; } }
-/* Keep wide cover art legible in the detailed view. */
-.preview.wide-cover .preview-imgwrap { height:auto; min-height:0; max-height:clamp(55px,calc(var(--preview-vh,100dvh) - 365px),480px); aspect-ratio:16/9; }
+/* Give landscape artwork room while reserving height for the watch history. */
+:root { --preview-wide-max:480px; }
+.preview.wide-cover {
+  --wide-cover-room:clamp(90px,calc(var(--preview-vh,100dvh) - 340px),320px);
+  --wide-preview-width:min(var(--preview-wide-max),calc(var(--preview-vw,100vw) - 24px),calc(var(--wide-cover-room) * var(--preview-cover-ratio, 1.7778) + 2px));
+  width:var(--wide-preview-width);
+}
+.preview.wide-cover .preview-card { width:100%; }
+.preview.wide-cover .preview-imgwrap { flex:none; height:auto; min-height:0; aspect-ratio:var(--preview-cover-ratio, 1.7778); }
 .preview.wide-cover .preview-imgwrap img { object-fit:contain; }
+@media (min-width:540px) and (max-height:520px) {
+  :root { --preview-wide-max:600px; }
+  .preview.wide-cover { --wide-preview-width:min(var(--preview-wide-max),calc(var(--preview-vw,100vw) - 24px)); }
+  .preview.wide-cover .preview-card { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); }
+  .preview.wide-cover .preview-imgwrap { height:100%; aspect-ratio:auto; }
+  .preview.wide-cover .preview-meta { max-height:calc(var(--preview-vh,100dvh) - 26px); }
+}
 
 .showcase-tools:not([hidden]) {
   display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
@@ -9885,8 +9899,11 @@ function showPreview(el, uid) {
   preview.classList.remove("wide-cover");
   if (cover) {
     pImg.onload = () => {
-      const wide = pImg.naturalWidth > pImg.naturalHeight;
+      if (pUid !== uid) return;
+      const ratio = pImg.naturalWidth / pImg.naturalHeight;
+      const wide = ratio > 1;
       preview.classList.toggle("wide-cover", wide);
+      if (wide) preview.style.setProperty("--preview-cover-ratio", ratio);
       pImg.classList.add("loaded");
       if (wide) positionPreview();
     };
@@ -11779,6 +11796,8 @@ body[data-as-world="snow"] {--as-world:#d2eaf8;--as-glow:#aacbed29;--base-top:#1
 }
 @media(min-width:1280px) {
  .as-enabled #preview.show {left:auto!important;right:24px;top:24px!important;width:350px!important;transform:none!important;max-height:calc(100dvh - 48px);}
+ .as-enabled #preview.show.wide-cover {width:var(--wide-preview-width)!important;}
+ .as-enabled #preview.show.wide-cover .preview-card {max-height:calc(var(--preview-vh,100dvh) - 48px);}
 }
 @media(max-width:1099px) {
  .as-enabled .site-nav {display:flex;flex-wrap:wrap;gap:12px;padding:14px 22px;}
@@ -11862,6 +11881,8 @@ body[data-as-world="snow"] {--as-world:#d2eaf8;--as-glow:#aacbed29;--base-top:#1
 .as-enabled .tier[data-tier="S"] .badge .seal-index {margin-top:29px;}
 @media(min-width:1280px) {
  body.as-enabled:has(#preview.show) #capture {margin-right:374px;}
+ body.as-enabled:has(#preview.show.wide-cover) #capture {margin-right:calc(var(--preview-wide-max) + 24px);}
+ body.as-enabled:has(#preview.show.wide-cover) #fxGear {right:calc(var(--preview-wide-max) + 32px);}
 }
 @media(max-width:720px) {
  .as-enabled .tier[data-tier="S"] .badge .crown {top:0;right:0;left:auto;width:37px;height:32px;transform:none;}
