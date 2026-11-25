@@ -96,7 +96,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await p.locator('.card .neko-mark').count(),count);
     assert.equal(await p.locator('.card .neko-mark').evaluateAll(els=>new Set(els.map(el=>el.dataset.reaction)).size),count);
     assert.equal(await p.locator('.card .botanical-frame svg').count(),count);
-    assert.ok((await p.locator('.release-version').textContent()).includes('V5.1.3'));
+    assert.ok((await p.locator('.release-version').textContent()).includes('V5.1.8'));
     assert.ok(await p.locator('.hero-art-photo img').evaluate(el=>el.complete&&el.naturalWidth>=1400));
     assert.equal(await p.locator('img[loading="lazy"]').count()>20,true);
     const originalDates=await p.evaluate(()=>JSON.stringify(state.tiers.flatMap(t=>t.items.map(i=>[i.uid,i.watched,i.reaction,i.fav]))));

@@ -26,7 +26,7 @@ async function verifyOffline(browser,errors){
   const serve=async route=>{const url=route.request().url();if(live&&url.startsWith(base)){const r=await fetch(url,{signal:AbortSignal.timeout(25000)}),headers=Object.fromEntries(r.headers);delete headers['content-length'];delete headers['content-encoding'];return route.fulfill({status:r.status,headers,body:Buffer.from(await r.arrayBuffer())});}if(cache[url])return route.fulfill({contentType:'image/webp',body:fs.readFileSync(cache[url])});if(!url.startsWith(base))return route.abort();const name=decodeURIComponent(new URL(url).pathname.slice(new URL(base).pathname.length))||'index.html';if(name.split('/').includes('..'))return route.abort();const file=name==='index.html'?path.join(root,'index.html'):path.join(root,name);if(!fs.existsSync(file))return route.fulfill({status:404,body:''});return route.fulfill({contentType:types[path.extname(file)]||'application/octet-stream',body:fs.readFileSync(file)});};await c.route('https://**/*',serve);
   const p=await c.newPage();p.on('pageerror',e=>{errors.push(e.message);console.error('PAGE ERROR',e.message);});await p.goto(base,{waitUntil:'domcontentloaded'});await p.waitForFunction(n=>window.AstralStudio&&document.querySelectorAll('.card').length===n,count);
   const original=await p.evaluate(()=>JSON.stringify(state));
-  assert.ok((await p.locator('.release-version').textContent()).includes('V5.1.3'));
+  assert.ok((await p.locator('.release-version').textContent()).includes('V5.1.8'));
   assert.ok((await p.title()).includes('ASTRAVA'));
   await p.locator('#asOpen').click();
   const beforeAppearance=await p.evaluate(()=>AstralStudio.settings());

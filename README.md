@@ -1,14 +1,14 @@
 <div align="center">
 
-![ASTRAVA · The Astral Chapter — Девять героев на террасе ночной обсерватории](docs/images/astrava-observatory-banner.webp?release=5.1.3)
+![ASTRAVA · The Astral Chapter — Девять героев на террасе ночной обсерватории](docs/images/astrava-observatory-banner.webp?release=5.1.8)
 
 **Истории, достойные вечности.**
 
 Личный архив аниме, в котором у каждого мира есть своё место, цвет и настроение.
 
-[![Версия](https://img.shields.io/badge/релиз-V5.1.3-c9b3ee?style=flat-square&labelColor=142238)](#что-нового-на-сайте-changelog) [![Коллекция](https://img.shields.io/badge/аниме-75-a8ddd5?style=flat-square&labelColor=142238)](data.json) [![Стикеры](https://img.shields.io/badge/стикеры-199-e7bed2?style=flat-square&labelColor=142238)](#впечатления-в-персонажах) [![Рамки](https://img.shields.io/badge/рамки-50_+_8-e6cc9b?style=flat-square&labelColor=142238)](#рамки-и-собственный-стиль) [![Атмосферы](https://img.shields.io/badge/миры-9-9ccbb6?style=flat-square&labelColor=142238)](#девять-миров)
+[![Версия](https://img.shields.io/badge/релиз-V5.1.8-c9b3ee?style=flat-square&labelColor=142238)](#что-нового-на-сайте-changelog) [![Коллекция](https://img.shields.io/badge/аниме-75-a8ddd5?style=flat-square&labelColor=142238)](data.json) [![Стикеры](https://img.shields.io/badge/стикеры-199-e7bed2?style=flat-square&labelColor=142238)](#впечатления-в-персонажах) [![Рамки](https://img.shields.io/badge/рамки-50_+_8-e6cc9b?style=flat-square&labelColor=142238)](#рамки-и-собственный-стиль) [![Атмосферы](https://img.shields.io/badge/миры-9-9ccbb6?style=flat-square&labelColor=142238)](#девять-миров)
 
-[**Открыть ASTRAVA ↗**](https://geraltschwarzenegger-svg.github.io/myTierAnime/?overview=1&release=5.1.3) &nbsp; · &nbsp; [**Автономный HTML**](https://raw.githubusercontent.com/geraltschwarzenegger-svg/myTierAnime/main/NEWAnime%20tier%20list11-08-2026.html) &nbsp; · &nbsp; [**Резервный JSON**](anime-tierlist-2026-10-11.json)
+[**Открыть ASTRAVA ↗**](https://geraltschwarzenegger-svg.github.io/myTierAnime/?overview=1&release=5.1.8) &nbsp; · &nbsp; [**Автономный HTML**](https://raw.githubusercontent.com/geraltschwarzenegger-svg/myTierAnime/main/NEWAnime%20tier%20list11-08-2026.html) &nbsp; · &nbsp; [**Резервный JSON**](anime-tierlist-2026-10-11.json)
 
 [Коллекция](#коллекция) · [Студия](#студия-оформления) · [Спираль памяти](#спираль-памяти) · [Сохранения](#твоя-коллекция-и-сохранения) · [Обновления](#что-нового-на-сайте-changelog)
 
@@ -320,6 +320,11 @@
 
 ## Что нового на сайте (Changelog)
 
+### 25 ноября 2026 · V5.1.8
+
+- В карточке можно добавить пересмотр с датой, сезоном и временем. В календаре пересмотр отмечается квадратом **«П»**.
+- Горизонтальная обложка «Мастеров Меча Онлайн» открывается крупнее и сохраняет пропорции кадра.
+
 ### 21 ноября 2026 · Коллекция
 
 Добавлены «Витрина» с подписями под постерами и коллекционные наборы из просмотренных тайтлов. В витрине поиск оставляет только совпадения и показывает их число. Сортировка меняет отображение в пределах тира.
@@ -422,7 +427,7 @@
 
 **Каждая история — часть твоей вселенной.**
 
-ASTRAVA · The Astral Chapter · **V5.1.3**
+ASTRAVA · The Astral Chapter · **V5.1.8**
 
 </div>
 

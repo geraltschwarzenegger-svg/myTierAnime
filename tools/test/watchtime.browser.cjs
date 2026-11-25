@@ -28,7 +28,7 @@ const mime={'.html':'text/html; charset=utf-8','.json':'application/json','.js':
   });
   const p=await context.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
   await p.addInitScript(()=>{window.cspProblems=[];document.addEventListener('securitypolicyviolation',e=>window.cspProblems.push(e.effectiveDirective));});
-  await p.goto(base+'?v=5.1.3',{waitUntil:'domcontentloaded'});
+  await p.goto(base+'?v=5.1.8',{waitUntil:'domcontentloaded'});
   await p.waitForFunction(()=>document.querySelectorAll('.card').length===75);
   assert.equal(await p.locator('#watchTimeTotal').textContent(),'≈ 748 часов 4 минуты');
   assert.equal(await p.evaluate(()=>collectionWatchTime(state).minutes),44884);

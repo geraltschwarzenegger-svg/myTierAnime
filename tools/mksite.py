@@ -33,7 +33,7 @@ def replacement():
 EXTRA_HEAD = """<meta name="theme-color" content="#0c1422">
 <meta name="referrer" content="no-referrer">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ASTRAVA · The Astral Chapter · V5.1.3">
+<meta property="og:title" content="ASTRAVA · The Astral Chapter · V5.1.8">
 <meta property="og:description" content="Твоя вселенная аниме: тиры, календарь, спираль памяти и девять атмосфер.">
 <meta property="og:image" content="https://geraltschwarzenegger-svg.github.io/myTierAnime/docs/images/astrava-observatory-banner.webp">
 <link rel="preload" as="image" href="assets/art/astrava-celestial-terrace.webp" fetchpriority="high">
