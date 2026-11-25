@@ -5403,6 +5403,30 @@ body.exporting .tier { content-visibility:visible !important; contain-intrinsic-
 }
 
 </style>
+<style>
+/* Repeat viewings share the same watch history and duration controls. */
+.preview-utilities { flex-wrap:wrap;row-gap:4px; }
+.rewatch-dialog { width:min(460px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 24px);margin:auto;overflow:auto;padding:20px;border:1px solid var(--as-line,#50657c);border-radius:18px;background:var(--as-surface,#19293d);color:var(--as-ink,#eef2f8); }
+.rewatch-dialog::backdrop { background:#07111dd9; }
+.rewatch-dialog header { display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:14px; }
+.rewatch-dialog h2 { margin:0;font:500 27px var(--serif); }
+.rewatch-dialog header p,.rewatch-dialog p { margin:6px 0;color:var(--as-muted,#adbbce);font-size:12px;overflow-wrap:anywhere; }
+.rewatch-dialog form { display:grid;gap:10px; }
+.rewatch-dialog label { display:grid;gap:5px;color:var(--as-muted,#adbbce);font-size:12px; }
+.rewatch-dialog :is(input,select) { width:100%;min-width:0;min-height:42px;padding:8px;border-radius:8px;border:1px solid var(--as-line,#50657c);background:var(--as-page,#142238);color:var(--as-ink,#eef2f8);font:inherit; }
+.rewatch-dialog :focus-visible { outline:2px solid var(--as-brand,#edcc94);outline-offset:2px; }
+.rewatch-dialog .btn { min-height:42px; }
+.rewatch-dialog footer { display:flex;justify-content:flex-end;gap:8px; }
+#rewatchError:empty { display:none; }
+#rewatchError { color:#ffb1ba; }
+.wlist-edit .wrewatch-label { grid-column:1/-1;display:flex;align-items:center;gap:6px;font-size:11px; }
+.wlist-edit .wrewatch { width:auto;accent-color:#dba9e7; }
+.calendar-rewatch { display:inline-grid;place-items:center;min-width:15px;height:15px;border-radius:4px;background:#deb4ed;color:#2e1740;font:750 9px var(--sans); }
+.calendar-day .calendar-rewatch { position:absolute;top:4px;right:4px; }
+.calendar-day.has-rewatch>b { top:auto;bottom:4px;right:4px; }
+.calendar-legend { flex-wrap:wrap; }
+.watch-entry-title .rewatch-entry,.history-entry.is-rewatch small { color:var(--as-brand,#e6bfef); }
+</style>
 <style id="memoryHelixStyles">
 /* Memory dimension — uses the collection's own accent palette. */
 body.helix-open { overflow:hidden; }
@@ -5979,10 +6003,28 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
       </div>
       <span class="pv-elite">♛ ЭЛИТА</span>
     </div>
-    <div class="preview-meta"><div class="preview-utilities"><span>MEMORY COLLECTION</span><button type="button" id="postcardOpen">✦ Открытка PNG</button></div>
+    <div class="preview-meta"><div class="preview-utilities"><button type="button" id="previewRewatch" aria-haspopup="dialog" aria-controls="rewatchDialog">+ Пересмотр</button><button type="button" id="postcardOpen">✦ Открытка PNG</button></div>
     <button type="button" class="preview-reaction-bar" id="previewReaction" aria-haspopup="dialog" aria-controls="reactionDialog"><span id="previewReactionSticker"></span><span><b id="previewReactionLabel"></b><small id="previewReactionSource"></small></span><em aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 18 18 6M7 6h11v11"/></svg></em></button><div class="t" id="previewTitle"></div><div class="s"></div><div class="preview-dates-head" id="previewDatesCount"></div><div class="preview-watch-total" id="previewWatchTotal"></div><div class="wlist" tabindex="0" role="region" aria-label="Даты просмотра и сезоны"></div></div>
   </div>
 </div>
+
+<dialog id="rewatchDialog" class="rewatch-dialog" aria-labelledby="rewatchHeading" data-html2canvas-ignore>
+  <header>
+    <div><h2 id="rewatchHeading">Добавить пересмотр</h2><p id="rewatchAnime"></p></div>
+    <button class="btn" type="button" id="rewatchClose" aria-label="Закрыть окно пересмотра">×</button>
+  </header>
+  <div id="rewatchReadonly" hidden>
+    <p>Пересмотры сохраняются в твоей личной коллекции.</p>
+    <button class="btn" type="button" id="rewatchOwn">Открыть личную коллекцию</button>
+  </div>
+  <form id="rewatchForm">
+    <label>Дата пересмотра<input type="date" id="rewatchDate" required min="1900-01-01" max="9999-12-31"></label>
+    <label>Сезон или часть <input type="text" id="rewatchLabel" maxlength="100" placeholder="Например, первый сезон"></label>
+    <div id="rewatchDuration"></div>
+    <p id="rewatchError" role="alert"></p>
+    <footer><button class="btn primary" type="submit">Сохранить пересмотр</button></footer>
+  </form>
+</dialog>
 
 <!-- add/edit modal -->
 <div class="overlay" id="overlay">
@@ -6006,7 +6048,7 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
         <div class="wlist-edit" id="fWatchedList"></div>
         <button type="button" class="addwatch" id="fWatchedAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>добавить дату / сезон</button>
       </div>
-      <div class="wtime-total-field"><label>Общий итог аниме · необязательно</label><small class="field-hint">Заменяет сумму дат этого аниме, а не прибавляется к ней. Удобно, если все сезоны записаны одной общей отметкой.</small><div id="fTotalTime"></div></div>
+      <div class="wtime-total-field"><label>Итог без пересмотров · необязательно</label><small class="field-hint">Заменяет сумму обычных просмотров. Указанное время пересмотров прибавляется отдельно.</small><div id="fTotalTime"></div></div>
       <div class="field"><label>Тир</label>
         <div class="tierpick" id="fTier">
           <button type="button" data-t="S">S</button><button type="button" data-t="A">A</button>
@@ -6051,7 +6093,7 @@ body.exporting #memoryHelixOpen,body.exporting #memoryHelix { display:none!impor
         <div class="calendar-nav"><button type="button" id="calendarPrev" class="calendar-arrow" aria-label="Предыдущий месяц">‹</button><h4 id="calendarMonth" aria-live="polite"></h4><button type="button" id="calendarNext" class="calendar-arrow" aria-label="Следующий месяц">›</button></div>
         <div id="calendarGrid" class="calendar-grid" role="grid" aria-labelledby="calendarMonth"></div>
         <p class="calendar-summary" id="calendarSummary"></p>
-        <p class="calendar-legend"><i></i> Есть просмотры <span>◯ Сегодня</span></p>
+        <p class="calendar-legend"><i></i> Есть просмотры <b class="calendar-rewatch" aria-hidden="true">П</b> Пересмотр <span>◯ Сегодня</span></p>
         <div class="calendar-actions"><button type="button" class="visit-btn" id="calendarToday">Сегодня</button><button type="button" class="visit-btn" id="calendarLatest">Последний просмотр</button></div>
       </section>
       <section class="calendar-records"><div id="calendarSelectionRow" class="calendar-selection"><h4 id="calendarSelection" aria-live="polite"></h4><span><button type="button" class="visit-btn" id="calendarClear" hidden>Весь месяц</button><button type="button" class="visit-btn" id="calendarShowDay" hidden>В коллекции</button></span></div><div class="history-list" id="historyList"></div></section>
@@ -6563,10 +6605,11 @@ function collectionWatchTime(st) {
   return result;
 }
 function itemWatchTime(item) {
-  if (normalizeWatchDuration(item?.watchTotal)) return {...sumWatchTime([{duration:item.watchTotal}]),override:true};
   const records=typeof item?.watched==='string' ? (item.watched.trim()?[{date:item.watched}]:[]) :
     Array.isArray(item?.watched)?item.watched.filter(w=>w&&typeof w.date==='string'&&w.date.trim()):[];
-  return {...sumWatchTime(records),override:false};
+  const override=Boolean(normalizeWatchDuration(item?.watchTotal));
+  const counted=override ? [{duration:item.watchTotal},...records.filter(w=>w.rewatch===true)] : records;
+  return {...sumWatchTime(counted),override};
 }
 /* WATCHTIME HELPERS END */
 
@@ -7348,7 +7391,10 @@ const WATCHTIME_CATALOG = [{"uid":1,"name":"Violet Evergarden","options":[{"labe
 function normWatched(w) {
   if (!w) return [];
   if (typeof w === "string") return w.trim() ? [{ label: "", date: w.trim() }] : [];
-  if (Array.isArray(w)) return w.filter(e => e && typeof e.date === "string" && e.date).slice(0,100).map(e=>({label:typeof e.label==="string"?e.label.slice(0,100):"",date:e.date.slice(0,20),...(normalizeWatchDuration(e.duration)?{duration:normalizeWatchDuration(e.duration)}:{})}));
+  if (Array.isArray(w)) return w.filter(e => e && typeof e.date === "string" && e.date).slice(0,100).map(e => {
+    const duration = normalizeWatchDuration(e.duration);
+    return {label:typeof e.label==="string"?e.label.slice(0,100):"",date:e.date.slice(0,20),...(duration?{duration}:{}),...(e.rewatch===true?{rewatch:true}:{})};
+  });
   return [];
 }
 function parseRuDate(d) {
@@ -7361,6 +7407,9 @@ function watchedLatest(a) {
   let best = a[0], bt = -1;
   a.forEach(e => { const t = parseRuDate(e.date); if (t >= bt) { bt = t; best = e; } });
   return best;
+}
+function watchEntryLabel(entry, fallback="Просмотр") {
+  return entry.rewatch ? "Пересмотр" + (entry.label ? " · " + entry.label : "") : (entry.label || fallback);
 }
 function watchedHtml(item, chip) {
   const a = normWatched(item.watched);
@@ -8171,11 +8220,11 @@ function watchCatalogItem(name) {
   const key=String(name||'').trim().toLocaleLowerCase('ru').replaceAll('ё','е');
   return WATCHTIME_CATALOG.find(item=>item.name.toLocaleLowerCase('ru').replaceAll('ё','е')===key);
 }
-function durationEditor(value) {
+function durationEditor(value, getName=()=>fName.value) {
   const editor=document.createElement('div');editor.className='wtime-editor';
   const d=normalizeWatchDuration(value);editor._timeMeta=d?{...d}:{basis:'manual'};
   editor.innerHTML=`<label class="wtime-choice">Время просмотра<select class="wtime-mode" aria-label="Способ ввода времени"><option value="unknown">Не указано</option><option value="episodes">Серии × минуты</option><option value="total">Часы и минуты</option></select></label><label class="wtime-preset-label">Данные каталога<select class="wtime-preset" aria-label="Выбрать сезон из каталога"></select></label><div class="wtime-numbers" data-time-fields="episodes"><label>Серий<input class="wtime-episodes" type="number" min="1" max="10000" step="1" inputmode="numeric" aria-label="Количество серий"></label><span aria-hidden="true">×</span><label>Минут на серию<input class="wtime-episode-minutes" type="number" min="1" max="1440" step="1" inputmode="numeric" aria-label="Минут на серию"></label></div><div class="wtime-numbers" data-time-fields="total"><label>Часов<input class="wtime-hours" type="number" min="0" max="10000" step="1" inputmode="numeric" aria-label="Часы просмотра"></label><label>Минут<input class="wtime-minutes" type="number" min="0" max="59" step="1" inputmode="numeric" aria-label="Минуты просмотра"></label></div><output class="wtime-result" aria-live="polite"></output><p class="wtime-source"></p>`;
-  refreshDurationPresets(editor);setDurationEditor(editor,d);
+  refreshDurationPresets(editor,getName());setDurationEditor(editor,d);
   editor.addEventListener('input',e=>{
     if(e.target.tagName!=='INPUT')return;
     editor._timeMeta={basis:'manual'};editor.querySelector('.wtime-preset').value='';refreshDurationEditor(editor);
@@ -8190,13 +8239,13 @@ function durationEditor(value) {
   });
   editor.querySelector('.wtime-preset').addEventListener('change',e=>{
     if(e.target.value==='')return;
-    const catalog=watchCatalogItem(fName.value),entry=catalog?.options[Number(e.target.value)];
+    const catalog=watchCatalogItem(getName()),entry=catalog?.options[Number(e.target.value)];
     if(entry)setDurationEditor(editor,entry.duration);
   });
   return editor;
 }
-function refreshDurationPresets(editor) {
-  const catalog=watchCatalogItem(fName.value),select=editor.querySelector('.wtime-preset');
+function refreshDurationPresets(editor,name=fName.value) {
+  const catalog=watchCatalogItem(name),select=editor.querySelector('.wtime-preset');
   select.innerHTML='<option value="">Выбери сезон / фильм</option>'+(catalog?.options||[]).map((p,i)=>`<option value="${i}">${esc(p.label)}</option>`).join('');
   editor.querySelector('.wtime-preset-label').hidden=!catalog?.options.length;
 }
@@ -8251,8 +8300,7 @@ function openWatchTimeDetails() {
 }
 document.getElementById('watchTimeOpen').addEventListener('click',openWatchTimeDetails);
 document.getElementById('watchTimeClose').addEventListener('click',()=>document.getElementById('watchTimeDialog').close());
-document.getElementById('watchTimeOwn').addEventListener('click',async()=>{
-  document.getElementById('watchTimeDialog').close();
+async function openPersonalCollection() {
   if(serverMode){document.getElementById('guestMine').click();return;}
   if(locked){toast('Сначала разблокируй свой список в хранилище');return;}
   let local=await readLSAsync();
@@ -8266,11 +8314,17 @@ document.getElementById('watchTimeOwn').addEventListener('click',async()=>{
     const mirror=raw?readEnvelope(raw):null;
     if(mirror&&(!local||(mirror.savedAt||'')>(local.savedAt||'')))local=mirror;
   }catch(e){/* Keep the readable local copy if a mirror is unavailable. */}
+  if(locked){toast('Сначала разблокируй свой список в хранилище');return;}
+  try{localStorage.setItem(LS_PERSONAL,'1');}catch(e){toast('Браузер не разрешил сохранить режим личного списка');return;}
   if(local&&itemCount(local.state)){state=normalizeState(local.state);lastSavedAt=local.savedAt;}
   else {state=normalizeState(structuredClone(state));}
-  try{localStorage.setItem(LS_PERSONAL,'1');}catch(e){toast('Браузер не разрешил сохранить режим личного списка');return;}
   readOnly=false;syncServerUi();save();render();
   toast(local&&itemCount(local.state)?'Открыт твой сохранённый список':'Редактируемая копия сохранена в этом браузере');
+  return true;
+}
+document.getElementById('watchTimeOwn').addEventListener('click',()=>{
+  document.getElementById('watchTimeDialog').close();
+  openPersonalCollection();
 });
 document.getElementById('watchTimePublished').addEventListener('click',async()=>{
   await flushMirrors();
@@ -8284,10 +8338,11 @@ document.getElementById('watchTimeDetails').addEventListener('click',e=>{
   const el=document.querySelector(`.card[data-uid="${uid}"],.chip[data-uid="${uid}"]`);if(el){el.scrollIntoView({block:'center'});showPreview(el,uid);}
 });
 
-function watchRow(label, date, duration) {
+function watchRow(label, date, duration, rewatch=false) {
   const r = document.createElement("div");
   r.className = "wrow";
   r.innerHTML = `<input class="wlabel" type="text" placeholder="Сезон / часть (необяз.)" autocomplete="off" value="${label ? esc(label) : ""}"><input class="wdate" type="text" placeholder="дд.мм.гггг" inputmode="numeric" maxlength="10" autocomplete="off" value="${date ? esc(date) : ""}"><button type="button" class="wtoday" title="Поставить сегодняшнюю дату">Сегодня</button><button type="button" class="wdel" title="Убрать">✕</button>`;
+  r.insertAdjacentHTML('beforeend', `<label class="wrewatch-label"><input type="checkbox" class="wrewatch"${rewatch?' checked':''}> Пересмотр</label>`);
   r.appendChild(durationEditor(duration));
   return r;
 }
@@ -8399,7 +8454,7 @@ function openModal(uid, presetTier) {
     document.getElementById("mTitle").textContent = "Редактировать тайтл";
     document.getElementById("mSub").textContent = "Измени название, обложку или тир";
     fName.value = f.item.name; fCover.value = f.item.cover || ""; setReaction(reactionKey(f.item));document.getElementById("fFav").checked=!!f.item.fav;
-    fWatchedList.innerHTML = ""; const _wl = normWatched(f.item.watched); (_wl.length ? _wl : [{ label: "", date: "" }]).forEach(e => fWatchedList.appendChild(watchRow(e.label, e.date, e.duration)));
+    fWatchedList.innerHTML = ""; const _wl = normWatched(f.item.watched); (_wl.length ? _wl : [{ label: "", date: "" }]).forEach(e => fWatchedList.appendChild(watchRow(e.label, e.date, e.duration, e.rewatch)));
     document.getElementById("fTotalTime").replaceChildren(durationEditor(f.item.watchTotal));
     setPick(f.tier.id);
     coverChkUrl = "\u0000"; coverCheck();
@@ -8450,9 +8505,11 @@ document.getElementById("mSave").addEventListener("click", () => {
     const time=readDurationEditor(row.querySelector('.wtime-editor'));
     if(time.issue){row.querySelector('.wtime-mode').focus();toast(time.issue);return;}
     const date=row.querySelector('.wdate').value.trim(),label=row.querySelector('.wlabel').value.trim().slice(0,100);
-    if(!date&&time.value){row.querySelector('.wdate').focus();toast('Добавь дату к записи со временем');return;}
-    if(date)watched.push({label,date,...(time.value?{duration:time.value}:{})});
+    const rewatch=row.querySelector('.wrewatch').checked;
+    if(!date&&(time.value||rewatch)){row.querySelector('.wdate').focus();toast(rewatch?'Укажи дату пересмотра':'Добавь дату к записи со временем');return;}
+    if(date)watched.push({label,date,...(time.value?{duration:time.value}:{}),...(rewatch?{rewatch:true}:{})});
   }
+  if(watched.length>100){toast('В карточке можно хранить до 100 дат просмотра');return;}
   const totalTime=readDurationEditor(document.querySelector('#fTotalTime .wtime-editor'));
   if(totalTime.issue){document.querySelector('#fTotalTime .wtime-mode').focus();toast(totalTime.issue);return;}
   const invalid = [...fWatchedList.querySelectorAll(".wdate")].find(input => input.value.trim() && !parseRuDate(input.value.trim()));
@@ -8479,7 +8536,7 @@ document.getElementById("mSave").addEventListener("click", () => {
   }
   save(); flipRerender(); celebrate(pickTier); closeModal();
 });
-fName.addEventListener("input",()=>document.querySelectorAll("#overlay .wtime-editor").forEach(refreshDurationPresets));
+fName.addEventListener("input",()=>document.querySelectorAll("#overlay .wtime-editor").forEach(editor=>refreshDurationPresets(editor)));
 fName.addEventListener("keydown", e => { if (e.key === "Enter") document.getElementById("mSave").click(); });
 
 /* ════════════════════ TOOLBAR ════════════════════ */
@@ -8698,18 +8755,23 @@ function paintCalendar(entries) {
       if (n < 1 || n > monthLength) { html += '<span class="calendar-blank" role="gridcell" aria-disabled="true"></span>'; continue; }
       const d = new Date(y,m,n,12), key = dayKey(d), records = days.get(key) || [];
       const dots = [...new Map(records.map(e => [e.tier.id,e.tier])).values()].slice(0,3).map(t => `<i style="${accentVars(t)}"></i>`).join("");
-      const label = d.toLocaleDateString("ru-RU", {day:"numeric",month:"long",year:"numeric",weekday:"long"}) + ` · ${records.length} записей просмотра`;
-      html += `<button type="button" role="gridcell" tabindex="${key===active?0:-1}" class="calendar-day${records.length?' has-watches':''}${key===today?' today':''}${key===calendarDay?' selected':''}" data-day="${key}" aria-selected="${key===calendarDay}" aria-label="${esc(label)}"${key===today?' aria-current="date"':''}><span>${n}</span>${records.length?`<b>${records.length}</b><span class="calendar-dots" aria-hidden="true">${dots}</span>`:''}</button>`;
+      const rewatches = records.filter(e=>e.rewatch).length;
+      const label = d.toLocaleDateString("ru-RU", {day:"numeric",month:"long",year:"numeric",weekday:"long"}) + ` · ${records.length} записей просмотра` + (rewatches ? ` · ${rewatchCountLabel(rewatches)}` : '');
+      html += `<button type="button" role="gridcell" tabindex="${key===active?0:-1}" class="calendar-day${records.length?' has-watches':''}${rewatches?' has-rewatch':''}${key===today?' today':''}${key===calendarDay?' selected':''}" data-day="${key}" aria-selected="${key===calendarDay}" aria-label="${esc(label)}"${key===today?' aria-current="date"':''}><span>${n}</span>${records.length?`<b>${records.length}</b><span class="calendar-dots" aria-hidden="true">${dots}</span>`:''}${rewatches?'<span class="calendar-rewatch" aria-hidden="true">П</span>':''}</button>`;
     }
     html += '</div>';
   }
   document.getElementById("calendarGrid").innerHTML = html;
   const monthRecords = entries.filter(e => { const d = new Date(e.ms); return d.getFullYear() === y && d.getMonth() === m; });
-  document.getElementById("calendarSummary").textContent = `${monthRecords.length} записей · ${new Set(monthRecords.map(e=>dayKey(new Date(e.ms)))).size} дней с аниме · ${sumWatchTime(monthRecords).estimated?"≈ ":""}${formatWatchTime(sumWatchTime(monthRecords).minutes)}${sumWatchTime(monthRecords).unknown?" · есть записи без времени":""}`;
+  const rewatches = monthRecords.filter(e=>e.rewatch).length, total = sumWatchTime(monthRecords);
+  document.getElementById("calendarSummary").textContent = `${monthRecords.length} записей · ${new Set(monthRecords.map(e=>dayKey(new Date(e.ms)))).size} дней с аниме${rewatches?' · '+rewatchCountLabel(rewatches):''} · ${total.estimated?"≈ ":""}${formatWatchTime(total.minutes)}${total.unknown?" · есть записи без времени":""}`;
   document.getElementById("calendarSelection").textContent = calendarDay ? `Просмотрено ${calendarDay.split('-').reverse().join('.')}` : `Просмотры · ${title}`;
   document.getElementById("calendarClear").hidden = !calendarDay;
   document.getElementById("calendarShowDay").hidden = !calendarDay || !days.has(calendarDay);
   return monthRecords.filter(e => !calendarDay || dayKey(new Date(e.ms)) === calendarDay);
+}
+function rewatchCountLabel(count) {
+  return count + ' ' + watchPlural(count, ['пересмотр', 'пересмотра', 'пересмотров']);
 }
 function renderHistory() {
   const { dated, undated } = historyEntries();
@@ -8723,7 +8785,7 @@ function renderHistory() {
   year.value = historyTab === "calendar" ? String(calendarMonth.getFullYear()) : years.includes(oldYear) ? oldYear : "";
   year.disabled = historyTab === "undated";
   const q = document.getElementById("historySearch").value.trim().toLocaleLowerCase("ru");
-  const matches = e => !q || (e.item.name + " " + e.label).toLocaleLowerCase("ru").includes(q);
+  const matches = e => !q || (e.item.name + " " + watchEntryLabel(e, "")).toLocaleLowerCase("ru").includes(q);
   let rows = (historyTab === "undated" ? undated : dated).filter(matches);
   const calendarOn = historyTab === "calendar";
   historyOverlay.classList.toggle("calendar-view", calendarOn);
@@ -8740,7 +8802,7 @@ function renderHistory() {
     const d=e.ms?new Date(e.ms):null, key=d?`${d.getFullYear()}-${d.getMonth()}`:"";
     const heading=!calendarOn&&key&&key!==month?`<h4 class="history-month">${esc(d.toLocaleDateString("ru-RU",{month:"long",year:"numeric"}))}</h4>`:"";month=key;
     const iso=d?dayKey(d):"";
-    return heading+`<button type="button" class="history-entry" data-uid="${e.item.uid}" style="${accentVars(e.tier)}"><time${iso?` datetime="${iso}"`:""}>${esc(e.date||"Без даты")}</time><span><b>${esc(e.item.name)}</b><small>${esc(e.label||e.tier.label)} · ${esc(durationText(e,true))}</small></span><span class="history-tier">${esc(e.tier.id)}</span></button>`;
+    return heading+`<button type="button" class="history-entry${e.rewatch?' is-rewatch':''}" data-uid="${e.item.uid}" style="${accentVars(e.tier)}"><time${iso?` datetime="${iso}"`:""}>${esc(e.date||"Без даты")}</time><span><b>${esc(e.item.name)}</b><small>${esc(watchEntryLabel(e,e.tier.label))} · ${esc(durationText(e,true))}</small></span><span class="history-tier">${esc(e.tier.id)}</span></button>`;
   }).join("") || '<p class="history-empty">'+(calendarOn?(calendarDay?'В этот день пока нет записей просмотра.':'В этом месяце нет записей. Переключи месяц или нажми «Последний просмотр».'):q?'Записей по этому запросу нет.':historyTab==='dated'?'Добавь даты в редакторе аниме — здесь появится история.':'У всех тайтлов уже есть дата просмотра.')+'</p>';
 }
 function closeHistory() { historyOverlay.classList.remove("show");document.getElementById("historyBtn").focus({preventScroll:true}); }
@@ -9886,12 +9948,13 @@ function showPreview(el, uid) {
   pT.textContent = f.item.name;
   pS.textContent = f.tier.id + "-tier · " + f.tier.label;
   const _wl = normWatched(f.item.watched);
-  pDatesCount.textContent = "Просмотры · " + _wl.length;
+  const rewatches = _wl.filter(e=>e.rewatch).length;
+  pDatesCount.textContent = "Просмотры · " + _wl.length + (rewatches ? " · " + rewatchCountLabel(rewatches) : "");
   const itemTime=itemWatchTime(f.item);
   document.getElementById('previewWatchTotal').innerHTML=itemTime.known?`<span>${itemTime.override?'Общий итог за аниме':'Итого по датам'}${itemTime.unknown?' · учтено не всё':''}</span><b class="watch-time">${esc((itemTime.estimated?'≈ ':'')+formatWatchTime(itemTime.minutes))}</b>${itemTime.override?`<small class="watch-formula">${esc(f.item.watchTotal.scopeLabel||'Заменяет сумму дат')}</small><small class="watch-formula">${esc(f.item.watchTotal.note||'')}</small>`:''}`:'';
   pWlist.innerHTML = _wl.map(e => {
     const ms = parseRuDate(e.date);
-    return `<div class="wrow-p"><span class="watch-entry-title"><b>${e.label ? esc(e.label) : "Просмотр"}</b>${watchDurationHtml(e,true)}</span><time${ms ? ` datetime="${dayKey(new Date(ms))}"` : ""}>${esc(e.date)} г.</time></div>`;
+    return `<div class="wrow-p"><span class="watch-entry-title"><b${e.rewatch?' class="rewatch-entry"':''}>${esc(watchEntryLabel(e))}</b>${watchDurationHtml(e,true)}</span><time${ms ? ` datetime="${dayKey(new Date(ms))}"` : ""}>${esc(e.date)} г.</time></div>`;
   }).join("") || '<p class="preview-empty">Дата просмотра пока не указана.</p>';
   pWlist.tabIndex = _wl.length ? 0 : -1;
   const cover = itemCover(f.item);
@@ -9946,6 +10009,84 @@ function hidePreview(restoreFocus = false) {
   clearTimeout(pHide); pHide = setTimeout(() => { pImg.removeAttribute("src"); pImg.classList.remove("loaded"); }, 200);
   if (restoreFocus && anchor && anchor.isConnected) anchor.focus({ preventScroll: true });
 }
+(() => {
+  const dialog = document.getElementById('rewatchDialog');
+  const form = document.getElementById('rewatchForm');
+  const dateInput = document.getElementById('rewatchDate');
+  const labelInput = document.getElementById('rewatchLabel');
+  const duration = document.getElementById('rewatchDuration');
+  const error = document.getElementById('rewatchError');
+  let context = null;
+
+  function openRewatch(item) {
+    if (dialog.open || locked) return;
+    context = {uid:item.uid,name:item.name};
+    document.getElementById('rewatchAnime').textContent = item.name;
+    form.hidden = readOnly;
+    document.getElementById('rewatchReadonly').hidden = !readOnly;
+    dateInput.value = dayKey(new Date());
+    labelInput.value = '';
+    error.textContent = '';
+    duration.replaceChildren(durationEditor(null, () => item.name));
+    dialog.showModal();
+    if (!readOnly) dateInput.focus();
+  }
+  document.getElementById('previewRewatch').addEventListener('click', () => {
+    const found = findItem(pUid);
+    if (!found || locked) return;
+    hidePreview(true);
+    openRewatch(found.item);
+  });
+  document.getElementById('rewatchClose').addEventListener('click', () => dialog.close());
+  document.getElementById('rewatchOwn').addEventListener('click', async () => {
+    if (!dialog.open || !context) return;
+    const {uid,name} = context;
+    dialog.close();
+    if (!await openPersonalCollection()) return;
+    const same = findItem(uid)?.item;
+    const matches = state.tiers.flatMap(t => t.items).filter(item => item.name === name);
+    const item = same?.name === name ? same : matches.length === 1 ? matches[0] : null;
+    if (item) openRewatch(item);
+    else toast('Выбери аниме в своей коллекции и открой «Пересмотр»');
+  });
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!dialog.open || !context || readOnly || locked) return;
+    const {uid,name} = context;
+    const item = findItem(uid)?.item;
+    if (!item || item.name !== name) {
+      error.textContent = 'Карточка изменилась. Открой её снова.';
+      return;
+    }
+    const date = dateInput.value.split('-').reverse().join('.');
+    if (!parseRuDate(date)) {
+      error.textContent = 'Укажи существующую дату пересмотра.';
+      dateInput.focus();
+      return;
+    }
+    const time = readDurationEditor(duration.firstElementChild);
+    if (time.issue) {
+      error.textContent = time.issue;
+      duration.querySelector('.wtime-mode').focus();
+      return;
+    }
+    const records = normWatched(item.watched);
+    if (records.length >= 100) {
+      error.textContent = 'В карточке уже 100 дат просмотра.';
+      return;
+    }
+    item.watched = [...records,{label:labelInput.value.trim().slice(0,100),date,rewatch:true,...(time.value?{duration:time.value}:{})}];
+    dialog.close();
+    save();
+    render();
+    const card = board.querySelector(`[data-uid="${uid}"].card,[data-uid="${uid}"].chip`);
+    if (card?.getClientRects().length) {
+      showPreview(card, uid);
+      pWlist.scrollTop = pWlist.scrollHeight;
+    }
+    toast('Пересмотр добавлен');
+  });
+})();
 pClose.addEventListener("click", () => hidePreview(true));
 document.addEventListener("pointerdown", e => {
   if (preview.classList.contains("show") && !preview.contains(e.target) && !e.target.closest(".card, .chip")) hidePreview();

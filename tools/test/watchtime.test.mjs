@@ -39,6 +39,26 @@ test('malformed numbers, overflowing totals and executable source URLs are rejec
  item.watched[0].duration=catalog;assert.equal(validateState(state),null);
  item.watchTotal={...catalog,episodes:0};assert.ok(validateState(state));
 });
+test('an overall duration replaces ordinary records and adds only the marked repeat viewings',()=>{
+ const item={watchTotal:manual(500).duration,watched:[
+  {date:'01.11.2026',...manual(100)},
+  {date:'17.11.2026',rewatch:true,...manual(80)},
+  {date:'18.11.2026',rewatch:true},
+ ]};
+ const withOverride=itemWatchTime(item);
+ assert.equal(withOverride.minutes,580);assert.equal(withOverride.known,2);assert.equal(withOverride.unknown,1);
+ assert.equal(collectionWatchTime({tiers:[{items:[item]}]}).partialItems,1);
+ delete item.watchTotal;
+ assert.equal(itemWatchTime(item).minutes,180);
+});
+test('the server accepts dated repeat viewings and rejects incompatible flags and missing dates',()=>{
+ const state=JSON.parse(read('data.json')).state;
+ const record={date:'17.11.2026',label:'Фильм',rewatch:true};
+ state.tiers[0].items[0].watched.push(record);
+ assert.equal(validateState(state),null);
+ record.rewatch='true';assert.match(validateState(state),/пересмотра/);
+ record.rewatch=true;record.date='';assert.match(validateState(state),/дату пересмотра/);
+});
 test('frontend and server share the same duration math; old dates and imported time survive normalization',()=>{
  const helpers=source.match(/\/\* WATCHTIME HELPERS BEGIN \*\/[\s\S]*?\/\* WATCHTIME HELPERS END \*\//)[0];
  assert.equal(helpers,read('site/src/watchtime.mjs').match(/\/\* WATCHTIME HELPERS BEGIN \*\/[\s\S]*?\/\* WATCHTIME HELPERS END \*\//)[0]);
@@ -50,6 +70,9 @@ test('frontend and server share the same duration math; old dates and imported t
  vm.runInContext(source.slice(source.indexOf('function watchedEq(a, b)'),source.indexOf('function importDiff')),context);
  context.changed=structuredClone(context.fixture);context.changed[0].duration.episodeMinutes=24;
  assert.equal(vm.runInContext('watchedEq(fixture,changed)',context),false,'time-only import must be detected');
+ context.changed=structuredClone(context.fixture);context.changed[0].rewatch=true;
+ assert.deepEqual(JSON.parse(vm.runInContext('JSON.stringify(normWatched(changed))',context)),context.changed);
+ assert.equal(vm.runInContext('watchedEq(fixture,changed)',context),false,'rewatch-only import must be detected');
 });
 test('both published JSON snapshots match, validate and sum once to the documented total',()=>{
  assert.equal(read('data.json'),read('anime-tierlist-2026-10-11.json'));

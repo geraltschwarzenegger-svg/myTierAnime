@@ -64,10 +64,11 @@ function collectionWatchTime(st) {
   return result;
 }
 function itemWatchTime(item) {
-  if (normalizeWatchDuration(item?.watchTotal)) return {...sumWatchTime([{duration:item.watchTotal}]),override:true};
   const records=typeof item?.watched==='string' ? (item.watched.trim()?[{date:item.watched}]:[]) :
     Array.isArray(item?.watched)?item.watched.filter(w=>w&&typeof w.date==='string'&&w.date.trim()):[];
-  return {...sumWatchTime(records),override:false};
+  const override=Boolean(normalizeWatchDuration(item?.watchTotal));
+  const counted=override ? [{duration:item.watchTotal},...records.filter(w=>w.rewatch===true)] : records;
+  return {...sumWatchTime(counted),override};
 }
 /* WATCHTIME HELPERS END */
 export { MAX_WATCH_MINUTES, watchDurationIssue, normalizeWatchDuration, watchMinutes, formatWatchTime, sumWatchTime, itemWatchTime, collectionWatchTime };

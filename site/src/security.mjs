@@ -88,8 +88,12 @@ export function validateState(state) {
       }
       if (item.watched !== undefined) {
         if (!Array.isArray(item.watched) || item.watched.length > 100 || item.watched.some(w => !w || (w.label !== undefined && (typeof w.label !== 'string' || w.label.length > 100)) || (w.date !== '' && !validDate(w.date)))) return 'Проверь даты просмотра';
-        for (const record of item.watched) if (record.duration !== undefined && record.duration !== null) {
-          const issue = watchDurationIssue(record.duration); if (issue) return issue;
+        for (const record of item.watched) {
+          if (record.rewatch !== undefined && typeof record.rewatch !== 'boolean') return 'Неправильная отметка пересмотра';
+          if (record.rewatch && !record.date) return 'Укажи дату пересмотра';
+          if (record.duration !== undefined && record.duration !== null) {
+            const issue = watchDurationIssue(record.duration); if (issue) return issue;
+          }
         }
       }
     }
