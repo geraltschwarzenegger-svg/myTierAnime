@@ -159,7 +159,7 @@ const server = http.createServer((req, res) => {
     assert.equal(await p.evaluate(()=>JSON.stringify(state)),original,'visual customization and postcards do not change collection data');
     assert.equal(await p.evaluate(()=>JSON.stringify(state.tiers.flatMap(t=>t.items.map(i=>[i.uid,i.watched,i.reaction,i.fav])))),originalDates);
     assert.deepEqual(errors,[]);assert.deepEqual(await p.evaluate(()=>window.cspProblems),[]);
-    console.log('Bloom PASS: 199 anime stickers, 75 unique decorations, one SVG per frame, adaptive quality preference, visible 3D motion, two new 12-sticker packs, four sizes, full PNG postcard 960x1440, restored frame, unchanged dates/impressions, CSP.');
+    console.log('Bloom PASS: 199 anime stickers, 76 unique decorations, one SVG per frame, adaptive quality preference, visible 3D motion, two new 12-sticker packs, four sizes, full PNG postcard 960x1440, restored frame, unchanged dates/impressions, CSP.');
   } finally {
     await browser.close();
     if (!live) await new Promise((r) => server.close(r));

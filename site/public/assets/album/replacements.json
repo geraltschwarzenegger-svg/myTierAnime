@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21",
+  "updatedAt": "2026-11-27",
   "items": [
     {
       "index": 13,
@@ -70,6 +70,19 @@
       "originalPath": "src/art/album/sao-aincrad.png",
       "originalSha256": "c4fe13eaffac906d0f646a8392a30ccf340b58e76034e1882ff35f66ac58f70a",
       "sha256": "c05a8ae4a656e97b2d06d7cb540f7fb2f13393cb4155fcb81c8d19ae6d00fb53"
+    },
+    {
+      "index": 17,
+      "title": "Пять невест",
+      "file": "assets/album/five-brides.webp",
+      "width": 1672,
+      "height": 941,
+      "alt": "Футаро Уэсуги и пять сестёр Накано в вечерних нарядах на освещённой террасе.",
+      "bytes": 586874,
+      "source": "Иллюстрация предоставлена владельцем коллекции · WebP из исходного JPEG",
+      "sourceUrl": "https://sun9-8.vkuserphoto.ru/s/v1/ig2/sQ91q5cykgNYQNYUslm7hmZUWsljAnmiwNk2XT2kIABv6nbvtn40CNEnabekk8BeYDhcl4Vg8y2gIZ8fz0-hfuQ9ypdwZg.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x720,1440x810,1672x941&from=bu&cs=1672x0",
+      "originalSha256": "b0fba406dad0b53df35462c3a79e4c71b4cf0a910686ac29ccb894261fec0e63",
+      "sha256": "8eebdf41367062dd0db55c64892627ca251c3b37d17e019f4bd053389c34934d"
     }
   ]
 }

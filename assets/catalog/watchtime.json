@@ -4199,7 +4199,83 @@
       "notes": [
         "В карточке учтены два фильма «Прогрессив» и первый сезон. Другие части можно добавить по мере просмотра."
       ]
+    },
+    {
+      "uid": 78,
+      "name": "Пять невест",
+      "options": [
+        {
+          "label": "1 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://shikimori.one/animes/38101-5-toubun-no-hanayome",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+            "episodes": 12,
+            "episodeMinutes": 24
+          }
+        },
+        {
+          "label": "2 сезон · 12 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "sourceUrl": "https://shikimori.one/animes/39783-5-toubun-no-hanayome",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "2 сезон",
+            "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+            "episodes": 12,
+            "episodeMinutes": 24
+          }
+        },
+        {
+          "label": "Фильм · 136 мин",
+          "duration": {
+            "mode": "total",
+            "basis": "catalog",
+            "sourceUrl": "https://shikimori.one/animes/48548-5-toubun-no-hanayome-movie",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "Фильм",
+            "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+            "minutes": 136
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "1 сезон / 12 серий (2019)",
+          "url": "https://shikimori.one/animes/38101-5-toubun-no-hanayome",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "2 сезон",
+          "title": "2 сезон / 12 серий (2021)",
+          "url": "https://shikimori.one/animes/39783-5-toubun-no-hanayome",
+          "episodes": 12,
+          "episodeMinutes": 24,
+          "totalMinutes": 288,
+          "film": false
+        },
+        {
+          "label": "Фильм",
+          "title": "Пять невест. Фильм (2022)",
+          "url": "https://shikimori.one/animes/48548-5-toubun-no-hanayome-movie",
+          "episodes": 1,
+          "episodeMinutes": 136,
+          "totalMinutes": 136,
+          "film": true
+        }
+      ],
+      "notes": [
+        "Учтены два сезона по 12 серий и фильм 2022 года по отметкам владельца."
+      ]
     }
   ],
-  "updatedAt": "2026-11-21"
+  "updatedAt": "2026-11-27"
 }

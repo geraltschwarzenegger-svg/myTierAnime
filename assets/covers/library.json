@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-21",
+  "checkedAt": "2026-11-27",
   "items": [
     {
       "uid": 1,
@@ -833,6 +833,18 @@
       "height": 941,
       "bytes": 526546,
       "originalSha256": "7565d19d7b60d69bf92e4a5c6f30df4cbb9f8ee0ee2be9e5080df4b80b589eca"
+    },
+    {
+      "uid": 78,
+      "name": "Пять невест",
+      "originalUrl": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/library/78.webp",
+      "sourceUrl": "https://sun9-6.vkuserphoto.ru/s/v1/ig2/P9rafaQBaT8GwnHCzlzpLoYPwFY5bfFeQJUc0zSGpXQIrhLxu4Xbx3QE40WAUEhTTdQXDiyir4ZXHg5xJUXxuijR.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x720,1440x810,1672x941&from=bu&cs=1672x0",
+      "source": "Обложка предоставлена владельцем коллекции · WebP из исходного JPEG",
+      "file": "assets/covers/library/78.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 334190,
+      "originalSha256": "029a84abcbcdd0f8837f4d5a89b558b6fa17a3a2f34ced632ecf3393fcad37d4"
     }
   ]
 }

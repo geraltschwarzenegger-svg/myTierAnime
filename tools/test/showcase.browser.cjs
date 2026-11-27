@@ -65,8 +65,8 @@ const types = {'.html':'text/html; charset=utf-8','.json':'application/json','.j
     assert.ok(separated, 'caption is under the illustration');
     const order = page.locator('#showcaseOrder');
     await order.selectOption('recent');
-    assert.equal(await tierS.first().getAttribute('data-uid'),'77');
-    assert.equal(await tierS.first().locator('.rank').textContent(),'17');
+    assert.equal(await tierS.first().getAttribute('data-uid'),'78');
+    assert.equal(await tierS.first().locator('.rank').textContent(),'18');
     await order.selectOption('title');
     assert.notDeepEqual(await tierS.evaluateAll(cards => cards.map(card => card.dataset.uid)),canonical);
     await order.selectOption('rank');

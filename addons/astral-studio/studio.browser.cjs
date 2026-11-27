@@ -14,7 +14,7 @@ async function verifyOffline(browser,errors){
  await page.locator('#importFile').setInputFiles(path.join(root,'data.json'));await page.locator('#impReplace').click();await page.waitForFunction(n=>document.querySelectorAll('.card').length===n,count);await page.evaluate(()=>flushMirrors());
  await page.locator('#asOpen').click();await page.locator('#asStudio [data-world="snow"]').click();await page.locator('.as-close').click();await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(n=>!!window.AstralStudio&&document.querySelectorAll('.card').length===n,count);
  assert.equal(await page.evaluate(()=>AstralStudio.settings().atm),'snow');await page.locator('.card[data-uid="69"]').click();assert.equal(await page.locator('#previewTitle').textContent(),'Детектив уже мёртв');await context.close();assert.deepEqual(errors,[]);
- console.log('PASS: self-contained bundle, no external downloads, empty first visit, actual JSON import, 75 titles after reload, saved world and regular preview. file:// navigation is restricted by environment policy.');
+ console.log('PASS: self-contained bundle, no external downloads, empty first visit, actual JSON import, 76 titles after reload, saved world and regular preview. file:// navigation is restricted by environment policy.');
 }
 (async()=>{
  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});

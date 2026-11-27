@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-11-21T08:55:02.900Z",
+  "savedAt": "2026-11-27T05:49:53.004Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -543,6 +543,57 @@
               }
             ],
             "sticker": "s-solo-bolt"
+          },
+          {
+            "uid": 78,
+            "name": "Пять невест",
+            "cover": "https://geraltschwarzenegger-svg.github.io/myTierAnime/assets/covers/library/78.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "date": "23.11.2026",
+                "label": "1 сезон / 12 серий (2019)",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "sourceUrl": "https://shikimori.one/animes/38101-5-toubun-no-hanayome",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "1 сезон",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+                  "episodes": 12,
+                  "episodeMinutes": 24
+                }
+              },
+              {
+                "date": "24.11.2026",
+                "label": "2 сезон / 12 серий (2021)",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "sourceUrl": "https://shikimori.one/animes/39783-5-toubun-no-hanayome",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "2 сезон",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+                  "episodes": 12,
+                  "episodeMinutes": 24
+                }
+              },
+              {
+                "date": "25.11.2026",
+                "label": "Пять невест. Фильм (2022)",
+                "duration": {
+                  "mode": "total",
+                  "basis": "catalog",
+                  "sourceUrl": "https://shikimori.one/animes/48548-5-toubun-no-hanayome-movie",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "Фильм",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться.",
+                  "minutes": 136
+                }
+              }
+            ],
+            "sticker": "dress-up-heart"
           }
         ]
       },
@@ -1978,6 +2029,6 @@
         ]
       }
     ],
-    "nextUid": 78
+    "nextUid": 79
   }
 }
