@@ -845,6 +845,17 @@
       "height": 941,
       "bytes": 334190,
       "originalSha256": "029a84abcbcdd0f8837f4d5a89b558b6fa17a3a2f34ced632ecf3393fcad37d4"
+    },
+    {
+      "uid": 79,
+      "name": "Баскетбол Куроко",
+      "originalUrl": "https://shikimori.io/uploads/poster/animes/31658/main_2x-4d0ae1c045f97d00393d2a741b451de2.webp",
+      "sourceUrl": "https://shikimori.io/uploads/poster/animes/31658/main_2x-4d0ae1c045f97d00393d2a741b451de2.webp",
+      "source": "Shikimori · постер фильма «Баскетбол Куроко: Последняя игра» (2017)",
+      "file": "assets/covers/library/79.webp",
+      "width": 450,
+      "height": 635,
+      "bytes": 42818
     }
   ]
 }

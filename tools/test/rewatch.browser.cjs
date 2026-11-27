@@ -28,7 +28,7 @@ const types = {'.html':'text/html','.json':'application/json','.webp':'image/web
         return route.fulfill({body:fs.readFileSync(file), contentType:types[path.extname(file)]});
       });
       await page.goto(base, {waitUntil:'domcontentloaded'});
-      await page.waitForFunction(() => document.body.classList.contains('read-only') && document.querySelectorAll('.card').length === 76);
+      await page.waitForFunction(() => document.body.classList.contains('read-only') && document.querySelectorAll('.card').length === 77);
       const card = page.locator('.card[data-uid="1"]');
       const dialog = page.locator('#rewatchDialog');
       const choose = el => phone ? el.tap() : el.click();
@@ -55,7 +55,7 @@ const types = {'.html':'text/html','.json':'application/json','.webp':'image/web
       assert.equal(await page.evaluate(() => findItem(1).item.watched[0].date), '30.03.2026');
       await page.keyboard.press('Escape');
       await page.reload({waitUntil:'domcontentloaded'});
-      await page.waitForFunction(() => !document.body.classList.contains('read-only') && document.querySelectorAll('.card').length === 76);
+      await page.waitForFunction(() => !document.body.classList.contains('read-only') && document.querySelectorAll('.card').length === 77);
       assert.equal(await page.evaluate(() => findItem(1).item.watched[1].rewatch), true);
       await choose(page.locator('#historyBtn'));
       const day = page.locator('#calendarGrid [data-day="2026-11-17"]');

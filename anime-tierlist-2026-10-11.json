@@ -2,7 +2,7 @@
   "app": "anime-tierlist",
   "v": 2,
   "schema": 4,
-  "savedAt": "2026-11-27T05:49:53.004Z",
+  "savedAt": "2026-11-27T06:13:18.656Z",
   "state": {
     "schema": 4,
     "tiers": [
@@ -1235,6 +1235,44 @@
               }
             ],
             "sticker": "cyber-talia-think"
+          },
+          {
+            "uid": 79,
+            "name": "Баскетбол Куроко",
+            "cover": "https://shikimori.io/uploads/poster/animes/31658/main_2x-4d0ae1c045f97d00393d2a741b451de2.webp",
+            "fav": false,
+            "reaction": null,
+            "watched": [
+              {
+                "label": "1 сезон · 13/25 серий",
+                "date": "26.11.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 13,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://shikimori.io/animes/11771-kuroko-no-basket",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "1 сезон · серии 1–13",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться."
+                }
+              },
+              {
+                "label": "1 сезон · 25/25 серий",
+                "date": "27.11.2026",
+                "duration": {
+                  "mode": "episodes",
+                  "basis": "catalog",
+                  "episodes": 12,
+                  "episodeMinutes": 24,
+                  "sourceUrl": "https://shikimori.io/animes/11771-kuroko-no-basket",
+                  "sourceTitle": "Shikimori",
+                  "scopeLabel": "1 сезон · серии 14–25",
+                  "note": "Каталожная длительность. Время с паузами и пропусками может отличаться."
+                }
+              }
+            ],
+            "sticker": "s-classroom-bolt"
           }
         ]
       },
@@ -2029,6 +2067,6 @@
         ]
       }
     ],
-    "nextUid": 79
+    "nextUid": 80
   }
 }

@@ -15,8 +15,8 @@ test('public artifacts agree on the V5 release, identity, description and favico
  assert.equal(web,read('site/public/index.html'));
  assert.equal((web.match(/name="description"/g)||[]).length,1);
  assert.equal((web.match(/rel="icon"/g)||[]).length,1);
- assert.match(web, /class="release-version"><span>THE ASTRAL CHAPTER · 25\.11\.2026<\/span>\s+<b>V5\.1\.8<\/b>/);
- assert.ok(web.includes('property="og:title" content="ASTRAVA · The Astral Chapter · V5.1.8"'));
+ assert.match(web, /class="release-version"><span>THE ASTRAL CHAPTER · 27\.11\.2026<\/span>\s+<b>V5\.1\.12<\/b>/);
+ assert.ok(web.includes('property="og:title" content="ASTRAVA · The Astral Chapter · V5.1.12"'));
  assert.ok(web.includes('<title>ASTRAVA'));
 });
 test('each published anime has a documented local cover without rewriting its saved URL',()=>{

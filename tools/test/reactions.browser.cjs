@@ -299,7 +299,7 @@ const server = http.createServer((req, res) => {
     assert.deepEqual(errors, []);
     assert.deepEqual(await p.evaluate(() => window.cspProblems), []);
     console.log(
-      "Public reactions PASS: 199 stickers in 21 packs, 76 decorated posters, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
+      "Public reactions PASS: 199 stickers in 21 packs, 77 decorated posters, emotion filtering and anime roundtrip, private save/cancel/remove/reset, unchanged author JSON, reload, mood/search filters, random memory, four sizes, chip view, caption placement, CSP.",
     );
     if (!live) {
       const own = await browser.newContext({

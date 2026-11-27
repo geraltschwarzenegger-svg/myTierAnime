@@ -6,12 +6,12 @@ const read=p=>readFileSync(new URL('../../'+p,import.meta.url),'utf8');
 const data=JSON.parse(read('data.json'));
 test('helix reads every title in tier order without changing names, dates or time',()=>{
  const before=JSON.stringify(data.state),items=helixEntries(data.state);
- assert.equal(items.length,76);assert.equal(new Set(items.map(e=>e.uid)).size,76);
+ assert.equal(items.length,77);assert.equal(new Set(items.map(e=>e.uid)).size,77);
  assert.deepEqual(items.map(e=>e.uid),data.state.tiers.flatMap(t=>t.items.map(i=>i.uid)));
  assert.equal(items.find(e=>e.uid===69).item.watched[0].duration.episodeMinutes,25);
- assert.deepEqual(items.filter(e=>e.uid>=72).map(e=>[e.uid,e.tier.id]),[[72,'S'],[77,'S'],[78,'S'],[73,'A'],[76,'A'],[74,'B'],[75,'B']]);
- assert.deepEqual(items.filter(e=>e.uid>=72).map(e=>[e.uid,e.item.watched.map(w=>w.date)]),[[72,['05.11.2026','06.11.2026']],[77,['12.11.2026','13.11.2026','17.11.2026']],[78,['23.11.2026','24.11.2026','25.11.2026']],[73,['07.11.2026','08.11.2026']],[76,['17.11.2026','19.11.2026']],[74,['10.11.2026']],[75,['12.11.2026']]]);
- assert.equal(data.state.nextUid,79);
+ assert.deepEqual(items.filter(e=>e.uid>=72).map(e=>[e.uid,e.tier.id]),[[72,'S'],[77,'S'],[78,'S'],[73,'A'],[76,'A'],[79,'A'],[74,'B'],[75,'B']]);
+ assert.deepEqual(items.filter(e=>e.uid>=72).map(e=>[e.uid,e.item.watched.map(w=>w.date)]),[[72,['05.11.2026','06.11.2026']],[77,['12.11.2026','13.11.2026','17.11.2026']],[78,['23.11.2026','24.11.2026','25.11.2026']],[73,['07.11.2026','08.11.2026']],[76,['17.11.2026','19.11.2026']],[79,['26.11.2026','27.11.2026']],[74,['10.11.2026']],[75,['12.11.2026']]]);
+ assert.equal(data.state.nextUid,80);
  assert.equal(JSON.stringify(data.state),before);
 });
 test('custom tiers are included and invalid or duplicated identifiers never create duplicate posters',()=>{

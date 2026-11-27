@@ -77,12 +77,12 @@ test('frontend and server share the same duration math; old dates and imported t
 test('both published JSON snapshots match, validate and sum once to the documented total',()=>{
  assert.equal(read('data.json'),read('anime-tierlist-2026-10-11.json'));
  const state=JSON.parse(read('data.json')).state;assert.equal(validateState(state),null);
- const total=collectionWatchTime(state);assert.equal(total.minutes,45596);assert.equal(total.completeItems,76);assert.equal(total.unknownItems,0);
+ const total=collectionWatchTime(state);assert.equal(total.minutes,46196);assert.equal(total.completeItems,77);assert.equal(total.unknownItems,0);
  const all=state.tiers.flatMap(t=>t.items);
- assert.deepEqual(Object.fromEntries(state.tiers.map(t=>[t.id,t.items.length])),{S:18,A:25,B:18,C:15});
- assert.equal(all.reduce((n,i)=>n+i.watched.length,0),93);
- assert.equal(state.nextUid,79);
- for(const [uid,tier,dates] of [[72,'S',['05.11.2026','06.11.2026']],[73,'A',['07.11.2026','08.11.2026']],[74,'B',['10.11.2026']],[75,'B',['12.11.2026']],[76,'A',['17.11.2026','19.11.2026']],[77,'S',['12.11.2026','13.11.2026','17.11.2026']],[78,'S',['23.11.2026','24.11.2026','25.11.2026']]]){
+ assert.deepEqual(Object.fromEntries(state.tiers.map(t=>[t.id,t.items.length])),{S:18,A:26,B:18,C:15});
+ assert.equal(all.reduce((n,i)=>n+i.watched.length,0),95);
+ assert.equal(state.nextUid,80);
+ for(const [uid,tier,dates] of [[72,'S',['05.11.2026','06.11.2026']],[73,'A',['07.11.2026','08.11.2026']],[74,'B',['10.11.2026']],[75,'B',['12.11.2026']],[76,'A',['17.11.2026','19.11.2026']],[77,'S',['12.11.2026','13.11.2026','17.11.2026']],[78,'S',['23.11.2026','24.11.2026','25.11.2026']],[79,'A',['26.11.2026','27.11.2026']]]){
   const item=all.find(i=>i.uid===uid);assert.ok(item,'new title '+uid);
   assert.ok(state.tiers.find(t=>t.id===tier).items.includes(item),'tier for '+uid);
   assert.deepEqual(item.watched.map(w=>w.date),dates,'dates for '+uid);
@@ -90,16 +90,21 @@ test('both published JSON snapshots match, validate and sum once to the document
  }
  assert.deepEqual(all.find(i=>i.uid===72).watched.map(w=>w.duration.episodes),[10,10]);
  assert.deepEqual(all.find(i=>i.uid===72).watched.map(w=>watchMinutes(w)),[250,280]);
- for(const [uid,minutes] of [[72,530],[73,529],[74,288],[75,1046],[76,552],[77,772],[78,712]])assert.equal(itemWatchTime(all.find(i=>i.uid===uid)).minutes,minutes,'new title runtime '+uid);
+ for(const [uid,minutes] of [[72,530],[73,529],[74,288],[75,1046],[76,552],[77,772],[78,712],[79,600]])assert.equal(itemWatchTime(all.find(i=>i.uid===uid)).minutes,minutes,'new title runtime '+uid);
  assert.deepEqual(all.find(i=>i.uid===77).watched.map(w=>watchMinutes(w)),[97,100,575]);
  assert.deepEqual(all.find(i=>i.uid===78).watched.map(w=>watchMinutes(w)),[288,288,136]);
+ const kuroko=all.find(i=>i.uid===79);
+ assert.deepEqual(kuroko.watched.map(w=>[w.label,w.duration.episodes,watchMinutes(w)]),[
+  ['1 сезон · 13/25 серий',13,312],
+  ['1 сезон · 25/25 серий',12,288],
+ ]);
  assert.deepEqual(all.find(i=>i.uid===73).watched.map(w=>w.duration.episodes),[12,11]);
  assert.equal(watchMinutes(all.find(i=>i.uid===69).watched[0]),300);
  assert.equal(all.find(i=>i.uid===58).watched[0].duration.episodes,76);
  assert.equal(itemWatchTime(all.find(i=>i.uid===21)).minutes,36*23);
  const added=all.find(i=>i.uid===70);assert.equal(watchMinutes(added.watched[0]),264);assert.equal(added.watched[0].date,'24.10.2026');assert.equal(added.watched[0].duration.episodes,11);assert.equal(added.watched[0].duration.episodeMinutes,24);
  assert.ok(state.tiers.find(t=>t.id==='A').items.includes(added));
- const catalogData=JSON.parse(read('assets/catalog/watchtime.json'));assert.equal(catalogData.items.length,76);
+ const catalogData=JSON.parse(read('assets/catalog/watchtime.json'));assert.equal(catalogData.items.length,77);
  assert.deepEqual(JSON.parse(source.match(/const WATCHTIME_CATALOG = (\[.*?\]);\n/s)[1]),catalogData.items,'runtime catalog and documented catalog stay synchronized');
  for(const entry of catalogData.items){
   for(const option of entry.options)assert.equal(watchDurationIssue(option.duration),null,entry.name);

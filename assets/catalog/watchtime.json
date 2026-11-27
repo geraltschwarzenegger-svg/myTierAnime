@@ -4275,6 +4275,39 @@
       "notes": [
         "Учтены два сезона по 12 серий и фильм 2022 года по отметкам владельца."
       ]
+    },
+    {
+      "uid": 79,
+      "name": "Баскетбол Куроко",
+      "options": [
+        {
+          "label": "1 сезон · 25 серий × 24 мин",
+          "duration": {
+            "mode": "episodes",
+            "basis": "catalog",
+            "episodes": 25,
+            "episodeMinutes": 24,
+            "sourceUrl": "https://shikimori.io/animes/11771-kuroko-no-basket",
+            "sourceTitle": "Shikimori",
+            "scopeLabel": "1 сезон",
+            "note": "Каталожная длительность. Время с паузами и пропусками может отличаться."
+          }
+        }
+      ],
+      "parts": [
+        {
+          "label": "1 сезон",
+          "title": "1 сезон / 25 серий (2012)",
+          "url": "https://shikimori.io/animes/11771-kuroko-no-basket",
+          "episodes": 25,
+          "episodeMinutes": 24,
+          "totalMinutes": 600,
+          "film": false
+        }
+      ],
+      "notes": [
+        "Первый сезон просмотрен за два дня: серии 1–13 и 14–25."
+      ]
     }
   ],
   "updatedAt": "2026-11-27"
