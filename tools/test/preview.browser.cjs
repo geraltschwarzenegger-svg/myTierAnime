@@ -238,6 +238,29 @@ const server = http.createServer((req, res) => {
       "tab out dismisses a nonmodal panel",
     );
     await p.setViewportSize({ width: 1614, height: 741 });
+    const previousFrame = await p.evaluate(() => {
+      const {frame, layer} = AstralStudio.settings();
+      AstralStudio.set({frame:'gem',layer:'new'},false);
+      return {frame, layer};
+    });
+    async function expectLandscapeFrame() {
+      const frame = panel.locator('.preview-imgwrap > .as-frame-wide');
+      await frame.waitFor();
+      const layout = await frame.evaluate(node => {
+        const rect = node.getBoundingClientRect();
+        const art = node.parentElement.getBoundingClientRect();
+        return {
+          gaps: [rect.left-art.left, art.right-rect.right],
+          corners: [...node.querySelectorAll('svg')].map(svg => {
+            const box = svg.getBoundingClientRect();
+            return [box.left-rect.left, rect.right-box.right];
+          }),
+        };
+      });
+      assert.ok(layout.gaps.every(gap => gap >= 4 && gap <= 8), JSON.stringify(layout));
+      assert.equal(layout.corners.length, 4);
+      assert.ok(layout.corners.every(([left,right], index) => (index % 2 ? right : left) <= 3), JSON.stringify(layout));
+    }
     await p.locator('.card[data-uid="77"]').click();
     await p.waitForFunction(() => {
       const preview = document.getElementById('preview');
@@ -248,6 +271,7 @@ const server = http.createServer((req, res) => {
     assert.ok(desktopArt.width >= 475 && desktopArt.width <= 480 && desktopArt.height >= 260, JSON.stringify(desktopArt));
     assert.equal(await wideArt.locator('img').evaluate(img => getComputedStyle(img).objectFit), 'contain');
     assert.equal(await panel.locator('.wrow-p').count(), 3);
+    await expectLandscapeFrame();
     await p.setViewportSize({ width: 844, height: 390 });
     await p.waitForFunction(() => {
       const preview = document.getElementById('preview');
@@ -256,8 +280,17 @@ const server = http.createServer((req, res) => {
     });
     assert.ok((await wideArt.boundingBox()).width >= 300);
     assert.ok(await panel.locator('.wlist').evaluate(list => list.clientHeight >= 35));
+    await expectLandscapeFrame();
     await p.keyboard.press('Escape');
     await p.setViewportSize({ width: 1280, height: 900 });
+    await p.locator('.card[data-uid="78"]').click();
+    await expectLandscapeFrame();
+    await p.keyboard.press('Escape');
+    await p.locator('.card[data-uid="1"]').click();
+    await panel.locator('.as-frame:not(.as-frame-wide) svg').waitFor();
+    assert.equal(await panel.locator('.as-frame svg').getAttribute('viewBox'),'0 0 200 300');
+    await p.keyboard.press('Escape');
+    await p.evaluate(config => AstralStudio.set(config,false),previousFrame);
     // Stress the real renderer with 80 seasons without changing the user's files.
     const fixture = structuredClone(snapshot);
     const target = fixture.state.tiers

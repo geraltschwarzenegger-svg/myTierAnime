@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jvclOUJC9GAnzTlWX9Ceh5vAeCf68FDOs7YQ2jEu4fE=' 'sha256-ufYPm+kC759yYVzhS3F3Tq/BqLozasae0CVurIGPaj0=' 'sha256-p7yof/27/+ml4RAqp59zIqxCE6sFbjD4mp5WWU7g6lg=' 'sha256-Hj6B2t5qNdXXD/Jt75Qk+PnI+BPwEFgu/faFyJMtnOc=' 'sha256-ISJidZHbfc5IMic4FOkKd01sNHorYT0IQdnV0Oeh9RU=' 'sha256-Zh+hDSUXtgz5NBQdUQIWgidXT2Ms4JgMwY5xV/QQKMU=' 'sha256-ZuUYPc7fBhpYdM3LPQd4HjRba8c9CTMYdNZTtyNbNBI=' 'sha256-VDiY4fHETgN2UM1f6L8P0guKD/0XWoJm2qWQpSv+zOc=' 'sha256-cJmxYeIHiF6QwrDAKQ5v7MM2AVKLyRhlpDdraEGVlvg='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jvclOUJC9GAnzTlWX9Ceh5vAeCf68FDOs7YQ2jEu4fE=' 'sha256-ufYPm+kC759yYVzhS3F3Tq/BqLozasae0CVurIGPaj0=' 'sha256-p7yof/27/+ml4RAqp59zIqxCE6sFbjD4mp5WWU7g6lg=' 'sha256-Hj6B2t5qNdXXD/Jt75Qk+PnI+BPwEFgu/faFyJMtnOc=' 'sha256-ISJidZHbfc5IMic4FOkKd01sNHorYT0IQdnV0Oeh9RU=' 'sha256-Zh+hDSUXtgz5NBQdUQIWgidXT2Ms4JgMwY5xV/QQKMU=' 'sha256-ZuUYPc7fBhpYdM3LPQd4HjRba8c9CTMYdNZTtyNbNBI=' 'sha256-VDiY4fHETgN2UM1f6L8P0guKD/0XWoJm2qWQpSv+zOc=' 'sha256-mWHcQnqeAS2BubCPWKaa3KvSF06q8HwZaVWBAP0Xw4Q='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'self'">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0c1422">
@@ -9502,6 +9502,12 @@ body[data-as-world="snow"] {--as-world:#d2eaf8;--as-glow:#aacbed29;--base-top:#1
 /* Inlaid frame collection. Decorative layers never intercept the card hit target. */
 .as-frame {position:absolute;inset:2px;z-index:5;pointer-events:none!important;border-radius:inherit;overflow:hidden;opacity:var(--as-aura);color:var(--t,#d6bb84);filter:drop-shadow(0 0 2px color-mix(in srgb,currentColor 35%,transparent));}
 .as-frame svg {width:100%;height:100%;display:block;overflow:visible;}
+.as-frame-wide {inset:5px;border:1px solid currentColor;border-radius:12px;}
+.as-frame-wide svg {position:absolute;width:clamp(29px,13%,54px);height:auto;aspect-ratio:1;overflow:hidden;}
+.as-frame-wide svg:nth-child(1) {top:0;left:0;}
+.as-frame-wide svg:nth-child(2) {top:0;right:0;}
+.as-frame-wide svg:nth-child(3) {bottom:0;left:0;}
+.as-frame-wide svg:nth-child(4) {bottom:0;right:0;}
 .as-enabled[data-as-layer="new"] :is(.card,.preview-imgwrap) .botanical-frame {display:none!important;}
 .as-enabled[data-as-layer="blend"] :is(.card,.preview-imgwrap) .botanical-frame {opacity:.4;}
 .as-enabled[data-as-layer="original"] .as-frame {display:none;}
@@ -10313,8 +10319,8 @@ SOFTWARE.
   return svg(leaves+'<path d="M43 156q17-64 89-105M31 133q59 39 110-3" fill="none" stroke="currentColor" stroke-width="2"/>'+flower(136,49,12)+flower(42,134,10));
  }
  function buildEmblem(index){const mark=el('div','as-emblem');mark.dataset.form=FORMS[index%4];mark.setAttribute('aria-hidden','true');for(const back of [true,false]){const plane=el('span','as-emblem-plane'+(back?' back':''));plane.innerHTML=sculpture(index,cfg.sigil);mark.append(plane);}return mark;}
- function frameArt(model){
-  const edge='<rect x="4" y="4" width="192" height="292" rx="13" fill="none" stroke="currentColor" stroke-width="1.25"/>';
+ function frameArt(model,includeEdge=true){
+  const edge=includeEdge?'<rect x="4" y="4" width="192" height="292" rx="13" fill="none" stroke="currentColor" stroke-width="1.25"/>':'';
   if(model==='palace'){let leaves='';for(const x of [10,190])for(let y=43;y<116;y+=15)leaves+=`<ellipse cx="${x}" cy="${y}" rx="3.5" ry="9" fill="currentColor" transform="rotate(${x===10?28:-28} ${x} ${y})"/>`;return edge+leaves+'<path d="M13 27Q45 4 88 14M112 14q43-10 75 13M13 280q40 9 66-5M121 275q26 14 66 5" fill="none" stroke="currentColor" stroke-width="2"/>'+gem(100,15,10)+gem(100,288,7);}
   if(model==='gem')return edge+[gem(14,20,12),gem(186,20,12),gem(14,279,10),gem(186,279,10)].join('')+'<path d="M28 12h35M137 12h35M11 42v24M189 42v24" stroke="currentColor" fill="none" stroke-width="2"/>';
   if(model==='botanic')return edge+'<path d="M8 106C36 57-8 27 47 8M192 194c-27 50 11 77-39 99" stroke="currentColor" fill="none" stroke-width="1.8"/>'+flower(18,27,13,'#e6b6c7')+flower(38,13,8,'#efdfbc')+flower(182,274,13,'#d7bef0')+flower(161,290,8,'#e4d5bc')+'<path d="M10 77q24-19 15-30-20 2-15 30M190 226q-24 19-15 30 20-2 15-30Z" fill="#8eae92" fill-opacity=".7"/>';
@@ -10324,14 +10330,30 @@ SOFTWARE.
   if(model==='constellation')return edge+'<path d="m15 74 11-33 25-16 31-10m36 270 31-10 25-16 11-33" fill="none" stroke="currentColor" stroke-opacity=".7"/>'+[[15,74],[26,41],[51,25],[82,15],[118,285],[149,275],[174,259],[185,226]].map(([x,y])=>gem(x,y,3)).join('');
   return '';
  }
- function attachFrame(node,uid){let f=node.querySelector(':scope > .as-frame');const key=cfg.frame==='auto'?FRAME_KEYS[Math.abs(Number(uid)||0)%FRAME_KEYS.length]:cfg.frame;if(f&&f.dataset.frame===key)return;if(f)f.remove();f=el('span','as-frame');f.dataset.frame=key;f.setAttribute('aria-hidden','true');if(key!=='foil'&&key!=='none')f.innerHTML=svg(frameArt(key),'0 0 200 300');node.append(f);}
+ function attachFrame(node,uid,landscape=false){
+  let frame=node.querySelector(':scope > .as-frame');
+  const key=cfg.frame==='auto'?FRAME_KEYS[Math.abs(Number(uid)||0)%FRAME_KEYS.length]:cfg.frame;
+  const hasArt=key!=='foil'&&key!=='none';
+  const wide=landscape&&hasArt;
+  if(frame&&frame.dataset.frame===key&&frame.classList.contains('as-frame-wide')===wide)return;
+  if(frame)frame.remove();
+  frame=el('span',wide?'as-frame as-frame-wide':'as-frame');
+  frame.dataset.frame=key;
+  frame.setAttribute('aria-hidden','true');
+  if(hasArt){
+   const art=frameArt(key,!wide);
+   // Reuse the selected ornament at the corners without stretching portrait geometry.
+   frame.innerHTML=wide?['0 0 60 60','140 0 60 60','0 240 60 60','140 240 60 60'].map(box=>svg(art,box)).join(''):svg(art,'0 0 200 300');
+  }
+  node.append(frame);
+ }
  function decorate(){
   document.querySelectorAll('.tier,.fx-demo-seal').forEach((tier,i)=>{const stage=tier.querySelector('.lstage');if(!stage)return;stage.querySelector('.as-emblem')?.remove();const rank=Number(tier.dataset.rank)||i+1;stage.prepend(buildEmblem(rank-1));const caption=tier.querySelector('.caption-elements');if(caption)caption.textContent=NAMES[(rank-1)%4];});
   document.querySelectorAll('.card').forEach(n=>attachFrame(n.querySelector('.showcase-art')||n,n.dataset.uid));
   demos.replaceChildren();['S','A','B','C'].forEach((name,i)=>{const demo=el('div','as-demo');demo.style.setProperty('--t',['#e9c67d','#75d6d8','#c09bef','#94d8b5'][i]);demo.style.setProperty('--tg',['#e9c67d55','#75d6d855','#c09bef55','#94d8b555'][i]);demo.append(buildEmblem(i),el('span','as-demo-letter',name));demos.append(demo);});
   decoratePreview();
  }
- function decoratePreview(){const n=document.querySelector('#preview .preview-imgwrap');if(!n)return;const selected=document.querySelector('.card[aria-expanded="true"],.chip[aria-expanded="true"]');attachFrame(n,selected?.dataset.uid||0);}
+ function decoratePreview(){const n=document.querySelector('#preview .preview-imgwrap');if(!n)return;const selected=document.querySelector('.card[aria-expanded="true"],.chip[aria-expanded="true"]');attachFrame(n,selected?.dataset.uid||0,!!n.closest('.wide-cover'));}
  on(window,'collection-rendered',()=>{decorate();updateActiveTier();apply();});
  const preview=document.getElementById('preview'),previewObserver=new MutationObserver(decoratePreview);
  if(preview)previewObserver.observe(preview,{childList:true,subtree:true,attributes:true,attributeFilter:['class']});
